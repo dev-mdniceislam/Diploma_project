@@ -1,0 +1,105 @@
+{
+  "@@locale": "bn",
+  "appName": "ডিপ্লোমা জব হাব",
+  "appTagline": "Diploma Engineer Career Portal",
+  "navHome": "হোম / সার্কুলার",
+  "navAttachment": "ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট",
+  "navGuide": "গাইডলাইন ও NOC",
+  "personaStudent": "শিক্ষার্থী",
+  "personaCompany": "কোম্পানি",
+  "personaStudentToast": "শিক্ষার্থী মোড সক্রিয় হয়েছে। সহজেই আবেদন করুন!",
+  "personaCompanyToast": "কোম্পানি মোড সক্রিয় হয়েছে। নতুন সার্কুলার পোস্ট করুন!",
+  "postCircular": "সার্কুলার পোস্ট করুন",
+  "savedCirculars": "সংরক্ষিত সার্কুলার",
+  "saveCircular": "সংরক্ষণ করুন",
+  "savedAdded": "সার্কুলারটি বুকমার্ক তালিকায় সংরক্ষিত হয়েছে!",
+  "savedRemoved": "সংরক্ষিত সার্কুলার তালিকা থেকে মুছে ফেলা হয়েছে।",
+  "menu": "মেনু",
+  "heroBadge": "বাংলাদেশের ১ম বিশেষায়িত ডিপ্লোমা ইঞ্জিনিয়ারিং জব পোর্টাল",
+  "heroTitleLine": "ডিপ্লোমা প্রকৌশলী ও শিক্ষার্থীদের জন্য",
+  "heroTitleHighlight": "সেরা চাকরি ও ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট",
+  "heroSubtitle": "দেশের ৩০০+ নামীদামী কোম্পানিতে আপনার প্রযুক্তির স্বপ্নের ক্যারিয়ার শুরু করুন। ৮ম সেমিস্টারের ইন্ডাস্ট্রিয়াল ট্রেনিং এবং চাকরির সার্কুলার এক প্ল্যাটফর্মে!",
+  "searchHint": "পদের নাম বা স্কিল লিখুন (ex: PLC, AutoCAD, Developer)...",
+  "allTechnologiesDept": "সকল টেকনোলজি / বিভাগ",
+  "filterAction": "ফিল্টার করুন",
+  "statJobsValue": "৪৫০+",
+  "statJobsLabel": "সক্রিয় চাকরির সুযোগ",
+  "statInternsValue": "২৫০+",
+  "statInternsLabel": "ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট সিট",
+  "statPartnersValue": "১৫০+",
+  "statPartnersLabel": "অংশীদার কোম্পানি",
+  "statPolytechnicValue": "১০০%",
+  "statPolytechnicLabel": "পলিটেকনিক শিক্ষার্থীদের জন্য",
+  "techFilterTitle": "টেকনোলজি অনুযায়ী ফিল্টার করুন:",
+  "techAll": "সকল টেকনোলজি",
+  "techComputer": "কম্পিউটার",
+  "techCivil": "সিভিল",
+  "techElectrical": "ইলেক্ট্রিক্যাল",
+  "techMechanical": "মেকানিক্যাল",
+  "techArchitecture": "আর্কিটেকচার",
+  "techElectronics": "ইলেক্ট্রনিক্স",
+  "tabAll": "সব সার্কুলার ({count})",
+  "@tabAll": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "tabJobs": "💼 চাকরি / জব ({count})",
+  "@tabJobs": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "tabInternships": "🎓 ৮ম সেমিস্টার অ্যাটাচমেন্ট ({count})",
+  "@tabInternships": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "sortLabel": "সাজানো:",
+  "sortNewest": "সর্বশেষ প্রকাশিত",
+  "sortDeadline": "আবেদনের শেষ তারিখ",
+  "jobTypeInternship": "🎓 ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট",
+  "jobTypeFullTime": "💼 ফুল-টাইম চাকরি",
+  "techBadge": "{tech} টেকনোলজি",
+  "@techBadge": {
+    "placeholders": {
+      "tech": {
+        "type": "String"
+      }
+    }
+  },
+  "deadlineLabel": "মেয়াদের শেষ: {date}",
+  "@deadlineLabel": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "applyNow": "আবেদন করুন",
+  "emptyTitle": "কোন সার্কুলার পাওয়া যায়নি!",
+  "emptyMessage": "আপনার সার্চ বা ফিল্টারের সাথে মিলে এমন কোন তথ্য এই মুহূর্তে আমাদের ডেটাবেজে নেই। অন্য কী-ওয়ার্ড চেষ্টা করুন।",
+  "resetFilters": "সকল ফিল্টার রিসেট করুন",
+  "errorLoading": "সার্কুলার লোড করা যায়নি।",
+  "retry": "আবার চেষ্টা করুন",
+  "footerAbout": "বাংলাদেশের সকল সরকারি ও বেসরকারি পলিটেকনিক ইনস্টিটিউটের শিক্ষার্থীদের জন্য ক্যারিয়ার গড়ার এক নির্ভরযোগ্য স্থান।",
+  "footerPopularTech": "জনপ্রিয় টেকনোলজি",
+  "footerImportantLinks": "গুরুত্বপূর্ণ লিংক",
+  "footerNocGuide": "NOC আবেদন গাইড",
+  "footerPostCircular": "কোম্পানি সার্কুলার পোস্ট",
+  "footerBteb": "BTEB অফিশিয়াল সাইট",
+  "footerContact": "যোগাযোগ ও সহায়তা",
+  "footerContactHint": "পলিটেকনিক লিয়াঁজো ও জব পোস্ট সহায়তার জন্য:",
+  "footerCopyright": "© ২০২৬ ডিপ্লোমা জব হাব। সর্বস্বত্ব সংরক্ষিত।",
+  "footerTagline": "পলিটেকনিক শিক্ষার্থীদের ক্যারিয়ার উন্নয়নে নিবেদিত।"
+}

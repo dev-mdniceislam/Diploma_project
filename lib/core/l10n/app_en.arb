@@ -1,0 +1,92 @@
+{
+  "@@locale": "en",
+  "appName": "Diploma Job Hub",
+  "appTagline": "Diploma Engineer Career Portal",
+  "navHome": "Home / Circulars",
+  "navAttachment": "Industrial Attachment",
+  "navGuide": "Guideline & NOC",
+  "personaStudent": "Student",
+  "personaCompany": "Company",
+  "personaStudentToast": "Student mode activated. Apply with ease!",
+  "personaCompanyToast": "Company mode activated. Post a new circular!",
+  "postCircular": "Post Circular",
+  "savedCirculars": "Saved circulars",
+  "saveCircular": "Save",
+  "savedAdded": "Circular added to your bookmarks!",
+  "savedRemoved": "Circular removed from your saved list.",
+  "menu": "Menu",
+  "heroBadge": "Bangladesh's first dedicated diploma engineering job portal",
+  "heroTitleLine": "For diploma engineers and students",
+  "heroTitleHighlight": "Top jobs & industrial attachments",
+  "heroSubtitle": "Start your dream tech career with 300+ renowned companies. 8th-semester industrial training and job circulars on a single platform!",
+  "searchHint": "Job title or skill (ex: PLC, AutoCAD, Developer)...",
+  "allTechnologiesDept": "All technologies / departments",
+  "filterAction": "Filter",
+  "statJobsValue": "450+",
+  "statJobsLabel": "Active job openings",
+  "statInternsValue": "250+",
+  "statInternsLabel": "Industrial attachment seats",
+  "statPartnersValue": "150+",
+  "statPartnersLabel": "Partner companies",
+  "statPolytechnicValue": "100%",
+  "statPolytechnicLabel": "For polytechnic students",
+  "techFilterTitle": "Filter by technology:",
+  "techAll": "All technologies",
+  "techComputer": "Computer",
+  "techCivil": "Civil",
+  "techElectrical": "Electrical",
+  "techMechanical": "Mechanical",
+  "techArchitecture": "Architecture",
+  "techElectronics": "Electronics",
+  "tabAll": "All circulars ({count})",
+  "@tabAll": {
+    "placeholders": {
+      "count": { "type": "int", "format": "decimalPattern" }
+    }
+  },
+  "tabJobs": "💼 Jobs ({count})",
+  "@tabJobs": {
+    "placeholders": {
+      "count": { "type": "int", "format": "decimalPattern" }
+    }
+  },
+  "tabInternships": "🎓 8th-semester attachment ({count})",
+  "@tabInternships": {
+    "placeholders": {
+      "count": { "type": "int", "format": "decimalPattern" }
+    }
+  },
+  "sortLabel": "Sort:",
+  "sortNewest": "Newest first",
+  "sortDeadline": "Application deadline",
+  "jobTypeInternship": "🎓 Industrial attachment",
+  "jobTypeFullTime": "💼 Full-time job",
+  "techBadge": "{tech} Technology",
+  "@techBadge": {
+    "placeholders": {
+      "tech": { "type": "String" }
+    }
+  },
+  "deadlineLabel": "Deadline: {date}",
+  "@deadlineLabel": {
+    "placeholders": {
+      "date": { "type": "String" }
+    }
+  },
+  "applyNow": "Apply now",
+  "emptyTitle": "No circulars found!",
+  "emptyMessage": "Nothing in our database matches your search or filters right now. Try a different keyword.",
+  "resetFilters": "Reset all filters",
+  "errorLoading": "Couldn't load circulars.",
+  "retry": "Try again",
+  "footerAbout": "A trusted place to build a career for students of all government and private polytechnic institutes in Bangladesh.",
+  "footerPopularTech": "Popular technologies",
+  "footerImportantLinks": "Important links",
+  "footerNocGuide": "NOC application guide",
+  "footerPostCircular": "Post a company circular",
+  "footerBteb": "BTEB official site",
+  "footerContact": "Contact & support",
+  "footerContactHint": "For polytechnic liaison and job-post support:",
+  "footerCopyright": "© 2026 Diploma Job Hub. All rights reserved.",
+  "footerTagline": "Dedicated to the career growth of polytechnic students."
+}
