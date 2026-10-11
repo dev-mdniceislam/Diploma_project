@@ -481,6 +481,438 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dedicated to the career growth of polytechnic students.'**
   String get footerTagline;
+
+  /// No description provided for @stepAuthentication.
+  ///
+  /// In en, this message translates to:
+  /// **'================================== Authentication ========================'**
+  String get stepAuthentication;
+
+  /// No description provided for @authBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'BTEB registered & verified platform'**
+  String get authBadge;
+
+  /// No description provided for @authHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The right career start for diploma engineers'**
+  String get authHeroTitle;
+
+  /// No description provided for @authHeroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your 8th-semester attachment and your dream job after graduation with a single account.'**
+  String get authHeroSubtitle;
+
+  /// No description provided for @authFeature1.
+  ///
+  /// In en, this message translates to:
+  /// **'350+ attachment partners of the Bangladesh Technical Education Board'**
+  String get authFeature1;
+
+  /// No description provided for @authFeature2.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit your polytechnic CV instantly in 1 click'**
+  String get authFeature2;
+
+  /// No description provided for @authFeature3.
+  ///
+  /// In en, this message translates to:
+  /// **'Online NOC & recommendation letter guidelines'**
+  String get authFeature3;
+
+  /// No description provided for @demoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quickly test with a demo account:'**
+  String get demoTitle;
+
+  /// No description provided for @demoStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Student demo'**
+  String get demoStudent;
+
+  /// No description provided for @demoCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'Company demo'**
+  String get demoCompany;
+
+  /// No description provided for @demoStudentToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Student demo details filled in automatically.'**
+  String get demoStudentToast;
+
+  /// No description provided for @demoCompanyToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Company demo details filled in automatically.'**
+  String get demoCompanyToast;
+
+  /// No description provided for @tabLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in (Login)'**
+  String get tabLogin;
+
+  /// No description provided for @tabRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account (Register)'**
+  String get tabRegister;
+
+  /// No description provided for @roleStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Diploma student / graduate'**
+  String get roleStudent;
+
+  /// No description provided for @roleCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'Hiring company'**
+  String get roleCompany;
+
+  /// No description provided for @fieldEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address *'**
+  String get fieldEmail;
+
+  /// No description provided for @fieldPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password *'**
+  String get fieldPassword;
+
+  /// No description provided for @fieldConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password *'**
+  String get fieldConfirmPassword;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @rememberMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember me'**
+  String get rememberMe;
+
+  /// No description provided for @loginAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get loginAction;
+
+  /// No description provided for @registerAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete registration'**
+  String get registerAction;
+
+  /// No description provided for @fieldFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name *'**
+  String get fieldFullName;
+
+  /// No description provided for @fullNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'ex: Md. Tanvir Ahmed'**
+  String get fullNameHint;
+
+  /// No description provided for @fieldPolytechnic.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic institute *'**
+  String get fieldPolytechnic;
+
+  /// No description provided for @selectPolytechnic.
+  ///
+  /// In en, this message translates to:
+  /// **'Select institute'**
+  String get selectPolytechnic;
+
+  /// No description provided for @fieldDepartment.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology / department *'**
+  String get fieldDepartment;
+
+  /// No description provided for @polyDpi.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhaka Polytechnic Institute (DPI)'**
+  String get polyDpi;
+
+  /// No description provided for @polyCpi.
+  ///
+  /// In en, this message translates to:
+  /// **'Chittagong Polytechnic (CPI)'**
+  String get polyCpi;
+
+  /// No description provided for @polyRpi.
+  ///
+  /// In en, this message translates to:
+  /// **'Rajshahi Polytechnic (RPI)'**
+  String get polyRpi;
+
+  /// No description provided for @polyBpi.
+  ///
+  /// In en, this message translates to:
+  /// **'Bogura Polytechnic (BPI)'**
+  String get polyBpi;
+
+  /// No description provided for @polySpi.
+  ///
+  /// In en, this message translates to:
+  /// **'Sylhet Polytechnic (SPI)'**
+  String get polySpi;
+
+  /// No description provided for @polyFci.
+  ///
+  /// In en, this message translates to:
+  /// **'Feni Computer Institute (FCI)'**
+  String get polyFci;
+
+  /// No description provided for @polyOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other private polytechnics'**
+  String get polyOther;
+
+  /// No description provided for @fieldCompanyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Company / organization name *'**
+  String get fieldCompanyName;
+
+  /// No description provided for @fieldIndustry.
+  ///
+  /// In en, this message translates to:
+  /// **'Industry type *'**
+  String get fieldIndustry;
+
+  /// No description provided for @fieldWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Official website URL'**
+  String get fieldWebsite;
+
+  /// No description provided for @industryIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Software & IT Solutions'**
+  String get industryIt;
+
+  /// No description provided for @industryConstruction.
+  ///
+  /// In en, this message translates to:
+  /// **'Construction & Real Estate'**
+  String get industryConstruction;
+
+  /// No description provided for @industryManufacturing.
+  ///
+  /// In en, this message translates to:
+  /// **'Manufacturing & Electronics'**
+  String get industryManufacturing;
+
+  /// No description provided for @industryPower.
+  ///
+  /// In en, this message translates to:
+  /// **'Power & Energy'**
+  String get industryPower;
+
+  /// No description provided for @industryTextile.
+  ///
+  /// In en, this message translates to:
+  /// **'Textile & Garments'**
+  String get industryTextile;
+
+  /// No description provided for @companyRoleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Official recruiter'**
+  String get companyRoleLabel;
+
+  /// No description provided for @pwdHintLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 8 characters'**
+  String get pwdHintLength;
+
+  /// No description provided for @pwdWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak password'**
+  String get pwdWeak;
+
+  /// No description provided for @pwdMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Fair password'**
+  String get pwdMedium;
+
+  /// No description provided for @pwdStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Very strong password!'**
+  String get pwdStrong;
+
+  /// No description provided for @socialDivider.
+  ///
+  /// In en, this message translates to:
+  /// **'or continue with a social account'**
+  String get socialDivider;
+
+  /// No description provided for @googleSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Easily sign in with Google'**
+  String get googleSignIn;
+
+  /// No description provided for @googleVerifying.
+  ///
+  /// In en, this message translates to:
+  /// **'Verifying with your Google account...'**
+  String get googleVerifying;
+
+  /// No description provided for @googleSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in with Google successfully!'**
+  String get googleSuccess;
+
+  /// No description provided for @errRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get errRequired;
+
+  /// No description provided for @errInvalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address'**
+  String get errInvalidEmail;
+
+  /// No description provided for @errPasswordShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get errPasswordShort;
+
+  /// No description provided for @errPasswordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get errPasswordMismatch;
+
+  /// No description provided for @errInvalidUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid website URL (https://...)'**
+  String get errInvalidUrl;
+
+  /// No description provided for @errPolytechnicRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select your polytechnic institute'**
+  String get errPolytechnicRequired;
+
+  /// No description provided for @loginStudentSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in! Welcome to the student dashboard.'**
+  String get loginStudentSuccess;
+
+  /// No description provided for @loginCompanySuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in! Welcome to the company dashboard.'**
+  String get loginCompanySuccess;
+
+  /// No description provided for @registerSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created successfully!'**
+  String get registerSuccess;
+
+  /// No description provided for @authFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t sign you in. Please try again.'**
+  String get authFailed;
+
+  /// No description provided for @loggedOut.
+  ///
+  /// In en, this message translates to:
+  /// **'You have been signed out.'**
+  String get loggedOut;
+
+  /// No description provided for @forgotTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password'**
+  String get forgotTitle;
+
+  /// No description provided for @forgotMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your registered email and we\'ll send you a reset link.'**
+  String get forgotMessage;
+
+  /// No description provided for @forgotEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email...'**
+  String get forgotEmailHint;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @sendLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Send link'**
+  String get sendLink;
+
+  /// No description provided for @resetSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset link sent to your email!'**
+  String get resetSent;
+
+  /// No description provided for @navLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Login / Sign up'**
+  String get navLogin;
+
+  /// No description provided for @navDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'My dashboard'**
+  String get navDashboard;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate

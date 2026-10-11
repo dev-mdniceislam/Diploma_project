@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/pages/auth_page.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
 import '../../features/web_shell/presentation/pages/app_shell.dart';
 
@@ -16,11 +17,12 @@ class AppRoutes {
   static const postCircular = '/postCircular';
   static const saved = '/saved';
   static const guide = '/guide';
+  static const auth = '/authentication';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: AppRoutes.home,
+    initialLocation: AppRoutes.auth,
     errorBuilder: (context, state) => AppShell(
       child: Center(
         child: CustomText(
@@ -87,6 +89,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        path: AppRoutes.auth,
+        name: 'auth',
+        builder: (_, __) => const AuthPage(),
       ),
     ],
   );

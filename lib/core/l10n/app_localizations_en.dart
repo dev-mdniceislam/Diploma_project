@@ -230,4 +230,229 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get footerTagline =>
       'Dedicated to the career growth of polytechnic students.';
+
+  @override
+  String get stepAuthentication =>
+      '================================== Authentication ========================';
+
+  @override
+  String get authBadge => 'BTEB registered & verified platform';
+
+  @override
+  String get authHeroTitle => 'The right career start for diploma engineers';
+
+  @override
+  String get authHeroSubtitle =>
+      'Find your 8th-semester attachment and your dream job after graduation with a single account.';
+
+  @override
+  String get authFeature1 =>
+      '350+ attachment partners of the Bangladesh Technical Education Board';
+
+  @override
+  String get authFeature2 => 'Submit your polytechnic CV instantly in 1 click';
+
+  @override
+  String get authFeature3 => 'Online NOC & recommendation letter guidelines';
+
+  @override
+  String get demoTitle => 'Quickly test with a demo account:';
+
+  @override
+  String get demoStudent => 'Student demo';
+
+  @override
+  String get demoCompany => 'Company demo';
+
+  @override
+  String get demoStudentToast =>
+      'Student demo details filled in automatically.';
+
+  @override
+  String get demoCompanyToast =>
+      'Company demo details filled in automatically.';
+
+  @override
+  String get tabLogin => 'Sign in (Login)';
+
+  @override
+  String get tabRegister => 'Create account (Register)';
+
+  @override
+  String get roleStudent => 'Diploma student / graduate';
+
+  @override
+  String get roleCompany => 'Hiring company';
+
+  @override
+  String get fieldEmail => 'Email address *';
+
+  @override
+  String get fieldPassword => 'Password *';
+
+  @override
+  String get fieldConfirmPassword => 'Confirm password *';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get loginAction => 'Sign in';
+
+  @override
+  String get registerAction => 'Complete registration';
+
+  @override
+  String get fieldFullName => 'Full name *';
+
+  @override
+  String get fullNameHint => 'ex: Md. Tanvir Ahmed';
+
+  @override
+  String get fieldPolytechnic => 'Polytechnic institute *';
+
+  @override
+  String get selectPolytechnic => 'Select institute';
+
+  @override
+  String get fieldDepartment => 'Technology / department *';
+
+  @override
+  String get polyDpi => 'Dhaka Polytechnic Institute (DPI)';
+
+  @override
+  String get polyCpi => 'Chittagong Polytechnic (CPI)';
+
+  @override
+  String get polyRpi => 'Rajshahi Polytechnic (RPI)';
+
+  @override
+  String get polyBpi => 'Bogura Polytechnic (BPI)';
+
+  @override
+  String get polySpi => 'Sylhet Polytechnic (SPI)';
+
+  @override
+  String get polyFci => 'Feni Computer Institute (FCI)';
+
+  @override
+  String get polyOther => 'Other private polytechnics';
+
+  @override
+  String get fieldCompanyName => 'Company / organization name *';
+
+  @override
+  String get fieldIndustry => 'Industry type *';
+
+  @override
+  String get fieldWebsite => 'Official website URL';
+
+  @override
+  String get industryIt => 'Software & IT Solutions';
+
+  @override
+  String get industryConstruction => 'Construction & Real Estate';
+
+  @override
+  String get industryManufacturing => 'Manufacturing & Electronics';
+
+  @override
+  String get industryPower => 'Power & Energy';
+
+  @override
+  String get industryTextile => 'Textile & Garments';
+
+  @override
+  String get companyRoleLabel => 'Official recruiter';
+
+  @override
+  String get pwdHintLength => 'Use at least 8 characters';
+
+  @override
+  String get pwdWeak => 'Weak password';
+
+  @override
+  String get pwdMedium => 'Fair password';
+
+  @override
+  String get pwdStrong => 'Very strong password!';
+
+  @override
+  String get socialDivider => 'or continue with a social account';
+
+  @override
+  String get googleSignIn => 'Easily sign in with Google';
+
+  @override
+  String get googleVerifying => 'Verifying with your Google account...';
+
+  @override
+  String get googleSuccess => 'Signed in with Google successfully!';
+
+  @override
+  String get errRequired => 'This field is required';
+
+  @override
+  String get errInvalidEmail => 'Enter a valid email address';
+
+  @override
+  String get errPasswordShort => 'Password must be at least 8 characters';
+
+  @override
+  String get errPasswordMismatch => 'Passwords do not match';
+
+  @override
+  String get errInvalidUrl => 'Enter a valid website URL (https://...)';
+
+  @override
+  String get errPolytechnicRequired =>
+      'Please select your polytechnic institute';
+
+  @override
+  String get loginStudentSuccess =>
+      'Signed in! Welcome to the student dashboard.';
+
+  @override
+  String get loginCompanySuccess =>
+      'Signed in! Welcome to the company dashboard.';
+
+  @override
+  String get registerSuccess => 'Account created successfully!';
+
+  @override
+  String get authFailed => 'Couldn\'t sign you in. Please try again.';
+
+  @override
+  String get loggedOut => 'You have been signed out.';
+
+  @override
+  String get forgotTitle => 'Reset password';
+
+  @override
+  String get forgotMessage =>
+      'Enter your registered email and we\'ll send you a reset link.';
+
+  @override
+  String get forgotEmailHint => 'Enter your email...';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get sendLink => 'Send link';
+
+  @override
+  String get resetSent => 'Reset link sent to your email!';
+
+  @override
+  String get navLogin => 'Login / Sign up';
+
+  @override
+  String get navDashboard => 'My dashboard';
+
+  @override
+  String get logout => 'Log out';
 }

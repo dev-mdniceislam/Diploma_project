@@ -41,8 +41,9 @@ class _CustomHoverState extends State<CustomHover> {
         transform: Matrix4.translationValues(0, _hover ? -widget.lift : 0, 0),
         decoration: BoxDecoration(
           color: base,
-          borderRadius:
-          BorderRadius.circular(widget.radius ?? AppDimens.radiusMd),
+          borderRadius: BorderRadius.circular(
+            widget.radius ?? AppDimens.radiusMd,
+          ),
           border: Border.all(
             color: _hover && widget.isBorder == true
                 ? AppColors.primaryNavyLight
@@ -50,12 +51,12 @@ class _CustomHoverState extends State<CustomHover> {
           ),
           boxShadow: _hover
               ? [
-            BoxShadow(
-              color: AppColors.primaryNavyLight.withAlpha(80),
-              blurRadius: 30,
-              spreadRadius: -6,
-            ),
-          ]
+                  BoxShadow(
+                    color: AppColors.primaryNavyLight.withAlpha(80),
+                    blurRadius: 30,
+                    spreadRadius: -6,
+                  ),
+                ]
               : [],
         ),
         child: widget.child,

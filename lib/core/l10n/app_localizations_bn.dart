@@ -231,4 +231,229 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get footerTagline =>
       'পলিটেকনিক শিক্ষার্থীদের ক্যারিয়ার উন্নয়নে নিবেদিত।';
+
+  @override
+  String get stepAuthentication =>
+      '================================== Authentication ========================';
+
+  @override
+  String get authBadge => 'বিটিইবি নিবন্ধিত ও ভেরিফাইড প্ল্যাটফর্ম';
+
+  @override
+  String get authHeroTitle =>
+      'ডিপ্লোমা প্রকৌশলীদের জন্য সঠিক ক্যারিয়ারের শুরু';
+
+  @override
+  String get authHeroSubtitle =>
+      'একটি মাত্র অ্যাকাউন্টে আপনার পলিটেকনিকের ৮ম সেমিস্টার অ্যাটাচমেন্ট এবং গ্র্যাজুয়েশন পরবর্তী স্বপ্নালু চাকরি খুঁজে নিন।';
+
+  @override
+  String get authFeature1 =>
+      'বাংলাদেশ কারিগরি শিক্ষা বোর্ডের ৩৫০+ অ্যাটাচমেন্ট পার্টনার';
+
+  @override
+  String get authFeature2 => '১-ক্লিকে ইন্সট্যান্ট পলিটেকনিক সিভি জমা দিন';
+
+  @override
+  String get authFeature3 => 'অনলাইন NOC ও রেকমেন্ডেশন লেটার গাইডলাইন';
+
+  @override
+  String get demoTitle => 'ডেমো অ্যাকাউন্টে দ্রুত টেস্ট করুন:';
+
+  @override
+  String get demoStudent => 'শিক্ষার্থী ডেমো';
+
+  @override
+  String get demoCompany => 'কোম্পানি ডেমো';
+
+  @override
+  String get demoStudentToast =>
+      'শিক্ষার্থী ডেমো তথ্য স্বয়ংক্রিয়ভাবে প্রদান করা হয়েছে।';
+
+  @override
+  String get demoCompanyToast =>
+      'কোম্পানি ডেমো তথ্য স্বয়ংক্রিয়ভাবে প্রদান করা হয়েছে।';
+
+  @override
+  String get tabLogin => 'প্রবেশ করুন (Login)';
+
+  @override
+  String get tabRegister => 'নতুন অ্যাকাউন্ট তৈরি (Register)';
+
+  @override
+  String get roleStudent => 'ডিপ্লোমা শিক্ষার্থী / গ্র্যাজুয়েট';
+
+  @override
+  String get roleCompany => 'নিয়োগকারী প্রতিষ্ঠান (Company)';
+
+  @override
+  String get fieldEmail => 'ইমেইল ঠিকানা *';
+
+  @override
+  String get fieldPassword => 'পাসওয়ার্ড *';
+
+  @override
+  String get fieldConfirmPassword => 'পাসওয়ার্ড নিশ্চিত করুন *';
+
+  @override
+  String get forgotPassword => 'পাসওয়ার্ড ভুলে গেছেন?';
+
+  @override
+  String get rememberMe => 'আমায় মনে রাখুন (Remember me)';
+
+  @override
+  String get loginAction => 'লগইন করুন';
+
+  @override
+  String get registerAction => 'রেজিস্ট্রেশন সম্পূর্ণ করুন';
+
+  @override
+  String get fieldFullName => 'পূর্ণ নাম (Full Name) *';
+
+  @override
+  String get fullNameHint => 'ex: মোঃ তানভীর আহম্মেদ';
+
+  @override
+  String get fieldPolytechnic => 'পলিটেকনিক ইনস্টিটিউট *';
+
+  @override
+  String get selectPolytechnic => 'ইনস্টিটিউট সিলেক্ট করুন';
+
+  @override
+  String get fieldDepartment => 'টেকনোলজি/ডিপার্টমেন্ট *';
+
+  @override
+  String get polyDpi => 'ঢাকা পলিটেকনিক ইনস্টিটিউট (DPI)';
+
+  @override
+  String get polyCpi => 'চট্টগ্রাম পলিটেকনিক (CPI)';
+
+  @override
+  String get polyRpi => 'রাজশাহী পলিটেকনিক (RPI)';
+
+  @override
+  String get polyBpi => 'বগুড়া পলিটেকনিক (BPI)';
+
+  @override
+  String get polySpi => 'সিলেট পলিটেকনিক (SPI)';
+
+  @override
+  String get polyFci => 'ফেনী কম্পিউটার ইনস্টিটিউট (FCI)';
+
+  @override
+  String get polyOther => 'অন্যান্য প্রাইভেট পলিটেকনিক';
+
+  @override
+  String get fieldCompanyName => 'কোম্পানি/প্রতিষ্ঠানের নাম *';
+
+  @override
+  String get fieldIndustry => 'ইন্ডাস্ট্রি টাইপ *';
+
+  @override
+  String get fieldWebsite => 'অফিশিয়াল ওয়েবসাইট URL';
+
+  @override
+  String get industryIt => 'Software & IT Solutions';
+
+  @override
+  String get industryConstruction => 'Construction & Real Estate';
+
+  @override
+  String get industryManufacturing => 'Manufacturing & Electronics';
+
+  @override
+  String get industryPower => 'Power & Energy';
+
+  @override
+  String get industryTextile => 'Textile & Garments';
+
+  @override
+  String get companyRoleLabel => 'অফিশিয়াল নিয়োগকারী';
+
+  @override
+  String get pwdHintLength => 'কমপক্ষে ৮ ক্যারেক্টার দিন';
+
+  @override
+  String get pwdWeak => 'দুর্বল পাসওয়ার্ড';
+
+  @override
+  String get pwdMedium => 'মাঝারি শক্ত পাসওয়ার্ড';
+
+  @override
+  String get pwdStrong => 'খুবই শক্তিশালী পাসওয়ার্ড!';
+
+  @override
+  String get socialDivider => 'অথবা সোশ্যাল অ্যাকাউন্ট দিয়ে';
+
+  @override
+  String get googleSignIn => 'গুগল অ্যাকাউন্ট দিয়ে সহজে সাইন ইন';
+
+  @override
+  String get googleVerifying => 'গুগল একাউন্ট দিয়ে যাচাই করা হচ্ছে...';
+
+  @override
+  String get googleSuccess => 'গুগল একাউন্ট দিয়ে সফলভাবে প্রবেশ করেছেন!';
+
+  @override
+  String get errRequired => 'এই তথ্যটি আবশ্যক';
+
+  @override
+  String get errInvalidEmail => 'সঠিক ইমেইল ঠিকানা দিন';
+
+  @override
+  String get errPasswordShort => 'পাসওয়ার্ড কমপক্ষে ৮ ক্যারেক্টারের হতে হবে';
+
+  @override
+  String get errPasswordMismatch => 'পাসওয়ার্ড দুটি মিলছে না';
+
+  @override
+  String get errInvalidUrl => 'সঠিক ওয়েবসাইট URL দিন (https://...)';
+
+  @override
+  String get errPolytechnicRequired => 'পলিটেকনিক ইনস্টিটিউট সিলেক্ট করুন';
+
+  @override
+  String get loginStudentSuccess =>
+      'সফলভাবে প্রবেশ করেছেন! শিক্ষার্থী ড্যাশবোর্ডে স্বাগতম।';
+
+  @override
+  String get loginCompanySuccess =>
+      'সফলভাবে প্রবেশ করেছেন! কোম্পানি ড্যাশবোর্ডে স্বাগতম।';
+
+  @override
+  String get registerSuccess => 'অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!';
+
+  @override
+  String get authFailed => 'প্রবেশ করা যায়নি। আবার চেষ্টা করুন।';
+
+  @override
+  String get loggedOut => 'সফলভাবে লগআউট করা হয়েছে।';
+
+  @override
+  String get forgotTitle => 'পাসওয়ার্ড রিসেট করুন';
+
+  @override
+  String get forgotMessage =>
+      'আপনার নিবন্ধিত ইমেইল দিলে আমরা রিসেট লিঙ্ক পাঠিয়ে দেব।';
+
+  @override
+  String get forgotEmailHint => 'ইমেইল দিন...';
+
+  @override
+  String get cancel => 'বাতিল';
+
+  @override
+  String get sendLink => 'লিঙ্ক পাঠান';
+
+  @override
+  String get resetSent => 'রিসেট লিঙ্ক ইমেইলে পাঠানো হয়েছে!';
+
+  @override
+  String get navLogin => 'লগইন / সাইনআপ';
+
+  @override
+  String get navDashboard => 'আমার ড্যাশবোর্ড';
+
+  @override
+  String get logout => 'লগআউট';
 }
