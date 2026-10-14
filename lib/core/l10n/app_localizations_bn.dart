@@ -284,7 +284,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get roleStudent => 'ডিপ্লোমা শিক্ষার্থী / গ্র্যাজুয়েট';
 
   @override
-  String get roleCompany => 'নিয়োগকারী প্রতিষ্ঠান (Company)';
+  String get roleCompany => 'নিয়োগকারী প্রতিষ্ঠান';
 
   @override
   String get fieldEmail => 'ইমেইল ঠিকানা *';

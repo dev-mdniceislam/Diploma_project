@@ -26,7 +26,7 @@ Widget formFieldLabel(BuildContext context, String label, {Widget? trailing}) {
             ),
           ),
         ),
-        if (trailing != null) trailing,
+        ?trailing,
       ],
     ),
   );

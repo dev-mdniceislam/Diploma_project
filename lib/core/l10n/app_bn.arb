@@ -118,7 +118,7 @@
       "tabLogin": "প্রবেশ করুন (Login)",
       "tabRegister": "নতুন অ্যাকাউন্ট তৈরি (Register)",
       "roleStudent": "ডিপ্লোমা শিক্ষার্থী / গ্র্যাজুয়েট",
-      "roleCompany": "নিয়োগকারী প্রতিষ্ঠান (Company)",
+      "roleCompany": "নিয়োগকারী প্রতিষ্ঠান",
       "fieldEmail": "ইমেইল ঠিকানা *",
       "fieldPassword": "পাসওয়ার্ড *",
       "fieldConfirmPassword": "পাসওয়ার্ড নিশ্চিত করুন *",

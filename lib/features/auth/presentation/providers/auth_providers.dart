@@ -1,13 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../data/repositories/mock_auth_repository.dart';
+import '../../domain/repositories/mock_auth_repository.dart';
 import '../../domain/entities/auth_enums.dart';
 import '../../domain/entities/auth_user.dart';
 import '../../domain/entities/registration_data.dart';
 import '../../domain/repositories/auth_repository.dart';
 
-final authRepositoryProvider =
-    Provider<AuthRepository>((ref) => MockAuthRepository());
+final authRepositoryProvider = Provider<AuthRepository>(
+  (ref) => MockAuthRepository(),
+);
 
 // ── Session ─────────────────────────────────────────────────────────────────
 class SessionState {
@@ -19,6 +22,7 @@ class SessionState {
   bool get isAuthenticated => user != null;
 }
 
+// ========================== main notifier ========================
 class SessionNotifier extends Notifier<SessionState> {
   AuthRepository get _repo => ref.read(authRepositoryProvider);
 
@@ -29,12 +33,13 @@ class SessionNotifier extends Notifier<SessionState> {
     required String email,
     required String password,
     required UserRole role,
-  }) =>
-      _authenticate(
-          () => _repo.login(email: email, password: password, role: role));
+  }) => _authenticate(
+    () => _repo.login(email: email, password: password, role: role),
+  );
 
-  Future<bool> register(RegistrationData data) =>
-      _authenticate(() => _repo.register(data));
+  Future<bool> register(RegistrationData data) {
+    return _authenticate(() => _repo.register(data));
+  }
 
   Future<bool> signInWithGoogle() => _authenticate(_repo.signInWithGoogle);
 
@@ -52,8 +57,9 @@ class SessionNotifier extends Notifier<SessionState> {
   }
 }
 
-final sessionProvider =
-    NotifierProvider<SessionNotifier, SessionState>(SessionNotifier.new);
+final sessionProvider = NotifierProvider<SessionNotifier, SessionState>(
+  SessionNotifier.new,
+);
 
 final currentUserProvider = Provider<AuthUser?>(
   (ref) => ref.watch(sessionProvider.select((s) => s.user)),
@@ -67,8 +73,9 @@ class AuthRoleNotifier extends Notifier<UserRole> {
   void set(UserRole role) => state = role;
 }
 
-final authRoleProvider =
-    NotifierProvider<AuthRoleNotifier, UserRole>(AuthRoleNotifier.new);
+final authRoleProvider = NotifierProvider<AuthRoleNotifier, UserRole>(
+  AuthRoleNotifier.new,
+);
 
 class AuthModeNotifier extends Notifier<AuthMode> {
   @override
@@ -77,5 +84,6 @@ class AuthModeNotifier extends Notifier<AuthMode> {
   void set(AuthMode mode) => state = mode;
 }
 
-final authModeProvider =
-    NotifierProvider<AuthModeNotifier, AuthMode>(AuthModeNotifier.new);
+final authModeProvider = NotifierProvider<AuthModeNotifier, AuthMode>(
+  AuthModeNotifier.new,
+);

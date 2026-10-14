@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'responsive.dart';
 
 /// Centers content with a max width and consistent horizontal gutters,

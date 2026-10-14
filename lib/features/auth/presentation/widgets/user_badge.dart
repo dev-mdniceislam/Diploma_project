@@ -36,7 +36,7 @@ class UserBadge extends ConsumerWidget {
       lift: 2,
       radius: 12,
       child: GestureDetector(
-      //  onTap: () => context.go(user.dashboardRoute),
+        //  onTap: () => context.go(user.dashboardRoute),
         behavior: HitTestBehavior.opaque,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -76,13 +76,13 @@ class UserBadge extends ConsumerWidget {
                           height: 1.2,
                         ),
                       ),
-                      CustomText(
-                        user.subtitle(l10n),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyles.bodySmall
-                            .copyWith(fontSize: 10.5, color: AppColors.textMuted, height: 1.2),
-                      ),
+                      // CustomText(
+                      //   user.subtitle(l10n),
+                      //   maxLines: 1,
+                      //   overflow: TextOverflow.ellipsis,
+                      //   style: AppTextStyles.bodySmall
+                      //       .copyWith(fontSize: 10.5, color: AppColors.textMuted, height: 1.2),
+                      // ),
                     ],
                   ),
                 ),

@@ -25,12 +25,12 @@ extension IndustryX on Industry {
   };
 }
 
-extension AuthUserX on AuthUser {
-  String subtitle(AppLocalizations l10n) => switch (role) {
-    UserRole.student => polytechnic?.label(l10n) ?? l10n.personaStudent,
-    UserRole.company => l10n.companyRoleLabel,
-  };
-
-  // String get dashboardRoute =>
-  //     role == UserRole.student ? AppRoutes.student : AppRoutes.company;
-}
+// extension AuthUserX on AuthUser {
+//   String subtitle(AppLocalizations l10n) => switch (role) {
+//     UserRole.student => polytechnic?.label(l10n) ?? l10n.personaStudent,
+//     UserRole.company => l10n.companyRoleLabel,
+//   };
+//
+//   // String get dashboardRoute =>
+//   //     role == UserRole.student ? AppRoutes.student : AppRoutes.company;
+// }

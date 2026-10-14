@@ -5,6 +5,7 @@ import 'package:diploma_job/core/extension/l10n_extension.dart';
 import 'package:diploma_job/core/widgets/app_container.dart';
 import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 
+import '../../../../core/responsive/responsive_container.dart';
 import '../../domain/entities/auth_enums.dart';
 import '../providers/auth_providers.dart';
 import '../widgets/auth_form_card.dart';
@@ -29,19 +30,8 @@ class _AuthPageState extends ConsumerState<AuthPage> {
   }
 
   void _fillDemo(UserRole role) {
-    final l10n = context.l10n;
     ref.read(authRoleProvider.notifier).set(role);
     ref.read(authModeProvider.notifier).set(AuthMode.login);
-
-    if (role == UserRole.student) {
-      _email.text = 'sabbir.dpi@gmail.com';
-      _password.text = 'Polytechnic2026!';
-      CustomToast.showSuccess(message: l10n.demoStudentToast);
-    } else {
-      _email.text = 'hr@waltonbd.com';
-      _password.text = 'CompanyAuth2026!';
-      CustomToast.showSuccess(message: l10n.demoCompanyToast);
-    }
   }
 
   @override
@@ -55,35 +45,33 @@ class _AuthPageState extends ConsumerState<AuthPage> {
 
     return Scaffold(
       body: SingleChildScrollView(
-        child: AppContainer(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40),
-            child: Container(
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                color: scheme.surface,
-                borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: scheme.outline),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
-                    blurRadius: 40,
-                    offset: const Offset(0, 16),
-                  ),
-                ],
-              ),
-              child: Responsive.isDesktop(context)
-                  ? IntrinsicHeight(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Expanded(flex: 5, child: panel),
-                          Expanded(flex: 6, child: form),
-                        ],
-                      ),
-                    )
-                  : Column(children: [panel, form]),
+        child: ResponsiveContainer(
+          padding: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              color: scheme.surface,
+              borderRadius: BorderRadius.circular(24),
+              border: Border.all(color: scheme.outline),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 40,
+                  offset: const Offset(0, 16),
+                ),
+              ],
             ),
+            child: Responsive.isDesktop(context)
+                ? IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(flex: 6, child: panel),
+                        Expanded(flex: 6, child: form),
+                      ],
+                    ),
+                  )
+                : Column(children: [panel, form]),
           ),
         ),
       ),

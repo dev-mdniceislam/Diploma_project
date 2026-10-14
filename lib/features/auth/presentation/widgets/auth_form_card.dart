@@ -43,34 +43,41 @@ class AuthFormCard extends ConsumerWidget {
             onChanged: ref.read(authModeProvider.notifier).set,
           ),
           const SizedBox(height: 20),
-          SegmentedToggle<UserRole>(
-            selected: role,
-            onChanged: ref.read(authRoleProvider.notifier).set,
-            options: [
-              SegmentedOption(
-                value: UserRole.student,
-                label: l10n.roleStudent,
-                icon: Icons.person_outline_rounded,
-                color: context.palette.brand,
-              ),
-              SegmentedOption(
-                value: UserRole.company,
-                label: l10n.roleCompany,
-                icon: Icons.apartment_rounded,
-                color: AppColors.accentGreen,
-              ),
-            ],
-          ),
+          mode == AuthMode.signup
+              ? SegmentedToggle<UserRole>(
+                  selected: role,
+                  onChanged: ref.read(authRoleProvider.notifier).set,
+                  options: [
+                    SegmentedOption(
+                      value: UserRole.student,
+                      label: l10n.roleStudent,
+                      icon: Icons.person_outline_rounded,
+                      color: context.palette.brand,
+                    ),
+                    SegmentedOption(
+                      value: UserRole.company,
+                      label: l10n.roleCompany,
+                      icon: Icons.apartment_rounded,
+                      color: AppColors.accentGreen,
+                    ),
+                  ],
+                )
+              : SizedBox(),
           const SizedBox(height: 24),
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 200),
-            child: mode == AuthMode.login
-                ? LoginForm(
-                    key: const ValueKey('login'),
-                    emailController: emailController,
-                    passwordController: passwordController,
-                  )
-                : const SignupForm(key: ValueKey('signup')),
+          Consumer(
+            builder: (context, ref, child) {
+              final mode = ref.watch(authModeProvider);
+              return AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                child: mode == AuthMode.login
+                    ? LoginForm(
+                        key: const ValueKey('login'),
+                        emailController: emailController,
+                        passwordController: passwordController,
+                      )
+                    : const SignupForm(key: ValueKey('signup')),
+              );
+            },
           ),
           const SizedBox(height: 24),
           _OrDivider(text: l10n.socialDivider),
