@@ -43,7 +43,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
         .login(
           email: widget.emailController.text.trim(),
           password: widget.passwordController.text,
-          role: role,
         );
     notifyAuthResult(l10n, ok: ok, role: role);
   }
@@ -75,37 +74,45 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             validator: validators.notEmpty,
             autofillHints: const [AutofillHints.password],
             onSubmitted: (_) => _submit(),
-            trailingLabel: GestureDetector(
-              onTap: () => ForgotPasswordDialog.show(context),
-              child: MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: CustomText(
-                  l10n.forgotPassword,
-                  style: AppTextStyles.bodySmall.copyWith(
-                    color: context.palette.brand,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: 24,
-                height: 24,
-                child: Checkbox(
-                  value: _remember,
-                  activeColor: AppColors.primary,
-                  onChanged: (v) => setState(() => _remember = v ?? false),
+              Flexible(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: Checkbox(
+                        value: _remember,
+                        activeColor: AppColors.primary,
+                        onChanged: (v) =>
+                            setState(() => _remember = v ?? false),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: CustomText(
+                        l10n.rememberMe,
+                        style: AppTextStyles.bodySmall,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: 8),
-              Flexible(
-                child: CustomText(
-                  l10n.rememberMe,
-                  style: AppTextStyles.bodySmall,
+              GestureDetector(
+                onTap: () => ForgotPasswordDialog.show(context),
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: CustomText(
+                    l10n.forgotPassword,
+                    style: AppTextStyles.bodySmall.copyWith(
+                      color: context.palette.brand,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
               ),
             ],

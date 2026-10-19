@@ -54,6 +54,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
       name: (isStudent ? _studentName : _companyName).text.trim(),
       email: _email.text.trim(),
       password: _password.text,
+      otp: '',
     );
 
     final ok = await ref.read(sessionProvider.notifier).register(data);

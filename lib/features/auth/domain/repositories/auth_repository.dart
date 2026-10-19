@@ -1,17 +1,14 @@
-import '../entities/auth_enums.dart';
-import '../entities/auth_user.dart';
+import 'package:diploma_job/features/auth/data/model/login_model.dart';
+
 import '../entities/registration_data.dart';
 
 abstract interface class AuthRepository {
-  Future<AuthUser> login({
+  Future<UserLoginModel> login({
     required String email,
     required String password,
-    required UserRole role,
   });
 
-  Future<AuthUser> register(RegistrationData data);
-
-  Future<AuthUser> signInWithGoogle();
-
+  Future<UserLoginModel?> register(RegistrationData data);
+  Future<UserLoginModel> signInWithGoogle();
   Future<void> sendPasswordReset(String email);
 }

@@ -51,7 +51,7 @@ class UserBadge extends ConsumerWidget {
                 radius: 16,
                 backgroundColor: avatarColor,
                 child: CustomText(
-                  user.initial,
+                  "user.initial",
                   style: AppTextStyles.bodySmall.copyWith(
                     color: AppColors.white,
                     fontWeight: FontWeight.w700,
