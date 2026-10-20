@@ -36,7 +36,7 @@ class DiplomaCareerHubApp extends ConsumerWidget {
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: themeMode,
-        locale: locale,
+        locale: Locale('en'),
         supportedLocales: const [Locale('bn'), Locale('en')],
         localizationsDelegates: const [
           AppLocalizations.delegate,

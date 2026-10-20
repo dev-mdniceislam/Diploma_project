@@ -1,25 +1,18 @@
+import 'dart:developer';
+
+import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/model/login_model.dart';
-import '../../domain/entities/auth_enums.dart'; // shudhu AuthMode thakle, UserRole ekhane theke soriye din
+import '../../domain/entities/auth_enums.dart';
 import '../../domain/entities/registration_data.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../../domain/repositories/mock_auth_repository.dart';
+import 'auth_state.dart';
 
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepositoryImpl(),
 );
-
-// ── Session ─────────────────────────────────────────────────────────────────
-class SessionState {
-  const SessionState({this.user, this.isLoading = false, this.error});
-
-  final UserLoginModel? user;
-  final bool isLoading;
-  final String? error;
-
-  bool get isAuthenticated => user != null;
-}
 
 // ========================== main notifier ========================
 class SessionNotifier extends Notifier<SessionState> {
@@ -31,35 +24,64 @@ class SessionNotifier extends Notifier<SessionState> {
   Future<bool> login({required String email, required String password}) =>
       _authenticate(() => _repo.login(email: email, password: password));
 
+  Future<void> verifyEmail(String email) async {
+    if (state.verifyButton) return;
+    state = state.copyWith(verifyButton: true);
+    try {
+      final status = await _repo.verifyEamil(email: email);
+      state = state.copyWith(verifyButton: false, isShowOtpField: status);
+    } catch (error) {
+      state = state.copyWith(verifyButton: false);
+      log("=====Verify email provider ${error.toString()}");
+      CustomToast.showError(message: error.toString());
+    }
+  }
+
+  void resetOtp() => state = state.copyWith(isShowOtpField: false);
+
   Future<bool> register(RegistrationData data) =>
       _authenticate(() => _repo.register(data));
 
   Future<bool> signInWithGoogle() => _authenticate(_repo.signInWithGoogle);
-  Future<bool> sendPasswordReset(String email) =>
-      _authenticate(_repo.signInWithGoogle);
 
-  void logout() => state = const SessionState();
-
-  void clearError() {
-    if (state.error != null) {
-      state = SessionState(user: state.user);
+  Future<bool> sendPasswordReset(String email) async {
+    state = state.copyWith(isLoading: true, clearError: true);
+    try {
+      await _repo.sendPasswordReset(email);
+      state = state.copyWith(isLoading: false);
+      return true;
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+      return false;
     }
   }
 
+  void logout() => state = const SessionState();
+
   Future<bool> _authenticate(Future<UserLoginModel?> Function() action) async {
-    state = const SessionState(isLoading: true);
+    state = state.copyWith(isLoading: true, clearError: true);
     try {
       final user = await action();
       if (user == null) {
-        state = const SessionState(error: 'কিছু একটা সমস্যা হয়েছে।');
+        state = state.copyWith(
+          isLoading: false,
+          error: 'কিছু একটা সমস্যা হয়েছে।',
+        );
+        CustomToast.showError(message: state.error.toString());
+
         return false;
       }
-      state = SessionState(user: user);
+      state = state.copyWith(isLoading: false, user: user);
       return true;
     } catch (e) {
-      state = SessionState(error: e.toString());
+      state = state.copyWith(isLoading: false, error: e.toString());
+      CustomToast.showError(message: e.toString());
       return false;
     }
+  }
+
+  void clearError() {
+    if (state.error != null) state = state.copyWith(clearError: true);
   }
 }
 

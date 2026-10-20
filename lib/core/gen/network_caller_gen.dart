@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+
 import 'package:http/http.dart' as http;
 
 class NetworkCaller {
@@ -54,19 +55,28 @@ class NetworkCaller {
     log("API Status Code: ${response.statusCode}");
 
     // Success Range (200 - 299)
-    if (response.statusCode >= 200 && response.statusCode < 300) {
-      if (response.body.isNotEmpty) {
-        final decodedData = jsonDecode(response.body);
+    if (response.body.isNotEmpty) {
+      final decodedData = jsonDecode(response.body);
 
-        if (fromJson != null && decodedData is Map<String, dynamic>) {
-          return fromJson(decodedData);
-        }
-
-        return decodedData as T?;
+      if (fromJson != null && decodedData is Map<String, dynamic>) {
+        return fromJson(decodedData);
       }
-    } else {
-      log("Server Error Code: ${response.statusCode} | Body: ${response.body}");
+
+      return decodedData as T?;
     }
+    // if (response.statusCode >= 200 && response.statusCode < 300) {
+    //   if (response.body.isNotEmpty) {
+    //     final decodedData = jsonDecode(response.body);
+    //
+    //     if (fromJson != null && decodedData is Map<String, dynamic>) {
+    //       return fromJson(decodedData);
+    //     }
+    //
+    //     return decodedData as T?;
+    //   }
+    // } else {
+    //   log("Server Error Code: ${response.statusCode} | Body: ${response.body}");
+    // }
 
     return null;
   }

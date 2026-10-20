@@ -29,7 +29,6 @@ Future<void> main() async {
 
 Future<void> _initApp() async {
   await Future.wait([
-    dotenv.load(fileName: 'env'),
     SharedPreferences.getInstance(),
     dotenv.load(fileName: ".env"),
     // SharedPreferences.getInstance(),

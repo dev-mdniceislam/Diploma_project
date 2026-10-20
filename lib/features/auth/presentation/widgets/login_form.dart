@@ -1,6 +1,7 @@
+import 'package:diploma_job/core/database/local_storage.dart';
+import 'package:diploma_job/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:diploma_job/core/extension/l10n_extension.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
@@ -8,10 +9,10 @@ import 'package:diploma_job/core/theme/theme_pellete.dart';
 import 'package:diploma_job/core/widgets/custom_button.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/core/widgets/labeled_text_field.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/auth_validators.dart';
 import '../providers/auth_providers.dart';
-import '../../../../core/utils/auth_feedback.dart';
 import 'forgot_password_dialog.dart';
 import 'password_field.dart';
 
@@ -31,12 +32,10 @@ class LoginForm extends ConsumerStatefulWidget {
 
 class _LoginFormState extends ConsumerState<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  bool _remember = true;
+  bool _remember = false;
 
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
-    final l10n = context.l10n;
-    final role = ref.read(authRoleProvider);
 
     final ok = await ref
         .read(sessionProvider.notifier)
@@ -44,7 +43,37 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           email: widget.emailController.text.trim(),
           password: widget.passwordController.text,
         );
-    notifyAuthResult(l10n, ok: ok, role: role);
+    if (!mounted) return;
+
+    if (ok) {
+      context.go(AppRoutes.home);
+      if (_remember) {
+        await LocalStorage().writeData(
+          key: "remember_email",
+          value: widget.emailController.text,
+        );
+      }
+      _resetForm();
+    }
+  }
+
+  void _resetForm() {
+    _formKey.currentState?.reset();
+    if (!_remember) widget.emailController.clear();
+    widget.passwordController.clear();
+  }
+
+  void _isRemember() async {
+    String? data = await LocalStorage().readData(key: "remember_email");
+    if (data != null) {
+      widget.emailController.text = data;
+    }
+  }
+
+  @override
+  void initState() {
+    _isRemember();
+    super.initState();
   }
 
   @override

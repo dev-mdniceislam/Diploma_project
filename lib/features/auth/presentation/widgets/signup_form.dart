@@ -1,3 +1,4 @@
+import 'package:diploma_job/core/l10n/app_localizations.dart';
 import 'package:diploma_job/features/auth/presentation/widgets/responsive_form_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,18 +35,27 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _confirm = TextEditingController();
+  final _otp = TextEditingController();
 
   @override
   void dispose() {
-    for (final c in [_studentName, _companyName, _email, _password, _confirm]) {
+    for (final c in [
+      _studentName,
+      _companyName,
+      _email,
+      _password,
+      _confirm,
+      _otp,
+    ]) {
       c.dispose();
     }
     super.dispose();
+    ref.read(sessionProvider.notifier).resetOtp();
   }
 
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
-    final l10n = context.l10n;
+    final l10n = AppLocalizations.of(context)!;
     final role = ref.read(authRoleProvider);
     final isStudent = role == UserRole.student;
 
@@ -54,11 +64,40 @@ class _SignupFormState extends ConsumerState<SignupForm> {
       name: (isStudent ? _studentName : _companyName).text.trim(),
       email: _email.text.trim(),
       password: _password.text,
-      otp: '',
+      otp: _otp.text.trim(),
     );
 
     final ok = await ref.read(sessionProvider.notifier).register(data);
+    if (!mounted) return;
     notifyAuthResult(l10n, ok: ok, role: role, registration: true);
+
+    if (ok) {
+      _resetForm();
+    }
+  }
+
+  void _resetForm() {
+    _formKey.currentState?.reset();
+    for (final c in [
+      _studentName,
+      _companyName,
+      _email,
+      _password,
+      _confirm,
+      _otp,
+    ]) {
+      c.clear();
+    }
+    ref.read(sessionProvider.notifier).resetOtp();
+  }
+
+  Future<void> _emailVerify() async {
+    final error = AuthValidators(context.l10n).email(_email.text.trim());
+    if (error != null) {
+      _formKey.currentState!.validate();
+      return;
+    }
+    await ref.read(sessionProvider.notifier).verifyEmail(_email.text.trim());
   }
 
   @override
@@ -67,6 +106,10 @@ class _SignupFormState extends ConsumerState<SignupForm> {
     final v = AuthValidators(l10n);
     final role = ref.watch(authRoleProvider);
     final isLoading = ref.watch(sessionProvider.select((s) => s.isLoading));
+    final showOtp = ref.watch(sessionProvider.select((s) => s.isShowOtpField));
+    final isVerifyButton = ref.watch(
+      sessionProvider.select((s) => s.verifyButton),
+    );
 
     final roleFields = role == UserRole.student
         ? <Widget>[
@@ -95,13 +138,37 @@ class _SignupFormState extends ConsumerState<SignupForm> {
         children: [
           ...roleFields,
           const SizedBox(height: 16),
-          LabeledTextField(
-            label: l10n.fieldEmail,
-            controller: _email,
-            hintText: 'user@domain.com',
-            keyboardType: TextInputType.emailAddress,
-            validator: v.email,
+          Row(
+            spacing: 20,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Expanded(
+                child: LabeledTextField(
+                  label: l10n.fieldEmail,
+                  controller: _email,
+                  hintText: 'user@domain.com',
+                  keyboardType: TextInputType.emailAddress,
+                  validator: v.email,
+                ),
+              ),
+              CustomButton(
+                label: "Verify",
+                onPressed: _emailVerify,
+                isLoading: isVerifyButton,
+                buttonHeight: 50,
+              ),
+            ],
           ),
+          if (showOtp) ...[
+            const SizedBox(height: 16),
+            LabeledTextField(
+              label: 'OTP',
+              controller: _otp,
+              hintText: '6-digit code',
+              keyboardType: TextInputType.number,
+              validator: v.notEmpty,
+            ),
+          ],
           const SizedBox(height: 16),
           ResponsiveFormRow(
             children: [
@@ -117,12 +184,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          // ValueListenableBuilder<TextEditingValue>(
-          //   valueListenable: _password,
-          //   builder: (_, value, __) =>
-          //       PasswordStrengthMeter(password: value.text),
-          // ),
           const SizedBox(height: 20),
           Opacity(
             opacity: isLoading ? 0.6 : 1,

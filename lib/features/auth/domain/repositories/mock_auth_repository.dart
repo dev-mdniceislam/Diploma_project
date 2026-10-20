@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../../core/endpoints/endpoints.dart';
@@ -37,9 +38,34 @@ class AuthRepositoryImpl implements AuthRepository {
     );
   }
 
+  //----------- Email verify for registration --------------
+  @override
+  Future<bool> verifyEamil({required String email}) async {
+    try {
+      final response = await NetworkCaller().post<ApiResponseModel<dynamic>>(
+        url: Endpoints.registrationSendOtp,
+        body: {"email": email.toLowerCase().trim()},
+        fromJson: (json) =>
+            ApiResponseModel<dynamic>.fromJson(json, (data) => data),
+      );
+
+      if (response == null || response.success != true) {
+        throw AppException(
+          response?.message ?? 'ইমেইল ভেরিফিকেশন কোড পাঠানো যায়নি।',
+        );
+      }
+      return response.success;
+    } catch (error) {
+      log('=========VerifyEmail Error $error');
+      if (error is AppException) rethrow;
+      throw AppException(error.toString());
+    }
+  }
+
   // ---------- Register ----------
   @override
   Future<UserLoginModel> register(RegistrationData data) async {
+    log("=======DAta ${data.toJson()}");
     return await _postForUser(
       tag: 'Registration',
       url: Endpoints.registration,
@@ -63,7 +89,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
       return await _postForUser(
         tag: 'GoogleLogin',
-        url: "",//Endpoints.googleLogin, // আপনার এন্ডপয়েন্ট এখানে বসাবেন
+        url: "", //Endpoints.googleLogin, // আপনার এন্ডপয়েন্ট এখানে বসাবেন
         body: {'idToken': idToken, if (role != null) 'role': role.name},
         failMessage: 'Google লগইন ব্যর্থ হয়েছে।',
       );
@@ -88,7 +114,7 @@ class AuthRepositoryImpl implements AuthRepository {
         url: Endpoints.forgotSendOtp,
         body: {'email': email},
         fromJson: (json) =>
-        ApiResponseModel<dynamic>.fromJson(json, (data) => data),
+            ApiResponseModel<dynamic>.fromJson(json, (data) => data),
       );
 
       if (response == null || response.success != true) {
@@ -113,15 +139,17 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response = await NetworkCaller()
           .post<ApiResponseModel<UserLoginModel>>(
-        url: url,
-        body: body,
-        fromJson: (json) => ApiResponseModel<UserLoginModel>.fromJson(
-          json,
+            url: url,
+            body: body,
+            fromJson: (json) => ApiResponseModel<UserLoginModel>.fromJson(
+              json,
               (data) => UserLoginModel.fromJson(data as Map<String, dynamic>),
-        ),
-      );
+            ),
+          );
 
-      if (response == null || response.success != true || response.data == null) {
+      if (response == null ||
+          response.success != true ||
+          response.data == null) {
         throw AppException(response?.message ?? failMessage);
       }
       return response.data!;
