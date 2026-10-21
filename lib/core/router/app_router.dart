@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/presentation/pages/auth_page.dart';
+import '../../features/auth/auth_page.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
 import '../../features/web_shell/presentation/pages/app_shell.dart';
 

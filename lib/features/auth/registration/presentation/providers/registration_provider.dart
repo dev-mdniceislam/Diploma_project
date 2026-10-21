@@ -3,26 +3,23 @@ import 'dart:developer';
 import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../data/model/login_model.dart';
+import '../../../login/data/model/login_model.dart';
 import '../../domain/entities/auth_enums.dart';
 import '../../domain/entities/registration_data.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../../domain/repositories/mock_auth_repository.dart';
-import 'auth_state.dart';
+import 'register_state.dart';
 
-final authRepositoryProvider = Provider<AuthRepository>(
-  (ref) => AuthRepositoryImpl(),
+final registerRepositoryProvider = Provider<RegisterRepository>(
+  (ref) => RegisterRepositoryImpl(),
 );
 
 // ========================== main notifier ========================
-class SessionNotifier extends Notifier<SessionState> {
-  AuthRepository get _repo => ref.read(authRepositoryProvider);
+class RegisterNotifier extends Notifier<RegistrationState> {
+  RegisterRepository get _repo => ref.read(registerRepositoryProvider);
 
   @override
-  SessionState build() => const SessionState();
-
-  Future<bool> login({required String email, required String password}) =>
-      _authenticate(() => _repo.login(email: email, password: password));
+  RegistrationState build() => const RegistrationState();
 
   Future<void> verifyEmail(String email) async {
     if (state.verifyButton) return;
@@ -44,19 +41,11 @@ class SessionNotifier extends Notifier<SessionState> {
 
   Future<bool> signInWithGoogle() => _authenticate(_repo.signInWithGoogle);
 
-  Future<bool> sendPasswordReset(String email) async {
-    state = state.copyWith(isLoading: true, clearError: true);
-    try {
-      await _repo.sendPasswordReset(email);
-      state = state.copyWith(isLoading: false);
-      return true;
-    } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
-      return false;
-    }
-  }
+  void logout() => state = const RegistrationState();
 
-  void logout() => state = const SessionState();
+  void clearError() {
+    if (state.error != null) state = state.copyWith(clearError: true);
+  }
 
   Future<bool> _authenticate(Future<UserLoginModel?> Function() action) async {
     state = state.copyWith(isLoading: true, clearError: true);
@@ -79,14 +68,10 @@ class SessionNotifier extends Notifier<SessionState> {
       return false;
     }
   }
-
-  void clearError() {
-    if (state.error != null) state = state.copyWith(clearError: true);
-  }
 }
 
-final sessionProvider = NotifierProvider<SessionNotifier, SessionState>(
-  SessionNotifier.new,
+final sessionProvider = NotifierProvider<RegisterNotifier, RegistrationState>(
+  RegisterNotifier.new,
 );
 
 final currentUserProvider = Provider<UserLoginModel?>(

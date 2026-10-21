@@ -1,24 +1,17 @@
 import 'package:diploma_job/core/l10n/app_localizations.dart';
-import 'package:diploma_job/features/auth/presentation/widgets/responsive_form_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:diploma_job/core/extension/l10n_extension.dart';
-import 'package:diploma_job/core/widgets/app_dropdown.dart';
 import 'package:diploma_job/core/widgets/custom_button.dart';
-import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
-import 'package:diploma_job/features/home_screen/domain/entities/job.dart';
-import 'package:diploma_job/features/home_screen/presentation/widgets/job_localizations.dart';
 
-import '../../../../core/utils/auth_validators.dart';
-import '../../../../core/widgets/labeled_text_field.dart';
+import '../../../../../core/utils/auth_feedback.dart';
+import '../../../../../core/utils/auth_validators.dart';
+import '../../../../../core/widgets/labeled_text_field.dart';
+import '../../../login/widget/password_field.dart';
+import '../../../login/widget/responsive_form_row.dart';
 import '../../domain/entities/auth_enums.dart';
 import '../../domain/entities/registration_data.dart';
-import '../providers/auth_providers.dart';
-import '../../../../core/utils/auth_feedback.dart';
-import '../../../../core/utils/auth_localizations.dart';
-import 'labeled_dropdown.dart';
-import 'password_field.dart';
-import 'password_strength_meter.dart';
+import '../providers/registration_provider.dart';
 
 /// Registration form — fields switch with the selected role.
 class SignupForm extends ConsumerStatefulWidget {
@@ -188,6 +181,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
           Opacity(
             opacity: isLoading ? 0.6 : 1,
             child: CustomButton(
+              isLoading: isLoading,
               label: l10n.registerAction,
               icon: Icons.person_add_alt_1_rounded,
               fullWidth: true,

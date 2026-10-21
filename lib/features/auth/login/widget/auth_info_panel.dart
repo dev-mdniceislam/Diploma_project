@@ -6,7 +6,8 @@ import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/widgets/custom_button.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 
-import '../../domain/entities/auth_enums.dart';
+import '../../registration/domain/entities/auth_enums.dart';
+
 
 /// Dark marketing column next to the form.
 class AuthInfoPanel extends StatelessWidget {

@@ -11,10 +11,10 @@ import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/core/widgets/labeled_text_field.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/auth_validators.dart';
-import '../providers/auth_providers.dart';
-import 'forgot_password_dialog.dart';
-import 'password_field.dart';
+import '../../../../../core/utils/auth_validators.dart';
+import '../../../forgot_password/presentation/page/forgot_pass_dialogue.dart';
+import '../../widget/password_field.dart';
+import '../providers/login_providers.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
   const LoginForm({
@@ -38,7 +38,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     if (!_formKey.currentState!.validate()) return;
 
     final ok = await ref
-        .read(sessionProvider.notifier)
+        .read(loginNotifierProvider.notifier)
         .login(
           email: widget.emailController.text.trim(),
           password: widget.passwordController.text,
@@ -80,7 +80,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final validators = AuthValidators(l10n);
-    final isLoading = ref.watch(sessionProvider.select((s) => s.isLoading));
+    final isLoading = ref.watch(
+      loginNotifierProvider.select((s) => s.isLoading),
+    );
 
     return Form(
       key: _formKey,
@@ -150,6 +152,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           Opacity(
             opacity: isLoading ? 0.6 : 1,
             child: CustomButton(
+              isLoading: isLoading,
               label: l10n.loginAction,
               icon: Icons.arrow_forward_rounded,
               fullWidth: true,

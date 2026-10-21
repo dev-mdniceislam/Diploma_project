@@ -10,10 +10,10 @@ import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 
 import '../../../../core/widgets/segmented_toggle.dart';
-import '../../domain/entities/auth_enums.dart';
-import '../providers/auth_providers.dart';
-import 'login_form.dart';
-import 'signup_form.dart';
+import '../../registration/domain/entities/auth_enums.dart';
+import '../../registration/presentation/pages/signup_form.dart';
+import '../../registration/presentation/providers/registration_provider.dart';
+import '../presentation/pages/login_form.dart';
 
 class AuthFormCard extends ConsumerWidget {
   const AuthFormCard({

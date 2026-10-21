@@ -1,15 +1,12 @@
 import 'package:diploma_job/core/responsive/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:diploma_job/core/extension/l10n_extension.dart';
-import 'package:diploma_job/core/widgets/app_container.dart';
-import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 
-import '../../../../core/responsive/responsive_container.dart';
-import '../../domain/entities/auth_enums.dart';
-import '../providers/auth_providers.dart';
-import '../widgets/auth_form_card.dart';
-import '../widgets/auth_info_panel.dart';
+import '../../core/responsive/responsive_container.dart';
+import 'login/widget/auth_form_card.dart';
+import 'login/widget/auth_info_panel.dart';
+import 'registration/domain/entities/auth_enums.dart';
+import 'registration/presentation/providers/registration_provider.dart';
 
 class AuthPage extends ConsumerStatefulWidget {
   const AuthPage({super.key});

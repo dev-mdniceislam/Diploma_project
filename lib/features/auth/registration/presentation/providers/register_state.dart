@@ -1,11 +1,11 @@
 // ── Session ─────────────────────────────────────────────────────────────────
 import 'package:flutter/foundation.dart';
 
-import '../../data/model/login_model.dart';
+import '../../../login/data/model/login_model.dart';
 
 @immutable
-class SessionState {
-  const SessionState({
+class RegistrationState {
+  const RegistrationState({
     this.user,
     this.isLoading = false,
     this.error,
@@ -22,8 +22,8 @@ class SessionState {
   bool get isAuthenticated => user != null;
 
   /// ইনিশিয়াল বা ডিফল্ট স্টেট
-  factory SessionState.initial() {
-    return const SessionState(
+  factory RegistrationState.initial() {
+    return const RegistrationState(
       user: null,
       isLoading: false,
       error: null,
@@ -33,7 +33,7 @@ class SessionState {
   }
 
   /// স্টেট আপডেট করার জন্য copyWith মেথড
-  SessionState copyWith({
+  RegistrationState copyWith({
     UserLoginModel? user,
     bool? isLoading,
     String? error,
@@ -42,38 +42,12 @@ class SessionState {
     bool clearUser = false,
     bool clearError = false,
   }) {
-    return SessionState(
+    return RegistrationState(
       user: clearUser ? null : (user ?? this.user),
       isLoading: isLoading ?? this.isLoading,
       error: clearError ? null : (error ?? this.error),
       verifyButton: verifyButton ?? this.verifyButton,
       isShowOtpField: isShowOtpField ?? this.isShowOtpField,
     );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is SessionState &&
-        other.user == user &&
-        other.isLoading == isLoading &&
-        other.error == error &&
-        other.verifyButton == verifyButton &&
-        other.isShowOtpField == isShowOtpField;
-  }
-
-  @override
-  int get hashCode {
-    return user.hashCode ^
-        isLoading.hashCode ^
-        error.hashCode ^
-        verifyButton.hashCode ^
-        isShowOtpField.hashCode;
-  }
-
-  @override
-  String toString() {
-    return 'SessionState(user: $user, isLoading: $isLoading, error: $error, verifyButton: $verifyButton, isShowOtpField: $isShowOtpField, isAuthenticated: $isAuthenticated)';
   }
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:diploma_job/core/extension/l10n_extension.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
@@ -10,9 +8,8 @@ import 'package:diploma_job/core/widgets/custom_hover.dart';
 import 'package:diploma_job/core/widgets/custom_overlay_notification.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 
-import '../../domain/entities/auth_enums.dart';
-import '../providers/auth_providers.dart';
-import '../../../../core/utils/auth_localizations.dart';
+import '../../registration/domain/entities/auth_enums.dart';
+import '../../registration/presentation/providers/registration_provider.dart';
 
 class UserBadge extends ConsumerWidget {
   const UserBadge({super.key, this.compact = false});
@@ -24,7 +21,6 @@ class UserBadge extends ConsumerWidget {
     final user = ref.watch(currentUserProvider);
     if (user == null) return const SizedBox.shrink();
 
-    final l10n = context.l10n;
     final scheme = Theme.of(context).colorScheme;
     final avatarColor = user.role == UserRole.student
         ? context.palette.avatarBg

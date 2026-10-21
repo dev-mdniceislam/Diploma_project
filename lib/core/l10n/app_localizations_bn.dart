@@ -443,7 +443,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get cancel => 'বাতিল';
 
   @override
-  String get sendLink => 'লিঙ্ক পাঠান';
+  String get sendLink => 'লিংক পাঠান';
 
   @override
   String get resetSent => 'রিসেট লিঙ্ক ইমেইলে পাঠানো হয়েছে!';
@@ -456,4 +456,49 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get logout => 'লগআউট';
+
+  @override
+  String get stepForgot =>
+      '================================== Forgot Password ========================';
+
+  @override
+  String get resetPasswordTitle => 'পাসওয়ার্ড রিসেট করুন';
+
+  @override
+  String get resetPasswordDesc =>
+      'আপনার নিবন্ধিত ইমেইল দিন, আমরা একটি রিসেট লিংক পাঠিয়ে দেব।';
+
+  @override
+  String get emailAddress => 'ইমেইল ঠিকানা';
+
+  @override
+  String get emailHint => 'আপনার ইমেইল লিখুন...';
+
+  @override
+  String get close => 'বন্ধ করুন';
+
+  @override
+  String resetLinkSent(String email) {
+    return 'আমরা $email এ পাসওয়ার্ড রিসেট লিংক পাঠিয়েছি। অনুগ্রহ করে ইনবক্স চেক করুন।';
+  }
+
+  @override
+  String get setNewPasswordTitle => 'নতুন পাসওয়ার্ড দিন';
+
+  @override
+  String get setNewPasswordDesc =>
+      'আপনার অ্যাকাউন্টের জন্য একটি নতুন পাসওয়ার্ড বেছে নিন।';
+
+  @override
+  String get newPassword => 'নতুন পাসওয়ার্ড';
+
+  @override
+  String get resetPasswordButton => 'পাসওয়ার্ড রিসেট করুন';
+
+  @override
+  String get passwordResetSuccess =>
+      'আপনার পাসওয়ার্ড সফলভাবে রিসেট হয়েছে। এখন সাইন ইন করতে পারবেন।';
+
+  @override
+  String get backToLogin => 'সাইন ইনে ফিরে যান';
 }

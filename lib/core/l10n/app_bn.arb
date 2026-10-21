@@ -174,5 +174,24 @@
       "resetSent": "রিসেট লিঙ্ক ইমেইলে পাঠানো হয়েছে!",
       "navLogin": "লগইন / সাইনআপ",
       "navDashboard": "আমার ড্যাশবোর্ড",
-      "logout": "লগআউট"
+      "logout": "লগআউট",
+
+
+    "stepForgot":"================================== Forgot Password ========================",
+    "resetPasswordTitle": "পাসওয়ার্ড রিসেট করুন",
+    "resetPasswordDesc": "আপনার নিবন্ধিত ইমেইল দিন, আমরা একটি রিসেট লিংক পাঠিয়ে দেব।",
+    "emailAddress": "ইমেইল ঠিকানা",
+    "emailHint": "আপনার ইমেইল লিখুন...",
+    "cancel": "বাতিল",
+    "close": "বন্ধ করুন",
+    "sendLink": "লিংক পাঠান",
+    "resetLinkSent": "আমরা {email} এ পাসওয়ার্ড রিসেট লিংক পাঠিয়েছি। অনুগ্রহ করে ইনবক্স চেক করুন।",
+    "@resetLinkSent": { "placeholders": { "email": { "type": "String" } } },
+    "setNewPasswordTitle": "নতুন পাসওয়ার্ড দিন",
+    "setNewPasswordDesc": "আপনার অ্যাকাউন্টের জন্য একটি নতুন পাসওয়ার্ড বেছে নিন।",
+    "newPassword": "নতুন পাসওয়ার্ড",
+    "resetPasswordButton": "পাসওয়ার্ড রিসেট করুন",
+    "passwordResetSuccess": "আপনার পাসওয়ার্ড সফলভাবে রিসেট হয়েছে। এখন সাইন ইন করতে পারবেন।",
+    "backToLogin": "সাইন ইনে ফিরে যান"
+
 }
