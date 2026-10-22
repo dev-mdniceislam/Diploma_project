@@ -42,6 +42,9 @@ dependencies:
   file_picker: ^13.1.0
   jwt_decoder: ^2.0.1
   google_sign_in: ^7.2.0
+  pinput: ^6.0.1
+  flutter_native_splash: ^2.4.8
+
 
 dev_dependencies:
   flutter_test:
@@ -65,3 +68,10 @@ flutter:
     - family: bengaliFont
       fonts:
         - asset: assets/fonts/banglaFont.ttf
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/images/career_orbit_logo.png"
+  web: true
+  color_dark: "#121212"
+  image_dark: "assets/images/career_orbit_logo.png"

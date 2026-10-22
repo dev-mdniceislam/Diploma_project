@@ -9,6 +9,13 @@ class AuthValidators {
   final AppLocalizations l10n;
 
   static final _email = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
+  static final _otp = RegExp(r'^\d{6}$');
+
+  String? otp(String? value) {
+    final empty = notEmpty(value);
+    if (empty != null) return empty;
+    return _otp.hasMatch(value!.trim()) ? null : l10n.errInvalidOtp;
+  }
 
   String? notEmpty(String? value) =>
       (value == null || value.trim().isEmpty) ? l10n.errRequired : null;

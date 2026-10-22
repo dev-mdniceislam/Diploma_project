@@ -1,19 +1,22 @@
 import 'dart:developer';
 
 import 'package:diploma_job/core/endpoints/endpoints.dart';
+import 'package:diploma_job/core/gen/api_response_gen.dart';
+import 'package:diploma_job/core/gen/network_caller_gen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/error/exception.dart';
-import '../../../../../core/gen/api_response_gen.dart';
-import '../../../../../core/gen/network_caller_gen.dart';
-import '../model/reset_token_model.dart';
 
+/// API contract for the OTP based password-reset flow.
 abstract class PasswordResetRepository {
-  Future<bool> sendResetLink(String email);
+  /// POST {email} -> backend mails a 6-digit OTP.
+  Future<bool> sendOtp(String email);
 
-  Future<ResetTokenModel> otpSubmit(String email, String otp);
+  /// POST {email, otp} -> returns the resetToken.
+  Future<String> verifyOtp({required String email, required String otp});
 
-  Future<bool> resetPassword({
+  /// POST {"resetToken": ..., "newPassword": ...}
+  Future<void> resetPassword({
     required String resetToken,
     required String newPassword,
   });
@@ -22,77 +25,70 @@ abstract class PasswordResetRepository {
 class PasswordResetRepositoryImpl implements PasswordResetRepository {
   const PasswordResetRepositoryImpl();
 
-  @override
-  Future<bool> sendResetLink(String email) async {
-    try {
-      final response = await NetworkCaller().post<ApiResponseModel<dynamic>>(
-        url: Endpoints.forgotSendOtp,
-        body: {"email": email.toLowerCase().trim()},
-        fromJson: (json) =>
-            ApiResponseModel<dynamic>.fromJson(json, (data) => data),
-      );
+  static const _fallbackError = 'Something went wrong. Please try again.';
 
-      if (response == null ||
-          response.success != true ||
-          response.data == null) {
-        throw AppException(response?.message ?? "Please enter a valid email");
-      }
-      return response.success;
-    } catch (error) {
-      log('=========Send reset link Error $error');
-      if (error is AppException) rethrow;
-      throw AppException(error.toString());
-    }
-  }
-
-  @override
-  Future<ResetTokenModel> otpSubmit(String email, String otp) async {
+  /// Shared POST + error handling for the 3 endpoints.
+  Future<ApiResponseModel<dynamic>> _post({
+    required String url,
+    required Map<String, dynamic> body,
+    required String tag,
+  }) async {
     try {
-      final response = await NetworkCaller().post<ApiResponseModel>(
-        url: Endpoints.forgotVerifyOtp,
-        body: {'email': email, 'otp': otp},
-        fromJson: (json) => ApiResponseModel<ResetTokenModel>.fromJson(
-          json,
-          (data) => ResetTokenModel.fromJson(json),
-        ),
+      final response = await NetworkCaller().post(
+        url: url,
+        body: body,
+        fromJson: (json) => ApiResponseModel.fromJson(json, (data) => data),
       );
 
       if (response == null || response.success != true) {
-        throw AppException(response?.message ?? "Otp not match");
+        throw AppException(response?.message ?? _fallbackError);
       }
-      return response.data;
+      return response;
     } catch (error) {
-      log('=========OtpSubmit Error $error');
+      log('=============$tag error $error');
       if (error is AppException) rethrow;
       throw AppException(error.toString());
     }
   }
 
   @override
-  Future<bool> resetPassword({
+  Future<bool> sendOtp(String email) async {
+    final response = await _post(
+      url: Endpoints.forgotSendOtp,
+      body: {'email': email},
+      tag: 'Forgot send otp',
+    );
+    return response.success;
+  }
+
+  @override
+  Future<String> verifyOtp({required String email, required String otp}) async {
+    final response = await _post(
+      url: Endpoints.forgotVerifyOtp,
+      body: {'email': email, 'otp': otp},
+      tag: 'Forgot verify otp',
+    );
+
+    final data = response.data;
+    final token = data is Map ? data['resetToken'] : null;
+    if (token is! String || token.isEmpty) {
+      throw AppException(
+        response.message.isNotEmpty ? response.message : _fallbackError,
+      );
+    }
+    return token;
+  }
+
+  @override
+  Future<void> resetPassword({
     required String resetToken,
     required String newPassword,
   }) async {
-    try {
-      final response = await NetworkCaller().post<ApiResponseModel<dynamic>>(
-        url: Endpoints.forgotVerifyOtp,
-        body: {'resetToken': resetToken, 'newPassword': newPassword},
-        fromJson: (json) =>
-            ApiResponseModel<dynamic>.fromJson(json, (data) => data),
-      );
-
-      if (response == null || response.success != true) {
-        throw AppException(
-          response?.message ?? "Something went wrong. Please try again letter",
-        );
-      }
-
-      return response.success;
-    } catch (error) {
-      log('=========New password Error $error');
-      if (error is AppException) rethrow;
-      throw AppException(error.toString());
-    }
+    await _post(
+      url: Endpoints.newPassword,
+      body: {'resetToken': resetToken, 'newPassword': newPassword},
+      tag: 'Reset password',
+    );
   }
 }
 

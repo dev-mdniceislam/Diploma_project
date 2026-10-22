@@ -7,9 +7,6 @@ class PasswordResetState {
 
   final bool isLoading;
   final String? error;
-
-  PasswordResetState copyWith({bool? isLoading, String? error}) =>
-      PasswordResetState(isLoading: isLoading ?? this.isLoading, error: error);
 }
 
 class PasswordResetController extends Notifier<PasswordResetState> {
@@ -21,28 +18,44 @@ class PasswordResetController extends Notifier<PasswordResetState> {
 
   void reset() => state = const PasswordResetState();
 
-  /// Returns true on success.
-  Future<bool> sendLink(String email) =>
-      _run(() => _repo.sendResetLink(email.trim()));
+  /// Step 1: email -> OTP. Returns true on success.
+  Future<bool> sendOtp(String email) async {
+    final r = await _run(() async {
+      await _repo.sendOtp(email.trim());
+      return true;
+    });
+    return r ?? false;
+  }
 
-  /// Returns true on success.
+  /// Step 2: OTP -> resetToken. Returns the token, or null on failure.
+  Future<String?> verifyOtp({required String email, required String otp}) =>
+      _run(() => _repo.verifyOtp(email: email.trim(), otp: otp.trim()));
+
+  /// Step 3: resetToken + newPassword. Returns true on success.
   Future<bool> submitNewPassword({
     required String resetToken,
     required String newPassword,
-  }) => _run(
-    () => _repo.resetPassword(resetToken: resetToken, newPassword: newPassword),
-  );
+  }) async {
+    final r = await _run(() async {
+      await _repo.resetPassword(
+        resetToken: resetToken,
+        newPassword: newPassword,
+      );
+      return true;
+    });
+    return r ?? false;
+  }
 
-  Future<bool> _run(Future<void> Function() action) async {
+  Future<T?> _run<T>(Future<T> Function() action) async {
     state = const PasswordResetState(isLoading: true);
     try {
-      await action();
+      final result = await action();
       state = const PasswordResetState();
-      return true;
+      return result;
     } catch (e) {
       // Map to a friendlier message if your API returns structured errors.
       state = PasswordResetState(error: e.toString());
-      return false;
+      return null;
     }
   }
 }

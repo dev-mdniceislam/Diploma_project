@@ -501,4 +501,33 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get backToLogin => 'সাইন ইনে ফিরে যান';
+
+  @override
+  String get otpLabel => 'ভেরিফিকেশন কোড';
+
+  @override
+  String get otpSubtitle => 'আপনার ইমেইলে পাঠানো ৬ সংখ্যার কোডটি লিখুন।';
+
+  @override
+  String get verifyOtp => 'ভেরিফাই করুন';
+
+  @override
+  String get resendOtp => 'আবার কোড পাঠান';
+
+  @override
+  String get errInvalidOtp => '৬ সংখ্যার কোড দিন';
+
+  @override
+  String get passwordResetSuccessTitle => 'Password updated!';
+
+  @override
+  String get sendCode => 'কোড পাঠান';
+
+  @override
+  String get back => 'পিছনে';
+
+  @override
+  String otpSentTo(String email) {
+    return '$email এ পাঠানো ৬ সংখ্যার কোডটি লিখুন।';
+  }
 }

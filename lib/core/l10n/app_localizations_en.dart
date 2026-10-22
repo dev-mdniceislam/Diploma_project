@@ -499,4 +499,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backToLogin => 'Back to sign in';
+
+  @override
+  String get otpLabel => 'Verification code';
+
+  @override
+  String get otpSubtitle => 'Enter the 6-digit code we sent to your email.';
+
+  @override
+  String get verifyOtp => 'Verify';
+
+  @override
+  String get resendOtp => 'Resend code';
+
+  @override
+  String get errInvalidOtp => 'Enter the 6-digit code';
+
+  @override
+  String get passwordResetSuccessTitle => 'Password updated!';
+
+  @override
+  String get sendCode => 'Send code';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String otpSentTo(String email) {
+    return 'Enter the 6-digit code we sent to $email.';
+  }
 }

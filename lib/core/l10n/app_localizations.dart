@@ -991,6 +991,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to sign in'**
   String get backToLogin;
+
+  /// No description provided for @otpLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code'**
+  String get otpLabel;
+
+  /// No description provided for @otpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 6-digit code we sent to your email.'**
+  String get otpSubtitle;
+
+  /// No description provided for @verifyOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verifyOtp;
+
+  /// No description provided for @resendOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get resendOtp;
+
+  /// No description provided for @errInvalidOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 6-digit code'**
+  String get errInvalidOtp;
+
+  /// No description provided for @passwordResetSuccessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Password updated!'**
+  String get passwordResetSuccessTitle;
+
+  /// No description provided for @sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send code'**
+  String get sendCode;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @otpSentTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 6-digit code we sent to {email}.'**
+  String otpSentTo(String email);
 }
 
 class _AppLocalizationsDelegate
