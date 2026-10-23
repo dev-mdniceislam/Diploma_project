@@ -4,11 +4,9 @@ import 'package:diploma_job/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
 import '../widgets/home_feed_section.dart';
 import '../widgets/home_hero.dart';
 
-/// Page body only — navbar, drawer, footer and scrolling live in AppShell.
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 

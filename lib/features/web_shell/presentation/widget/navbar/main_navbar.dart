@@ -8,6 +8,7 @@ import 'package:diploma_job/core/widgets/custom_button.dart';
 import 'package:diploma_job/core/widgets/custom_hover.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
@@ -83,6 +84,7 @@ class _DesktopActions extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         SavedButton(onTap: () => context.go(AppRoutes.saved)),
+        //CircleAvatar(radius: 20.r, backgroundColor: Colors.red),
       ],
     );
   }

@@ -22,7 +22,7 @@ class AppRoutes {
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: AppRoutes.auth,
+    initialLocation: AppRoutes.home,
     errorBuilder: (context, state) => AppShell(
       child: Center(
         child: CustomText(
