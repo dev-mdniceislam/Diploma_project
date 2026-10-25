@@ -1,4 +1,6 @@
+import 'package:diploma_job/core/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/constants/app_dimens.dart';
@@ -38,123 +40,128 @@ class JobCard extends StatelessWidget {
     final typeBg = isIntern ? palette.tileBrownBg : palette.pillBg;
 
     return CustomHover(
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: scheme.surface,
-          borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-          border: Border.all(color: scheme.outline),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // ── Top: header, badges, description, tags ──
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _Header(
-                  job: job,
-                  isSaved: isSaved,
-                  onToggleSave: onToggleSave,
-                  saveTooltip: l10n.saveCircular,
-                ),
-                const SizedBox(height: 12),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: [
-                    _Badge(
-                      text: isIntern
-                          ? l10n.jobTypeInternship
-                          : l10n.jobTypeFullTime,
-                      fg: typeFg,
-                      bg: typeBg,
-                      border: typeFg.withOpacity(0.25),
-                    ),
-                    _Badge(
-                      text: l10n.techBadge(job.tech.label(l10n)),
-                      fg: scheme.onSurface.withOpacity(0.8),
-                      bg: scheme.outline.withOpacity(0.35),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                CustomText(
-                  job.description,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.bodySmall,
-                ),
-                const SizedBox(height: 14),
-                Wrap(
-                  spacing: 6,
-                  runSpacing: 6,
-                  children: [for (final tag in job.tags) _Tag(tag)],
-                ),
-              ],
-            ),
+      child: GestureDetector(
+        onTap: () {
+          context.push(AppRoutes.detailsOf(job.id));
+        },
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: scheme.surface,
+            borderRadius: BorderRadius.circular(AppDimens.radiusMd),
+            border: Border.all(color: scheme.outline),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // ── Top: header, badges, description, tags ──
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _Header(
+                    job: job,
+                    isSaved: isSaved,
+                    onToggleSave: onToggleSave,
+                    saveTooltip: l10n.saveCircular,
+                  ),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      _Badge(
+                        text: isIntern
+                            ? l10n.jobTypeInternship
+                            : l10n.jobTypeFullTime,
+                        fg: typeFg,
+                        bg: typeBg,
+                        border: typeFg.withOpacity(0.25),
+                      ),
+                      _Badge(
+                        text: l10n.techBadge(job.tech.label(l10n)),
+                        fg: scheme.onSurface.withOpacity(0.8),
+                        bg: scheme.outline.withOpacity(0.35),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  CustomText(
+                    job.description,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTextStyles.bodySmall,
+                  ),
+                  const SizedBox(height: 14),
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: [for (final tag in job.tags) _Tag(tag)],
+                  ),
+                ],
+              ),
 
-            // ── Bottom: meta + CTA ──
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: Container(
-                padding: const EdgeInsets.only(top: 12),
-                decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: scheme.outline)),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _Meta(
-                            icon: Icons.location_on_outlined,
-                            text: job.location,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: _Meta(
-                            icon: Icons.payments_outlined,
-                            text: job.salary,
-                            color: palette.success,
-                            bold: true,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          child: _Meta(
-                            icon: Icons.schedule_rounded,
-                            iconSize: 13,
-                            fontSize: 11,
-                            text: l10n.deadlineLabel(
-                              DateFormat.yMMMd(locale).format(job.deadline),
+              // ── Bottom: meta + CTA ──
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Container(
+                  padding: const EdgeInsets.only(top: 12),
+                  decoration: BoxDecoration(
+                    border: Border(top: BorderSide(color: scheme.outline)),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _Meta(
+                              icon: Icons.location_on_outlined,
+                              text: job.location,
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        CustomButton(
-                          label: l10n.applyNow,
-                          icon: Icons.arrow_forward_rounded,
-                          buttonHeight: 38,
-                          variant: isIntern
-                              ? CustomButtonVariant.accent
-                              : CustomButtonVariant.primary,
-                          onPressed: onApply,
-                        ),
-                      ],
-                    ),
-                  ],
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: _Meta(
+                              icon: Icons.payments_outlined,
+                              text: job.salary,
+                              color: palette.success,
+                              bold: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: _Meta(
+                              icon: Icons.schedule_rounded,
+                              iconSize: 13,
+                              fontSize: 11,
+                              text: l10n.deadlineLabel(
+                                DateFormat.yMMMd(locale).format(job.deadline),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          CustomButton(
+                            label: l10n.applyNow,
+                            icon: Icons.arrow_forward_rounded,
+                            buttonHeight: 38,
+                            variant: isIntern
+                                ? CustomButtonVariant.accent
+                                : CustomButtonVariant.primary,
+                            onPressed: onApply,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

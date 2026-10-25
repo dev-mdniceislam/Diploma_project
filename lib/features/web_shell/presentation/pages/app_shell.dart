@@ -29,7 +29,9 @@ class AppShell extends ConsumerWidget {
             child: NotificationListener<ScrollNotification>(
               onNotification: (n) {
                 if (n is ScrollUpdateNotification && n.depth == 0) {
-                  ref.read(webShellProvider.notifier).onScroll(n.metrics.pixels);
+                  ref
+                      .read(webShellProvider.notifier)
+                      .onScroll(n.metrics.pixels);
                 }
                 return false;
               },
@@ -39,7 +41,9 @@ class AppShell extends ConsumerWidget {
                   physics: const ClampingScrollPhysics(),
                   child: ConstrainedBox(
                     // Keeps the footer at the bottom on short pages.
-                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -77,7 +81,9 @@ class _ScrollToTopButton extends ConsumerWidget {
           hoverElevation: 8,
           backgroundColor: AppColors.primary,
           foregroundColor: AppColors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           onPressed: () => controller.animateTo(
             0,
             duration: const Duration(milliseconds: 800),

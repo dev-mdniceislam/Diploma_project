@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/auth_page.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
+import '../../features/job_details/presentation/screens/job_details_screen.dart';
+import '../../features/student_profile/presentation/screens/student_profile_screen.dart';
 import '../../features/web_shell/presentation/pages/app_shell.dart';
 
 class AppRoutes {
@@ -18,6 +20,9 @@ class AppRoutes {
   static const saved = '/saved';
   static const guide = '/guide';
   static const auth = '/authentication';
+  static const studentProfile = '/studentProfile';
+  static const jobDetails = '/job/:id';
+  static String detailsOf(String id) => '/job/$id';
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -43,9 +48,29 @@ final routerProvider = Provider<GoRouter>((ref) {
                 path: AppRoutes.home,
                 name: 'home',
                 builder: (_, __) => const HomePage(),
+                routes: [
+                  GoRoute(
+                    path: AppRoutes.jobDetails, // '/job/:id'
+                    name: 'jobDetails',
+                    builder: (_, state) => JobDetailsScreen(
+                      circularId: state.pathParameters['id']!,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
+
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.studentProfile,
+                name: 'studentProfile',
+                builder: (_, __) => const StudentProfileScreen(),
+              ),
+            ],
+          ),
+
           StatefulShellBranch(
             routes: [
               GoRoute(

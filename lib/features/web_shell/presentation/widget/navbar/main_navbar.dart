@@ -6,9 +6,9 @@ import 'package:diploma_job/core/widgets/app_container.dart';
 import 'package:diploma_job/core/widgets/app_logo.dart';
 import 'package:diploma_job/core/widgets/custom_button.dart';
 import 'package:diploma_job/core/widgets/custom_hover.dart';
+import 'package:diploma_job/core/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
@@ -52,7 +52,8 @@ class MainNavbar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SavedButton(onTap: () => context.go(AppRoutes.saved)),
+                    // SavedButton(onTap: () => context.go(AppRoutes.saved)),
+                    _profileImageButton(context),
                     const SizedBox(width: 8),
                     const _MenuButton(),
                   ],
@@ -83,11 +84,45 @@ class _DesktopActions extends StatelessWidget {
           onPressed: () => context.go(AppRoutes.postCircular),
         ),
         const SizedBox(width: 12),
-        SavedButton(onTap: () => context.go(AppRoutes.saved)),
-        //CircleAvatar(radius: 20.r, backgroundColor: Colors.red),
+        //SavedButton(onTap: () => context.go(AppRoutes.saved)),
+        _profileImageButton(context),
       ],
     );
   }
+}
+
+InkWell _profileImageButton(BuildContext context) {
+  return InkWell(
+    onTap: () {
+      context.go(AppRoutes.studentProfile);
+    },
+    child: Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          padding: EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            border: BoxBorder.all(color: AppColors.primary, width: 2),
+          ),
+          child: CustomImage(
+            imagePath: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOJ4IZbkwwyJD4dq7MObC7x1gpYN0xVkTOV_X9T9ZCMQ&s=10",
+            borderRadius: BorderRadius.circular(3),
+            height: 35,
+            width: 35,
+          ),
+        ),
+        Positioned(
+          bottom: -2,
+          left: -2,
+          child: CircleAvatar(
+            radius: 7,
+            backgroundColor: AppColors.accentGreen,
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 class _MenuButton extends StatelessWidget {

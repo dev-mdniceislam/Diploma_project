@@ -204,6 +204,291 @@
 "sendCode": "কোড পাঠান",
 "back": "পিছনে",
 "otpSentTo": "{email} এ পাঠানো ৬ সংখ্যার কোডটি লিখুন।",
-"@otpSentTo": { "placeholders": { "email": { "type": "String" } } }
+"@otpSentTo": { "placeholders": { "email": { "type": "String" } } },
 
+
+
+"stepProfile":"================================== Student Profile ========================",
+"@@locale": "bn",
+  "myProfile": "মাই প্রোফাইল",
+  "nocGuide": "NOC গাইড",
+  "updateCv": "সিভি আপডেট",
+  "comingSoon": "এই ফিচারটি শীঘ্রই আসছে!",
+  "changeCover": "কভার চেঞ্জ করুন",
+  "verifiedStudent": "ভেরিফাইড স্টুডেন্ট",
+  "downloadResume": "রেজুমে ডাউনলোড",
+  "editProfile": "প্রোফাইল এডিট",
+  "copyPublicLink": "পাবলিক লিংক কপি",
+  "linkCopied": "প্রোফাইল লিংক ক্লিপবোর্ডে কপি করা হয়েছে!",
+  "cvNotUploaded": "এখনও কোনো সিভি লিংক যোগ করা হয়নি",
+  "linkOpenFailed": "লিংকটি খোলা যায়নি",
+  "instituteRoll": "{institute} • রোল: {roll}",
+  "@instituteRoll": {
+    "placeholders": {
+      "institute": {
+        "type": "String"
+      },
+      "roll": {
+        "type": "String"
+      }
+    }
+  },
+  "semesterLabel": "{ordinal} সেমিস্টার",
+  "@semesterLabel": {
+    "placeholders": {
+      "ordinal": {
+        "type": "String"
+      }
+    }
+  },
+  "ordinal": "{n, select, 1{১ম} 2{২য়} 3{৩য়} 4{৪র্থ} 5{৫ম} 6{৬ষ্ঠ} 7{৭ম} 8{৮ম} other{{n}ম}}",
+  "@ordinal": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "metricCurrentStatus": "বর্তমান অবস্থান",
+  "metricStatusValue": "{semester} (অ্যাটাচমেন্ট)",
+  "@metricStatusValue": {
+    "placeholders": {
+      "semester": {
+        "type": "String"
+      }
+    }
+  },
+  "metricCgpa": "সিজিপিএ (গড় CGPA)",
+  "metricApplied": "আবেদনকৃত জব/ইন্টার্ন",
+  "circularsCount": "{count, plural, =0{কোনো সার্কুলার নেই} other{{count}টি সার্কুলার}}",
+  "@circularsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "metricNoc": "NOC স্ট্যাটাস",
+  "nocIssued": "ইস্যু করা হয়েছে",
+  "nocPending": "প্রক্রিয়াধীন",
+  "nocRejected": "বাতিল",
+  "tabOverview": "ওভারভিউ ও বিবরণ",
+  "tabAcademic": "শিক্ষাগত যোগ্যতা",
+  "tabProjects": "স্কিলস ও প্রজেক্ট",
+  "tabApplications": "আবেদন ট্র্যাকার",
+  "tabCertifications": "সার্টিফিকেট ও সোশ্যাল",
+  "aboutMe": "নিজের সম্পর্কে (Bio)",
+  "edit": "এডিট করুন",
+  "techProficiency": "প্রধান কারিগরি দক্ষতা (Tech Proficiency)",
+  "contactInfo": "যোগাযোগের তথ্য",
+  "emailAddress": "ইমেইল ঠিকানা",
+  "phoneNumber": "ফোন নম্বর",
+  "currentAddress": "বর্তমান ঠিকানা",
+  "boardInfo": "কারিগরি শিক্ষা বোর্ড তথ্য",
+  "boardRoll": "বোর্ড রোল:",
+  "registration": "রেজিস্ট্রেশন:",
+  "session": "সেশন:",
+  "nocLetterNo": "NOC পত্র নম্বর:",
+  "resultBreakdown": "পলিটেকনিক রেজাল্ট ব্রেকডাউন (Semester GPA)",
+  "colSemester": "সেমিস্টার",
+  "colExamYear": "পরীক্ষার বছর",
+  "colGpa": "প্রাপ্ত জিপিএ (GPA)",
+  "colStatus": "স্ট্যাটাস",
+  "passed": "উত্তীর্ণ",
+  "avgCgpaRange": "গড় সিজিপিএ ({from} - {to})",
+  "@avgCgpaRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "gradeFirstClass": "ফার্স্ট ক্লাস অনার্স সমমান",
+  "sscTitle": "মাধ্যমিক স্কুল সার্টিফিকেট (SSC / সমমান)",
+  "schoolName": "স্কুল নাম:",
+  "groupBoard": "গ্রুপ & বোর্ড:",
+  "passingYearGpa": "পাসিং ইয়ার & জিপিএ:",
+  "portfolioTitle": "প্র্যাকটিক্যাল প্রজেক্ট পোর্টফোলিও",
+  "portfolioSubtitle": "পলিটেকনিক ক্লাসে ও ব্যক্তিগতভাবে তৈরি প্রজেক্টসমূহ",
+  "addProject": "নতুন প্রজেক্ট যোগ করুন",
+  "newProject": "নতুন প্রজেক্ট",
+  "liveDemo": "লাইভ ডেমো",
+  "githubCode": "গিটহাব কোড",
+  "trackerTitle": "আবেদনকৃত সার্কুলার ও ইন্টার্নশিপ ট্র্যাকার",
+  "trackerSubtitle": "আপনার জমাকৃত সকল আবেদনের রিয়েল-টাইম স্ট্যাটাস",
+  "filter": "ফিল্টার:",
+  "filterAll": "সব আবেদন",
+  "filterShortlisted": "শর্ট লিস্টেড",
+  "filterPending": "পেন্ডিং",
+  "filterInterview": "ইন্টারভিউ নির্ধারিত",
+  "noApplications": "কোনো আবেদন পাওয়া যায়নি",
+  "colCompany": "কোম্পানি & পদের নাম",
+  "colType": "ধরন",
+  "colAppliedDate": "আবেদনের তারিখ",
+  "colCurrentStatus": "বর্তমান স্ট্যাটাস",
+  "colAction": "অ্যাকশন",
+  "typeAttachment": "🎓 অ্যাটাচমেন্ট",
+  "typeJob": "💼 চাকরি",
+  "statusShortlisted": "শর্ট লিস্টেড",
+  "statusInterview": "ইন্টারভিউ নির্ধারিত",
+  "statusPending": "রিভিউ পেন্ডিং",
+  "actionViewMessage": "মেসেজ দেখুন",
+  "actionDetails": "ডিটেইলস",
+  "actionPleaseWait": "অপেক্ষা করুন",
+  "noMessage": "এখনও কোনো মেসেজ নেই",
+  "certificatesTitle": "অর্জিত ট্রেনিং ও কোর্স সার্টিফিকেটসমূহ",
+  "add": "যোগ করুন",
+  "socialTitle": "সোশ্যাল মিডিয়া ও অনলাইন পোর্টফোলিও লিংক",
+  "linkedinProfile": "LinkedIn Profile",
+  "githubRepos": "GitHub Repositories",
+  "editProfileTitle": "শিক্ষার্থী প্রোফাইল এডিট করুন",
+  "fullName": "শিক্ষার্থীর পূর্ণ নাম",
+  "polytechnicName": "পলিটেকনিকের নাম",
+  "technology": "টেকনোলজি",
+  "email": "ইমেইল",
+  "bioLabel": "নিজের সম্পর্কে সংক্ষিপ্ত বিবরণ (Bio)",
+  "cancel": "বাতিল",
+  "save": "সেভ করুন",
+  "fieldRequired": "এই ঘরটি পূরণ করা আবশ্যক",
+  "invalidEmail": "সঠিক ইমেইল ঠিকানা দিন",
+  "invalidUrl": "সঠিক লিংক দিন",
+  "profileUpdated": "প্রোফাইল তথ্য সফলভাবে আপডেট করা হয়েছে!",
+  "cvDialogTitle": "গুগোল ড্রাইভ রেজুমে / সিভি লিংক",
+  "cvLinkLabel": "Google Drive CV Link",
+  "cvLinkNote": "লিংকটি অবশ্যই 'Anyone with the link' ভিউ পারমিশন অন করে দিন।",
+  "update": "আপডেট করুন",
+  "cvUpdated": "আপনার গুগোল ড্রাইভ সিভি লিংকটি হালনাগাদ করা হয়েছে!",
+  "addProjectTitle": "নতুন প্রজেক্ট যুক্ত করুন",
+  "projectName": "প্রজেক্টের নাম",
+  "projectTech": "ব্যবহৃত টেকনোলজি (কমা দিয়ে লিখুন)",
+  "projectTechHint": "ex: HTML, Tailwind, JS",
+  "projectDesc": "সংক্ষিপ্ত বিবরণ",
+  "publish": "পাবলিশ করুন",
+  "projectAdded": "নতুন প্রজেক্ট সফলভাবে পোর্টফোলিওতে যোগ করা হয়েছে!",
+  "nocGuideTitle": "NOC গাইডলাইন",
+  "nocGuideBody": "পলিটেকনিকের ইন্ডাস্ট্রিয়াল লিয়াঁজো শাখা থেকে অনুমোদিত NOC পত্রটি অ্যাপ্লাই করার সময় সংলগ্ন করতে হবে।",
+  "nocVerifiedActive": "NOC No: {number} (Verified Active)",
+  "@nocVerifiedActive": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "somethingWentWrong": "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+  "retry": "আবার চেষ্টা করুন",
+
+
+
+  "stepJobDetails":"================================== Job details ========================",
+   "appliedBannerTitle": "আপনি এই সার্কুলারে সফলভাবে আবেদন করেছেন!",
+    "appliedBannerSubtitle": "আবেদনের তারিখ: {date} | স্ট্যাটাস: {status}",
+    "@appliedBannerSubtitle": {
+      "placeholders": {
+        "date": {
+          "type": "String"
+        },
+        "status": {
+          "type": "String"
+        }
+      }
+    },
+    "applicationDetails": "আবেদন বিবরণী",
+    "typeSemesterAttachment": "🎓 {semester} অ্যাটাচমেন্ট",
+    "@typeSemesterAttachment": {
+      "placeholders": {
+        "semester": {
+          "type": "String"
+        }
+      }
+    },
+    "typeFullTimeJob": "💼 ফুল-টাইম চাকরি",
+    "verifiedEmployer": "ভেরিফাইড নিয়োগকারী",
+    "technologyLabel": "টেকনোলজি:",
+    "applied": "আবেদন সম্পন্ন হয়েছে",
+    "applyNow": "এখনই আবেদন করুন",
+    "bookmarkTooltip": "সেভ করুন",
+    "shareTooltip": "শেয়ার করুন",
+    "hlLocation": "কর্মস্থল / লোকেশন",
+    "hlStipend": "মাসিক স্টাইপেন্ড",
+    "hlExperience": "অভিজ্ঞতা / সেমিস্টার",
+    "hlDeadline": "আবেদনের ডেডলাইন",
+    "hlVacancies": "খালি পদের সংখ্যা",
+    "stipendPerMonth": "৳ {amount} / মাস",
+    "@stipendPerMonth": {
+      "placeholders": {
+        "amount": {
+          "type": "int",
+          "format": "decimalPattern"
+        }
+      }
+    },
+    "vacanciesCount": "{count, plural, other{{count} টি আসন}}",
+    "@vacanciesCount": {
+      "placeholders": {
+        "count": {
+          "type": "int",
+          "format": "decimalPattern"
+        }
+      }
+    },
+    "roleOverview": "পদের বিবরণ ও সারসংক্ষেপ (Role Overview)",
+    "keyResponsibilities": "প্রধান দায়িত্বসমূহ (Key Responsibilities)",
+    "requirementsTitle": "শিক্ষাগত যোগ্যতা ও টেকনোলজি শর্তাবলী",
+    "benefitsTitle": "সুযোগ-সুবিধা ও প্রণোদনা (Benefits & Perks)",
+    "requiredDocsTitle": "আবেদনের প্রয়োজনীয় সংলগ্নী কাগজপত্র",
+    "summaryTitle": "সংক্ষেপ সার্কুলার তথ্য",
+    "sumPublished": "প্রকাশের তারিখ:",
+    "sumDeadline": "আবেদনের শেষ সময়:",
+    "sumJobType": "চাকরির ধরণ:",
+    "sumEducation": "শিক্ষাগত যোগ্যতা:",
+    "sumHousing": "আবাসন সুবিধা:",
+    "applyOnline": "এখনই অনলাইনে আবেদন করুন",
+    "hrTitle": "এইচআর ডেস্ক ও যোগাযোগ",
+    "hrEmail": "অফিসিয়াল এইচআর ইমেইল",
+    "hrHelpline": "হেল্পলাইন (সকাল ৯টা-৫টা)",
+    "hrWebsite": "ওয়েবসাইট",
+    "relatedTitle": "সম্পর্কিত অন্যান্য সার্কুলার",
+    "applyDialogTitle": "সার্কুলারে সরাসরি আবেদন করুন",
+    "cvUploadLabel": "আপনার আপডেট সিভি (PDF Format) *",
+    "dropOrBrowse": "ফাইল ড্রপ করুন অথবা",
+    "browse": "ব্রাউজ করুন",
+    "maxFileSize": "সর্বোচ্চ ফাইল সাইজ: 5MB (PDF)",
+    "removeFile": "ফাইল সরান",
+    "nocUploadLabel": "পলিটেকনিক ছাড়পত্র / NOC সংলগ্নী (ঐচ্ছিক)",
+    "expectedStipend": "প্রত্যাশিত স্টাইপেন্ড",
+    "companyDecided": "(কোম্পানি নির্ধারিত)",
+    "currentSemester": "বর্তমান সেমিস্টার *",
+    "coverNoteLabel": "এইচআর ডেস্কে সংক্ষিপ্ত নোট (Cover Note)",
+    "coverNoteHint": "কেন আপনি এই পদের জন্য উপযুক্ত এবং আপনার কারিগরি প্রজেক্ট সম্পর্কে কিছু লিখুন...",
+    "confirmApplication": "আবেদন কনফার্ম করুন",
+    "cvRequired": "সিভি (PDF) সংযুক্ত করুন",
+    "fileTooLarge": "ফাইলের সাইজ ৫ এমবির বেশি",
+    "applicantNameRoll": "{name} (রোল: {roll})",
+    "@applicantNameRoll": {
+      "placeholders": {
+        "name": {
+          "type": "String"
+        },
+        "roll": {
+          "type": "String"
+        }
+      }
+    },
+    "applicationSubmitted": "আপনার আবেদনপত্র {company} এইচআর ডেস্কে সফলভাবে জমা হয়েছে!",
+    "@applicationSubmitted": {
+      "placeholders": {
+        "company": {
+          "type": "String"
+        }
+      }
+    },
+    "alreadyApplied": "আপনি ইতিমধ্যেই আবেদন করেছেন!",
+    "bookmarkSaved": "সার্কুলারটি আপনার বুকমার্ক তালিকায় সেভ করা হয়েছে",
+    "bookmarkRemoved": "বুকমার্ক তালিকা থেকে সরানো হয়েছে",
+    "circularLinkCopied": "সার্কুলার লিংক কপি করা হয়েছে!"
 }

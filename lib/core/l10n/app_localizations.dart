@@ -419,7 +419,7 @@ abstract class AppLocalizations {
   /// No description provided for @retry.
   ///
   /// In en, this message translates to:
-  /// **'Try again'**
+  /// **'Retry'**
   String get retry;
 
   /// No description provided for @footerAbout.
@@ -1045,6 +1045,1020 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter the 6-digit code we sent to {email}.'**
   String otpSentTo(String email);
+
+  /// No description provided for @stepProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'================================== Student Profile ========================'**
+  String get stepProfile;
+
+  /// No description provided for @myProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'My Profile'**
+  String get myProfile;
+
+  /// No description provided for @nocGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC Guide'**
+  String get nocGuide;
+
+  /// No description provided for @updateCv.
+  ///
+  /// In en, this message translates to:
+  /// **'Update CV'**
+  String get updateCv;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'This feature is coming soon!'**
+  String get comingSoon;
+
+  /// No description provided for @changeCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Change cover'**
+  String get changeCover;
+
+  /// No description provided for @verifiedStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified student'**
+  String get verifiedStudent;
+
+  /// No description provided for @downloadResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Download resume'**
+  String get downloadResume;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get editProfile;
+
+  /// No description provided for @copyPublicLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy public link'**
+  String get copyPublicLink;
+
+  /// No description provided for @linkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile link copied to clipboard!'**
+  String get linkCopied;
+
+  /// No description provided for @cvNotUploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'No CV link has been added yet'**
+  String get cvNotUploaded;
+
+  /// No description provided for @linkOpenFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the link'**
+  String get linkOpenFailed;
+
+  /// No description provided for @instituteRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'{institute} • Roll: {roll}'**
+  String instituteRoll(String institute, String roll);
+
+  /// No description provided for @semesterLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{ordinal} Semester'**
+  String semesterLabel(String ordinal);
+
+  /// No description provided for @ordinal.
+  ///
+  /// In en, this message translates to:
+  /// **'{n, select, 1{1st} 2{2nd} 3{3rd} 4{4th} 5{5th} 6{6th} 7{7th} 8{8th} other{{n}th}}'**
+  String ordinal(String n);
+
+  /// No description provided for @metricCurrentStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Current status'**
+  String get metricCurrentStatus;
+
+  /// No description provided for @metricStatusValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{semester} (Attachment)'**
+  String metricStatusValue(String semester);
+
+  /// No description provided for @metricCgpa.
+  ///
+  /// In en, this message translates to:
+  /// **'CGPA (average)'**
+  String get metricCgpa;
+
+  /// No description provided for @metricApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied jobs / internships'**
+  String get metricApplied;
+
+  /// No description provided for @circularsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No circulars} =1{1 circular} other{{count} circulars}}'**
+  String circularsCount(int count);
+
+  /// No description provided for @metricNoc.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC status'**
+  String get metricNoc;
+
+  /// No description provided for @nocIssued.
+  ///
+  /// In en, this message translates to:
+  /// **'Issued'**
+  String get nocIssued;
+
+  /// No description provided for @nocPending.
+  ///
+  /// In en, this message translates to:
+  /// **'In process'**
+  String get nocPending;
+
+  /// No description provided for @nocRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get nocRejected;
+
+  /// No description provided for @tabOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview & details'**
+  String get tabOverview;
+
+  /// No description provided for @tabAcademic.
+  ///
+  /// In en, this message translates to:
+  /// **'Academic'**
+  String get tabAcademic;
+
+  /// No description provided for @tabProjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Skills & projects'**
+  String get tabProjects;
+
+  /// No description provided for @tabApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Application tracker'**
+  String get tabApplications;
+
+  /// No description provided for @tabCertifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Certificates & social'**
+  String get tabCertifications;
+
+  /// No description provided for @aboutMe.
+  ///
+  /// In en, this message translates to:
+  /// **'About me (Bio)'**
+  String get aboutMe;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @techProficiency.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical proficiency'**
+  String get techProficiency;
+
+  /// No description provided for @contactInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact information'**
+  String get contactInfo;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number'**
+  String get phoneNumber;
+
+  /// No description provided for @currentAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Current address'**
+  String get currentAddress;
+
+  /// No description provided for @boardInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical education board'**
+  String get boardInfo;
+
+  /// No description provided for @boardRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Board roll:'**
+  String get boardRoll;
+
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration:'**
+  String get registration;
+
+  /// No description provided for @session.
+  ///
+  /// In en, this message translates to:
+  /// **'Session:'**
+  String get session;
+
+  /// No description provided for @nocLetterNo.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC letter no:'**
+  String get nocLetterNo;
+
+  /// No description provided for @resultBreakdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic result breakdown (Semester GPA)'**
+  String get resultBreakdown;
+
+  /// No description provided for @colSemester.
+  ///
+  /// In en, this message translates to:
+  /// **'Semester'**
+  String get colSemester;
+
+  /// No description provided for @colExamYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam year'**
+  String get colExamYear;
+
+  /// No description provided for @colGpa.
+  ///
+  /// In en, this message translates to:
+  /// **'GPA'**
+  String get colGpa;
+
+  /// No description provided for @colStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get colStatus;
+
+  /// No description provided for @passed.
+  ///
+  /// In en, this message translates to:
+  /// **'Passed'**
+  String get passed;
+
+  /// No description provided for @avgCgpaRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Average CGPA ({from} – {to})'**
+  String avgCgpaRange(String from, String to);
+
+  /// No description provided for @gradeFirstClass.
+  ///
+  /// In en, this message translates to:
+  /// **'First class honors equivalent'**
+  String get gradeFirstClass;
+
+  /// No description provided for @sscTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secondary School Certificate (SSC / equivalent)'**
+  String get sscTitle;
+
+  /// No description provided for @schoolName.
+  ///
+  /// In en, this message translates to:
+  /// **'School name:'**
+  String get schoolName;
+
+  /// No description provided for @groupBoard.
+  ///
+  /// In en, this message translates to:
+  /// **'Group & board:'**
+  String get groupBoard;
+
+  /// No description provided for @passingYearGpa.
+  ///
+  /// In en, this message translates to:
+  /// **'Passing year & GPA:'**
+  String get passingYearGpa;
+
+  /// No description provided for @portfolioTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Practical project portfolio'**
+  String get portfolioTitle;
+
+  /// No description provided for @portfolioSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Projects built in class and on your own'**
+  String get portfolioSubtitle;
+
+  /// No description provided for @addProject.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new project'**
+  String get addProject;
+
+  /// No description provided for @newProject.
+  ///
+  /// In en, this message translates to:
+  /// **'New project'**
+  String get newProject;
+
+  /// No description provided for @liveDemo.
+  ///
+  /// In en, this message translates to:
+  /// **'Live demo'**
+  String get liveDemo;
+
+  /// No description provided for @githubCode.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub code'**
+  String get githubCode;
+
+  /// No description provided for @trackerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied circulars & internship tracker'**
+  String get trackerTitle;
+
+  /// No description provided for @trackerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Real-time status of all your submitted applications'**
+  String get trackerSubtitle;
+
+  /// No description provided for @filter.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter:'**
+  String get filter;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All applications'**
+  String get filterAll;
+
+  /// No description provided for @filterShortlisted.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlisted'**
+  String get filterShortlisted;
+
+  /// No description provided for @filterPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get filterPending;
+
+  /// No description provided for @filterInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview scheduled'**
+  String get filterInterview;
+
+  /// No description provided for @noApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'No applications found'**
+  String get noApplications;
+
+  /// No description provided for @colCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'Company & position'**
+  String get colCompany;
+
+  /// No description provided for @colType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get colType;
+
+  /// No description provided for @colAppliedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied on'**
+  String get colAppliedDate;
+
+  /// No description provided for @colCurrentStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Current status'**
+  String get colCurrentStatus;
+
+  /// No description provided for @colAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Action'**
+  String get colAction;
+
+  /// No description provided for @typeAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'🎓 Attachment'**
+  String get typeAttachment;
+
+  /// No description provided for @typeJob.
+  ///
+  /// In en, this message translates to:
+  /// **'💼 Job'**
+  String get typeJob;
+
+  /// No description provided for @statusShortlisted.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlisted'**
+  String get statusShortlisted;
+
+  /// No description provided for @statusInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview scheduled'**
+  String get statusInterview;
+
+  /// No description provided for @statusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Review pending'**
+  String get statusPending;
+
+  /// No description provided for @actionViewMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'View message'**
+  String get actionViewMessage;
+
+  /// No description provided for @actionDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get actionDetails;
+
+  /// No description provided for @actionPleaseWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait'**
+  String get actionPleaseWait;
+
+  /// No description provided for @noMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No message yet'**
+  String get noMessage;
+
+  /// No description provided for @certificatesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Training & course certificates'**
+  String get certificatesTitle;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @socialTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Social media & online portfolio links'**
+  String get socialTitle;
+
+  /// No description provided for @linkedinProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'LinkedIn Profile'**
+  String get linkedinProfile;
+
+  /// No description provided for @githubRepos.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub Repositories'**
+  String get githubRepos;
+
+  /// No description provided for @editProfileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit student profile'**
+  String get editProfileTitle;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Student\'s full name'**
+  String get fullName;
+
+  /// No description provided for @polytechnicName.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic name'**
+  String get polytechnicName;
+
+  /// No description provided for @technology.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology'**
+  String get technology;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @bioLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Short bio'**
+  String get bioLabel;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequired;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address'**
+  String get invalidEmail;
+
+  /// No description provided for @invalidUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid link'**
+  String get invalidUrl;
+
+  /// No description provided for @profileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully!'**
+  String get profileUpdated;
+
+  /// No description provided for @cvDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Drive resume / CV link'**
+  String get cvDialogTitle;
+
+  /// No description provided for @cvLinkLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Drive CV link'**
+  String get cvLinkLabel;
+
+  /// No description provided for @cvLinkNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on \'Anyone with the link\' view permission.'**
+  String get cvLinkNote;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @cvUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Google Drive CV link has been updated!'**
+  String get cvUpdated;
+
+  /// No description provided for @addProjectTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new project'**
+  String get addProjectTitle;
+
+  /// No description provided for @projectName.
+  ///
+  /// In en, this message translates to:
+  /// **'Project name'**
+  String get projectName;
+
+  /// No description provided for @projectTech.
+  ///
+  /// In en, this message translates to:
+  /// **'Technologies used (comma separated)'**
+  String get projectTech;
+
+  /// No description provided for @projectTechHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. HTML, Tailwind, JS'**
+  String get projectTechHint;
+
+  /// No description provided for @projectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Short description'**
+  String get projectDesc;
+
+  /// No description provided for @publish.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish'**
+  String get publish;
+
+  /// No description provided for @projectAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Project added to your portfolio!'**
+  String get projectAdded;
+
+  /// No description provided for @nocGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC guideline'**
+  String get nocGuideTitle;
+
+  /// No description provided for @nocGuideBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach the NOC letter approved by your polytechnic\'s industrial liaison office when you apply.'**
+  String get nocGuideBody;
+
+  /// No description provided for @nocVerifiedActive.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC No: {number} (Verified Active)'**
+  String nocVerifiedActive(String number);
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get somethingWentWrong;
+
+  /// No description provided for @stepJobDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'================================== Job details ========================'**
+  String get stepJobDetails;
+
+  /// No description provided for @appliedBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You have successfully applied to this circular!'**
+  String get appliedBannerTitle;
+
+  /// No description provided for @appliedBannerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied on: {date} | Status: {status}'**
+  String appliedBannerSubtitle(String date, String status);
+
+  /// No description provided for @applicationDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Application details'**
+  String get applicationDetails;
+
+  /// No description provided for @typeSemesterAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'🎓 {semester} attachment'**
+  String typeSemesterAttachment(String semester);
+
+  /// No description provided for @typeFullTimeJob.
+  ///
+  /// In en, this message translates to:
+  /// **'💼 Full-time job'**
+  String get typeFullTimeJob;
+
+  /// No description provided for @verifiedEmployer.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified employer'**
+  String get verifiedEmployer;
+
+  /// No description provided for @technologyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology:'**
+  String get technologyLabel;
+
+  /// No description provided for @applied.
+  ///
+  /// In en, this message translates to:
+  /// **'Application submitted'**
+  String get applied;
+
+  /// No description provided for @bookmarkTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get bookmarkTooltip;
+
+  /// No description provided for @shareTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareTooltip;
+
+  /// No description provided for @hlLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Work location'**
+  String get hlLocation;
+
+  /// No description provided for @hlStipend.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly stipend'**
+  String get hlStipend;
+
+  /// No description provided for @hlExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'Experience / semester'**
+  String get hlExperience;
+
+  /// No description provided for @hlDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Application deadline'**
+  String get hlDeadline;
+
+  /// No description provided for @hlVacancies.
+  ///
+  /// In en, this message translates to:
+  /// **'Vacancies'**
+  String get hlVacancies;
+
+  /// No description provided for @stipendPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'৳ {amount} / month'**
+  String stipendPerMonth(int amount);
+
+  /// No description provided for @vacanciesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 seat} other{{count} seats}}'**
+  String vacanciesCount(int count);
+
+  /// No description provided for @roleOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Role overview'**
+  String get roleOverview;
+
+  /// No description provided for @keyResponsibilities.
+  ///
+  /// In en, this message translates to:
+  /// **'Key responsibilities'**
+  String get keyResponsibilities;
+
+  /// No description provided for @requirementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Education & technology requirements'**
+  String get requirementsTitle;
+
+  /// No description provided for @benefitsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Benefits & perks'**
+  String get benefitsTitle;
+
+  /// No description provided for @requiredDocsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents required to apply'**
+  String get requiredDocsTitle;
+
+  /// No description provided for @summaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Circular summary'**
+  String get summaryTitle;
+
+  /// No description provided for @sumPublished.
+  ///
+  /// In en, this message translates to:
+  /// **'Published on:'**
+  String get sumPublished;
+
+  /// No description provided for @sumDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Deadline:'**
+  String get sumDeadline;
+
+  /// No description provided for @sumJobType.
+  ///
+  /// In en, this message translates to:
+  /// **'Job type:'**
+  String get sumJobType;
+
+  /// No description provided for @sumEducation.
+  ///
+  /// In en, this message translates to:
+  /// **'Education:'**
+  String get sumEducation;
+
+  /// No description provided for @sumHousing.
+  ///
+  /// In en, this message translates to:
+  /// **'Housing:'**
+  String get sumHousing;
+
+  /// No description provided for @applyOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply online now'**
+  String get applyOnline;
+
+  /// No description provided for @hrTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'HR desk & contact'**
+  String get hrTitle;
+
+  /// No description provided for @hrEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Official HR email'**
+  String get hrEmail;
+
+  /// No description provided for @hrHelpline.
+  ///
+  /// In en, this message translates to:
+  /// **'Helpline (9am–5pm)'**
+  String get hrHelpline;
+
+  /// No description provided for @hrWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get hrWebsite;
+
+  /// No description provided for @relatedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Related circulars'**
+  String get relatedTitle;
+
+  /// No description provided for @applyDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply directly to this circular'**
+  String get applyDialogTitle;
+
+  /// No description provided for @cvUploadLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Your updated CV (PDF) *'**
+  String get cvUploadLabel;
+
+  /// No description provided for @dropOrBrowse.
+  ///
+  /// In en, this message translates to:
+  /// **'Drop a file or'**
+  String get dropOrBrowse;
+
+  /// No description provided for @browse.
+  ///
+  /// In en, this message translates to:
+  /// **'browse'**
+  String get browse;
+
+  /// No description provided for @maxFileSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Max file size: 5 MB (PDF)'**
+  String get maxFileSize;
+
+  /// No description provided for @removeFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove file'**
+  String get removeFile;
+
+  /// No description provided for @nocUploadLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic NOC attachment (optional)'**
+  String get nocUploadLabel;
+
+  /// No description provided for @expectedStipend.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected stipend'**
+  String get expectedStipend;
+
+  /// No description provided for @companyDecided.
+  ///
+  /// In en, this message translates to:
+  /// **'(set by company)'**
+  String get companyDecided;
+
+  /// No description provided for @currentSemester.
+  ///
+  /// In en, this message translates to:
+  /// **'Current semester *'**
+  String get currentSemester;
+
+  /// No description provided for @coverNoteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Short note to the HR desk (cover note)'**
+  String get coverNoteLabel;
+
+  /// No description provided for @coverNoteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Why you are a good fit and a bit about your technical projects…'**
+  String get coverNoteHint;
+
+  /// No description provided for @confirmApplication.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm application'**
+  String get confirmApplication;
+
+  /// No description provided for @cvRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please attach your CV (PDF)'**
+  String get cvRequired;
+
+  /// No description provided for @fileTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'File is larger than 5 MB'**
+  String get fileTooLarge;
+
+  /// No description provided for @applicantNameRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} (Roll: {roll})'**
+  String applicantNameRoll(String name, String roll);
+
+  /// No description provided for @applicationSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Your application was submitted to the {company} HR desk!'**
+  String applicationSubmitted(String company);
+
+  /// No description provided for @alreadyApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'You have already applied!'**
+  String get alreadyApplied;
+
+  /// No description provided for @bookmarkSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Circular saved to your bookmarks'**
+  String get bookmarkSaved;
+
+  /// No description provided for @bookmarkRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed from your bookmarks'**
+  String get bookmarkRemoved;
+
+  /// No description provided for @circularLinkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Circular link copied!'**
+  String get circularLinkCopied;
 }
 
 class _AppLocalizationsDelegate

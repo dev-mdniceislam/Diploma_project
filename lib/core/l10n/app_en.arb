@@ -192,5 +192,292 @@
 "sendCode": "Send code",
 "back": "Back",
 "otpSentTo": "Enter the 6-digit code we sent to {email}.",
-"@otpSentTo": { "placeholders": { "email": { "type": "String" } } }
+"@otpSentTo": { "placeholders": { "email": { "type": "String" } } },
+
+
+
+
+"stepProfile":"================================== Student Profile ========================",
+ "@@locale": "en",
+  "myProfile": "My Profile",
+  "nocGuide": "NOC Guide",
+  "updateCv": "Update CV",
+  "comingSoon": "This feature is coming soon!",
+  "changeCover": "Change cover",
+  "verifiedStudent": "Verified student",
+  "downloadResume": "Download resume",
+  "editProfile": "Edit profile",
+  "copyPublicLink": "Copy public link",
+  "linkCopied": "Profile link copied to clipboard!",
+  "cvNotUploaded": "No CV link has been added yet",
+  "linkOpenFailed": "Could not open the link",
+  "instituteRoll": "{institute} • Roll: {roll}",
+  "@instituteRoll": {
+    "placeholders": {
+      "institute": {
+        "type": "String"
+      },
+      "roll": {
+        "type": "String"
+      }
+    }
+  },
+  "semesterLabel": "{ordinal} Semester",
+  "@semesterLabel": {
+    "placeholders": {
+      "ordinal": {
+        "type": "String"
+      }
+    }
+  },
+  "ordinal": "{n, select, 1{1st} 2{2nd} 3{3rd} 4{4th} 5{5th} 6{6th} 7{7th} 8{8th} other{{n}th}}",
+  "@ordinal": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "metricCurrentStatus": "Current status",
+  "metricStatusValue": "{semester} (Attachment)",
+  "@metricStatusValue": {
+    "placeholders": {
+      "semester": {
+        "type": "String"
+      }
+    }
+  },
+  "metricCgpa": "CGPA (average)",
+  "metricApplied": "Applied jobs / internships",
+  "circularsCount": "{count, plural, =0{No circulars} =1{1 circular} other{{count} circulars}}",
+  "@circularsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "metricNoc": "NOC status",
+  "nocIssued": "Issued",
+  "nocPending": "In process",
+  "nocRejected": "Rejected",
+  "tabOverview": "Overview & details",
+  "tabAcademic": "Academic",
+  "tabProjects": "Skills & projects",
+  "tabApplications": "Application tracker",
+  "tabCertifications": "Certificates & social",
+  "aboutMe": "About me (Bio)",
+  "edit": "Edit",
+  "techProficiency": "Technical proficiency",
+  "contactInfo": "Contact information",
+  "emailAddress": "Email address",
+  "phoneNumber": "Phone number",
+  "currentAddress": "Current address",
+  "boardInfo": "Technical education board",
+  "boardRoll": "Board roll:",
+  "registration": "Registration:",
+  "session": "Session:",
+  "nocLetterNo": "NOC letter no:",
+  "resultBreakdown": "Polytechnic result breakdown (Semester GPA)",
+  "colSemester": "Semester",
+  "colExamYear": "Exam year",
+  "colGpa": "GPA",
+  "colStatus": "Status",
+  "passed": "Passed",
+  "avgCgpaRange": "Average CGPA ({from} – {to})",
+  "@avgCgpaRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "gradeFirstClass": "First class honors equivalent",
+  "sscTitle": "Secondary School Certificate (SSC / equivalent)",
+  "schoolName": "School name:",
+  "groupBoard": "Group & board:",
+  "passingYearGpa": "Passing year & GPA:",
+  "portfolioTitle": "Practical project portfolio",
+  "portfolioSubtitle": "Projects built in class and on your own",
+  "addProject": "Add new project",
+  "newProject": "New project",
+  "liveDemo": "Live demo",
+  "githubCode": "GitHub code",
+  "trackerTitle": "Applied circulars & internship tracker",
+  "trackerSubtitle": "Real-time status of all your submitted applications",
+  "filter": "Filter:",
+  "filterAll": "All applications",
+  "filterShortlisted": "Shortlisted",
+  "filterPending": "Pending",
+  "filterInterview": "Interview scheduled",
+  "noApplications": "No applications found",
+  "colCompany": "Company & position",
+  "colType": "Type",
+  "colAppliedDate": "Applied on",
+  "colCurrentStatus": "Current status",
+  "colAction": "Action",
+  "typeAttachment": "🎓 Attachment",
+  "typeJob": "💼 Job",
+  "statusShortlisted": "Shortlisted",
+  "statusInterview": "Interview scheduled",
+  "statusPending": "Review pending",
+  "actionViewMessage": "View message",
+  "actionDetails": "Details",
+  "actionPleaseWait": "Please wait",
+  "noMessage": "No message yet",
+  "certificatesTitle": "Training & course certificates",
+  "add": "Add",
+  "socialTitle": "Social media & online portfolio links",
+  "linkedinProfile": "LinkedIn Profile",
+  "githubRepos": "GitHub Repositories",
+  "editProfileTitle": "Edit student profile",
+  "fullName": "Student's full name",
+  "polytechnicName": "Polytechnic name",
+  "technology": "Technology",
+  "email": "Email",
+  "bioLabel": "Short bio",
+  "cancel": "Cancel",
+  "save": "Save",
+  "fieldRequired": "This field is required",
+  "invalidEmail": "Enter a valid email address",
+  "invalidUrl": "Enter a valid link",
+  "profileUpdated": "Profile updated successfully!",
+  "cvDialogTitle": "Google Drive resume / CV link",
+  "cvLinkLabel": "Google Drive CV link",
+  "cvLinkNote": "Turn on 'Anyone with the link' view permission.",
+  "update": "Update",
+  "cvUpdated": "Your Google Drive CV link has been updated!",
+  "addProjectTitle": "Add a new project",
+  "projectName": "Project name",
+  "projectTech": "Technologies used (comma separated)",
+  "projectTechHint": "e.g. HTML, Tailwind, JS",
+  "projectDesc": "Short description",
+  "publish": "Publish",
+  "projectAdded": "Project added to your portfolio!",
+  "nocGuideTitle": "NOC guideline",
+  "nocGuideBody": "Attach the NOC letter approved by your polytechnic's industrial liaison office when you apply.",
+  "nocVerifiedActive": "NOC No: {number} (Verified Active)",
+  "@nocVerifiedActive": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "somethingWentWrong": "Something went wrong. Please try again.",
+  "retry": "Retry",
+
+
+
+  "stepJobDetails":"================================== Job details ========================",
+    "appliedBannerTitle": "You have successfully applied to this circular!",
+    "appliedBannerSubtitle": "Applied on: {date} | Status: {status}",
+    "@appliedBannerSubtitle": {
+      "placeholders": {
+        "date": {
+          "type": "String"
+        },
+        "status": {
+          "type": "String"
+        }
+      }
+    },
+    "applicationDetails": "Application details",
+    "typeSemesterAttachment": "🎓 {semester} attachment",
+    "@typeSemesterAttachment": {
+      "placeholders": {
+        "semester": {
+          "type": "String"
+        }
+      }
+    },
+    "typeFullTimeJob": "💼 Full-time job",
+    "verifiedEmployer": "Verified employer",
+    "technologyLabel": "Technology:",
+    "applied": "Application submitted",
+    "applyNow": "Apply now",
+    "bookmarkTooltip": "Save",
+    "shareTooltip": "Share",
+    "hlLocation": "Work location",
+    "hlStipend": "Monthly stipend",
+    "hlExperience": "Experience / semester",
+    "hlDeadline": "Application deadline",
+    "hlVacancies": "Vacancies",
+    "stipendPerMonth": "৳ {amount} / month",
+    "@stipendPerMonth": {
+      "placeholders": {
+        "amount": {
+          "type": "int",
+          "format": "decimalPattern"
+        }
+      }
+    },
+    "vacanciesCount": "{count, plural, =1{1 seat} other{{count} seats}}",
+    "@vacanciesCount": {
+      "placeholders": {
+        "count": {
+          "type": "int",
+          "format": "decimalPattern"
+        }
+      }
+    },
+    "roleOverview": "Role overview",
+    "keyResponsibilities": "Key responsibilities",
+    "requirementsTitle": "Education & technology requirements",
+    "benefitsTitle": "Benefits & perks",
+    "requiredDocsTitle": "Documents required to apply",
+    "summaryTitle": "Circular summary",
+    "sumPublished": "Published on:",
+    "sumDeadline": "Deadline:",
+    "sumJobType": "Job type:",
+    "sumEducation": "Education:",
+    "sumHousing": "Housing:",
+    "applyOnline": "Apply online now",
+    "hrTitle": "HR desk & contact",
+    "hrEmail": "Official HR email",
+    "hrHelpline": "Helpline (9am–5pm)",
+    "hrWebsite": "Website",
+    "relatedTitle": "Related circulars",
+    "applyDialogTitle": "Apply directly to this circular",
+    "cvUploadLabel": "Your updated CV (PDF) *",
+    "dropOrBrowse": "Drop a file or",
+    "browse": "browse",
+    "maxFileSize": "Max file size: 5 MB (PDF)",
+    "removeFile": "Remove file",
+    "nocUploadLabel": "Polytechnic NOC attachment (optional)",
+    "expectedStipend": "Expected stipend",
+    "companyDecided": "(set by company)",
+    "currentSemester": "Current semester *",
+    "coverNoteLabel": "Short note to the HR desk (cover note)",
+    "coverNoteHint": "Why you are a good fit and a bit about your technical projects…",
+    "confirmApplication": "Confirm application",
+    "cvRequired": "Please attach your CV (PDF)",
+    "fileTooLarge": "File is larger than 5 MB",
+    "applicantNameRoll": "{name} (Roll: {roll})",
+    "@applicantNameRoll": {
+      "placeholders": {
+        "name": {
+          "type": "String"
+        },
+        "roll": {
+          "type": "String"
+        }
+      }
+    },
+    "applicationSubmitted": "Your application was submitted to the {company} HR desk!",
+    "@applicationSubmitted": {
+      "placeholders": {
+        "company": {
+          "type": "String"
+        }
+      }
+    },
+    "alreadyApplied": "You have already applied!",
+    "bookmarkSaved": "Circular saved to your bookmarks",
+    "bookmarkRemoved": "Removed from your bookmarks",
+    "circularLinkCopied": "Circular link copied!"
 }
