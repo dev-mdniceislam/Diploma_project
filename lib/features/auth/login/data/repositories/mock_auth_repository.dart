@@ -11,7 +11,6 @@ class LoginRepositoryImpl implements LoginRepository {
     required String email,
     required String password,
   }) async {
-    log("================================");
     return await AuthGlobalWidget().postForUser(
       tag: 'Login',
       url: Endpoints.login,

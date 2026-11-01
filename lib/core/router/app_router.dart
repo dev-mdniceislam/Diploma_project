@@ -1,5 +1,6 @@
 import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
+import 'package:diploma_job/features/splash/presentation/page/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
 
   static const home = '/';
   static const about = '/about';
+  static const splash = '/splash';
   static const academic = '/academic';
   static const postCircular = '/postCircular';
   static const saved = '/saved';
@@ -27,7 +29,7 @@ class AppRoutes {
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: AppRoutes.home,
+    initialLocation: AppRoutes.splash,
     errorBuilder: (context, state) => AppShell(
       child: Center(
         child: CustomText(
@@ -119,6 +121,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.auth,
         name: 'auth',
         builder: (_, __) => const AuthPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.splash,
+        name: 'splash',
+        builder: (_, __) => const SplashScreen(),
       ),
     ],
   );

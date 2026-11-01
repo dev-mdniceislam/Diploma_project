@@ -16,7 +16,6 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/dummy.svg
   String get dummy => 'assets/icons/dummy.svg';
-  String get appLogo => 'assets/icons/app_logo.png';
   String get maleAvatar => 'assets/icons/maleAvatar.png';
   String get femaleAvatar => 'assets/icons/femaleAvatar.png';
   String get linkedin => 'assets/icons/linkedin.png';
@@ -39,6 +38,8 @@ class $AssetsImagesGen {
   AssetGenImage get dummy => const AssetGenImage('assets/images/dummy.jpg');
   AssetGenImage get somethingWentWrong =>
       const AssetGenImage('assets/images/somthingWentWrong.png');
+  AssetGenImage get appLogo =>
+      const AssetGenImage('assets/images/career_orbit_logo.png');
   AssetGenImage get giaFixedBanner =>
       const AssetGenImage('assets/images/giaFixedBanner.jpeg');
   AssetGenImage get googleMapImage =>

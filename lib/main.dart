@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:diploma_job/core/utils/authentication_middleware.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -17,7 +18,7 @@ Future<void> main() async {
   } catch (e, st) {
     log('Init failed: $e\n$st');
   } finally {
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
     FlutterNativeSplash.remove();
   }
   runApp(ProviderScope(child: const DiplomaCareerHubApp()));
@@ -28,7 +29,7 @@ Future<void> _initApp() async {
     SharedPreferences.getInstance(),
     dotenv.load(fileName: ".env"),
     ScreenUtil.ensureScreenSize(),
-
+    AuthMiddleware().middleWare(),
     // SharedPreferences.getInstance(),
     // Firebase.initializeApp(),
     // LocalStorage.init(),

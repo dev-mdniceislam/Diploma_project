@@ -29,6 +29,13 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   final _password = TextEditingController();
   final _confirm = TextEditingController();
   final _otp = TextEditingController();
+  late final RegisterNotifier _session;
+
+  @override
+  void initState() {
+    super.initState();
+    _session = ref.read(sessionProvider.notifier);
+  }
 
   @override
   void dispose() {
@@ -42,8 +49,8 @@ class _SignupFormState extends ConsumerState<SignupForm> {
     ]) {
       c.dispose();
     }
+    Future.microtask(_session.resetOtp);
     super.dispose();
-    ref.read(sessionProvider.notifier).resetOtp();
   }
 
   Future<void> _submit() async {
