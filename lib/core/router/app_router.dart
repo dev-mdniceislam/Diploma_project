@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/auth_page.dart';
+import '../../features/edit_student_profile/presentation/page/overView_details_edit.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
 import '../../features/job_details/presentation/screens/job_details_screen.dart';
 import '../../features/student_profile/presentation/screens/student_profile_screen.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const saved = '/saved';
   static const guide = '/guide';
   static const auth = '/authentication';
+  static const studentProfileEdit = '/studentProfileEdit';
   static const studentProfile = '/studentProfile';
   static const jobDetails = '/job/:id';
   static String detailsOf(String id) => '/job/$id';
@@ -69,6 +71,11 @@ final routerProvider = Provider<GoRouter>((ref) {
                 path: AppRoutes.studentProfile,
                 name: 'studentProfile',
                 builder: (_, __) => const StudentProfileScreen(),
+              ),
+              GoRoute(
+                path: AppRoutes.studentProfileEdit,
+                name: 'studentProfileEdit',
+                builder: (_, __) => const StudentProfileEditScreen(),
               ),
             ],
           ),

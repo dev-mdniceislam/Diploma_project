@@ -1,10 +1,13 @@
+import 'package:diploma_job/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/extension/l10n_extension.dart';
 import '../../../../core/gen/assets_gen.dart';
 import '../../../../core/widgets/custom_overlay_notification.dart';
+import '../../../edit_student_profile/presentation/widgets/student_profile_dialogue.dart';
 import '../../domain/entities/student_profile.dart';
 import '../../../../core/utils/open_link.dart';
 import 'dialogs/cv_link_dialog.dart';
@@ -406,7 +409,14 @@ class _Actions extends StatelessWidget {
           label: l10n.editProfile,
           icon: Icons.manage_accounts_outlined,
           variant: CustomButtonVariant.outline,
-          onPressed: () => EditProfileDialog.show(context),
+          // onPressed: () => context.go(AppRoutes.studentProfileEdit),
+          // onPressed: () => EditProfileDialog.show(context),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => EditStudentProfileDialog(),
+            );
+          },
         ),
         IconButton.outlined(
           tooltip: l10n.updateCv,
