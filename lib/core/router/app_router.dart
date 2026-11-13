@@ -6,10 +6,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/auth_page.dart';
+import '../../features/company_profile/profile_loader.dart';
 import '../../features/edit_student_profile/presentation/page/overView_details_edit.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
 import '../../features/job_details/presentation/screens/job_details_screen.dart';
-import '../../features/student_profile/presentation/screens/student_profile_screen.dart';
+import '../../features/profile/presentation/profile_entry_screen.dart';
 import '../../features/web_shell/presentation/pages/app_shell.dart';
 
 class AppRoutes {
@@ -23,8 +24,8 @@ class AppRoutes {
   static const saved = '/saved';
   static const guide = '/guide';
   static const auth = '/authentication';
+  static const profile = '/profile';
   static const studentProfileEdit = '/studentProfileEdit';
-  static const studentProfile = '/studentProfile';
   static const jobDetails = '/job/:id';
   static String detailsOf(String id) => '/job/$id';
 }
@@ -46,6 +47,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           return AppShell(child: navigationShell);
         },
         branches: [
+          // 0: Home
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -54,7 +56,7 @@ final routerProvider = Provider<GoRouter>((ref) {
                 builder: (_, __) => const HomePage(),
                 routes: [
                   GoRoute(
-                    path: AppRoutes.jobDetails, // '/job/:id'
+                    path: AppRoutes.jobDetails,
                     name: 'jobDetails',
                     builder: (_, state) => JobDetailsScreen(
                       circularId: state.pathParameters['id']!,
@@ -64,22 +66,33 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: AppRoutes.studentProfile,
-                name: 'studentProfile',
-                builder: (_, __) => const StudentProfileScreen(),
-              ),
-              GoRoute(
-                path: AppRoutes.studentProfileEdit,
-                name: 'studentProfileEdit',
-                builder: (_, __) => const StudentProfileEditScreen(),
+                path: AppRoutes.profile,
+                name: 'profile',
+                builder: (_, __) => const ProfileEntryScreen(),
               ),
             ],
           ),
 
+          // 1: Profile (student বা company, role অনুযায়ী)
+          // StatefulShellBranch(
+          //   routes: [
+          //     GoRoute(
+          //       path: AppRoutes.profile,
+          //       name: 'profile',
+          //       builder: (_, __) => const ProfileLoader(),
+          //     ),
+          //     GoRoute(
+          //       path: AppRoutes.studentProfileEdit,
+          //       name: 'studentProfileEdit',
+          //       builder: (_, __) => const StudentProfileEditScreen(),
+          //     ),
+          //   ],
+          // ),
+
+          // 2: Guide
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -94,6 +107,8 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
+
+          // 3: Post circular
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -108,6 +123,8 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
+
+          // 4: Saved
           StatefulShellBranch(
             routes: [
               GoRoute(

@@ -16,4 +16,8 @@ class Endpoints {
   static final String forgotSendOtp = "$baseUrl/api/v1/auth/forgot-password";
   static final String forgotVerifyOtp = "$baseUrl/api/v1/auth/verify-otp";
   static final String newPassword = "$baseUrl/api/v1/auth/reset-password";
+
+  static final String studentProfileGet = "$baseUrl/api/v1/profile/student";
+  static String studentProfileUpdate(String id) =>
+      "$baseUrl/api/v1/profile/$id";
 }

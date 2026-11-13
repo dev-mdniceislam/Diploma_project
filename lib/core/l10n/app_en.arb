@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appName": "Diploma Job Hub",
+  "appName": "Career Orbit",
   "appTagline": "Diploma Engineer Career Portal",
   "navHome": "Home / Circulars",
   "navAttachment": "Industrial Attachment",
@@ -479,5 +479,526 @@
     "alreadyApplied": "You have already applied!",
     "bookmarkSaved": "Circular saved to your bookmarks",
     "bookmarkRemoved": "Removed from your bookmarks",
-    "circularLinkCopied": "Circular link copied!"
+    "circularLinkCopied": "Circular link copied!",
+
+
+
+    "stepCompanyProfile":"================================== Company Profile ========================",
+    "@@locale": "en",
+      "recruiterPortalTagline": "Recruiter Portal & Company Desk",
+      "navPostings": "Jobs & Internships",
+      "navApplicants": "Applicants",
+      "navCompanyPanel": "Company Panel",
+      "btebPartner": "BTEB Industry Partner",
+      "newPost": "Post New",
+      "editProfile": "Edit Profile",
+      "shareProfile": "Share profile",
+      "changeCover": "Change banner",
+      "changeLogo": "Change logo",
+      "toggleTheme": "Toggle theme",
+      "languageToggleLabel": "বাংলা",
+      "verifiedRecruiter": "Verified Recruiter",
+      "btebApprovedIndustry": "BTEB Approved Industry",
+      "employeesCount": "{count}+ employees",
+      "@employeesCount": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "statTotalPostings": "Total circulars posted",
+      "statJobs": "Job circulars",
+      "statAttachments": "Industrial attachments",
+      "statApplications": "Applications received",
+      "itemsCount": "{count}",
+      "@itemsCount": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "tabPostings": "Circulars & Internship Management",
+      "tabApplicants": "Applicants & Evaluation",
+      "tabOverview": "About & Benefits",
+      "tabMou": "Polytechnic Partnerships & MOU",
+      "filterType": "Filter type:",
+      "filterAllPosts": "All posts ({count})",
+      "@filterAllPosts": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "filterJobs": "Full-time jobs ({count})",
+      "@filterJobs": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "filterAttachments": "8th-semester attachments ({count})",
+      "@filterAttachments": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "typeJob": "Full-time job",
+      "typeAttachment": "8th Semester Attachment",
+      "seatsLabel": "Seats: {count}",
+      "@seatsLabel": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "technologyLabel": "Technology: {value}",
+      "@technologyLabel": {
+        "placeholders": {
+          "value": {
+            "type": "String"
+          }
+        }
+      },
+      "locationLabel": "Location: {value}",
+      "@locationLabel": {
+        "placeholders": {
+          "value": {
+            "type": "String"
+          }
+        }
+      },
+      "salaryLabel": "Salary: {value}",
+      "@salaryLabel": {
+        "placeholders": {
+          "value": {
+            "type": "String"
+          }
+        }
+      },
+      "stipendLabel": "Stipend: {value}",
+      "@stipendLabel": {
+        "placeholders": {
+          "value": {
+            "type": "String"
+          }
+        }
+      },
+      "deadlineLabel": "Deadline: {value}",
+      "@deadlineLabel": {
+        "placeholders": {
+          "value": {
+            "type": "String"
+          }
+        }
+      },
+      "viewApplications": "View applications ({count})",
+      "@viewApplications": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "statusActive": "Active",
+      "emptyPostings": "No circulars posted yet.",
+      "emptyApplicants": "No applicants found.",
+      "retry": "Retry",
+      "genericError": "Something went wrong. Please try again.",
+      "postDialogTitle": "Post a new circular / internship",
+      "postDialogSubtitle": "Provide details for a job or an 8th-semester industrial attachment",
+      "postCategoryLabel": "Select post category *",
+      "categoryAttachmentSubtitle": "Internship for polytechnic students",
+      "categoryJobTitle": "Full-time / Part-time job",
+      "categoryJobSubtitle": "Hiring diploma graduates",
+      "postTitleLabel": "Position title *",
+      "postTitleHint": "e.g. Sub-Assistant Engineer (PLC & Automation)",
+      "postTechLabel": "Applicable technology / department *",
+      "postTechHint": "e.g. Computer, Electrical, Mechanical",
+      "postSeatsLabel": "Vacancies (Seats) *",
+      "postSeatsHint": "e.g. 20",
+      "postSalaryLabel": "Salary / stipend *",
+      "postSalaryHint": "e.g. ৳10,000/month (or negotiable)",
+      "postDeadlineLabel": "Application deadline *",
+      "postLocationLabel": "Work location / factory *",
+      "postLocationHint": "e.g. Chandra, Gazipur plant",
+      "postBenefitsLabel": "Extra benefits & conditions",
+      "benefitFreeHousing": "Free housing",
+      "benefitCanteen": "Cafeteria subsidy",
+      "benefitNocRequired": "Polytechnic NOC required",
+      "tagNocApplicable": "NOC applicable",
+      "cancel": "Cancel",
+      "publishToPortal": "Publish to portal",
+      "fieldRequired": "This field is required",
+      "invalidEmail": "Enter a valid email address",
+      "invalidNumber": "Enter a valid number",
+      "editCompanyTitle": "Edit company details",
+      "companyNameLabel": "Company name *",
+      "industryLabel": "Industry category *",
+      "hrEmailLabel": "HR email *",
+      "helplineLabel": "Helpline number *",
+      "aboutSummaryLabel": "Company overview (About)",
+      "save": "Save",
+      "interviewDialogTitle": "Schedule interview",
+      "interviewCandidate": "Candidate: {name}",
+      "@interviewCandidate": {
+        "placeholders": {
+          "name": {
+            "type": "String"
+          }
+        }
+      },
+      "interviewDateTimeLabel": "Interview date & time *",
+      "interviewVenueLabel": "Venue / online meeting link *",
+      "interviewVenueHint": "e.g. Walton Plant HQ Boardroom or Google Meet link",
+      "sendNotification": "Send notification",
+      "applicantsTitle": "Applicant evaluation list",
+      "applicantsSubtitle": "Verify CV, technology and NOC status of polytechnic students",
+      "filterAllApplicants": "All applicants",
+      "statusPending": "Review pending",
+      "statusShortlisted": "Shortlisted",
+      "statusInterview": "Interview scheduled",
+      "statusInterviewOn": "Interview {date}",
+      "@statusInterviewOn": {
+        "placeholders": {
+          "date": {
+            "type": "String"
+          }
+        }
+      },
+      "downloadCvs": "Download CVs",
+      "colStudent": "Student & polytechnic",
+      "colTechCgpa": "Technology & CGPA",
+      "colPosition": "Applied position",
+      "colDocuments": "Documents",
+      "colStatus": "Status",
+      "colAction": "Action",
+      "cgpaLabel": "CGPA: {value}",
+      "@cgpaLabel": {
+        "placeholders": {
+          "value": {
+            "type": "String"
+          }
+        }
+      },
+      "nocAttached": "NOC attached",
+      "actionShortlist": "Shortlist",
+      "actionScheduleInterview": "Schedule interview",
+      "actionDone": "Done",
+      "aboutTitle": "About & mission",
+      "domainsTitle": "Key engineering & technology areas",
+      "benefitsTitle": "Benefits for interns & new hires",
+      "hrDeskTitle": "HR desk & contact",
+      "hrEmailTitle": "HR email",
+      "helplineTitle": "Helpline number",
+      "headOfficeTitle": "Head office & plant",
+      "mouTitle": "Partner polytechnic institutes (Campus partners)",
+      "mouSubtitle": "Institutes with an industrial-attachment agreement",
+      "newMou": "+ New MOU",
+      "mouVerified": "MOU verified",
+      "annualQuota": "Annual intern quota: {count} students",
+      "@annualQuota": {
+        "placeholders": {
+          "count": {
+            "type": "String"
+          }
+        }
+      },
+      "footerTagline": "Bridging BTEB polytechnic students and factories.",
+      "toastPostPublished": "New circular published successfully!",
+      "toastProfileUpdated": "Company profile updated!",
+      "toastInterviewSent": "Interview schedule sent to the student.",
+      "toastShortlisted": "Candidate added to the shortlist!",
+      "toastLinkCopied": "Company dashboard link copied!",
+      "toastExportingCvs": "Exporting all CVs as a ZIP...",
+      "comingSoon": "Coming soon",
+      "linkOpenFailed": "Unable to open the link",
+
+
+
+
+       "stepCompanyProfile":"================================== Profile ========================",
+        "pfNoLink": "Link not available",
+        "pfLinkCopied": "Profile link copied",
+        "pfRetry": "Retry",
+        "pfNoData": "Nothing to show yet",
+        "pfUnknownRole": "This account type has no profile page.",
+        "pfSave": "Save",
+        "pfCancel": "Cancel",
+        "pfComingSoon": "Coming soon",
+        "pfSaved": "Saved successfully",
+        "pfEditProfile": "Edit profile",
+        "pfEmail": "Email",
+        "pfPhone": "Phone",
+        "pfAddress": "Address",
+        "pfAll": "All",
+        "pfShortlisted": "Shortlisted",
+        "pfPending": "Pending review",
+        "pfInterview": "Interview scheduled",
+        "pfInterviewOn": "Interview {date}",
+        "@pfInterviewOn": {
+          "placeholders": {
+            "date": {
+              "type": "String"
+            }
+          }
+        },
+        "pfTypeJob": "Full-time job",
+        "pfTypeAttachment": "Industrial attachment",
+        "pfStatus": "Status",
+        "pfUpdate": "Update",
+        "pfPublish": "Publish",
+        "pfStudentVerified": "Verified student",
+        "pfRoll": "Roll: {roll}",
+        "@pfRoll": {
+          "placeholders": {
+            "roll": {
+              "type": "String"
+            }
+          }
+        },
+        "pfDownloadCv": "Download resume",
+        "pfUpdateCv": "Update CV link",
+        "pfStatCurrent": "Current status",
+        "pfStatCgpa": "CGPA (average)",
+        "pfStatApplied": "Applied jobs / internships",
+        "pfStatAppliedValue": "{count} circulars",
+        "@pfStatAppliedValue": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfStatNoc": "NOC status",
+        "pfNocIssued": "Issued",
+        "pfNocPending": "Not issued",
+        "pfTabOverview": "Overview",
+        "pfTabAcademic": "Academics",
+        "pfTabProjects": "Skills & projects",
+        "pfTabApplications": "Applications",
+        "pfTabCertificates": "Certificates & social",
+        "pfAboutMe": "About me",
+        "pfSkills": "Technical proficiency",
+        "pfContactInfo": "Contact information",
+        "pfBoardInfo": "Technical board info",
+        "pfBoardRoll": "Board roll",
+        "pfRegistration": "Registration",
+        "pfSession": "Session",
+        "pfNocNumber": "NOC letter no.",
+        "pfResultBreakdown": "Polytechnic result breakdown (semester GPA)",
+        "pfSemester": "Semester",
+        "pfSemesterN": "Semester {n}",
+        "@pfSemesterN": {
+          "placeholders": {
+            "n": {
+              "type": "String"
+            }
+          }
+        },
+        "pfExamYear": "Exam year",
+        "pfGpa": "GPA",
+        "pfPassed": "Passed",
+        "pfNotPassed": "Not passed",
+        "pfAverageCgpa": "Average CGPA",
+        "pfSscTitle": "Secondary school certificate (SSC)",
+        "pfSchool": "School",
+        "pfGroupBoard": "Group & board",
+        "pfPassingYearGpa": "Passing year & GPA",
+        "pfPortfolio": "Practical project portfolio",
+        "pfPortfolioSub": "Projects built in class and on your own",
+        "pfAddProject": "Add new project",
+        "pfLiveDemo": "Live demo",
+        "pfGithub": "GitHub code",
+        "pfTrackerTitle": "Applied circulars & internship tracker",
+        "pfTrackerSub": "Real-time status of all your applications",
+        "pfColCompany": "Company & role",
+        "pfColType": "Type",
+        "pfColDate": "Applied on",
+        "pfColAction": "Action",
+        "pfViewMessage": "View message",
+        "pfCertsTitle": "Training & course certificates",
+        "pfSocialTitle": "Social media & portfolio links",
+        "pfEditStudentTitle": "Edit student profile",
+        "pfFullName": "Full name",
+        "pfPolytechnic": "Polytechnic",
+        "pfTechnology": "Technology",
+        "pfBio": "Short bio",
+        "pfCvLink": "Google Drive CV link",
+        "pfCvHint": "Set access to 'Anyone with the link' so recruiters can open it.",
+        "pfProjectName": "Project name",
+        "pfProjectTech": "Technologies (comma separated)",
+        "pfProjectDesc": "Short description",
+        "pfVerifiedRecruiter": "Verified recruiter",
+        "pfBtebApproved": "BTEB approved industry partner",
+        "pfNewPost": "Post new circular",
+        "pfEmployees": "{count}+ employees",
+        "@pfEmployees": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfStatTotalPosts": "Total circulars",
+        "pfStatJobs": "Job circulars",
+        "pfStatAttachments": "Industrial attachments",
+        "pfStatApplications": "Applications received",
+        "pfTabPostings": "Circulars & internships",
+        "pfTabApplicants": "Applicants & evaluation",
+        "pfTabCompany": "About & benefits",
+        "pfTabMou": "Polytechnic partners & MOU",
+        "pfAllPosts": "All posts ({count})",
+        "@pfAllPosts": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfJobsCount": "Full-time jobs ({count})",
+        "@pfJobsCount": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfAttachCount": "Attachments ({count})",
+        "@pfAttachCount": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfSeats": "Seats: {count}",
+        "@pfSeats": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfPlace": "Location: {value}",
+        "@pfPlace": {
+          "placeholders": {
+            "value": {
+              "type": "String"
+            }
+          }
+        },
+        "pfStipend": "Stipend: {value}",
+        "@pfStipend": {
+          "placeholders": {
+            "value": {
+              "type": "String"
+            }
+          }
+        },
+        "pfSalary": "Salary: {value}",
+        "@pfSalary": {
+          "placeholders": {
+            "value": {
+              "type": "String"
+            }
+          }
+        },
+        "pfDeadline": "Deadline: {value}",
+        "@pfDeadline": {
+          "placeholders": {
+            "value": {
+              "type": "String"
+            }
+          }
+        },
+        "pfTechnologyLine": "Technology: {value}",
+        "@pfTechnologyLine": {
+          "placeholders": {
+            "value": {
+              "type": "String"
+            }
+          }
+        },
+        "pfViewApplicants": "View applicants ({count})",
+        "@pfViewApplicants": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfActive": "Active",
+        "pfApplicantsTitle": "Applicant evaluation list",
+        "pfApplicantsSub": "Verify CV, technology and NOC status of polytechnic students",
+        "pfColStudent": "Student & polytechnic",
+        "pfColTechCgpa": "Technology & CGPA",
+        "pfColPosition": "Position & type",
+        "pfColDocs": "Documents",
+        "pfCgpaValue": "CGPA: {value}",
+        "@pfCgpaValue": {
+          "placeholders": {
+            "value": {
+              "type": "String"
+            }
+          }
+        },
+        "pfNocAttached": "NOC attached",
+        "pfShortlistAction": "Shortlist",
+        "pfScheduleInterview": "Schedule interview",
+        "pfDone": "Done",
+        "pfShortlistedToast": "Candidate shortlisted",
+        "pfInterviewSentToast": "Interview schedule sent to the student",
+        "pfPostedToast": "Circular published",
+        "pfAboutCompany": "About the company",
+        "pfDomains": "Main engineering & technology areas",
+        "pfBenefits": "Benefits for interns & new hires",
+        "pfHrDesk": "HR desk & contact",
+        "pfHrEmail": "HR email",
+        "pfHelpline": "Helpline",
+        "pfHeadOffice": "Head office & plant",
+        "pfPartnersTitle": "Partner polytechnic institutes",
+        "pfPartnersSub": "Institutes with an industrial attachment agreement",
+        "pfAddMou": "+ New MOU",
+        "pfMouVerified": "MOU verified",
+        "pfAnnualQuota": "Annual intern quota: {count} students",
+        "@pfAnnualQuota": {
+          "placeholders": {
+            "count": {
+              "type": "String"
+            }
+          }
+        },
+        "pfEditCompanyTitle": "Edit company info",
+        "pfCompanyName": "Company name",
+        "pfIndustry": "Industry category",
+        "pfCompanyAbout": "Company overview",
+        "pfNewPostTitle": "Post a new circular / internship",
+        "pfPostCategory": "Category",
+        "pfPostTitle": "Position title",
+        "pfPostTech": "Applicable technology / department",
+        "pfPostSeats": "Vacancies",
+        "pfPostSalary": "Salary / stipend",
+        "pfPostDeadline": "Application deadline",
+        "pfPostLocation": "Workplace location",
+        "pfPostBenefits": "Benefits (comma separated)",
+        "pfPublishNow": "Publish to portal",
+        "pfInterviewTitle": "Schedule interview",
+        "pfInterviewCandidate": "Candidate: {name}",
+        "@pfInterviewCandidate": {
+          "placeholders": {
+            "name": {
+              "type": "String"
+            }
+          }
+        },
+        "pfInterviewDate": "Interview date & time",
+        "pfInterviewPlace": "Venue / meeting link",
+        "pfSendNotice": "Send notification"
 }

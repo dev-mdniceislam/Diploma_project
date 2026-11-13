@@ -1,3 +1,4 @@
+import 'package:diploma_job/core/database/local_storage.dart';
 import 'package:diploma_job/core/responsive/responsive.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
@@ -16,7 +17,6 @@ import '../../../../../core/router/app_router.dart';
 import '../../../../home_screen/domain/entities/job_filter.dart';
 import '../../../../home_screen/presentation/providers/home_providers.dart';
 import '../../../../home_screen/presentation/widgets/persona_switcher.dart';
-import '../../../../home_screen/presentation/widgets/saved_button.dart';
 
 class MainNavbar extends StatelessWidget {
   const MainNavbar({super.key});
@@ -93,9 +93,7 @@ class _DesktopActions extends StatelessWidget {
 
 InkWell _profileImageButton(BuildContext context) {
   return InkWell(
-    onTap: () {
-      context.go(AppRoutes.studentProfile);
-    },
+    onTap: () => context.go(AppRoutes.profile),
     child: Stack(
       clipBehavior: Clip.none,
       children: [

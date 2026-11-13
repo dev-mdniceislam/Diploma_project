@@ -1,3 +1,4 @@
+import 'package:diploma_job/core/utils/shell_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -39,7 +40,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ShellPage(
       children: [
         const HomeHero(),
         HomeFeedSection(onApply: (value) {}),

@@ -10,10 +10,10 @@ class AppLocalizationsBn extends AppLocalizations {
   AppLocalizationsBn([String locale = 'bn']) : super(locale);
 
   @override
-  String get appName => 'ডিপ্লোমা জব হাব';
+  String get appName => 'ক্যারিয়ার অরবিট';
 
   @override
-  String get appTagline => 'Diploma Engineer Career Portal';
+  String get appTagline => 'ডিপ্লোমা ইঞ্জিনিয়ারদের ক্যারিয়ার পোর্টাল';
 
   @override
   String get navHome => 'হোম / সার্কুলার';
@@ -176,8 +176,8 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
-  String deadlineLabel(String date) {
-    return 'মেয়াদের শেষ: $date';
+  String deadlineLabel(String value) {
+    return 'ডেডলাইন: $value';
   }
 
   @override
@@ -226,11 +226,11 @@ class AppLocalizationsBn extends AppLocalizations {
       'পলিটেকনিক লিয়াঁজো ও জব পোস্ট সহায়তার জন্য:';
 
   @override
-  String get footerCopyright => '© ২০২৬ ডিপ্লোমা জব হাব। সর্বস্বত্ব সংরক্ষিত।';
+  String get footerCopyright => '© 2026 Diploma Job Hub. All rights reserved.';
 
   @override
   String get footerTagline =>
-      'পলিটেকনিক শিক্ষার্থীদের ক্যারিয়ার উন্নয়নে নিবেদিত।';
+      'বাংলাদেশ কারিগরি শিক্ষা বোর্ড (BTEB) পলিটেকনিক শিক্ষার্থী ও কারখানার সংযোগ সেতু।';
 
   @override
   String get stepAuthentication =>
@@ -545,10 +545,10 @@ class AppLocalizationsBn extends AppLocalizations {
   String get updateCv => 'সিভি আপডেট';
 
   @override
-  String get comingSoon => 'এই ফিচারটি শীঘ্রই আসছে!';
+  String get comingSoon => 'শীঘ্রই আসছে';
 
   @override
-  String get changeCover => 'কভার চেঞ্জ করুন';
+  String get changeCover => 'ব্যানার পরিবর্তন';
 
   @override
   String get verifiedStudent => 'ভেরিফাইড স্টুডেন্ট';
@@ -569,7 +569,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get cvNotUploaded => 'এখনও কোনো সিভি লিংক যোগ করা হয়নি';
 
   @override
-  String get linkOpenFailed => 'লিংকটি খোলা যায়নি';
+  String get linkOpenFailed => 'লিংক খোলা যায়নি';
 
   @override
   String instituteRoll(String institute, String roll) {
@@ -639,7 +639,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get nocRejected => 'বাতিল';
 
   @override
-  String get tabOverview => 'ওভারভিউ ও বিবরণ';
+  String get tabOverview => 'কোম্পানি পরিচিতি ও সুযোগ-সুবিধা';
 
   @override
   String get tabAcademic => 'শিক্ষাগত যোগ্যতা';
@@ -784,19 +784,19 @@ class AppLocalizationsBn extends AppLocalizations {
   String get colAction => 'অ্যাকশন';
 
   @override
-  String get typeAttachment => '🎓 অ্যাটাচমেন্ট';
+  String get typeAttachment => '৮ম সেমিস্টার অ্যাটাচমেন্ট';
 
   @override
-  String get typeJob => '💼 চাকরি';
+  String get typeJob => 'ফুল-টাইম চাকরি';
 
   @override
-  String get statusShortlisted => 'শর্ট লিস্টেড';
+  String get statusShortlisted => 'শর্টলিস্টেড';
 
   @override
   String get statusInterview => 'ইন্টারভিউ নির্ধারিত';
 
   @override
-  String get statusPending => 'রিভিউ পেন্ডিং';
+  String get statusPending => 'রিভ্যু পেন্ডিং';
 
   @override
   String get actionViewMessage => 'মেসেজ দেখুন';
@@ -847,10 +847,10 @@ class AppLocalizationsBn extends AppLocalizations {
   String get save => 'সেভ করুন';
 
   @override
-  String get fieldRequired => 'এই ঘরটি পূরণ করা আবশ্যক';
+  String get fieldRequired => 'এই ঘরটি পূরণ করুন';
 
   @override
-  String get invalidEmail => 'সঠিক ইমেইল ঠিকানা দিন';
+  String get invalidEmail => 'সঠিক ইমেইল দিন';
 
   @override
   String get invalidUrl => 'সঠিক লিংক দিন';
@@ -938,7 +938,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get verifiedEmployer => 'ভেরিফাইড নিয়োগকারী';
 
   @override
-  String get technologyLabel => 'টেকনোলজি:';
+  String technologyLabel(String value) {
+    return 'টেকনোলজি: $value';
+  }
 
   @override
   String get applied => 'আবেদন সম্পন্ন হয়েছে';
@@ -998,7 +1000,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get requirementsTitle => 'শিক্ষাগত যোগ্যতা ও টেকনোলজি শর্তাবলী';
 
   @override
-  String get benefitsTitle => 'সুযোগ-সুবিধা ও প্রণোদনা (Benefits & Perks)';
+  String get benefitsTitle => 'ইন্টার্ন ও নতুন কর্মীদের সুযোগ-সুবিধা';
 
   @override
   String get requiredDocsTitle => 'আবেদনের প্রয়োজনীয় সংলগ্নী কাগজপত্র';
@@ -1107,4 +1109,841 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get circularLinkCopied => 'সার্কুলার লিংক কপি করা হয়েছে!';
+
+  @override
+  String get stepCompanyProfile =>
+      '================================== Profile ========================';
+
+  @override
+  String get recruiterPortalTagline => 'Recruiter Portal & Company Desk';
+
+  @override
+  String get navPostings => 'জব ও ইন্টার্নশিপ';
+
+  @override
+  String get navApplicants => 'আবেদনকারী';
+
+  @override
+  String get navCompanyPanel => 'কোম্পানি প্যানেল';
+
+  @override
+  String get btebPartner => 'BTEB শিল্প অংশীদার';
+
+  @override
+  String get newPost => 'নতুন পোস্ট করুন';
+
+  @override
+  String get shareProfile => 'প্রোফাইল শেয়ার';
+
+  @override
+  String get changeLogo => 'লোগো পরিবর্তন';
+
+  @override
+  String get toggleTheme => 'থিম পরিবর্তন';
+
+  @override
+  String get languageToggleLabel => 'English';
+
+  @override
+  String get verifiedRecruiter => 'ভেরিফাইড নিয়োগকারী';
+
+  @override
+  String get btebApprovedIndustry => 'BTEB অনুমোদিত শিল্প প্রতিষ্ঠান';
+
+  @override
+  String employeesCount(String count) {
+    return '$count+ কর্মী';
+  }
+
+  @override
+  String get statTotalPostings => 'মোট পোস্টকৃত সার্কুলার';
+
+  @override
+  String get statJobs => 'চাকরি সার্কুলার';
+
+  @override
+  String get statAttachments => 'ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
+
+  @override
+  String get statApplications => 'প্রাপ্ত আবেদনপত্র';
+
+  @override
+  String itemsCount(String count) {
+    return '$count টি';
+  }
+
+  @override
+  String get tabPostings => 'সার্কুলার ও ইন্টার্নশিপ ম্যানেজমেন্ট';
+
+  @override
+  String get tabApplicants => 'আবেদনকারী তালিকা ও মূল্যায়ন';
+
+  @override
+  String get tabMou => 'পলিটেকনিক পার্টনারশিপ ও MOU';
+
+  @override
+  String get filterType => 'ফিল্টার টাইপ:';
+
+  @override
+  String filterAllPosts(String count) {
+    return 'সব পোস্ট ($count)';
+  }
+
+  @override
+  String filterJobs(String count) {
+    return 'ফুল-টাইম চাকরি ($count)';
+  }
+
+  @override
+  String filterAttachments(String count) {
+    return '৮ম সেমিস্টার অ্যাটাচমেন্ট ($count)';
+  }
+
+  @override
+  String seatsLabel(String count) {
+    return 'আসন: $count টি';
+  }
+
+  @override
+  String locationLabel(String value) {
+    return 'স্থান: $value';
+  }
+
+  @override
+  String salaryLabel(String value) {
+    return 'বেতন: $value';
+  }
+
+  @override
+  String stipendLabel(String value) {
+    return 'স্টাইপেন্ড: $value';
+  }
+
+  @override
+  String viewApplications(String count) {
+    return 'আবেদন দেখুন ($count)';
+  }
+
+  @override
+  String get statusActive => 'সক্রিয়';
+
+  @override
+  String get emptyPostings => 'এখনো কোনো সার্কুলার নেই।';
+
+  @override
+  String get emptyApplicants => 'কোনো আবেদনকারী পাওয়া যায়নি।';
+
+  @override
+  String get genericError => 'কিছু ভুল হয়েছে। আবার চেষ্টা করুন।';
+
+  @override
+  String get postDialogTitle => 'নতুন সার্কুলার/ইন্টার্নশিপ পোস্ট করুন';
+
+  @override
+  String get postDialogSubtitle =>
+      'চাকরি বা ৮ম সেমিস্টার ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্টের তথ্য প্রদান করুন';
+
+  @override
+  String get postCategoryLabel => 'পোস্টের ক্যাটাগরি নির্বাচন করুন *';
+
+  @override
+  String get categoryAttachmentSubtitle =>
+      'পলিটেকনিক শিক্ষার্থীদের ইন্টার্নশিপ';
+
+  @override
+  String get categoryJobTitle => 'ফুল-টাইম / পার্ট-টাইম চাকরি';
+
+  @override
+  String get categoryJobSubtitle => 'ডিপ্লোমা পাশকৃতদের নিয়োগ';
+
+  @override
+  String get postTitleLabel => 'পদের নাম (Title) *';
+
+  @override
+  String get postTitleHint => 'যেমন: Sub-Assistant Engineer (PLC & Automation)';
+
+  @override
+  String get postTechLabel => 'প্রযোজ্য টেকনোলজি/ডিপার্টমেন্ট *';
+
+  @override
+  String get postTechHint => 'যেমন: Computer, Electrical, Mechanical';
+
+  @override
+  String get postSeatsLabel => 'খালি পদের সংখ্যা (Seats) *';
+
+  @override
+  String get postSeatsHint => 'যেমন: ২০';
+
+  @override
+  String get postSalaryLabel => 'বেতন/স্টাইপেন্ড পরিমাণ *';
+
+  @override
+  String get postSalaryHint => 'যেমন: ৳ ১০,০০০/মাস (বা আলোচনা সাপেক্ষে)';
+
+  @override
+  String get postDeadlineLabel => 'আবেদনের শেষ তারিখ (Deadline) *';
+
+  @override
+  String get postLocationLabel => 'কর্মস্থল / কারখানা লোকেশন *';
+
+  @override
+  String get postLocationHint => 'যেমন: চন্দ্রা, গাজীপুর প্ল্যান্ট';
+
+  @override
+  String get postBenefitsLabel => 'অতিরিক্ত সুযোগ-সুবিধা ও শর্তাবলী';
+
+  @override
+  String get benefitFreeHousing => 'ফ্রি আবাসন';
+
+  @override
+  String get benefitCanteen => 'ক্যাফেটেরিয়া সাবসিডি';
+
+  @override
+  String get benefitNocRequired => 'পলিটেকনিক NOC প্রয়োজন';
+
+  @override
+  String get tagNocApplicable => 'NOC প্রযোজ্য';
+
+  @override
+  String get publishToPortal => 'পোর্টালে প্রকাশ করুন';
+
+  @override
+  String get invalidNumber => 'সঠিক সংখ্যা দিন';
+
+  @override
+  String get editCompanyTitle => 'কোম্পানি তথ্য পরিবর্তন করুন';
+
+  @override
+  String get companyNameLabel => 'কোম্পানির নাম *';
+
+  @override
+  String get industryLabel => 'ইন্ডাস্ট্রি ক্যাটাগরি *';
+
+  @override
+  String get hrEmailLabel => 'এইচআর ইমেইল *';
+
+  @override
+  String get helplineLabel => 'হেল্পলাইন নম্বর *';
+
+  @override
+  String get aboutSummaryLabel => 'কোম্পানি ওভারভিউ';
+
+  @override
+  String get interviewDialogTitle => 'ইন্টারভিউ তারিখ সিডিউল করুন';
+
+  @override
+  String interviewCandidate(String name) {
+    return 'আবেদনকারী শিক্ষার্থী: $name';
+  }
+
+  @override
+  String get interviewDateTimeLabel => 'ইন্টারভিউ এর তারিখ ও সময় *';
+
+  @override
+  String get interviewVenueLabel => 'স্থান / অনলাইন মিটিং লিংক *';
+
+  @override
+  String get interviewVenueHint =>
+      'যেমন: Walton Plant HQ Boardroom বা Google Meet লিংক';
+
+  @override
+  String get sendNotification => 'নোটিফিকেশন পাঠান';
+
+  @override
+  String get applicantsTitle => 'শিক্ষার্থী আবেদনকারী মূল্যায়ন তালিকা';
+
+  @override
+  String get applicantsSubtitle =>
+      'পলিটেকনিক শিক্ষার্থীদের সিভি, টেকনোলজি ও NOC স্ট্যাটাস যাচাই করুন';
+
+  @override
+  String get filterAllApplicants => 'সকল আবেদনকারী';
+
+  @override
+  String statusInterviewOn(String date) {
+    return 'ইন্টারভিউ $date';
+  }
+
+  @override
+  String get downloadCvs => 'ডাউনলোড সিভি';
+
+  @override
+  String get colStudent => 'শিক্ষার্থীর নাম ও পলিটেকনিক';
+
+  @override
+  String get colTechCgpa => 'টেকনোলজি ও CGPA';
+
+  @override
+  String get colPosition => 'আবেদনের পদ ও টাইপ';
+
+  @override
+  String get colDocuments => 'সংযুক্ত ডকুমেন্ট';
+
+  @override
+  String cgpaLabel(String value) {
+    return 'CGPA: $value';
+  }
+
+  @override
+  String get nocAttached => 'NOC সংযুক্ত';
+
+  @override
+  String get actionShortlist => 'শর্টলিস্ট করুন';
+
+  @override
+  String get actionScheduleInterview => 'ইন্টারভিউ সিডিউল';
+
+  @override
+  String get actionDone => 'সম্পন্ন';
+
+  @override
+  String get aboutTitle => 'কোম্পানি পরিচিতি ও লক্ষ্য';
+
+  @override
+  String get domainsTitle => 'প্রধান ইঞ্জিনিয়ারিং ও টেকনোলজি ক্ষেত্রসমূহ';
+
+  @override
+  String get hrDeskTitle => 'এইচআর ডেস্ক ও যোগাযোগ';
+
+  @override
+  String get hrEmailTitle => 'এইচআর ইমেইল';
+
+  @override
+  String get helplineTitle => 'হেল্পলাইন নম্বর';
+
+  @override
+  String get headOfficeTitle => 'হেড অফিস ও প্ল্যান্ট';
+
+  @override
+  String get mouTitle => 'পার্টনার পলিটেকনিক ইনস্টিটিউটসমূহ (Campus Partners)';
+
+  @override
+  String get mouSubtitle =>
+      'যে সকল পলিটেকনিকের সাথে শিল্প-অ্যাটাচমেন্ট চুক্তি রয়েছে';
+
+  @override
+  String get newMou => '+ নতুন MOU চুক্তি';
+
+  @override
+  String get mouVerified => 'MOU চুক্তি ভেরিফাইড';
+
+  @override
+  String annualQuota(String count) {
+    return 'বার্ষিক ইন্টার্ন কোটা: $count জন শিক্ষার্থী';
+  }
+
+  @override
+  String get toastPostPublished =>
+      'নতুন সার্কুলার/ইন্টার্নশিপ সফলভাবে প্রকাশ করা হয়েছে!';
+
+  @override
+  String get toastProfileUpdated => 'কোম্পানি প্রোফাইল আপডেট সম্পন্ন হয়েছে!';
+
+  @override
+  String get toastInterviewSent =>
+      'শিক্ষার্থীকে ইন্টারভিউ সময়সূচী পাঠানো হয়েছে!';
+
+  @override
+  String get toastShortlisted => 'প্রার্থীকে শর্টলিস্টে যুক্ত করা হয়েছে!';
+
+  @override
+  String get toastLinkCopied => 'কোম্পানি ড্যাশবোর্ড লিংক কপি করা হয়েছে!';
+
+  @override
+  String get toastExportingCvs =>
+      'সকল সিভি জিপ ফরম্যাটে এক্সপোর্ট করা হচ্ছে...';
+
+  @override
+  String get pfNoLink => 'লিংকটি পাওয়া যায়নি';
+
+  @override
+  String get pfLinkCopied => 'প্রোফাইল লিংক কপি করা হয়েছে';
+
+  @override
+  String get pfRetry => 'আবার চেষ্টা করুন';
+
+  @override
+  String get pfNoData => 'এখনো কিছু নেই';
+
+  @override
+  String get pfUnknownRole =>
+      'এই অ্যাকাউন্ট টাইপের জন্য কোনো প্রোফাইল পেজ নেই।';
+
+  @override
+  String get pfSave => 'সেভ করুন';
+
+  @override
+  String get pfCancel => 'বাতিল';
+
+  @override
+  String get pfComingSoon => 'শীঘ্রই আসছে';
+
+  @override
+  String get pfSaved => 'সফলভাবে আপডেট করা হয়েছে';
+
+  @override
+  String get pfEditProfile => 'প্রোফাইল এডিট';
+
+  @override
+  String get pfEmail => 'ইমেইল';
+
+  @override
+  String get pfPhone => 'ফোন নম্বর';
+
+  @override
+  String get pfAddress => 'ঠিকানা';
+
+  @override
+  String get pfAll => 'সব';
+
+  @override
+  String get pfShortlisted => 'শর্টলিস্টেড';
+
+  @override
+  String get pfPending => 'রিভিউ পেন্ডিং';
+
+  @override
+  String get pfInterview => 'ইন্টারভিউ নির্ধারিত';
+
+  @override
+  String pfInterviewOn(String date) {
+    return 'ইন্টারভিউ $date';
+  }
+
+  @override
+  String get pfTypeJob => 'ফুল-টাইম চাকরি';
+
+  @override
+  String get pfTypeAttachment => 'ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
+
+  @override
+  String get pfStatus => 'স্ট্যাটাস';
+
+  @override
+  String get pfUpdate => 'আপডেট করুন';
+
+  @override
+  String get pfPublish => 'পাবলিশ করুন';
+
+  @override
+  String get pfStudentVerified => 'ভেরিফাইড স্টুডেন্ট';
+
+  @override
+  String pfRoll(String roll) {
+    return 'রোল: $roll';
+  }
+
+  @override
+  String get pfDownloadCv => 'রেজুমে ডাউনলোড';
+
+  @override
+  String get pfUpdateCv => 'সিভি লিংক আপডেট';
+
+  @override
+  String get pfStatCurrent => 'বর্তমান অবস্থান';
+
+  @override
+  String get pfStatCgpa => 'সিজিপিএ (গড়)';
+
+  @override
+  String get pfStatApplied => 'আবেদনকৃত জব/ইন্টার্ন';
+
+  @override
+  String pfStatAppliedValue(String count) {
+    return '$countটি সার্কুলার';
+  }
+
+  @override
+  String get pfStatNoc => 'NOC স্ট্যাটাস';
+
+  @override
+  String get pfNocIssued => 'ইস্যু করা হয়েছে';
+
+  @override
+  String get pfNocPending => 'ইস্যু হয়নি';
+
+  @override
+  String get pfTabOverview => 'ওভারভিউ ও বিবরণ';
+
+  @override
+  String get pfTabAcademic => 'শিক্ষাগত যোগ্যতা';
+
+  @override
+  String get pfTabProjects => 'স্কিলস ও প্রজেক্ট';
+
+  @override
+  String get pfTabApplications => 'আবেদন ট্র্যাকার';
+
+  @override
+  String get pfTabCertificates => 'সার্টিফিকেট ও সোশ্যাল';
+
+  @override
+  String get pfAboutMe => 'নিজের সম্পর্কে (Bio)';
+
+  @override
+  String get pfSkills => 'প্রধান কারিগরি দক্ষতা';
+
+  @override
+  String get pfContactInfo => 'যোগাযোগের তথ্য';
+
+  @override
+  String get pfBoardInfo => 'কারিগরি শিক্ষা বোর্ড তথ্য';
+
+  @override
+  String get pfBoardRoll => 'বোর্ড রোল';
+
+  @override
+  String get pfRegistration => 'রেজিস্ট্রেশন';
+
+  @override
+  String get pfSession => 'সেশন';
+
+  @override
+  String get pfNocNumber => 'NOC পত্র নম্বর';
+
+  @override
+  String get pfResultBreakdown => 'পলিটেকনিক রেজাল্ট ব্রেকডাউন (Semester GPA)';
+
+  @override
+  String get pfSemester => 'সেমিস্টার';
+
+  @override
+  String pfSemesterN(String n) {
+    return 'সেমিস্টার $n';
+  }
+
+  @override
+  String get pfExamYear => 'পরীক্ষার বছর';
+
+  @override
+  String get pfGpa => 'প্রাপ্ত জিপিএ';
+
+  @override
+  String get pfPassed => 'উত্তীর্ণ';
+
+  @override
+  String get pfNotPassed => 'অনুত্তীর্ণ';
+
+  @override
+  String get pfAverageCgpa => 'গড় সিজিপিএ';
+
+  @override
+  String get pfSscTitle => 'মাধ্যমিক স্কুল সার্টিফিকেট (SSC)';
+
+  @override
+  String get pfSchool => 'স্কুল নাম';
+
+  @override
+  String get pfGroupBoard => 'গ্রুপ ও বোর্ড';
+
+  @override
+  String get pfPassingYearGpa => 'পাসিং ইয়ার ও জিপিএ';
+
+  @override
+  String get pfPortfolio => 'প্র্যাকটিক্যাল প্রজেক্ট পোর্টফোলিও';
+
+  @override
+  String get pfPortfolioSub =>
+      'পলিটেকনিক ক্লাসে ও ব্যক্তিগতভাবে তৈরি প্রজেক্টসমূহ';
+
+  @override
+  String get pfAddProject => 'নতুন প্রজেক্ট যোগ করুন';
+
+  @override
+  String get pfLiveDemo => 'লাইভ ডেমো';
+
+  @override
+  String get pfGithub => 'গিটহাব কোড';
+
+  @override
+  String get pfTrackerTitle => 'আবেদনকৃত সার্কুলার ও ইন্টার্নশিপ ট্র্যাকার';
+
+  @override
+  String get pfTrackerSub => 'আপনার জমাকৃত সকল আবেদনের রিয়েল-টাইম স্ট্যাটাস';
+
+  @override
+  String get pfColCompany => 'কোম্পানি ও পদ';
+
+  @override
+  String get pfColType => 'ধরন';
+
+  @override
+  String get pfColDate => 'আবেদনের তারিখ';
+
+  @override
+  String get pfColAction => 'অ্যাকশন';
+
+  @override
+  String get pfViewMessage => 'মেসেজ দেখুন';
+
+  @override
+  String get pfCertsTitle => 'অর্জিত ট্রেনিং ও কোর্স সার্টিফিকেট';
+
+  @override
+  String get pfSocialTitle => 'সোশ্যাল মিডিয়া ও অনলাইন পোর্টফোলিও লিংক';
+
+  @override
+  String get pfEditStudentTitle => 'শিক্ষার্থী প্রোফাইল এডিট করুন';
+
+  @override
+  String get pfFullName => 'পূর্ণ নাম';
+
+  @override
+  String get pfPolytechnic => 'পলিটেকনিকের নাম';
+
+  @override
+  String get pfTechnology => 'টেকনোলজি';
+
+  @override
+  String get pfBio => 'নিজের সম্পর্কে সংক্ষিপ্ত বিবরণ';
+
+  @override
+  String get pfCvLink => 'Google Drive CV লিংক';
+
+  @override
+  String get pfCvHint =>
+      'লিংকটি অবশ্যই \'Anyone with the link\' ভিউ পারমিশনে রাখুন।';
+
+  @override
+  String get pfProjectName => 'প্রজেক্টের নাম';
+
+  @override
+  String get pfProjectTech => 'ব্যবহৃত টেকনোলজি (কমা দিয়ে লিখুন)';
+
+  @override
+  String get pfProjectDesc => 'সংক্ষিপ্ত বিবরণ';
+
+  @override
+  String get pfVerifiedRecruiter => 'ভেরিফাইড নিয়োগকারী';
+
+  @override
+  String get pfBtebApproved => 'BTEB অনুমোদিত শিল্প প্রতিষ্ঠান';
+
+  @override
+  String get pfNewPost => 'নতুন পোস্ট করুন';
+
+  @override
+  String pfEmployees(String count) {
+    return '$count+ কর্মী';
+  }
+
+  @override
+  String get pfStatTotalPosts => 'মোট পোস্টকৃত সার্কুলার';
+
+  @override
+  String get pfStatJobs => 'চাকরি সার্কুলার';
+
+  @override
+  String get pfStatAttachments => 'ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
+
+  @override
+  String get pfStatApplications => 'প্রাপ্ত আবেদনপত্র';
+
+  @override
+  String get pfTabPostings => 'সার্কুলার ও ইন্টার্নশিপ ম্যানেজমেন্ট';
+
+  @override
+  String get pfTabApplicants => 'আবেদনকারী তালিকা ও মূল্যায়ন';
+
+  @override
+  String get pfTabCompany => 'কোম্পানি পরিচিতি ও সুযোগ-সুবিধা';
+
+  @override
+  String get pfTabMou => 'পলিটেকনিক পার্টনারশিপ ও MOU';
+
+  @override
+  String pfAllPosts(String count) {
+    return 'সব পোস্ট ($count)';
+  }
+
+  @override
+  String pfJobsCount(String count) {
+    return 'ফুল-টাইম চাকরি ($count)';
+  }
+
+  @override
+  String pfAttachCount(String count) {
+    return 'অ্যাটাচমেন্ট ($count)';
+  }
+
+  @override
+  String pfSeats(String count) {
+    return 'আসন: $count টি';
+  }
+
+  @override
+  String pfPlace(String value) {
+    return 'স্থান: $value';
+  }
+
+  @override
+  String pfStipend(String value) {
+    return 'স্টাইপেন্ড: $value';
+  }
+
+  @override
+  String pfSalary(String value) {
+    return 'বেতন: $value';
+  }
+
+  @override
+  String pfDeadline(String value) {
+    return 'ডেডলাইন: $value';
+  }
+
+  @override
+  String pfTechnologyLine(String value) {
+    return 'টেকনোলজি: $value';
+  }
+
+  @override
+  String pfViewApplicants(String count) {
+    return 'আবেদন দেখুন ($count)';
+  }
+
+  @override
+  String get pfActive => 'সক্রিয়';
+
+  @override
+  String get pfApplicantsTitle => 'শিক্ষার্থী আবেদনকারী মূল্যায়ন তালিকা';
+
+  @override
+  String get pfApplicantsSub =>
+      'পলিটেকনিক শিক্ষার্থীদের সিভি, টেকনোলজি ও NOC স্ট্যাটাস যাচাই করুন';
+
+  @override
+  String get pfColStudent => 'শিক্ষার্থী ও পলিটেকনিক';
+
+  @override
+  String get pfColTechCgpa => 'টেকনোলজি ও CGPA';
+
+  @override
+  String get pfColPosition => 'পদ ও টাইপ';
+
+  @override
+  String get pfColDocs => 'সংযুক্তি';
+
+  @override
+  String pfCgpaValue(String value) {
+    return 'CGPA: $value';
+  }
+
+  @override
+  String get pfNocAttached => 'NOC সংলগ্ন';
+
+  @override
+  String get pfShortlistAction => 'শর্টলিস্ট করুন';
+
+  @override
+  String get pfScheduleInterview => 'ইন্টারভিউ সিডিউল';
+
+  @override
+  String get pfDone => 'সম্পন্ন';
+
+  @override
+  String get pfShortlistedToast => 'প্রার্থীকে শর্টলিস্টে যুক্ত করা হয়েছে';
+
+  @override
+  String get pfInterviewSentToast =>
+      'শিক্ষার্থীকে ইন্টারভিউ সময়সূচী পাঠানো হয়েছে';
+
+  @override
+  String get pfPostedToast => 'নতুন সার্কুলার প্রকাশ করা হয়েছে';
+
+  @override
+  String get pfAboutCompany => 'কোম্পানি পরিচিতি ও লক্ষ্য';
+
+  @override
+  String get pfDomains => 'প্রধান ইঞ্জিনিয়ারিং ও টেকনোলজি ক্ষেত্রসমূহ';
+
+  @override
+  String get pfBenefits => 'ইন্টার্ন ও নতুন কর্মীদের সুযোগ-সুবিধা';
+
+  @override
+  String get pfHrDesk => 'এইচআর ডেস্ক ও যোগাযোগ';
+
+  @override
+  String get pfHrEmail => 'এইচআর ইমেইল';
+
+  @override
+  String get pfHelpline => 'হেল্পলাইন নম্বর';
+
+  @override
+  String get pfHeadOffice => 'হেড অফিস ও প্ল্যান্ট';
+
+  @override
+  String get pfPartnersTitle => 'পার্টনার পলিটেকনিক ইনস্টিটিউটসমূহ';
+
+  @override
+  String get pfPartnersSub => 'যাদের সাথে শিল্প-অ্যাটাচমেন্ট চুক্তি রয়েছে';
+
+  @override
+  String get pfAddMou => '+ নতুন MOU চুক্তি';
+
+  @override
+  String get pfMouVerified => 'MOU চুক্তি ভেরিফাইড';
+
+  @override
+  String pfAnnualQuota(String count) {
+    return 'বার্ষিক ইন্টার্ন কোটা: $count জন শিক্ষার্থী';
+  }
+
+  @override
+  String get pfEditCompanyTitle => 'কোম্পানি তথ্য পরিবর্তন করুন';
+
+  @override
+  String get pfCompanyName => 'কোম্পানির নাম';
+
+  @override
+  String get pfIndustry => 'ইন্ডাস্ট্রি ক্যাটাগরি';
+
+  @override
+  String get pfCompanyAbout => 'কোম্পানি ওভারভিউ';
+
+  @override
+  String get pfNewPostTitle => 'নতুন সার্কুলার/ইন্টার্নশিপ পোস্ট করুন';
+
+  @override
+  String get pfPostCategory => 'পোস্টের ক্যাটাগরি';
+
+  @override
+  String get pfPostTitle => 'পদের নাম';
+
+  @override
+  String get pfPostTech => 'প্রযোজ্য টেকনোলজি/ডিপার্টমেন্ট';
+
+  @override
+  String get pfPostSeats => 'খালি পদের সংখ্যা';
+
+  @override
+  String get pfPostSalary => 'বেতন/স্টাইপেন্ড পরিমাণ';
+
+  @override
+  String get pfPostDeadline => 'আবেদনের শেষ তারিখ';
+
+  @override
+  String get pfPostLocation => 'কর্মস্থল / লোকেশন';
+
+  @override
+  String get pfPostBenefits => 'সুযোগ-সুবিধা (কমা দিয়ে লিখুন)';
+
+  @override
+  String get pfPublishNow => 'পোর্টালে প্রকাশ করুন';
+
+  @override
+  String get pfInterviewTitle => 'ইন্টারভিউ তারিখ সিডিউল করুন';
+
+  @override
+  String pfInterviewCandidate(String name) {
+    return 'আবেদনকারী: $name';
+  }
+
+  @override
+  String get pfInterviewDate => 'ইন্টারভিউ এর তারিখ ও সময়';
+
+  @override
+  String get pfInterviewPlace => 'স্থান / অনলাইন মিটিং লিংক';
+
+  @override
+  String get pfSendNotice => 'নোটিফিকেশন পাঠান';
 }

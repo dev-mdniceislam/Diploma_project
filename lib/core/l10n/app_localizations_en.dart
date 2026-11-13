@@ -10,7 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appName => 'Diploma Job Hub';
+  String get appName => 'Career Orbit';
 
   @override
   String get appTagline => 'Diploma Engineer Career Portal';
@@ -175,8 +175,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String deadlineLabel(String date) {
-    return 'Deadline: $date';
+  String deadlineLabel(String value) {
+    return 'Deadline: $value';
   }
 
   @override
@@ -229,7 +229,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get footerTagline =>
-      'Dedicated to the career growth of polytechnic students.';
+      'Bridging BTEB polytechnic students and factories.';
 
   @override
   String get stepAuthentication =>
@@ -543,10 +543,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get updateCv => 'Update CV';
 
   @override
-  String get comingSoon => 'This feature is coming soon!';
+  String get comingSoon => 'Coming soon';
 
   @override
-  String get changeCover => 'Change cover';
+  String get changeCover => 'Change banner';
 
   @override
   String get verifiedStudent => 'Verified student';
@@ -555,7 +555,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get downloadResume => 'Download resume';
 
   @override
-  String get editProfile => 'Edit profile';
+  String get editProfile => 'Edit Profile';
 
   @override
   String get copyPublicLink => 'Copy public link';
@@ -567,7 +567,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cvNotUploaded => 'No CV link has been added yet';
 
   @override
-  String get linkOpenFailed => 'Could not open the link';
+  String get linkOpenFailed => 'Unable to open the link';
 
   @override
   String instituteRoll(String institute, String roll) {
@@ -638,7 +638,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nocRejected => 'Rejected';
 
   @override
-  String get tabOverview => 'Overview & details';
+  String get tabOverview => 'About & Benefits';
 
   @override
   String get tabAcademic => 'Academic';
@@ -782,10 +782,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get colAction => 'Action';
 
   @override
-  String get typeAttachment => '🎓 Attachment';
+  String get typeAttachment => '8th Semester Attachment';
 
   @override
-  String get typeJob => '💼 Job';
+  String get typeJob => 'Full-time job';
 
   @override
   String get statusShortlisted => 'Shortlisted';
@@ -935,7 +935,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verifiedEmployer => 'Verified employer';
 
   @override
-  String get technologyLabel => 'Technology:';
+  String technologyLabel(String value) {
+    return 'Technology: $value';
+  }
 
   @override
   String get applied => 'Application submitted';
@@ -995,7 +997,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get requirementsTitle => 'Education & technology requirements';
 
   @override
-  String get benefitsTitle => 'Benefits & perks';
+  String get benefitsTitle => 'Benefits for interns & new hires';
 
   @override
   String get requiredDocsTitle => 'Documents required to apply';
@@ -1103,4 +1105,836 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get circularLinkCopied => 'Circular link copied!';
+
+  @override
+  String get stepCompanyProfile =>
+      '================================== Profile ========================';
+
+  @override
+  String get recruiterPortalTagline => 'Recruiter Portal & Company Desk';
+
+  @override
+  String get navPostings => 'Jobs & Internships';
+
+  @override
+  String get navApplicants => 'Applicants';
+
+  @override
+  String get navCompanyPanel => 'Company Panel';
+
+  @override
+  String get btebPartner => 'BTEB Industry Partner';
+
+  @override
+  String get newPost => 'Post New';
+
+  @override
+  String get shareProfile => 'Share profile';
+
+  @override
+  String get changeLogo => 'Change logo';
+
+  @override
+  String get toggleTheme => 'Toggle theme';
+
+  @override
+  String get languageToggleLabel => 'বাংলা';
+
+  @override
+  String get verifiedRecruiter => 'Verified Recruiter';
+
+  @override
+  String get btebApprovedIndustry => 'BTEB Approved Industry';
+
+  @override
+  String employeesCount(String count) {
+    return '$count+ employees';
+  }
+
+  @override
+  String get statTotalPostings => 'Total circulars posted';
+
+  @override
+  String get statJobs => 'Job circulars';
+
+  @override
+  String get statAttachments => 'Industrial attachments';
+
+  @override
+  String get statApplications => 'Applications received';
+
+  @override
+  String itemsCount(String count) {
+    return '$count';
+  }
+
+  @override
+  String get tabPostings => 'Circulars & Internship Management';
+
+  @override
+  String get tabApplicants => 'Applicants & Evaluation';
+
+  @override
+  String get tabMou => 'Polytechnic Partnerships & MOU';
+
+  @override
+  String get filterType => 'Filter type:';
+
+  @override
+  String filterAllPosts(String count) {
+    return 'All posts ($count)';
+  }
+
+  @override
+  String filterJobs(String count) {
+    return 'Full-time jobs ($count)';
+  }
+
+  @override
+  String filterAttachments(String count) {
+    return '8th-semester attachments ($count)';
+  }
+
+  @override
+  String seatsLabel(String count) {
+    return 'Seats: $count';
+  }
+
+  @override
+  String locationLabel(String value) {
+    return 'Location: $value';
+  }
+
+  @override
+  String salaryLabel(String value) {
+    return 'Salary: $value';
+  }
+
+  @override
+  String stipendLabel(String value) {
+    return 'Stipend: $value';
+  }
+
+  @override
+  String viewApplications(String count) {
+    return 'View applications ($count)';
+  }
+
+  @override
+  String get statusActive => 'Active';
+
+  @override
+  String get emptyPostings => 'No circulars posted yet.';
+
+  @override
+  String get emptyApplicants => 'No applicants found.';
+
+  @override
+  String get genericError => 'Something went wrong. Please try again.';
+
+  @override
+  String get postDialogTitle => 'Post a new circular / internship';
+
+  @override
+  String get postDialogSubtitle =>
+      'Provide details for a job or an 8th-semester industrial attachment';
+
+  @override
+  String get postCategoryLabel => 'Select post category *';
+
+  @override
+  String get categoryAttachmentSubtitle =>
+      'Internship for polytechnic students';
+
+  @override
+  String get categoryJobTitle => 'Full-time / Part-time job';
+
+  @override
+  String get categoryJobSubtitle => 'Hiring diploma graduates';
+
+  @override
+  String get postTitleLabel => 'Position title *';
+
+  @override
+  String get postTitleHint => 'e.g. Sub-Assistant Engineer (PLC & Automation)';
+
+  @override
+  String get postTechLabel => 'Applicable technology / department *';
+
+  @override
+  String get postTechHint => 'e.g. Computer, Electrical, Mechanical';
+
+  @override
+  String get postSeatsLabel => 'Vacancies (Seats) *';
+
+  @override
+  String get postSeatsHint => 'e.g. 20';
+
+  @override
+  String get postSalaryLabel => 'Salary / stipend *';
+
+  @override
+  String get postSalaryHint => 'e.g. ৳10,000/month (or negotiable)';
+
+  @override
+  String get postDeadlineLabel => 'Application deadline *';
+
+  @override
+  String get postLocationLabel => 'Work location / factory *';
+
+  @override
+  String get postLocationHint => 'e.g. Chandra, Gazipur plant';
+
+  @override
+  String get postBenefitsLabel => 'Extra benefits & conditions';
+
+  @override
+  String get benefitFreeHousing => 'Free housing';
+
+  @override
+  String get benefitCanteen => 'Cafeteria subsidy';
+
+  @override
+  String get benefitNocRequired => 'Polytechnic NOC required';
+
+  @override
+  String get tagNocApplicable => 'NOC applicable';
+
+  @override
+  String get publishToPortal => 'Publish to portal';
+
+  @override
+  String get invalidNumber => 'Enter a valid number';
+
+  @override
+  String get editCompanyTitle => 'Edit company details';
+
+  @override
+  String get companyNameLabel => 'Company name *';
+
+  @override
+  String get industryLabel => 'Industry category *';
+
+  @override
+  String get hrEmailLabel => 'HR email *';
+
+  @override
+  String get helplineLabel => 'Helpline number *';
+
+  @override
+  String get aboutSummaryLabel => 'Company overview (About)';
+
+  @override
+  String get interviewDialogTitle => 'Schedule interview';
+
+  @override
+  String interviewCandidate(String name) {
+    return 'Candidate: $name';
+  }
+
+  @override
+  String get interviewDateTimeLabel => 'Interview date & time *';
+
+  @override
+  String get interviewVenueLabel => 'Venue / online meeting link *';
+
+  @override
+  String get interviewVenueHint =>
+      'e.g. Walton Plant HQ Boardroom or Google Meet link';
+
+  @override
+  String get sendNotification => 'Send notification';
+
+  @override
+  String get applicantsTitle => 'Applicant evaluation list';
+
+  @override
+  String get applicantsSubtitle =>
+      'Verify CV, technology and NOC status of polytechnic students';
+
+  @override
+  String get filterAllApplicants => 'All applicants';
+
+  @override
+  String statusInterviewOn(String date) {
+    return 'Interview $date';
+  }
+
+  @override
+  String get downloadCvs => 'Download CVs';
+
+  @override
+  String get colStudent => 'Student & polytechnic';
+
+  @override
+  String get colTechCgpa => 'Technology & CGPA';
+
+  @override
+  String get colPosition => 'Applied position';
+
+  @override
+  String get colDocuments => 'Documents';
+
+  @override
+  String cgpaLabel(String value) {
+    return 'CGPA: $value';
+  }
+
+  @override
+  String get nocAttached => 'NOC attached';
+
+  @override
+  String get actionShortlist => 'Shortlist';
+
+  @override
+  String get actionScheduleInterview => 'Schedule interview';
+
+  @override
+  String get actionDone => 'Done';
+
+  @override
+  String get aboutTitle => 'About & mission';
+
+  @override
+  String get domainsTitle => 'Key engineering & technology areas';
+
+  @override
+  String get hrDeskTitle => 'HR desk & contact';
+
+  @override
+  String get hrEmailTitle => 'HR email';
+
+  @override
+  String get helplineTitle => 'Helpline number';
+
+  @override
+  String get headOfficeTitle => 'Head office & plant';
+
+  @override
+  String get mouTitle => 'Partner polytechnic institutes (Campus partners)';
+
+  @override
+  String get mouSubtitle =>
+      'Institutes with an industrial-attachment agreement';
+
+  @override
+  String get newMou => '+ New MOU';
+
+  @override
+  String get mouVerified => 'MOU verified';
+
+  @override
+  String annualQuota(String count) {
+    return 'Annual intern quota: $count students';
+  }
+
+  @override
+  String get toastPostPublished => 'New circular published successfully!';
+
+  @override
+  String get toastProfileUpdated => 'Company profile updated!';
+
+  @override
+  String get toastInterviewSent => 'Interview schedule sent to the student.';
+
+  @override
+  String get toastShortlisted => 'Candidate added to the shortlist!';
+
+  @override
+  String get toastLinkCopied => 'Company dashboard link copied!';
+
+  @override
+  String get toastExportingCvs => 'Exporting all CVs as a ZIP...';
+
+  @override
+  String get pfNoLink => 'Link not available';
+
+  @override
+  String get pfLinkCopied => 'Profile link copied';
+
+  @override
+  String get pfRetry => 'Retry';
+
+  @override
+  String get pfNoData => 'Nothing to show yet';
+
+  @override
+  String get pfUnknownRole => 'This account type has no profile page.';
+
+  @override
+  String get pfSave => 'Save';
+
+  @override
+  String get pfCancel => 'Cancel';
+
+  @override
+  String get pfComingSoon => 'Coming soon';
+
+  @override
+  String get pfSaved => 'Saved successfully';
+
+  @override
+  String get pfEditProfile => 'Edit profile';
+
+  @override
+  String get pfEmail => 'Email';
+
+  @override
+  String get pfPhone => 'Phone';
+
+  @override
+  String get pfAddress => 'Address';
+
+  @override
+  String get pfAll => 'All';
+
+  @override
+  String get pfShortlisted => 'Shortlisted';
+
+  @override
+  String get pfPending => 'Pending review';
+
+  @override
+  String get pfInterview => 'Interview scheduled';
+
+  @override
+  String pfInterviewOn(String date) {
+    return 'Interview $date';
+  }
+
+  @override
+  String get pfTypeJob => 'Full-time job';
+
+  @override
+  String get pfTypeAttachment => 'Industrial attachment';
+
+  @override
+  String get pfStatus => 'Status';
+
+  @override
+  String get pfUpdate => 'Update';
+
+  @override
+  String get pfPublish => 'Publish';
+
+  @override
+  String get pfStudentVerified => 'Verified student';
+
+  @override
+  String pfRoll(String roll) {
+    return 'Roll: $roll';
+  }
+
+  @override
+  String get pfDownloadCv => 'Download resume';
+
+  @override
+  String get pfUpdateCv => 'Update CV link';
+
+  @override
+  String get pfStatCurrent => 'Current status';
+
+  @override
+  String get pfStatCgpa => 'CGPA (average)';
+
+  @override
+  String get pfStatApplied => 'Applied jobs / internships';
+
+  @override
+  String pfStatAppliedValue(String count) {
+    return '$count circulars';
+  }
+
+  @override
+  String get pfStatNoc => 'NOC status';
+
+  @override
+  String get pfNocIssued => 'Issued';
+
+  @override
+  String get pfNocPending => 'Not issued';
+
+  @override
+  String get pfTabOverview => 'Overview';
+
+  @override
+  String get pfTabAcademic => 'Academics';
+
+  @override
+  String get pfTabProjects => 'Skills & projects';
+
+  @override
+  String get pfTabApplications => 'Applications';
+
+  @override
+  String get pfTabCertificates => 'Certificates & social';
+
+  @override
+  String get pfAboutMe => 'About me';
+
+  @override
+  String get pfSkills => 'Technical proficiency';
+
+  @override
+  String get pfContactInfo => 'Contact information';
+
+  @override
+  String get pfBoardInfo => 'Technical board info';
+
+  @override
+  String get pfBoardRoll => 'Board roll';
+
+  @override
+  String get pfRegistration => 'Registration';
+
+  @override
+  String get pfSession => 'Session';
+
+  @override
+  String get pfNocNumber => 'NOC letter no.';
+
+  @override
+  String get pfResultBreakdown => 'Polytechnic result breakdown (semester GPA)';
+
+  @override
+  String get pfSemester => 'Semester';
+
+  @override
+  String pfSemesterN(String n) {
+    return 'Semester $n';
+  }
+
+  @override
+  String get pfExamYear => 'Exam year';
+
+  @override
+  String get pfGpa => 'GPA';
+
+  @override
+  String get pfPassed => 'Passed';
+
+  @override
+  String get pfNotPassed => 'Not passed';
+
+  @override
+  String get pfAverageCgpa => 'Average CGPA';
+
+  @override
+  String get pfSscTitle => 'Secondary school certificate (SSC)';
+
+  @override
+  String get pfSchool => 'School';
+
+  @override
+  String get pfGroupBoard => 'Group & board';
+
+  @override
+  String get pfPassingYearGpa => 'Passing year & GPA';
+
+  @override
+  String get pfPortfolio => 'Practical project portfolio';
+
+  @override
+  String get pfPortfolioSub => 'Projects built in class and on your own';
+
+  @override
+  String get pfAddProject => 'Add new project';
+
+  @override
+  String get pfLiveDemo => 'Live demo';
+
+  @override
+  String get pfGithub => 'GitHub code';
+
+  @override
+  String get pfTrackerTitle => 'Applied circulars & internship tracker';
+
+  @override
+  String get pfTrackerSub => 'Real-time status of all your applications';
+
+  @override
+  String get pfColCompany => 'Company & role';
+
+  @override
+  String get pfColType => 'Type';
+
+  @override
+  String get pfColDate => 'Applied on';
+
+  @override
+  String get pfColAction => 'Action';
+
+  @override
+  String get pfViewMessage => 'View message';
+
+  @override
+  String get pfCertsTitle => 'Training & course certificates';
+
+  @override
+  String get pfSocialTitle => 'Social media & portfolio links';
+
+  @override
+  String get pfEditStudentTitle => 'Edit student profile';
+
+  @override
+  String get pfFullName => 'Full name';
+
+  @override
+  String get pfPolytechnic => 'Polytechnic';
+
+  @override
+  String get pfTechnology => 'Technology';
+
+  @override
+  String get pfBio => 'Short bio';
+
+  @override
+  String get pfCvLink => 'Google Drive CV link';
+
+  @override
+  String get pfCvHint =>
+      'Set access to \'Anyone with the link\' so recruiters can open it.';
+
+  @override
+  String get pfProjectName => 'Project name';
+
+  @override
+  String get pfProjectTech => 'Technologies (comma separated)';
+
+  @override
+  String get pfProjectDesc => 'Short description';
+
+  @override
+  String get pfVerifiedRecruiter => 'Verified recruiter';
+
+  @override
+  String get pfBtebApproved => 'BTEB approved industry partner';
+
+  @override
+  String get pfNewPost => 'Post new circular';
+
+  @override
+  String pfEmployees(String count) {
+    return '$count+ employees';
+  }
+
+  @override
+  String get pfStatTotalPosts => 'Total circulars';
+
+  @override
+  String get pfStatJobs => 'Job circulars';
+
+  @override
+  String get pfStatAttachments => 'Industrial attachments';
+
+  @override
+  String get pfStatApplications => 'Applications received';
+
+  @override
+  String get pfTabPostings => 'Circulars & internships';
+
+  @override
+  String get pfTabApplicants => 'Applicants & evaluation';
+
+  @override
+  String get pfTabCompany => 'About & benefits';
+
+  @override
+  String get pfTabMou => 'Polytechnic partners & MOU';
+
+  @override
+  String pfAllPosts(String count) {
+    return 'All posts ($count)';
+  }
+
+  @override
+  String pfJobsCount(String count) {
+    return 'Full-time jobs ($count)';
+  }
+
+  @override
+  String pfAttachCount(String count) {
+    return 'Attachments ($count)';
+  }
+
+  @override
+  String pfSeats(String count) {
+    return 'Seats: $count';
+  }
+
+  @override
+  String pfPlace(String value) {
+    return 'Location: $value';
+  }
+
+  @override
+  String pfStipend(String value) {
+    return 'Stipend: $value';
+  }
+
+  @override
+  String pfSalary(String value) {
+    return 'Salary: $value';
+  }
+
+  @override
+  String pfDeadline(String value) {
+    return 'Deadline: $value';
+  }
+
+  @override
+  String pfTechnologyLine(String value) {
+    return 'Technology: $value';
+  }
+
+  @override
+  String pfViewApplicants(String count) {
+    return 'View applicants ($count)';
+  }
+
+  @override
+  String get pfActive => 'Active';
+
+  @override
+  String get pfApplicantsTitle => 'Applicant evaluation list';
+
+  @override
+  String get pfApplicantsSub =>
+      'Verify CV, technology and NOC status of polytechnic students';
+
+  @override
+  String get pfColStudent => 'Student & polytechnic';
+
+  @override
+  String get pfColTechCgpa => 'Technology & CGPA';
+
+  @override
+  String get pfColPosition => 'Position & type';
+
+  @override
+  String get pfColDocs => 'Documents';
+
+  @override
+  String pfCgpaValue(String value) {
+    return 'CGPA: $value';
+  }
+
+  @override
+  String get pfNocAttached => 'NOC attached';
+
+  @override
+  String get pfShortlistAction => 'Shortlist';
+
+  @override
+  String get pfScheduleInterview => 'Schedule interview';
+
+  @override
+  String get pfDone => 'Done';
+
+  @override
+  String get pfShortlistedToast => 'Candidate shortlisted';
+
+  @override
+  String get pfInterviewSentToast => 'Interview schedule sent to the student';
+
+  @override
+  String get pfPostedToast => 'Circular published';
+
+  @override
+  String get pfAboutCompany => 'About the company';
+
+  @override
+  String get pfDomains => 'Main engineering & technology areas';
+
+  @override
+  String get pfBenefits => 'Benefits for interns & new hires';
+
+  @override
+  String get pfHrDesk => 'HR desk & contact';
+
+  @override
+  String get pfHrEmail => 'HR email';
+
+  @override
+  String get pfHelpline => 'Helpline';
+
+  @override
+  String get pfHeadOffice => 'Head office & plant';
+
+  @override
+  String get pfPartnersTitle => 'Partner polytechnic institutes';
+
+  @override
+  String get pfPartnersSub =>
+      'Institutes with an industrial attachment agreement';
+
+  @override
+  String get pfAddMou => '+ New MOU';
+
+  @override
+  String get pfMouVerified => 'MOU verified';
+
+  @override
+  String pfAnnualQuota(String count) {
+    return 'Annual intern quota: $count students';
+  }
+
+  @override
+  String get pfEditCompanyTitle => 'Edit company info';
+
+  @override
+  String get pfCompanyName => 'Company name';
+
+  @override
+  String get pfIndustry => 'Industry category';
+
+  @override
+  String get pfCompanyAbout => 'Company overview';
+
+  @override
+  String get pfNewPostTitle => 'Post a new circular / internship';
+
+  @override
+  String get pfPostCategory => 'Category';
+
+  @override
+  String get pfPostTitle => 'Position title';
+
+  @override
+  String get pfPostTech => 'Applicable technology / department';
+
+  @override
+  String get pfPostSeats => 'Vacancies';
+
+  @override
+  String get pfPostSalary => 'Salary / stipend';
+
+  @override
+  String get pfPostDeadline => 'Application deadline';
+
+  @override
+  String get pfPostLocation => 'Workplace location';
+
+  @override
+  String get pfPostBenefits => 'Benefits (comma separated)';
+
+  @override
+  String get pfPublishNow => 'Publish to portal';
+
+  @override
+  String get pfInterviewTitle => 'Schedule interview';
+
+  @override
+  String pfInterviewCandidate(String name) {
+    return 'Candidate: $name';
+  }
+
+  @override
+  String get pfInterviewDate => 'Interview date & time';
+
+  @override
+  String get pfInterviewPlace => 'Venue / meeting link';
+
+  @override
+  String get pfSendNotice => 'Send notification';
 }

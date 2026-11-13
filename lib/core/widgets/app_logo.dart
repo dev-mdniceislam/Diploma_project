@@ -1,3 +1,4 @@
+import 'package:diploma_job/core/gen/assets_gen.dart';
 import 'package:diploma_job/core/responsive/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -14,34 +15,13 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n!;
+    final l10n = context.l10n;
     final size = compact ? 32.0 : 48.0;
 
-    final mark = Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.bottomLeft,
-          end: Alignment.topRight,
-          colors: [AppColors.primary600, AppColors.accentGreen],
-        ),
-        borderRadius: BorderRadius.circular(compact ? 8 : 12),
-        boxShadow: compact
-            ? null
-            : [
-                BoxShadow(
-                  color: AppColors.primary500.withOpacity(0.25),
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-      ),
-      child: Icon(
-        Icons.work_outline_rounded,
-        color: AppColors.white,
-        size: compact ? 16 : 24,
-      ),
+    final mark = Assets.images.appLogo.image(
+      height: 55,
+      width: 55,
+      color: compact ? AppColors.white : AppColors.primary,
     );
 
     if (compact) {

@@ -1,4 +1,4 @@
-// import '../../l10n/app_localizations.dart';
+// import '../l10n/app_localizations.dart';
 //
 // class Validators {
 //   Validators._();
@@ -36,3 +36,36 @@
 //     return v.trim().length < min ? l10n.descTooShort : null;
 //   }
 // }
+
+import 'package:flutter/widgets.dart';
+
+abstract class Validators {
+  Validators._();
+
+  static FormFieldValidator<String> required(String message) =>
+          (v) => (v == null || v.trim().isEmpty) ? message : null;
+
+  static FormFieldValidator<String> email({
+    required String requiredMessage,
+    required String invalidMessage,
+  }) =>
+          (v) {
+        final value = v?.trim() ?? '';
+        if (value.isEmpty) return requiredMessage;
+        return RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(value)
+            ? null
+            : invalidMessage;
+      };
+
+  static FormFieldValidator<String> positiveInt({
+    required String requiredMessage,
+    required String invalidMessage,
+  }) =>
+          (v) {
+        final value = v?.trim() ?? '';
+        if (value.isEmpty) return requiredMessage;
+        final n = int.tryParse(value);
+        return (n == null || n <= 0) ? invalidMessage : null;
+      };
+}
+

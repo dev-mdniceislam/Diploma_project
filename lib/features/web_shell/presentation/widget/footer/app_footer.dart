@@ -1,4 +1,5 @@
 import 'package:diploma_job/core/responsive/responsive.dart';
+import 'package:diploma_job/core/responsive/responsive_container.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,7 +39,7 @@ class AppFooter extends ConsumerWidget {
         color: AppColors.navy900,
         border: Border(top: BorderSide(color: AppColors.navy800)),
       ),
-      child: AppContainer(
+      child: ResponsiveContainer(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 48),
           child: Column(

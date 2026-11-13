@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import '../../../../../core/endpoints/endpoints.dart';
 import '../../widget/post_for_user.dart';
 import '../model/login_model.dart';

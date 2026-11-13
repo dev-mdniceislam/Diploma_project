@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appName.
   ///
   /// In en, this message translates to:
-  /// **'Diploma Job Hub'**
+  /// **'Career Orbit'**
   String get appName;
 
   /// No description provided for @appTagline.
@@ -383,8 +383,8 @@ abstract class AppLocalizations {
   /// No description provided for @deadlineLabel.
   ///
   /// In en, this message translates to:
-  /// **'Deadline: {date}'**
-  String deadlineLabel(String date);
+  /// **'Deadline: {value}'**
+  String deadlineLabel(String value);
 
   /// No description provided for @applyNow.
   ///
@@ -479,7 +479,7 @@ abstract class AppLocalizations {
   /// No description provided for @footerTagline.
   ///
   /// In en, this message translates to:
-  /// **'Dedicated to the career growth of polytechnic students.'**
+  /// **'Bridging BTEB polytechnic students and factories.'**
   String get footerTagline;
 
   /// No description provided for @stepAuthentication.
@@ -1073,13 +1073,13 @@ abstract class AppLocalizations {
   /// No description provided for @comingSoon.
   ///
   /// In en, this message translates to:
-  /// **'This feature is coming soon!'**
+  /// **'Coming soon'**
   String get comingSoon;
 
   /// No description provided for @changeCover.
   ///
   /// In en, this message translates to:
-  /// **'Change cover'**
+  /// **'Change banner'**
   String get changeCover;
 
   /// No description provided for @verifiedStudent.
@@ -1097,7 +1097,7 @@ abstract class AppLocalizations {
   /// No description provided for @editProfile.
   ///
   /// In en, this message translates to:
-  /// **'Edit profile'**
+  /// **'Edit Profile'**
   String get editProfile;
 
   /// No description provided for @copyPublicLink.
@@ -1121,7 +1121,7 @@ abstract class AppLocalizations {
   /// No description provided for @linkOpenFailed.
   ///
   /// In en, this message translates to:
-  /// **'Could not open the link'**
+  /// **'Unable to open the link'**
   String get linkOpenFailed;
 
   /// No description provided for @instituteRoll.
@@ -1199,7 +1199,7 @@ abstract class AppLocalizations {
   /// No description provided for @tabOverview.
   ///
   /// In en, this message translates to:
-  /// **'Overview & details'**
+  /// **'About & Benefits'**
   String get tabOverview;
 
   /// No description provided for @tabAcademic.
@@ -1481,13 +1481,13 @@ abstract class AppLocalizations {
   /// No description provided for @typeAttachment.
   ///
   /// In en, this message translates to:
-  /// **'🎓 Attachment'**
+  /// **'8th Semester Attachment'**
   String get typeAttachment;
 
   /// No description provided for @typeJob.
   ///
   /// In en, this message translates to:
-  /// **'💼 Job'**
+  /// **'Full-time job'**
   String get typeJob;
 
   /// No description provided for @statusShortlisted.
@@ -1769,8 +1769,8 @@ abstract class AppLocalizations {
   /// No description provided for @technologyLabel.
   ///
   /// In en, this message translates to:
-  /// **'Technology:'**
-  String get technologyLabel;
+  /// **'Technology: {value}'**
+  String technologyLabel(String value);
 
   /// No description provided for @applied.
   ///
@@ -1853,7 +1853,7 @@ abstract class AppLocalizations {
   /// No description provided for @benefitsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Benefits & perks'**
+  /// **'Benefits for interns & new hires'**
   String get benefitsTitle;
 
   /// No description provided for @requiredDocsTitle.
@@ -2059,6 +2059,1524 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Circular link copied!'**
   String get circularLinkCopied;
+
+  /// No description provided for @stepCompanyProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'================================== Profile ========================'**
+  String get stepCompanyProfile;
+
+  /// No description provided for @recruiterPortalTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Recruiter Portal & Company Desk'**
+  String get recruiterPortalTagline;
+
+  /// No description provided for @navPostings.
+  ///
+  /// In en, this message translates to:
+  /// **'Jobs & Internships'**
+  String get navPostings;
+
+  /// No description provided for @navApplicants.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicants'**
+  String get navApplicants;
+
+  /// No description provided for @navCompanyPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Panel'**
+  String get navCompanyPanel;
+
+  /// No description provided for @btebPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'BTEB Industry Partner'**
+  String get btebPartner;
+
+  /// No description provided for @newPost.
+  ///
+  /// In en, this message translates to:
+  /// **'Post New'**
+  String get newPost;
+
+  /// No description provided for @shareProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Share profile'**
+  String get shareProfile;
+
+  /// No description provided for @changeLogo.
+  ///
+  /// In en, this message translates to:
+  /// **'Change logo'**
+  String get changeLogo;
+
+  /// No description provided for @toggleTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Toggle theme'**
+  String get toggleTheme;
+
+  /// No description provided for @languageToggleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'বাংলা'**
+  String get languageToggleLabel;
+
+  /// No description provided for @verifiedRecruiter.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified Recruiter'**
+  String get verifiedRecruiter;
+
+  /// No description provided for @btebApprovedIndustry.
+  ///
+  /// In en, this message translates to:
+  /// **'BTEB Approved Industry'**
+  String get btebApprovedIndustry;
+
+  /// No description provided for @employeesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}+ employees'**
+  String employeesCount(String count);
+
+  /// No description provided for @statTotalPostings.
+  ///
+  /// In en, this message translates to:
+  /// **'Total circulars posted'**
+  String get statTotalPostings;
+
+  /// No description provided for @statJobs.
+  ///
+  /// In en, this message translates to:
+  /// **'Job circulars'**
+  String get statJobs;
+
+  /// No description provided for @statAttachments.
+  ///
+  /// In en, this message translates to:
+  /// **'Industrial attachments'**
+  String get statAttachments;
+
+  /// No description provided for @statApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Applications received'**
+  String get statApplications;
+
+  /// No description provided for @itemsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}'**
+  String itemsCount(String count);
+
+  /// No description provided for @tabPostings.
+  ///
+  /// In en, this message translates to:
+  /// **'Circulars & Internship Management'**
+  String get tabPostings;
+
+  /// No description provided for @tabApplicants.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicants & Evaluation'**
+  String get tabApplicants;
+
+  /// No description provided for @tabMou.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic Partnerships & MOU'**
+  String get tabMou;
+
+  /// No description provided for @filterType.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter type:'**
+  String get filterType;
+
+  /// No description provided for @filterAllPosts.
+  ///
+  /// In en, this message translates to:
+  /// **'All posts ({count})'**
+  String filterAllPosts(String count);
+
+  /// No description provided for @filterJobs.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-time jobs ({count})'**
+  String filterJobs(String count);
+
+  /// No description provided for @filterAttachments.
+  ///
+  /// In en, this message translates to:
+  /// **'8th-semester attachments ({count})'**
+  String filterAttachments(String count);
+
+  /// No description provided for @seatsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Seats: {count}'**
+  String seatsLabel(String count);
+
+  /// No description provided for @locationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Location: {value}'**
+  String locationLabel(String value);
+
+  /// No description provided for @salaryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary: {value}'**
+  String salaryLabel(String value);
+
+  /// No description provided for @stipendLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Stipend: {value}'**
+  String stipendLabel(String value);
+
+  /// No description provided for @viewApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'View applications ({count})'**
+  String viewApplications(String count);
+
+  /// No description provided for @statusActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get statusActive;
+
+  /// No description provided for @emptyPostings.
+  ///
+  /// In en, this message translates to:
+  /// **'No circulars posted yet.'**
+  String get emptyPostings;
+
+  /// No description provided for @emptyApplicants.
+  ///
+  /// In en, this message translates to:
+  /// **'No applicants found.'**
+  String get emptyApplicants;
+
+  /// No description provided for @genericError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get genericError;
+
+  /// No description provided for @postDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Post a new circular / internship'**
+  String get postDialogTitle;
+
+  /// No description provided for @postDialogSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide details for a job or an 8th-semester industrial attachment'**
+  String get postDialogSubtitle;
+
+  /// No description provided for @postCategoryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select post category *'**
+  String get postCategoryLabel;
+
+  /// No description provided for @categoryAttachmentSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Internship for polytechnic students'**
+  String get categoryAttachmentSubtitle;
+
+  /// No description provided for @categoryJobTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-time / Part-time job'**
+  String get categoryJobTitle;
+
+  /// No description provided for @categoryJobSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hiring diploma graduates'**
+  String get categoryJobSubtitle;
+
+  /// No description provided for @postTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Position title *'**
+  String get postTitleLabel;
+
+  /// No description provided for @postTitleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Sub-Assistant Engineer (PLC & Automation)'**
+  String get postTitleHint;
+
+  /// No description provided for @postTechLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicable technology / department *'**
+  String get postTechLabel;
+
+  /// No description provided for @postTechHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Computer, Electrical, Mechanical'**
+  String get postTechHint;
+
+  /// No description provided for @postSeatsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Vacancies (Seats) *'**
+  String get postSeatsLabel;
+
+  /// No description provided for @postSeatsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 20'**
+  String get postSeatsHint;
+
+  /// No description provided for @postSalaryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary / stipend *'**
+  String get postSalaryLabel;
+
+  /// No description provided for @postSalaryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. ৳10,000/month (or negotiable)'**
+  String get postSalaryHint;
+
+  /// No description provided for @postDeadlineLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Application deadline *'**
+  String get postDeadlineLabel;
+
+  /// No description provided for @postLocationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Work location / factory *'**
+  String get postLocationLabel;
+
+  /// No description provided for @postLocationHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Chandra, Gazipur plant'**
+  String get postLocationHint;
+
+  /// No description provided for @postBenefitsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra benefits & conditions'**
+  String get postBenefitsLabel;
+
+  /// No description provided for @benefitFreeHousing.
+  ///
+  /// In en, this message translates to:
+  /// **'Free housing'**
+  String get benefitFreeHousing;
+
+  /// No description provided for @benefitCanteen.
+  ///
+  /// In en, this message translates to:
+  /// **'Cafeteria subsidy'**
+  String get benefitCanteen;
+
+  /// No description provided for @benefitNocRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic NOC required'**
+  String get benefitNocRequired;
+
+  /// No description provided for @tagNocApplicable.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC applicable'**
+  String get tagNocApplicable;
+
+  /// No description provided for @publishToPortal.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish to portal'**
+  String get publishToPortal;
+
+  /// No description provided for @invalidNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid number'**
+  String get invalidNumber;
+
+  /// No description provided for @editCompanyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit company details'**
+  String get editCompanyTitle;
+
+  /// No description provided for @companyNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Company name *'**
+  String get companyNameLabel;
+
+  /// No description provided for @industryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Industry category *'**
+  String get industryLabel;
+
+  /// No description provided for @hrEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'HR email *'**
+  String get hrEmailLabel;
+
+  /// No description provided for @helplineLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Helpline number *'**
+  String get helplineLabel;
+
+  /// No description provided for @aboutSummaryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Company overview (About)'**
+  String get aboutSummaryLabel;
+
+  /// No description provided for @interviewDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule interview'**
+  String get interviewDialogTitle;
+
+  /// No description provided for @interviewCandidate.
+  ///
+  /// In en, this message translates to:
+  /// **'Candidate: {name}'**
+  String interviewCandidate(String name);
+
+  /// No description provided for @interviewDateTimeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview date & time *'**
+  String get interviewDateTimeLabel;
+
+  /// No description provided for @interviewVenueLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Venue / online meeting link *'**
+  String get interviewVenueLabel;
+
+  /// No description provided for @interviewVenueHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Walton Plant HQ Boardroom or Google Meet link'**
+  String get interviewVenueHint;
+
+  /// No description provided for @sendNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Send notification'**
+  String get sendNotification;
+
+  /// No description provided for @applicantsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicant evaluation list'**
+  String get applicantsTitle;
+
+  /// No description provided for @applicantsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify CV, technology and NOC status of polytechnic students'**
+  String get applicantsSubtitle;
+
+  /// No description provided for @filterAllApplicants.
+  ///
+  /// In en, this message translates to:
+  /// **'All applicants'**
+  String get filterAllApplicants;
+
+  /// No description provided for @statusInterviewOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview {date}'**
+  String statusInterviewOn(String date);
+
+  /// No description provided for @downloadCvs.
+  ///
+  /// In en, this message translates to:
+  /// **'Download CVs'**
+  String get downloadCvs;
+
+  /// No description provided for @colStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Student & polytechnic'**
+  String get colStudent;
+
+  /// No description provided for @colTechCgpa.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology & CGPA'**
+  String get colTechCgpa;
+
+  /// No description provided for @colPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied position'**
+  String get colPosition;
+
+  /// No description provided for @colDocuments.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get colDocuments;
+
+  /// No description provided for @cgpaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'CGPA: {value}'**
+  String cgpaLabel(String value);
+
+  /// No description provided for @nocAttached.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC attached'**
+  String get nocAttached;
+
+  /// No description provided for @actionShortlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlist'**
+  String get actionShortlist;
+
+  /// No description provided for @actionScheduleInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule interview'**
+  String get actionScheduleInterview;
+
+  /// No description provided for @actionDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get actionDone;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About & mission'**
+  String get aboutTitle;
+
+  /// No description provided for @domainsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Key engineering & technology areas'**
+  String get domainsTitle;
+
+  /// No description provided for @hrDeskTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'HR desk & contact'**
+  String get hrDeskTitle;
+
+  /// No description provided for @hrEmailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'HR email'**
+  String get hrEmailTitle;
+
+  /// No description provided for @helplineTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Helpline number'**
+  String get helplineTitle;
+
+  /// No description provided for @headOfficeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Head office & plant'**
+  String get headOfficeTitle;
+
+  /// No description provided for @mouTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner polytechnic institutes (Campus partners)'**
+  String get mouTitle;
+
+  /// No description provided for @mouSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Institutes with an industrial-attachment agreement'**
+  String get mouSubtitle;
+
+  /// No description provided for @newMou.
+  ///
+  /// In en, this message translates to:
+  /// **'+ New MOU'**
+  String get newMou;
+
+  /// No description provided for @mouVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'MOU verified'**
+  String get mouVerified;
+
+  /// No description provided for @annualQuota.
+  ///
+  /// In en, this message translates to:
+  /// **'Annual intern quota: {count} students'**
+  String annualQuota(String count);
+
+  /// No description provided for @toastPostPublished.
+  ///
+  /// In en, this message translates to:
+  /// **'New circular published successfully!'**
+  String get toastPostPublished;
+
+  /// No description provided for @toastProfileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Company profile updated!'**
+  String get toastProfileUpdated;
+
+  /// No description provided for @toastInterviewSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview schedule sent to the student.'**
+  String get toastInterviewSent;
+
+  /// No description provided for @toastShortlisted.
+  ///
+  /// In en, this message translates to:
+  /// **'Candidate added to the shortlist!'**
+  String get toastShortlisted;
+
+  /// No description provided for @toastLinkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Company dashboard link copied!'**
+  String get toastLinkCopied;
+
+  /// No description provided for @toastExportingCvs.
+  ///
+  /// In en, this message translates to:
+  /// **'Exporting all CVs as a ZIP...'**
+  String get toastExportingCvs;
+
+  /// No description provided for @pfNoLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Link not available'**
+  String get pfNoLink;
+
+  /// No description provided for @pfLinkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile link copied'**
+  String get pfLinkCopied;
+
+  /// No description provided for @pfRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get pfRetry;
+
+  /// No description provided for @pfNoData.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to show yet'**
+  String get pfNoData;
+
+  /// No description provided for @pfUnknownRole.
+  ///
+  /// In en, this message translates to:
+  /// **'This account type has no profile page.'**
+  String get pfUnknownRole;
+
+  /// No description provided for @pfSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get pfSave;
+
+  /// No description provided for @pfCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get pfCancel;
+
+  /// No description provided for @pfComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get pfComingSoon;
+
+  /// No description provided for @pfSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved successfully'**
+  String get pfSaved;
+
+  /// No description provided for @pfEditProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get pfEditProfile;
+
+  /// No description provided for @pfEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get pfEmail;
+
+  /// No description provided for @pfPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get pfPhone;
+
+  /// No description provided for @pfAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get pfAddress;
+
+  /// No description provided for @pfAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get pfAll;
+
+  /// No description provided for @pfShortlisted.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlisted'**
+  String get pfShortlisted;
+
+  /// No description provided for @pfPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending review'**
+  String get pfPending;
+
+  /// No description provided for @pfInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview scheduled'**
+  String get pfInterview;
+
+  /// No description provided for @pfInterviewOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview {date}'**
+  String pfInterviewOn(String date);
+
+  /// No description provided for @pfTypeJob.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-time job'**
+  String get pfTypeJob;
+
+  /// No description provided for @pfTypeAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Industrial attachment'**
+  String get pfTypeAttachment;
+
+  /// No description provided for @pfStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get pfStatus;
+
+  /// No description provided for @pfUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get pfUpdate;
+
+  /// No description provided for @pfPublish.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish'**
+  String get pfPublish;
+
+  /// No description provided for @pfStudentVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified student'**
+  String get pfStudentVerified;
+
+  /// No description provided for @pfRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll: {roll}'**
+  String pfRoll(String roll);
+
+  /// No description provided for @pfDownloadCv.
+  ///
+  /// In en, this message translates to:
+  /// **'Download resume'**
+  String get pfDownloadCv;
+
+  /// No description provided for @pfUpdateCv.
+  ///
+  /// In en, this message translates to:
+  /// **'Update CV link'**
+  String get pfUpdateCv;
+
+  /// No description provided for @pfStatCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current status'**
+  String get pfStatCurrent;
+
+  /// No description provided for @pfStatCgpa.
+  ///
+  /// In en, this message translates to:
+  /// **'CGPA (average)'**
+  String get pfStatCgpa;
+
+  /// No description provided for @pfStatApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied jobs / internships'**
+  String get pfStatApplied;
+
+  /// No description provided for @pfStatAppliedValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} circulars'**
+  String pfStatAppliedValue(String count);
+
+  /// No description provided for @pfStatNoc.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC status'**
+  String get pfStatNoc;
+
+  /// No description provided for @pfNocIssued.
+  ///
+  /// In en, this message translates to:
+  /// **'Issued'**
+  String get pfNocIssued;
+
+  /// No description provided for @pfNocPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Not issued'**
+  String get pfNocPending;
+
+  /// No description provided for @pfTabOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get pfTabOverview;
+
+  /// No description provided for @pfTabAcademic.
+  ///
+  /// In en, this message translates to:
+  /// **'Academics'**
+  String get pfTabAcademic;
+
+  /// No description provided for @pfTabProjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Skills & projects'**
+  String get pfTabProjects;
+
+  /// No description provided for @pfTabApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Applications'**
+  String get pfTabApplications;
+
+  /// No description provided for @pfTabCertificates.
+  ///
+  /// In en, this message translates to:
+  /// **'Certificates & social'**
+  String get pfTabCertificates;
+
+  /// No description provided for @pfAboutMe.
+  ///
+  /// In en, this message translates to:
+  /// **'About me'**
+  String get pfAboutMe;
+
+  /// No description provided for @pfSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical proficiency'**
+  String get pfSkills;
+
+  /// No description provided for @pfContactInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact information'**
+  String get pfContactInfo;
+
+  /// No description provided for @pfBoardInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical board info'**
+  String get pfBoardInfo;
+
+  /// No description provided for @pfBoardRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Board roll'**
+  String get pfBoardRoll;
+
+  /// No description provided for @pfRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get pfRegistration;
+
+  /// No description provided for @pfSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Session'**
+  String get pfSession;
+
+  /// No description provided for @pfNocNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC letter no.'**
+  String get pfNocNumber;
+
+  /// No description provided for @pfResultBreakdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic result breakdown (semester GPA)'**
+  String get pfResultBreakdown;
+
+  /// No description provided for @pfSemester.
+  ///
+  /// In en, this message translates to:
+  /// **'Semester'**
+  String get pfSemester;
+
+  /// No description provided for @pfSemesterN.
+  ///
+  /// In en, this message translates to:
+  /// **'Semester {n}'**
+  String pfSemesterN(String n);
+
+  /// No description provided for @pfExamYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam year'**
+  String get pfExamYear;
+
+  /// No description provided for @pfGpa.
+  ///
+  /// In en, this message translates to:
+  /// **'GPA'**
+  String get pfGpa;
+
+  /// No description provided for @pfPassed.
+  ///
+  /// In en, this message translates to:
+  /// **'Passed'**
+  String get pfPassed;
+
+  /// No description provided for @pfNotPassed.
+  ///
+  /// In en, this message translates to:
+  /// **'Not passed'**
+  String get pfNotPassed;
+
+  /// No description provided for @pfAverageCgpa.
+  ///
+  /// In en, this message translates to:
+  /// **'Average CGPA'**
+  String get pfAverageCgpa;
+
+  /// No description provided for @pfSscTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secondary school certificate (SSC)'**
+  String get pfSscTitle;
+
+  /// No description provided for @pfSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get pfSchool;
+
+  /// No description provided for @pfGroupBoard.
+  ///
+  /// In en, this message translates to:
+  /// **'Group & board'**
+  String get pfGroupBoard;
+
+  /// No description provided for @pfPassingYearGpa.
+  ///
+  /// In en, this message translates to:
+  /// **'Passing year & GPA'**
+  String get pfPassingYearGpa;
+
+  /// No description provided for @pfPortfolio.
+  ///
+  /// In en, this message translates to:
+  /// **'Practical project portfolio'**
+  String get pfPortfolio;
+
+  /// No description provided for @pfPortfolioSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Projects built in class and on your own'**
+  String get pfPortfolioSub;
+
+  /// No description provided for @pfAddProject.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new project'**
+  String get pfAddProject;
+
+  /// No description provided for @pfLiveDemo.
+  ///
+  /// In en, this message translates to:
+  /// **'Live demo'**
+  String get pfLiveDemo;
+
+  /// No description provided for @pfGithub.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub code'**
+  String get pfGithub;
+
+  /// No description provided for @pfTrackerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied circulars & internship tracker'**
+  String get pfTrackerTitle;
+
+  /// No description provided for @pfTrackerSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Real-time status of all your applications'**
+  String get pfTrackerSub;
+
+  /// No description provided for @pfColCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'Company & role'**
+  String get pfColCompany;
+
+  /// No description provided for @pfColType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get pfColType;
+
+  /// No description provided for @pfColDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Applied on'**
+  String get pfColDate;
+
+  /// No description provided for @pfColAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Action'**
+  String get pfColAction;
+
+  /// No description provided for @pfViewMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'View message'**
+  String get pfViewMessage;
+
+  /// No description provided for @pfCertsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Training & course certificates'**
+  String get pfCertsTitle;
+
+  /// No description provided for @pfSocialTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Social media & portfolio links'**
+  String get pfSocialTitle;
+
+  /// No description provided for @pfEditStudentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit student profile'**
+  String get pfEditStudentTitle;
+
+  /// No description provided for @pfFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get pfFullName;
+
+  /// No description provided for @pfPolytechnic.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic'**
+  String get pfPolytechnic;
+
+  /// No description provided for @pfTechnology.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology'**
+  String get pfTechnology;
+
+  /// No description provided for @pfBio.
+  ///
+  /// In en, this message translates to:
+  /// **'Short bio'**
+  String get pfBio;
+
+  /// No description provided for @pfCvLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Drive CV link'**
+  String get pfCvLink;
+
+  /// No description provided for @pfCvHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Set access to \'Anyone with the link\' so recruiters can open it.'**
+  String get pfCvHint;
+
+  /// No description provided for @pfProjectName.
+  ///
+  /// In en, this message translates to:
+  /// **'Project name'**
+  String get pfProjectName;
+
+  /// No description provided for @pfProjectTech.
+  ///
+  /// In en, this message translates to:
+  /// **'Technologies (comma separated)'**
+  String get pfProjectTech;
+
+  /// No description provided for @pfProjectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Short description'**
+  String get pfProjectDesc;
+
+  /// No description provided for @pfVerifiedRecruiter.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified recruiter'**
+  String get pfVerifiedRecruiter;
+
+  /// No description provided for @pfBtebApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'BTEB approved industry partner'**
+  String get pfBtebApproved;
+
+  /// No description provided for @pfNewPost.
+  ///
+  /// In en, this message translates to:
+  /// **'Post new circular'**
+  String get pfNewPost;
+
+  /// No description provided for @pfEmployees.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}+ employees'**
+  String pfEmployees(String count);
+
+  /// No description provided for @pfStatTotalPosts.
+  ///
+  /// In en, this message translates to:
+  /// **'Total circulars'**
+  String get pfStatTotalPosts;
+
+  /// No description provided for @pfStatJobs.
+  ///
+  /// In en, this message translates to:
+  /// **'Job circulars'**
+  String get pfStatJobs;
+
+  /// No description provided for @pfStatAttachments.
+  ///
+  /// In en, this message translates to:
+  /// **'Industrial attachments'**
+  String get pfStatAttachments;
+
+  /// No description provided for @pfStatApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Applications received'**
+  String get pfStatApplications;
+
+  /// No description provided for @pfTabPostings.
+  ///
+  /// In en, this message translates to:
+  /// **'Circulars & internships'**
+  String get pfTabPostings;
+
+  /// No description provided for @pfTabApplicants.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicants & evaluation'**
+  String get pfTabApplicants;
+
+  /// No description provided for @pfTabCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'About & benefits'**
+  String get pfTabCompany;
+
+  /// No description provided for @pfTabMou.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic partners & MOU'**
+  String get pfTabMou;
+
+  /// No description provided for @pfAllPosts.
+  ///
+  /// In en, this message translates to:
+  /// **'All posts ({count})'**
+  String pfAllPosts(String count);
+
+  /// No description provided for @pfJobsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-time jobs ({count})'**
+  String pfJobsCount(String count);
+
+  /// No description provided for @pfAttachCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachments ({count})'**
+  String pfAttachCount(String count);
+
+  /// No description provided for @pfSeats.
+  ///
+  /// In en, this message translates to:
+  /// **'Seats: {count}'**
+  String pfSeats(String count);
+
+  /// No description provided for @pfPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Location: {value}'**
+  String pfPlace(String value);
+
+  /// No description provided for @pfStipend.
+  ///
+  /// In en, this message translates to:
+  /// **'Stipend: {value}'**
+  String pfStipend(String value);
+
+  /// No description provided for @pfSalary.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary: {value}'**
+  String pfSalary(String value);
+
+  /// No description provided for @pfDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Deadline: {value}'**
+  String pfDeadline(String value);
+
+  /// No description provided for @pfTechnologyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology: {value}'**
+  String pfTechnologyLine(String value);
+
+  /// No description provided for @pfViewApplicants.
+  ///
+  /// In en, this message translates to:
+  /// **'View applicants ({count})'**
+  String pfViewApplicants(String count);
+
+  /// No description provided for @pfActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get pfActive;
+
+  /// No description provided for @pfApplicantsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicant evaluation list'**
+  String get pfApplicantsTitle;
+
+  /// No description provided for @pfApplicantsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify CV, technology and NOC status of polytechnic students'**
+  String get pfApplicantsSub;
+
+  /// No description provided for @pfColStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Student & polytechnic'**
+  String get pfColStudent;
+
+  /// No description provided for @pfColTechCgpa.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology & CGPA'**
+  String get pfColTechCgpa;
+
+  /// No description provided for @pfColPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Position & type'**
+  String get pfColPosition;
+
+  /// No description provided for @pfColDocs.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get pfColDocs;
+
+  /// No description provided for @pfCgpaValue.
+  ///
+  /// In en, this message translates to:
+  /// **'CGPA: {value}'**
+  String pfCgpaValue(String value);
+
+  /// No description provided for @pfNocAttached.
+  ///
+  /// In en, this message translates to:
+  /// **'NOC attached'**
+  String get pfNocAttached;
+
+  /// No description provided for @pfShortlistAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortlist'**
+  String get pfShortlistAction;
+
+  /// No description provided for @pfScheduleInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule interview'**
+  String get pfScheduleInterview;
+
+  /// No description provided for @pfDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get pfDone;
+
+  /// No description provided for @pfShortlistedToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Candidate shortlisted'**
+  String get pfShortlistedToast;
+
+  /// No description provided for @pfInterviewSentToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview schedule sent to the student'**
+  String get pfInterviewSentToast;
+
+  /// No description provided for @pfPostedToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Circular published'**
+  String get pfPostedToast;
+
+  /// No description provided for @pfAboutCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'About the company'**
+  String get pfAboutCompany;
+
+  /// No description provided for @pfDomains.
+  ///
+  /// In en, this message translates to:
+  /// **'Main engineering & technology areas'**
+  String get pfDomains;
+
+  /// No description provided for @pfBenefits.
+  ///
+  /// In en, this message translates to:
+  /// **'Benefits for interns & new hires'**
+  String get pfBenefits;
+
+  /// No description provided for @pfHrDesk.
+  ///
+  /// In en, this message translates to:
+  /// **'HR desk & contact'**
+  String get pfHrDesk;
+
+  /// No description provided for @pfHrEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'HR email'**
+  String get pfHrEmail;
+
+  /// No description provided for @pfHelpline.
+  ///
+  /// In en, this message translates to:
+  /// **'Helpline'**
+  String get pfHelpline;
+
+  /// No description provided for @pfHeadOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Head office & plant'**
+  String get pfHeadOffice;
+
+  /// No description provided for @pfPartnersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner polytechnic institutes'**
+  String get pfPartnersTitle;
+
+  /// No description provided for @pfPartnersSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Institutes with an industrial attachment agreement'**
+  String get pfPartnersSub;
+
+  /// No description provided for @pfAddMou.
+  ///
+  /// In en, this message translates to:
+  /// **'+ New MOU'**
+  String get pfAddMou;
+
+  /// No description provided for @pfMouVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'MOU verified'**
+  String get pfMouVerified;
+
+  /// No description provided for @pfAnnualQuota.
+  ///
+  /// In en, this message translates to:
+  /// **'Annual intern quota: {count} students'**
+  String pfAnnualQuota(String count);
+
+  /// No description provided for @pfEditCompanyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit company info'**
+  String get pfEditCompanyTitle;
+
+  /// No description provided for @pfCompanyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Company name'**
+  String get pfCompanyName;
+
+  /// No description provided for @pfIndustry.
+  ///
+  /// In en, this message translates to:
+  /// **'Industry category'**
+  String get pfIndustry;
+
+  /// No description provided for @pfCompanyAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Company overview'**
+  String get pfCompanyAbout;
+
+  /// No description provided for @pfNewPostTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Post a new circular / internship'**
+  String get pfNewPostTitle;
+
+  /// No description provided for @pfPostCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get pfPostCategory;
+
+  /// No description provided for @pfPostTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Position title'**
+  String get pfPostTitle;
+
+  /// No description provided for @pfPostTech.
+  ///
+  /// In en, this message translates to:
+  /// **'Applicable technology / department'**
+  String get pfPostTech;
+
+  /// No description provided for @pfPostSeats.
+  ///
+  /// In en, this message translates to:
+  /// **'Vacancies'**
+  String get pfPostSeats;
+
+  /// No description provided for @pfPostSalary.
+  ///
+  /// In en, this message translates to:
+  /// **'Salary / stipend'**
+  String get pfPostSalary;
+
+  /// No description provided for @pfPostDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Application deadline'**
+  String get pfPostDeadline;
+
+  /// No description provided for @pfPostLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Workplace location'**
+  String get pfPostLocation;
+
+  /// No description provided for @pfPostBenefits.
+  ///
+  /// In en, this message translates to:
+  /// **'Benefits (comma separated)'**
+  String get pfPostBenefits;
+
+  /// No description provided for @pfPublishNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish to portal'**
+  String get pfPublishNow;
+
+  /// No description provided for @pfInterviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule interview'**
+  String get pfInterviewTitle;
+
+  /// No description provided for @pfInterviewCandidate.
+  ///
+  /// In en, this message translates to:
+  /// **'Candidate: {name}'**
+  String pfInterviewCandidate(String name);
+
+  /// No description provided for @pfInterviewDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Interview date & time'**
+  String get pfInterviewDate;
+
+  /// No description provided for @pfInterviewPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Venue / meeting link'**
+  String get pfInterviewPlace;
+
+  /// No description provided for @pfSendNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Send notification'**
+  String get pfSendNotice;
 }
 
 class _AppLocalizationsDelegate
