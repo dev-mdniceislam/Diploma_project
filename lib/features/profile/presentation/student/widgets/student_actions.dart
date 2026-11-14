@@ -19,8 +19,8 @@ Future<void> editStudentInfo(
     submitLabel: l.pfSave,
     fields: [
       FormFieldSpec('name', l.pfFullName, initial: p.name),
-      FormFieldSpec('polytechnic', l.pfPolytechnic, initial: p.institute),
-      FormFieldSpec('technology', l.pfTechnology, initial: p.department),
+      FormFieldSpec('institute', l.pfPolytechnic, initial: p.institute),
+      FormFieldSpec('department', l.pfTechnology, initial: p.department),
       FormFieldSpec(
         'phone',
         l.pfPhone,

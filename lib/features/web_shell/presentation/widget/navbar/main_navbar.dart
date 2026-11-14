@@ -1,4 +1,3 @@
-import 'package:diploma_job/core/database/local_storage.dart';
 import 'package:diploma_job/core/responsive/responsive.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
@@ -93,7 +92,9 @@ class _DesktopActions extends StatelessWidget {
 
 InkWell _profileImageButton(BuildContext context) {
   return InkWell(
-    onTap: () => context.go(AppRoutes.profile),
+    onTap: () {
+      context.go(AppRoutes.profile);
+    },
     child: Stack(
       clipBehavior: Clip.none,
       children: [

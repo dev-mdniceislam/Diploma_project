@@ -21,7 +21,7 @@ class StudentFullProfileModel {
   final List<SemesterResultModel> semesterResults;
   final SscModel? ssc;
   final List<ProjectModel> projects;
-  final List<CertificateModel> certificates;
+  final List<StudentCertificateModel> certificates;
   final List<SocialLinkModel> socialLinks;
 
   StudentFullProfileModel({
@@ -76,14 +76,14 @@ class StudentFullProfileModel {
           .map((e) => ProjectModel.fromJson(e))
           .toList(),
       certificates: (json['certificates'] as List<dynamic>? ?? [])
-          .map((e) => CertificateModel.fromJson(e))
+          .map((e) => StudentCertificateModel.fromJson(e))
           .toList(),
       socialLinks: (json['socialLinks'] as List<dynamic>? ?? [])
           .map((e) => SocialLinkModel.fromJson(e))
           .toList(),
       user: json['user'] ?? '',
       avatarUrl: json['avatarUrl'] ?? '',
-      coverImage: json['coverImage'],
+      coverImage: json['coverImage'] ?? '',
       isVerified: json['isVerified'] ?? false,
       nocNumber: json['nocNumber'] ?? '',
       cvUrl: json['cvUrl'] ?? '',
@@ -156,6 +156,94 @@ class SemesterResultModel {
 
   Map<String, dynamic> toJson() {
     return {'semester': semester, 'year': year, 'gpa': gpa, 'passed': passed};
+  }
+}
+
+class StudentApplicationModel {
+  final JobPosted job;
+  final String applicant;
+  final String company;
+  final String shortMessage;
+  final String status;
+  final String cv;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final String id;
+
+  StudentApplicationModel({
+    required this.job,
+    required this.applicant,
+    required this.company,
+    required this.shortMessage,
+    required this.status,
+    required this.cv,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.id,
+  });
+
+  factory StudentApplicationModel.fromJson(Map<String, dynamic> json) {
+    return StudentApplicationModel(
+      job: JobPosted.fromJson(json['job'] ?? {}),
+      applicant: json['applicant'] ?? '',
+      company: json['company'] ?? '',
+      shortMessage: json['shortMessage'] ?? '',
+      status: json['status'] ?? '',
+      cv: json['cv'] ?? '',
+      createdAt: DateTime.parse(
+        json['createdAt'] ?? DateTime.now().toIso8601String(),
+      ),
+      updatedAt: DateTime.parse(
+        json['updatedAt'] ?? DateTime.now().toIso8601String(),
+      ),
+      id: json['id'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'job': job.toJson(),
+      'applicant': applicant,
+      'company': company,
+      'shortMessage': shortMessage,
+      'status': status,
+      'cv': cv,
+      'createdAt': createdAt.toIso8601String(),
+      'updatedAt': updatedAt.toIso8601String(),
+      'id': id,
+    };
+  }
+}
+
+class JobPosted {
+  final String postedBy;
+  final String title;
+  final String jobType;
+  final String jobId;
+
+  JobPosted({
+    required this.postedBy,
+    required this.title,
+    required this.jobType,
+    required this.jobId,
+  });
+
+  factory JobPosted.fromJson(Map<String, dynamic> json) {
+    return JobPosted(
+      postedBy: json['postedBy'] ?? '',
+      title: json['title'] ?? '',
+      jobType: json['jobType'] ?? '',
+      jobId: json['jobId'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'postedBy': postedBy,
+      'title': title,
+      'jobType': jobType,
+      'jobId': jobId,
+    };
   }
 }
 
@@ -239,14 +327,14 @@ class ProjectModel {
   }
 }
 
-class CertificateModel {
+class StudentCertificateModel {
   final String title;
   final String issuer;
 
-  CertificateModel({required this.title, required this.issuer});
+  StudentCertificateModel({required this.title, required this.issuer});
 
-  factory CertificateModel.fromJson(Map<String, dynamic> json) {
-    return CertificateModel(
+  factory StudentCertificateModel.fromJson(Map<String, dynamic> json) {
+    return StudentCertificateModel(
       title: json['title'] ?? '',
       issuer: json['issuer'] ?? '',
     );

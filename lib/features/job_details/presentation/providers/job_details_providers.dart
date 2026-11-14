@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../student_profile/presentation/providers/student_profile_providers.dart';
+import '../../../profile/providers/student_provider.dart';
 import '../../data/repositories/job_circular_repository_impl.dart';
 import '../../domain/entities/job_circular.dart';
 import '../../domain/repositories/job_circular_repository.dart';

@@ -1,29 +1,31 @@
-import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
-import '../../../../../core/utils/localized_format.dart';
 import '../../../../../core/widgets/custom_overlay_notification.dart';
-import '../../../data/profile_models.dart';
+import '../../../data/model/student_profile_model.dart';
+import '../../../data/profile_models.dart'; // ApplyStatus
 import '../../../profile_core.dart';
-import '../../../providers/profile_providers.dart';
 import '../../../providers/ui_state_provider.dart';
 import '../../widgets/profile_widgets.dart';
 
+/// Takes the LIST of the student's applications (one StudentApplicationModel
+/// is a single row, so it can not be the tab's `p`).
 class StudentApplicationsTab extends ConsumerWidget {
-  const StudentApplicationsTab(this.p, {super.key});
+  const StudentApplicationsTab(this.applications, {super.key});
 
-  final StudentFullProfileModel p;
+  final List<StudentApplicationModel> applications;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l = context.l10n;
     final tt = context.tt;
     final filter = ref.watch(studentAppFilterProvider);
+
+    // API says 'applied' -> shown as "pending"; shortlisted / interview match by name.
     final shown = filter == 'all'
-        ? p.applications
-        : p.applications.where((a) => a.status.name == filter);
+        ? applications
+        : applications.where((a) => ApplyStatus.parse(a.status).name == filter);
 
     return ProfileCard(
       title: l.pfTrackerTitle,
@@ -34,13 +36,7 @@ class StudentApplicationsTab extends ConsumerWidget {
         onChanged: ref.read(studentAppFilterProvider.notifier).select,
       ),
       child: ProfileTable(
-        columns: [
-          l.pfColCompany,
-          l.pfColType,
-          l.pfColDate,
-          l.pfStatus,
-          l.pfColAction,
-        ],
+        columns: [l.pfColCompany, l.pfStatus, l.pfColAction],
         rows: <List<Widget>>[
           for (final a in shown)
             [
@@ -55,21 +51,26 @@ class StudentApplicationsTab extends ConsumerWidget {
                       color: context.cs.onSurface,
                     ),
                   ),
-                  CustomText(a.role, style: tt.bodySmall),
+                  CustomText(a.company, style: tt.bodySmall),
                 ],
               ),
-              TypePill(a.type),
-              CustomText(
-                a.appliedAt == null ? '—' : context.fmtDate(a.appliedAt!),
-              ),
-              ApplyStatusPill(a.status),
-              a.message.isEmpty
-                  ? const SizedBox.shrink()
-                  : TextButton(
+              ApplyStatusPill(ApplyStatus.parse(a.status)),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (a.shortMessage.isNotEmpty)
+                    TextButton(
                       onPressed: () =>
-                          CustomToast.showSuccess(message: a.message),
+                          CustomToast.showSuccess(message: a.shortMessage),
                       child: Text(l.pfViewMessage),
                     ),
+                  if (a.cv.isNotEmpty)
+                    TextButton(
+                      onPressed: () => openLink(context, a.cv),
+                      child: const Text('CV'),
+                    ),
+                ],
+              ),
             ],
         ],
       ),

@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/error/exception.dart';
 import '../../../../core/extension/l10n_extension.dart';
 import '../../profile_core.dart';
 import 'profile_theme_x.dart';
@@ -17,20 +20,27 @@ class AsyncValueView<T> extends StatelessWidget {
   final Widget Function(T data) data;
   final VoidCallback onRetry;
 
+  /// Raw error (HTML, stack, long JSON) কখনও UI-তে দেখাবে না।
+  String _message(Object e) {
+    if (e is AppException && e.message.isNotEmpty) return e.message;
+    return 'কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।';
+  }
+
   @override
   Widget build(BuildContext context) {
     return value.when(
-      loading: () => const SizedBox(
-        height: 320,
+      loading: () => const Padding(
+        padding: EdgeInsets.all(AppDimens.md),
         child: Center(child: CircularProgressIndicator()),
       ),
-      error: (e, _) => SizedBox(
-        height: 320,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(AppDimens.md),
+      error: (e, _) {
+        log("==========================================Errror $e");
+        return SingleChildScrollView(
+          padding: const EdgeInsets.all(AppDimens.md),
+          child: Center(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               spacing: AppDimens.sm,
               children: [
                 const Icon(
@@ -39,16 +49,18 @@ class AsyncValueView<T> extends StatelessWidget {
                   color: AppColors.textMuted,
                 ),
                 CustomText(
-                  '$e',
+                  _message(e),
                   textAlign: TextAlign.center,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                   style: context.tt.bodyMedium,
                 ),
                 CustomButton(label: context.l10n.pfRetry, onPressed: onRetry),
               ],
             ),
           ),
-        ),
-      ),
+        );
+      },
       data: data,
     );
   }

@@ -1,22 +1,23 @@
+import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/utils/localized_format.dart';
-import '../../../data/profile_models.dart';
 import '../../../profile_core.dart';
-import '../../../providers/profile_providers.dart';
+import '../../../providers/ui_state_provider.dart';
 import '../../widgets/profile_widgets.dart';
-import 'student_overview_tab.dart';
 import 'student_academic_tab.dart';
-import 'student_projects_tab.dart';
 import 'student_applications_tab.dart';
 import 'student_certificates_tab.dart';
+import 'student_overview_tab.dart';
+import 'student_projects_tab.dart';
 
 class StudentTabs extends ConsumerWidget {
-  const StudentTabs(this.p, {super.key});
+  const StudentTabs(this.p, this.applications, {super.key});
 
-  final StudentProfile p;
+  final StudentFullProfileModel p;
+  final List<StudentApplicationModel> applications; // a LIST, not one row
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -41,7 +42,7 @@ class StudentTabs extends ConsumerWidget {
             (
               label: l.pfTabApplications,
               icon: Icons.work_outline_rounded,
-              badge: context.fmtDigits(p.applications.length),
+              badge: context.fmtDigits(applications.length),
             ),
             (
               label: l.pfTabCertificates,
@@ -56,7 +57,7 @@ class StudentTabs extends ConsumerWidget {
             0 => StudentOverviewTab(p),
             1 => StudentAcademicTab(p),
             2 => StudentProjectsTab(p),
-            3 => StudentApplicationsTab(p),
+            3 => StudentApplicationsTab(applications),
             _ => StudentCertificatesTab(p),
           },
         ),

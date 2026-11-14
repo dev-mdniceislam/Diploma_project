@@ -1,22 +1,23 @@
-import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
+import 'dart:math';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../profile_core.dart';
+import '../data/model/student_profile_model.dart';
 import '../data/profile_models.dart';
+import 'profile_infra_provider.dart';
 
 class StudentProfileNotifier extends AsyncNotifier<StudentFullProfileModel> {
   late Json _json;
 
   @override
   Future<StudentFullProfileModel> build() async {
-    final user = await ref.watch(profileUserProvider.future);
-    _json = await ref.read(profileRepositoryProvider).fetchStudentJson(user);
+    _json = await ref.read(profileRepositoryProvider).fetchStudentJson();
     return StudentFullProfileModel.fromJson(_json);
   }
 
   void _patch(Json changes) {
     _json = {..._json, ...changes};
-    state = AsyncData(StudentProfile.fromJson(_json));
+    state = AsyncData(StudentFullProfileModel.fromJson(_json));
   }
 
   /// keys: name, polytechnic, technology, phone, email, bio

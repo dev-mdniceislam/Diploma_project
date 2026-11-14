@@ -1,3 +1,4 @@
+import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,7 +12,7 @@ import 'project_card.dart';
 class StudentProjectsTab extends ConsumerWidget {
   const StudentProjectsTab(this.p, {super.key});
 
-  final StudentProfile p;
+  final StudentFullProfileModel p;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

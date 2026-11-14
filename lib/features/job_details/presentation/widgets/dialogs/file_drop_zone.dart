@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/app_dimens.dart';
 import '../../../../../core/extension/l10n_extension.dart';
+import '../../../../../core/theme/app_colors.dart';
+import '../../../../../core/theme/app_text_style.dart';
+import '../../../../../core/theme/theme_pellete.dart';
+import '../../../../../core/utils/localized_format.dart';
+import '../../../../../core/widgets/custom_text.dart';
 import '../../../domain/entities/job_circular.dart';
-import '../job_core.dart';
 import '../job_ui.dart';
 
 /// Tap-to-browse upload area. Shows the picked file with a remove button.

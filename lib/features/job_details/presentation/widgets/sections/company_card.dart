@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/app_dimens.dart';
+import '../../../../../core/theme/app_text_style.dart';
+import '../../../../../core/widgets/custom_image.dart';
+import '../../../../../core/widgets/custom_text.dart';
 import '../../../domain/entities/job_circular.dart';
-import '../job_core.dart';
 import '../job_ui.dart';
 
 class CompanyCard extends StatelessWidget {

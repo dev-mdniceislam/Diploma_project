@@ -1,16 +1,16 @@
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/utils/localized_format.dart';
 import '../../../../../core/widgets/custom_overlay_notification.dart';
-import '../../../data/profile_models.dart';
 import '../../../profile_core.dart';
 import '../../widgets/profile_widgets.dart';
 
 class MouTab extends StatelessWidget {
   const MouTab(this.p, {super.key});
 
-  final CompanyProfile p;
+  final CompanyProfileModel p;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class MouTab extends StatelessWidget {
           tablet: 2,
           desktop: 3,
           children: [
-            for (final m in p.partners)
+            for (final m in p.campusPartners)
               Card(
                 margin: EdgeInsets.zero,
                 child: Padding(
@@ -48,13 +48,13 @@ class MouTab extends StatelessWidget {
                         icon: Icons.verified_rounded,
                       ),
                       CustomText(
-                        m.name,
+                        m.instituteName,
                         style: tt.titleMedium!.copyWith(
                           color: context.cs.onSurface,
                         ),
                       ),
                       CustomText(
-                        l.pfAnnualQuota(context.fmtDigits(m.quota)),
+                        l.pfAnnualQuota(context.fmtDigits(m.annualInternQuota)),
                         style: tt.bodySmall,
                       ),
                     ],

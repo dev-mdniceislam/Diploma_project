@@ -1,11 +1,12 @@
+import 'package:diploma_job/features/profile/data/profile_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/utils/localized_format.dart';
-import '../../../data/profile_models.dart';
+import '../../../data/model/company_profile_model.dart';
 import '../../../profile_core.dart';
-import '../../../providers/profile_providers.dart';
+import '../../../providers/ui_state_provider.dart';
 import '../../widgets/profile_widgets.dart';
 
 class PostingCard extends ConsumerWidget {
@@ -18,7 +19,7 @@ class PostingCard extends ConsumerWidget {
     final l = context.l10n;
     final tt = context.tt;
     final palette = context.palette;
-    final isJob = po.type == PostType.job;
+    final isJob = po.jobType == 'job';
 
     Widget line(IconData icon, Color color, String text) => Row(
       spacing: 6,
@@ -39,9 +40,9 @@ class PostingCard extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TypePill(po.type),
+                TypePill(PostType.parse(po.jobType)),
                 CustomText(
-                  l.pfSeats(context.fmtDigits(po.seats)),
+                  l.pfSeats(context.fmtDigits(po.vacancies)),
                   style: tt.bodySmall,
                 ),
               ],
@@ -50,36 +51,25 @@ class PostingCard extends ConsumerWidget {
               po.title,
               style: tt.titleMedium!.copyWith(color: context.cs.onSurface),
             ),
-            if (po.tech.isNotEmpty)
-              CustomText(l.pfTechnologyLine(po.tech), style: tt.bodySmall),
-            if (po.tags.isNotEmpty)
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                children: [
-                  for (final t in po.tags)
-                    StatusPill(label: t, color: AppColors.textSecondary),
-                ],
+            if (po.location.isNotEmpty)
+              line(
+                Icons.place_outlined,
+                AppColors.textMuted,
+                l.pfPlace(po.location),
               ),
             const Divider(height: 1),
-            line(
-              Icons.place_outlined,
-              AppColors.textMuted,
-              l.pfPlace(po.location),
-            ),
             line(
               Icons.payments_outlined,
               palette.success,
               isJob
-                  ? l.pfSalary(context.fmtDigits(po.salary))
-                  : l.pfStipend(context.fmtDigits(po.salary)),
+                  ? l.pfSalary(context.fmtDigits(po.stipend))
+                  : l.pfStipend(context.fmtDigits(po.stipend)),
             ),
-            if (po.deadline != null)
-              line(
-                Icons.schedule_rounded,
-                AppColors.urgent,
-                l.pfDeadline(context.fmtDate(po.deadline!)),
-              ),
+            line(
+              Icons.schedule_rounded,
+              AppColors.urgent,
+              l.pfDeadline(context.fmtDate(po.deadline)),
+            ),
             const Divider(height: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,10 +79,10 @@ class PostingCard extends ConsumerWidget {
                       ref.read(companyTabProvider.notifier).select(1),
                   icon: const Icon(Icons.people_outline_rounded, size: 16),
                   label: Text(
-                    l.pfViewApplicants(context.fmtDigits(po.applicants)),
+                    l.pfViewApplicants(context.fmtDigits(po.applicantCount)),
                   ),
                 ),
-                if (po.active)
+                if (po.isApplicationOpen)
                   StatusPill(label: l.pfActive, color: palette.success),
               ],
             ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
+
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/utils/localized_format.dart';
-import '../../../data/profile_models.dart';
 import '../../../profile_core.dart';
 import '../../widgets/profile_widgets.dart';
 import 'company_actions.dart';
@@ -11,7 +12,7 @@ import 'company_actions.dart';
 class CompanyOverviewTab extends ConsumerWidget {
   const CompanyOverviewTab(this.p, {super.key});
 
-  final CompanyProfile p;
+  final CompanyProfileModel p;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -33,7 +34,7 @@ class CompanyOverviewTab extends ConsumerWidget {
             style: tt.bodyLarge,
           ),
         ),
-        if (p.domains.isNotEmpty)
+        if (p.engineeringDomains.isNotEmpty)
           ProfileCard(
             title: l.pfDomains,
             icon: Icons.build_outlined,
@@ -44,7 +45,7 @@ class CompanyOverviewTab extends ConsumerWidget {
               desktop: 2,
               gap: 12,
               children: [
-                for (final (i, d) in p.domains.indexed)
+                for (final (i, d) in p.engineeringDomains.indexed)
                   Container(
                     padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
@@ -86,7 +87,7 @@ class CompanyOverviewTab extends ConsumerWidget {
                                   color: cs.onSurface,
                                 ),
                               ),
-                              CustomText(d.subtitle, style: tt.bodySmall),
+                              CustomText(d.description, style: tt.bodySmall),
                             ],
                           ),
                         ),
@@ -155,13 +156,13 @@ class CompanyOverviewTab extends ConsumerWidget {
               InfoRow(
                 icon: Icons.phone_outlined,
                 label: l.pfHelpline,
-                value: context.fmtDigits(p.hrPhone),
-                onTap: () => openLink(context, 'tel:${p.hrPhone}'),
+                value: context.fmtDigits(p.helplineNumber),
+                onTap: () => openLink(context, 'tel:${p.helplineNumber}'),
               ),
               InfoRow(
                 icon: Icons.place_outlined,
                 label: l.pfHeadOffice,
-                value: p.address,
+                value: p.location,
               ),
             ],
           ),

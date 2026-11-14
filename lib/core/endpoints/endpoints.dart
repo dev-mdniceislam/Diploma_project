@@ -20,4 +20,19 @@ class Endpoints {
   static final String studentProfileGet = "$baseUrl/api/v1/profile/student";
   static String studentProfileUpdate(String id) =>
       "$baseUrl/api/v1/profile/$id";
+
+  //-------------------------- Application -------------------------
+  static final getStudentApplication = "$baseUrl/api/v1/application/me";
+  static final getCompanyApplicants = "$baseUrl/api/v1/application/company";
+  static String deleteApplicants(String id) =>
+      "$baseUrl/api/v1/application/$id";
+
+  //-------------------------- Company profile --------------------
+  static final companyProfileGet = "$baseUrl/api/v1/profile/company/me";
+  static final getCompanyPosted = "$baseUrl/api/v1/job/my-jobs";
+
+  //-------------------- jobs -------------------------
+  static final createJob = "$baseUrl/api/v1/job";
+  static String getJobbyId(String id) => "$baseUrl/api/v1/job/$id";
+  static String deleteJob(String id) => "$baseUrl/api/v1/job/$id";
 }

@@ -1,3 +1,4 @@
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,14 +8,22 @@ import '../../../../../core/utils/localized_format.dart';
 import '../../../../../core/widgets/custom_overlay_notification.dart';
 import '../../../data/profile_models.dart';
 import '../../../profile_core.dart';
-import '../../../providers/profile_providers.dart';
+import '../../../providers/ui_state_provider.dart';
 import '../../widgets/profile_widgets.dart';
-import 'company_actions.dart';
 
+/// Takes the LIST of applications received by the company.
+/// Status changes go through callbacks, so the parent decides which API to call.
 class ApplicantsTab extends ConsumerWidget {
-  const ApplicantsTab(this.p, {super.key});
+  const ApplicantsTab(
+    this.applicants, {
+    required this.onShortlist,
+    required this.onSchedule,
+    super.key,
+  });
 
-  final CompanyProfile p;
+  final List<CompanyApplicantsModel> applicants;
+  final void Function(CompanyApplicantsModel a) onShortlist;
+  final void Function(CompanyApplicantsModel a) onSchedule;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,8 +35,8 @@ class ApplicantsTab extends ConsumerWidget {
     );
     final filter = ref.watch(applicantFilterProvider);
     final shown = filter == 'all'
-        ? p.applicants
-        : p.applicants.where((a) => a.status.name == filter);
+        ? applicants
+        : applicants.where((a) => ApplyStatus.parse(a.status).name == filter);
 
     return ProfileCard(
       title: l.pfApplicantsTitle,
@@ -40,8 +49,8 @@ class ApplicantsTab extends ConsumerWidget {
       child: ProfileTable(
         columns: [
           l.pfColStudent,
-          l.pfColTechCgpa,
           l.pfColPosition,
+          l.pfColDate,
           l.pfColDocs,
           l.pfStatus,
           l.pfColAction,
@@ -54,9 +63,9 @@ class ApplicantsTab extends ConsumerWidget {
                 spacing: 10,
                 children: [
                   CustomImage(
-                    imagePath: a.avatarUrl.isEmpty
+                    imagePath: a.applicant.avatarUrl.isEmpty
                         ? Assets.icons.maleAvatar
-                        : a.avatarUrl,
+                        : a.applicant.avatarUrl,
                     width: 36,
                     height: 36,
                     borderRadius: BorderRadius.circular(AppDimens.radiusMd - 2),
@@ -71,8 +80,8 @@ class ApplicantsTab extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CustomText(a.name, style: bold),
-                      CustomText(a.polytechnic, style: tt.bodySmall),
+                      CustomText(a.applicant.name, style: bold),
+                      CustomText(a.applicant.email, style: tt.bodySmall),
                     ],
                   ),
                 ],
@@ -80,33 +89,19 @@ class ApplicantsTab extends ConsumerWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
+                spacing: 4,
                 children: [
-                  CustomText(a.technology, style: bold),
-                  CustomText(
-                    l.pfCgpaValue(context.fmtNumber(a.cgpa, decimals: 2)),
-                    style: tt.bodySmall!.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: context.palette.brand,
-                    ),
-                  ),
+                  CustomText(a.job.title, style: bold),
+                  TypePill(PostType.parse(a.job.jobType)),
                 ],
               ),
+              CustomText(context.fmtDate(a.createdAt)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
-                spacing: 4,
-                children: [
-                  TypePill(a.type),
-                  CustomText(a.position, style: tt.bodySmall),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                spacing: 4,
                 children: [
                   InkWell(
-                    onTap: () => openLink(context, a.cvUrl),
+                    onTap: () => openLink(context, a.cv),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       spacing: 4,
@@ -126,28 +121,26 @@ class ApplicantsTab extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  if (a.nocAttached)
-                    StatusPill(
-                      label: l.pfNocAttached,
-                      color: context.palette.success,
+                  if (a.shortMessage.isNotEmpty)
+                    InkWell(
+                      onTap: () =>
+                          CustomToast.showSuccess(message: a.shortMessage),
+                      child: CustomText(l.pfViewMessage, style: tt.bodySmall),
                     ),
                 ],
               ),
-              ApplyStatusPill(a.status, interviewAt: a.interviewAt),
-              switch (a.status) {
+              ApplyStatusPill(ApplyStatus.parse(a.status)),
+              switch (ApplyStatus.parse(a.status)) {
                 ApplyStatus.shortlisted => CustomButton(
                   label: l.pfScheduleInterview,
                   buttonHeight: 34,
-                  onPressed: () => scheduleInterview(context, ref, a),
+                  onPressed: () => onSchedule(a),
                 ),
                 ApplyStatus.pending => CustomButton(
                   label: l.pfShortlistAction,
                   variant: CustomButtonVariant.accent,
                   buttonHeight: 34,
-                  onPressed: () {
-                    ref.read(companyProfileProvider.notifier).shortlist(a.id);
-                    CustomToast.showSuccess(message: l.pfShortlistedToast);
-                  },
+                  onPressed: () => onShortlist(a),
                 ),
                 ApplyStatus.interview => CustomText(
                   l.pfDone,

@@ -6,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/auth_page.dart';
-import '../../features/company_profile/profile_loader.dart';
-import '../../features/edit_student_profile/presentation/page/overView_details_edit.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
 import '../../features/job_details/presentation/screens/job_details_screen.dart';
 import '../../features/profile/presentation/profile_entry_screen.dart';
@@ -75,23 +73,6 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-
-          // 1: Profile (student বা company, role অনুযায়ী)
-          // StatefulShellBranch(
-          //   routes: [
-          //     GoRoute(
-          //       path: AppRoutes.profile,
-          //       name: 'profile',
-          //       builder: (_, __) => const ProfileLoader(),
-          //     ),
-          //     GoRoute(
-          //       path: AppRoutes.studentProfileEdit,
-          //       name: 'studentProfileEdit',
-          //       builder: (_, __) => const StudentProfileEditScreen(),
-          //     ),
-          //   ],
-          // ),
-
           // 2: Guide
           StatefulShellBranch(
             routes: [

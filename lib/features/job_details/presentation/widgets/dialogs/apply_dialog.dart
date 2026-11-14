@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constants/app_dimens.dart';
 import '../../../../../core/error/exception.dart';
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/gen/assets_gen.dart';
+import '../../../../../core/responsive/responsive.dart';
+import '../../../../../core/theme/app_text_style.dart';
+import '../../../../../core/theme/theme_pellete.dart';
+import '../../../../../core/utils/localized_format.dart';
+import '../../../../../core/widgets/app_dialog.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/custom_image.dart';
 import '../../../../../core/widgets/custom_overlay_notification.dart';
+import '../../../../../core/widgets/custom_text.dart';
+import '../../../../../core/widgets/labeled_text_field.dart';
 import '../../../domain/entities/job_circular.dart';
 import '../../utils/pick_document.dart';
-import '../job_core.dart';
 import '../job_ui.dart';
 import 'file_drop_zone.dart';
 

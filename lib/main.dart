@@ -1,6 +1,9 @@
 import 'dart:developer';
 
+import 'package:diploma_job/core/database/local_storage.dart';
+import 'package:diploma_job/core/gen/network_caller_gen.dart';
 import 'package:diploma_job/core/utils/authentication_middleware.dart';
+import 'package:diploma_job/features/profile/providers/profile_infra_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -13,6 +16,8 @@ import 'app/app.dart';
 Future<void> main() async {
   var widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  final netCaller = NetworkCaller();
+  final token = await LocalStorage().readData(key: 'token');
   try {
     await _initApp();
   } catch (e, st) {
@@ -21,7 +26,16 @@ Future<void> main() async {
     // await Future.delayed(const Duration(seconds: 2));
     FlutterNativeSplash.remove();
   }
-  runApp(ProviderScope(child: const DiplomaCareerHubApp()));
+  runApp(
+    ProviderScope(
+      retry: (retryCount, error) => null,
+      overrides: [
+        networkCallerProvider.overrideWithValue(netCaller),
+        authTokenProvider.overrideWithValue(token),
+      ],
+      child: const DiplomaCareerHubApp(),
+    ),
+  );
 }
 
 Future<void> _initApp() async {

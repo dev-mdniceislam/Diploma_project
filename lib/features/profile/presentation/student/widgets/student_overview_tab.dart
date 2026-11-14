@@ -1,9 +1,9 @@
+import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/utils/localized_format.dart';
-import '../../../data/profile_models.dart';
 import '../../../profile_core.dart';
 import '../../widgets/profile_widgets.dart';
 import 'student_actions.dart';
@@ -12,7 +12,7 @@ import 'skill_bar.dart';
 class StudentOverviewTab extends ConsumerWidget {
   const StudentOverviewTab(this.p, {super.key});
 
-  final StudentProfile p;
+  final StudentFullProfileModel p;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -74,7 +74,7 @@ class StudentOverviewTab extends ConsumerWidget {
               InfoRow(
                 icon: Icons.place_outlined,
                 label: l.pfAddress,
-                value: p.address,
+                value: p.location,
               ),
             ],
           ),

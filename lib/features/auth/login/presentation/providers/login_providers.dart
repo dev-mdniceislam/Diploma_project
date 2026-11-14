@@ -41,11 +41,6 @@ class LoginNotifier extends Notifier<LoginState> {
         return false;
       }
       state = state.copyWith(isLoading: false);
-      await Future.wait([
-        LocalStorage().writeData(key: "token", value: user.token),
-        LocalStorage().writeData(key: "role", value: user.role),
-        LocalStorage().writeData(key: "userId", value: user.id),
-      ]);
 
       return true;
     } catch (e) {

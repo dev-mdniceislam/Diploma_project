@@ -1,8 +1,10 @@
+import 'package:diploma_job/core/utils/shell_page.dart';
 import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../profile_core.dart';
+import '../../providers/student_profile_provider/s_application_provider.dart';
 import '../../providers/student_provider.dart';
 import '../widgets/profile_widgets.dart';
 import 'widgets/student_header.dart';
@@ -13,20 +15,31 @@ class StudentProfileScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SafeArea(
-      child: AsyncValueView<StudentFullProfileModel>(
-        value: ref.watch(studentProfileProvider),
-        onRetry: () => ref.invalidate(studentProfileProvider),
-        data: (p) => SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: AppDimens.md),
-          child: AppContainer(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              spacing: AppDimens.md,
-              children: [StudentHeader(p), StudentTabs(p)],
+    // Applications are a separate request: never block the whole page on them.
+
+    final applications =
+        ref.watch(studentApplicationsProvider).value ??
+        const <StudentApplicationModel>[];
+
+    return AsyncValueView<StudentFullProfileModel>(
+      value: ref.watch(studentProfileProvider),
+      onRetry: () => ref.invalidate(studentProfileProvider),
+      data: (p) => ShellPage(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: AppDimens.md),
+            child: AppContainer(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: AppDimens.md,
+                children: [
+                  StudentHeader(p, applicationsCount: applications.length),
+                  StudentTabs(p, applications),
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

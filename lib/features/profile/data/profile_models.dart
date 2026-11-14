@@ -1,4 +1,7 @@
 /// "a, b ,c" -> ['a', 'b', 'c']
+
+
+typedef Json = Map<String, dynamic>;
 List<String> splitTags(String s) => [
   for (final e in s.split(','))
     if (e.trim().isNotEmpty) e.trim(),

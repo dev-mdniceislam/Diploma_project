@@ -1,16 +1,21 @@
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
+import 'package:diploma_job/features/profile/providers/company_application_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../../core/error/exception.dart';
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/widgets/custom_overlay_notification.dart';
-import '../../../data/profile_models.dart';
-import '../../../providers/profile_providers.dart';
+import '../../../providers/company_posting_provider.dart';
+import '../../../providers/company_profile_provider.dart';
+import '../../../providers/profile_infra_provider.dart'; // profileRepositoryProvider
+import '../../../providers/ui_state_provider.dart';
 import '../../widgets/profile_form_dialog.dart';
 
 Future<void> editCompanyInfo(
   BuildContext context,
   WidgetRef ref,
-  CompanyProfile p,
+  CompanyProfileModel p,
 ) async {
   final l = context.l10n;
   final v = await showProfileForm(
@@ -18,8 +23,12 @@ Future<void> editCompanyInfo(
     title: l.pfEditCompanyTitle,
     submitLabel: l.pfSave,
     fields: [
-      FormFieldSpec('name', l.pfCompanyName, initial: p.name),
-      FormFieldSpec('industry', l.pfIndustry, initial: p.industry),
+      FormFieldSpec('companyName', l.pfCompanyName, initial: p.companyName),
+      FormFieldSpec(
+        'industryCategory',
+        l.pfIndustry,
+        initial: p.industryCategory,
+      ),
       FormFieldSpec(
         'hrEmail',
         l.pfHrEmail,
@@ -27,10 +36,10 @@ Future<void> editCompanyInfo(
         initial: p.hrEmail,
       ),
       FormFieldSpec(
-        'hrPhone',
+        'helplineNumber',
         l.pfHelpline,
         kind: FieldKind.phone,
-        initial: p.hrPhone,
+        initial: p.helplineNumber,
       ),
       FormFieldSpec(
         'about',
@@ -78,7 +87,23 @@ Future<void> newPosting(BuildContext context, WidgetRef ref) async {
     ],
   );
   if (v == null) return;
-  ref.read(companyProfileProvider.notifier).addPosting(v);
+
+  try {
+    await ref.read(profileRepositoryProvider).createPosting({
+      'jobType': v['type'],
+      'title': v['title'],
+      'location': v['location'],
+      'vacancies': int.tryParse(v['seats'] ?? '') ?? 0,
+      'stipend': num.tryParse(v['salary'] ?? '') ?? 0,
+      'deadline': v['deadline'],
+      'accommodation': v['benefits'] ?? '',
+    });
+    ref.invalidate(companyPostingsProvider);
+  } on AppException catch (e) {
+    CustomToast.showError(message: e.message);
+    return;
+  }
+
   ref.read(postingFilterProvider.notifier).select('all');
   ref.read(companyTabProvider.notifier).select(0);
   CustomToast.showSuccess(message: l.pfPostedToast);
@@ -87,14 +112,14 @@ Future<void> newPosting(BuildContext context, WidgetRef ref) async {
 Future<void> scheduleInterview(
   BuildContext context,
   WidgetRef ref,
-  Applicant a,
+  CompanyApplicantsModel a,
 ) async {
   final l = context.l10n;
   final v = await showProfileForm(
     context,
     title: l.pfInterviewTitle,
     submitLabel: l.pfSendNotice,
-    note: l.pfInterviewCandidate(a.name),
+    note: l.pfInterviewCandidate(a.applicant.name),
     fields: [
       FormFieldSpec('when', l.pfInterviewDate, kind: FieldKind.dateTime),
       FormFieldSpec(
@@ -105,8 +130,41 @@ Future<void> scheduleInterview(
     ],
   );
   if (v == null) return;
-  ref
-      .read(companyProfileProvider.notifier)
-      .scheduleInterview(a.id, v['when']!, v['place']!);
+
+  try {
+    await ref
+        .read(profileRepositoryProvider)
+        .scheduleApplicantInterview(
+          applicantId: a.id,
+          at: v['when']!,
+          place: v['place']!,
+        );
+    ref.invalidate(companyApplicantsProvider);
+  } on AppException catch (e) {
+    CustomToast.showError(message: e.message);
+    return;
+  }
+
   CustomToast.showSuccess(message: l.pfInterviewSentToast);
+}
+
+Future<void> shortlistApplicant(
+  BuildContext context,
+  WidgetRef ref,
+  CompanyApplicantsModel a,
+) async {
+  final l = context.l10n;
+  try {
+    await ref
+        .read(profileRepositoryProvider)
+        .updateApplicantStatus(
+          applicationId: a.id,
+          body: {'status': 'shortlisted'},
+        );
+    ref.invalidate(companyApplicantsProvider);
+  } on AppException catch (e) {
+    CustomToast.showError(message: e.message);
+    return;
+  }
+  CustomToast.showSuccess(message: l.pfSaved);
 }

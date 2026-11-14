@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/gen/assets_gen.dart';
-import '../../../data/profile_models.dart';
+import '../../../data/model/student_profile_model.dart';
 import '../../../profile_core.dart';
 import '../../widgets/profile_widgets.dart';
 
 class StudentCertificatesTab extends StatelessWidget {
   const StudentCertificatesTab(this.p, {super.key});
 
-  final StudentProfile p;
+  final StudentFullProfileModel p;
 
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
     final tt = context.tt;
     final cs = context.cs;
+
+    // Your SocialLinkModel has no `label`, so show the capitalised type.
+    String socialLabel(SocialLinkModel s) => s.type.isEmpty
+        ? s.url
+        : '${s.type[0].toUpperCase()}${s.type.substring(1)}';
 
     Widget socialIcon(String type) {
       final path = switch (type) {
@@ -85,7 +90,7 @@ class StudentCertificatesTab extends StatelessWidget {
               ],
             ),
           ),
-        if (p.socials.isNotEmpty)
+        if (p.socialLinks.isNotEmpty)
           ProfileCard(
             title: l.pfSocialTitle,
             icon: Icons.public_rounded,
@@ -94,7 +99,7 @@ class StudentCertificatesTab extends StatelessWidget {
               tablet: 2,
               desktop: 2,
               children: [
-                for (final s in p.socials)
+                for (final s in p.socialLinks)
                   InkWell(
                     borderRadius: BorderRadius.circular(AppDimens.radiusMd),
                     onTap: () => openLink(context, s.url),
@@ -110,7 +115,7 @@ class StudentCertificatesTab extends StatelessWidget {
                           socialIcon(s.type),
                           Expanded(
                             child: CustomText(
-                              s.label,
+                              socialLabel(s),
                               style: tt.bodySmall!.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: cs.onSurface,
