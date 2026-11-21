@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../data/model/company_profile_model.dart';
 import '../data/profile_models.dart';
 import 'profile_infra_provider.dart';

@@ -62,7 +62,7 @@ class HomeFooter extends ConsumerWidget {
                       for (final tech in JobTech.values.take(4))
                         _FooterLink(
                           label: tech.label(l10n),
-                          onTap: () => filter.setTech(tech),
+                          onTap: () => filter.setTech(tech.toString()),
                         ),
                     ],
                   ),

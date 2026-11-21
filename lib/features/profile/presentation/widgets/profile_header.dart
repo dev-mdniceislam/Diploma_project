@@ -7,7 +7,13 @@ import 'status_pill.dart';
 import 'stat_tile.dart';
 
 class HeaderStat {
-  const HeaderStat({required this.label, this.value, this.child, this.icon, this.color});
+  const HeaderStat({
+    required this.label,
+    this.value,
+    this.child,
+    this.icon,
+    this.color,
+  });
 
   final String label;
   final String? value;
@@ -58,16 +64,22 @@ class ProfileHeader extends StatelessWidget {
           children: [
             CustomText(
               name,
-              style: tt.headlineLarge!.responsive(context).copyWith(color: cs.onSurface),
+              style: tt.headlineLarge!
+                  .responsive(context)
+                  .copyWith(color: cs.onSurface),
             ),
-            for (final b in badges) StatusPill(label: b.label, icon: b.icon, color: b.color),
+            for (final b in badges)
+              StatusPill(label: b.label, icon: b.icon, color: b.color),
           ],
         ),
         if (subtitle.isNotEmpty)
           CustomText(
             subtitle,
             textAlign: mobile ? TextAlign.center : TextAlign.start,
-            style: tt.titleMedium!.copyWith(fontSize: 14, color: context.palette.brand),
+            style: tt.titleMedium!.copyWith(
+              fontSize: 14,
+              color: context.palette.brand,
+            ),
           ),
         if (meta.isNotEmpty)
           Wrap(
@@ -104,7 +116,11 @@ class ProfileHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimens.radiusLg),
         border: Border.all(color: cs.surface, width: 4),
         boxShadow: [
-          BoxShadow(color: Colors.black.withValues(alpha: .15), blurRadius: 16, offset: const Offset(0, 6)),
+          BoxShadow(
+            color: Colors.black.withValues(alpha: .15),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
+          ),
         ],
       ),
       child: CustomImage(
@@ -134,9 +150,13 @@ class ProfileHeader extends StatelessWidget {
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
-                        const DecoratedBox(decoration: BoxDecoration(gradient: AppColors.heroGradient)),
+                        const DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: AppColors.heroGradient,
+                          ),
+                        ),
                         if (coverUrl.isNotEmpty)
-                          Opacity(opacity: .3, child: CustomImage(imagePath: coverUrl)),
+                          CustomImage(imagePath: coverUrl),
                       ],
                     ),
                   ),
@@ -158,7 +178,8 @@ class ProfileHeader extends StatelessWidget {
                               children: [
                                 SizedBox(width: avatar + 20),
                                 Expanded(flex: 3, child: details),
-                                if (actions.isNotEmpty) Expanded(flex: 2, child: actionWrap),
+                                if (actions.isNotEmpty)
+                                  Expanded(flex: 2, child: actionWrap),
                               ],
                             ),
                     ),
@@ -179,7 +200,10 @@ class ProfileHeader extends StatelessWidget {
               child: Column(
                 spacing: 16,
                 children: [
-                  const Divider(height: 1),
+                  Divider(
+                    height: 1,
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
                   ResponsiveWrap(
                     mobile: 2,
                     tablet: 4,

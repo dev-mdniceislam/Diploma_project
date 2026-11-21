@@ -1,3 +1,5 @@
+import 'package:diploma_job/core/router/app_router.dart';
+import 'package:diploma_job/features/job_details/data/repositories/job_circular_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,7 +17,6 @@ import '../../../../core/widgets/custom_overlay_notification.dart';
 import '../../../../core/widgets/custom_text.dart';
 import '../../domain/entities/job_circular.dart';
 import '../providers/job_details_providers.dart';
-import '../widgets/applied_banner.dart';
 import '../widgets/dialogs/apply_dialog.dart';
 import '../widgets/job_hero_card.dart';
 import '../widgets/job_ui.dart';
@@ -25,9 +26,14 @@ import '../widgets/sections/job_sidebar.dart';
 
 /// Job / attachment circular details. Navbar & footer come from your shell.
 class JobDetailsScreen extends ConsumerWidget {
-  const JobDetailsScreen({super.key, required this.circularId});
+  const JobDetailsScreen({
+    super.key,
+    required this.circularId,
+    this.isMe = false,
+  });
 
   final String circularId;
+  final bool isMe;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -41,7 +47,9 @@ class JobDetailsScreen extends ConsumerWidget {
             : context.l10n.somethingWentWrong,
         onRetry: () => ref.invalidate(jobDetailsProvider(circularId)),
       ),
-      data: (details) => _JobDetailsBody(details: details),
+      data: (details) {
+        return _JobDetailsBody(details: details);
+      },
     );
   }
 }
@@ -49,48 +57,68 @@ class JobDetailsScreen extends ConsumerWidget {
 class _JobDetailsBody extends ConsumerWidget {
   const _JobDetailsBody({required this.details});
 
-  final JobDetails details;
+  final JobAttachmentModel details;
 
   Future<void> _toggleBookmark(BuildContext context, WidgetRef ref) async {
     final l10n = context.l10n;
     try {
       final saved = await ref
-          .read(jobActionsProvider)
-          .toggleBookmark(details.circular.id, current: details.isBookmarked);
+          .read(jobUserStateProvider.notifier)
+          .toggleBookmark(details.id);
+
+      if (!context.mounted) return;
       CustomToast.showSuccess(
         message: saved ? l10n.bookmarkSaved : l10n.bookmarkRemoved,
       );
     } on AppException catch (e) {
+      if (!context.mounted) return;
       CustomToast.showError(message: e.message);
     }
   }
 
   Future<void> _share(BuildContext context) async {
     final message = context.l10n.circularLinkCopied;
-    await Clipboard.setData(ClipboardData(text: Uri.base.toString()));
+    final link = Uri.base
+        .replace(path: AppRoutes.detailsOf(details.id), query: '')
+        .toString();
+
+    await Clipboard.setData(ClipboardData(text: link));
+    if (!context.mounted) return;
     CustomToast.showSuccess(message: message);
   }
 
   void _apply(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    if (details.isApplied) {
+    final userState = ref.read(jobUserStateProvider).value;
+
+    if (userState?.isApplied(details.id) ?? false) {
       CustomToast.showSuccess(message: l10n.alreadyApplied);
       return;
     }
+    if (!details.isApplicationOpen) {
+      CustomToast.showError(message: l10n.applicationClosed);
+      return;
+    }
+
     final applicant = ref.read(applicantProvider);
     if (applicant == null) {
       CustomToast.showError(message: l10n.somethingWentWrong);
       return;
     }
-    final circular = details.circular;
+
+    final circular = details;
     ApplyDialog.show(
       context,
       circular: circular,
       applicant: applicant,
       onSubmit: (draft) async {
-        await ref.read(jobActionsProvider).apply(circular.id, draft);
+        await ref
+            .read(jobUserStateProvider.notifier)
+            .submitApplication(circular.id, draft);
+
+        if (!context.mounted) return;
         CustomToast.showSuccess(
-          message: l10n.applicationSubmitted(circular.company.name),
+          message: l10n.applicationSubmitted(circular.postedBy.companyName),
         );
       },
     );
@@ -98,58 +126,68 @@ class _JobDetailsBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final c = details.circular;
+    final c = details;
     const gap = SizedBox(height: AppDimens.md);
 
+    final userState = ref.watch(jobUserStateProvider).value;
+    final isApplied = userState?.isApplied(c.id) ?? false;
     final main = Column(
       children: [
         JobContentCard(circular: c),
         gap,
-        CompanyCard(company: c.company),
+        CompanyCard(
+          company: Company(
+            name: c.postedBy.companyName,
+            logoUrl: c.postedBy.profileUrl,
+            tagline: c.postedBy.industryCategory,
+            about: c.postedBy.about,
+          ),
+        ),
       ],
     );
+
     final side = JobSidebar(
       circular: c,
-      applied: details.isApplied,
+      applied: isApplied,
       onApply: () => _apply(context, ref),
     );
 
     Widget stacked(BuildContext _) => Column(children: [main, gap, side]);
 
-    return RefreshIndicator(
-      onRefresh: () => ref.refresh(jobDetailsProvider(c.id).future),
-      child: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: ResponsiveContainer(
-          padding: EdgeInsets.symmetric(
-            horizontal: Responsive.horizontalPadding(context),
-            vertical: AppDimens.md,
-          ),
-          child: Column(
-            children: [
-              if (details.application != null)
-                AppliedBanner(application: details.application!),
-              JobHeroCard(
-                details: details,
-                onApply: () => _apply(context, ref),
-                onBookmark: () => _toggleBookmark(context, ref),
-                onShare: () => _share(context),
-              ),
-              gap,
-              ResponsiveBuilder(
-                mobile: stacked,
-                tablet: stacked,
-                desktop: (_) => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(flex: 7, child: main),
-                    const SizedBox(width: AppDimens.md),
-                    Expanded(flex: 3, child: side),
-                  ],
+    return Scaffold(
+      body: RefreshIndicator(
+        onRefresh: () => ref.refresh(jobDetailsProvider(c.id).future),
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: ResponsiveContainer(
+            padding: EdgeInsets.symmetric(
+              horizontal: Responsive.horizontalPadding(context),
+              vertical: AppDimens.md,
+            ),
+            child: Column(
+              children: [
+                JobHeroCard(
+                  details: details,
+                  onApply: () => _apply(context, ref),
+                  onBookmark: () => _toggleBookmark(context, ref),
+                  onShare: () => _share(context),
                 ),
-              ),
-              const SizedBox(height: AppDimens.lg),
-            ],
+                gap,
+                ResponsiveBuilder(
+                  mobile: stacked,
+                  tablet: stacked,
+                  desktop: (_) => Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(flex: 7, child: main),
+                      const SizedBox(width: AppDimens.md),
+                      Expanded(flex: 3, child: side),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: AppDimens.lg),
+              ],
+            ),
           ),
         ),
       ),

@@ -21,7 +21,7 @@ final themeModeProvider =
 /// school's primary audience.
 class LocaleNotifier extends Notifier<Locale> {
   @override
-  Locale build() => const Locale('bn');
+  Locale build() => const Locale('en');
 
   void set(Locale locale) => state = locale;
 

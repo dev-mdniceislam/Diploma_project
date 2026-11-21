@@ -1,6 +1,6 @@
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../domain/entities/job.dart';
 
 /// Navigation / modal hooks, injected from [HomePage] so the widgets stay
 /// decoupled from routing (go_router etc.).
@@ -16,5 +16,5 @@ class HomeCallbacks {
   final VoidCallback onPostCircular;
   final VoidCallback onOpenGuide;
   final VoidCallback onOpenSaved;
-  final ValueChanged<Job> onApply;
+  final ValueChanged<IndustrialJobModel> onApply;
 }

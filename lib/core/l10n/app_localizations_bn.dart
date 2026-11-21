@@ -58,27 +58,26 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get heroBadge =>
-      'বাংলাদেশের ১ম বিশেষায়িত ডিপ্লোমা ইঞ্জিনিয়ারিং জব পোর্টাল';
+      'বাংলাদেশের ডিপ্লোমা ও পলিটেকনিক শিক্ষার্থীদের প্রধান ক্যারিয়ার হাব';
 
   @override
-  String get heroTitleLine => 'ডিপ্লোমা প্রকৌশলী ও শিক্ষার্থীদের জন্য';
+  String get heroTitleLine => 'ডিপ্লোমা ক্যারিয়ারের';
 
   @override
-  String get heroTitleHighlight => 'সেরা চাকরি ও ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
+  String get heroTitleHighlight => 'সঠিক সুযোগ';
 
   @override
   String get heroSubtitle =>
-      'দেশের ৩০০+ নামীদামী কোম্পানিতে আপনার প্রযুক্তির স্বপ্নের ক্যারিয়ার শুরু করুন। ৮ম সেমিস্টারের ইন্ডাস্ট্রিয়াল ট্রেনিং এবং চাকরির সার্কুলার এক প্ল্যাটফর্মে!';
+      'ডিপ্লোমা শিক্ষার্থীদের জন্য চাকরি, ইন্টার্নশিপ ও ক্যারিয়ার প্ল্যাটফর্ম। সরাসরি সরকারি, আধা-সরকারি এবং দেশের শীর্ষ প্রাইভেট কোম্পানিতে আবেদনের অনন্য সুযোগ।';
 
   @override
-  String get searchHint =>
-      'পদের নাম বা স্কিল লিখুন (ex: PLC, AutoCAD, Developer)...';
+  String get searchHint => 'পদের নাম, স্কিল বা কোম্পানি...';
 
   @override
-  String get allTechnologiesDept => 'সকল টেকনোলজি / বিভাগ';
+  String get allTechnologiesDept => 'সকল টেকনোলজি';
 
   @override
-  String get filterAction => 'ফিল্টার করুন';
+  String get filterAction => 'চাকরি খুঁজুন';
 
   @override
   String get statJobsValue => '৪৫০+';
@@ -176,8 +175,8 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
-  String deadlineLabel(String value) {
-    return 'ডেডলাইন: $value';
+  String deadlineLabel(String date) {
+    return 'মেয়াদের শেষ: $date';
   }
 
   @override
@@ -230,7 +229,51 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get footerTagline =>
-      'বাংলাদেশ কারিগরি শিক্ষা বোর্ড (BTEB) পলিটেকনিক শিক্ষার্থী ও কারখানার সংযোগ সেতু।';
+      'পলিটেকনিক শিক্ষার্থীদের ক্যারিয়ার উন্নয়নে নিবেদিত।';
+
+  @override
+  String get somethingWentWrong => 'কিছু একটা ভুল হয়েছে';
+
+  @override
+  String get linkOpenFailed => 'লিংকটি খোলা সম্ভব হয়নি';
+
+  @override
+  String get noMessage => 'কোনো বার্তা নেই';
+
+  @override
+  String metricStatusValue(String value) {
+    return 'অবস্থা: $value';
+  }
+
+  @override
+  String semesterLabel(String ordinal) {
+    return '$ordinal সেমিস্টার';
+  }
+
+  @override
+  String ordinal(String number) {
+    String _temp0 = intl.Intl.selectLogic(number, {
+      '1': '১ম',
+      '2': '২য়',
+      '3': '৩য়',
+      '4': '৪র্থ',
+      '5': '৫ম',
+      '6': '৬ষ্ঠ',
+      '7': '৭ম',
+      '8': '৮ম',
+      'other': '$numberতম',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get statusPending => 'অপেক্ষমাণ';
+
+  @override
+  String get statusShortlisted => 'শর্টলিস্টেড';
+
+  @override
+  String get statusInterview => 'সাক্ষাৎকার';
 
   @override
   String get stepAuthentication =>
@@ -532,386 +575,6 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
-  String get stepProfile =>
-      '================================== Student Profile ========================';
-
-  @override
-  String get myProfile => 'মাই প্রোফাইল';
-
-  @override
-  String get nocGuide => 'NOC গাইড';
-
-  @override
-  String get updateCv => 'সিভি আপডেট';
-
-  @override
-  String get comingSoon => 'শীঘ্রই আসছে';
-
-  @override
-  String get changeCover => 'ব্যানার পরিবর্তন';
-
-  @override
-  String get verifiedStudent => 'ভেরিফাইড স্টুডেন্ট';
-
-  @override
-  String get downloadResume => 'রেজুমে ডাউনলোড';
-
-  @override
-  String get editProfile => 'প্রোফাইল এডিট';
-
-  @override
-  String get copyPublicLink => 'পাবলিক লিংক কপি';
-
-  @override
-  String get linkCopied => 'প্রোফাইল লিংক ক্লিপবোর্ডে কপি করা হয়েছে!';
-
-  @override
-  String get cvNotUploaded => 'এখনও কোনো সিভি লিংক যোগ করা হয়নি';
-
-  @override
-  String get linkOpenFailed => 'লিংক খোলা যায়নি';
-
-  @override
-  String instituteRoll(String institute, String roll) {
-    return '$institute • রোল: $roll';
-  }
-
-  @override
-  String semesterLabel(String ordinal) {
-    return '$ordinal সেমিস্টার';
-  }
-
-  @override
-  String ordinal(String n) {
-    String _temp0 = intl.Intl.selectLogic(n, {
-      '1': '১ম',
-      '2': '২য়',
-      '3': '৩য়',
-      '4': '৪র্থ',
-      '5': '৫ম',
-      '6': '৬ষ্ঠ',
-      '7': '৭ম',
-      '8': '৮ম',
-      'other': '$nম',
-    });
-    return '$_temp0';
-  }
-
-  @override
-  String get metricCurrentStatus => 'বর্তমান অবস্থান';
-
-  @override
-  String metricStatusValue(String semester) {
-    return '$semester (অ্যাটাচমেন্ট)';
-  }
-
-  @override
-  String get metricCgpa => 'সিজিপিএ (গড় CGPA)';
-
-  @override
-  String get metricApplied => 'আবেদনকৃত জব/ইন্টার্ন';
-
-  @override
-  String circularsCount(int count) {
-    final intl.NumberFormat countNumberFormat =
-        intl.NumberFormat.decimalPattern(localeName);
-    final String countString = countNumberFormat.format(count);
-
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countStringটি সার্কুলার',
-      zero: 'কোনো সার্কুলার নেই',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get metricNoc => 'NOC স্ট্যাটাস';
-
-  @override
-  String get nocIssued => 'ইস্যু করা হয়েছে';
-
-  @override
-  String get nocPending => 'প্রক্রিয়াধীন';
-
-  @override
-  String get nocRejected => 'বাতিল';
-
-  @override
-  String get tabOverview => 'কোম্পানি পরিচিতি ও সুযোগ-সুবিধা';
-
-  @override
-  String get tabAcademic => 'শিক্ষাগত যোগ্যতা';
-
-  @override
-  String get tabProjects => 'স্কিলস ও প্রজেক্ট';
-
-  @override
-  String get tabApplications => 'আবেদন ট্র্যাকার';
-
-  @override
-  String get tabCertifications => 'সার্টিফিকেট ও সোশ্যাল';
-
-  @override
-  String get aboutMe => 'নিজের সম্পর্কে (Bio)';
-
-  @override
-  String get edit => 'এডিট করুন';
-
-  @override
-  String get techProficiency => 'প্রধান কারিগরি দক্ষতা (Tech Proficiency)';
-
-  @override
-  String get contactInfo => 'যোগাযোগের তথ্য';
-
-  @override
-  String get phoneNumber => 'ফোন নম্বর';
-
-  @override
-  String get currentAddress => 'বর্তমান ঠিকানা';
-
-  @override
-  String get boardInfo => 'কারিগরি শিক্ষা বোর্ড তথ্য';
-
-  @override
-  String get boardRoll => 'বোর্ড রোল:';
-
-  @override
-  String get registration => 'রেজিস্ট্রেশন:';
-
-  @override
-  String get session => 'সেশন:';
-
-  @override
-  String get nocLetterNo => 'NOC পত্র নম্বর:';
-
-  @override
-  String get resultBreakdown => 'পলিটেকনিক রেজাল্ট ব্রেকডাউন (Semester GPA)';
-
-  @override
-  String get colSemester => 'সেমিস্টার';
-
-  @override
-  String get colExamYear => 'পরীক্ষার বছর';
-
-  @override
-  String get colGpa => 'প্রাপ্ত জিপিএ (GPA)';
-
-  @override
-  String get colStatus => 'স্ট্যাটাস';
-
-  @override
-  String get passed => 'উত্তীর্ণ';
-
-  @override
-  String avgCgpaRange(String from, String to) {
-    return 'গড় সিজিপিএ ($from - $to)';
-  }
-
-  @override
-  String get gradeFirstClass => 'ফার্স্ট ক্লাস অনার্স সমমান';
-
-  @override
-  String get sscTitle => 'মাধ্যমিক স্কুল সার্টিফিকেট (SSC / সমমান)';
-
-  @override
-  String get schoolName => 'স্কুল নাম:';
-
-  @override
-  String get groupBoard => 'গ্রুপ & বোর্ড:';
-
-  @override
-  String get passingYearGpa => 'পাসিং ইয়ার & জিপিএ:';
-
-  @override
-  String get portfolioTitle => 'প্র্যাকটিক্যাল প্রজেক্ট পোর্টফোলিও';
-
-  @override
-  String get portfolioSubtitle =>
-      'পলিটেকনিক ক্লাসে ও ব্যক্তিগতভাবে তৈরি প্রজেক্টসমূহ';
-
-  @override
-  String get addProject => 'নতুন প্রজেক্ট যোগ করুন';
-
-  @override
-  String get newProject => 'নতুন প্রজেক্ট';
-
-  @override
-  String get liveDemo => 'লাইভ ডেমো';
-
-  @override
-  String get githubCode => 'গিটহাব কোড';
-
-  @override
-  String get trackerTitle => 'আবেদনকৃত সার্কুলার ও ইন্টার্নশিপ ট্র্যাকার';
-
-  @override
-  String get trackerSubtitle =>
-      'আপনার জমাকৃত সকল আবেদনের রিয়েল-টাইম স্ট্যাটাস';
-
-  @override
-  String get filter => 'ফিল্টার:';
-
-  @override
-  String get filterAll => 'সব আবেদন';
-
-  @override
-  String get filterShortlisted => 'শর্ট লিস্টেড';
-
-  @override
-  String get filterPending => 'পেন্ডিং';
-
-  @override
-  String get filterInterview => 'ইন্টারভিউ নির্ধারিত';
-
-  @override
-  String get noApplications => 'কোনো আবেদন পাওয়া যায়নি';
-
-  @override
-  String get colCompany => 'কোম্পানি & পদের নাম';
-
-  @override
-  String get colType => 'ধরন';
-
-  @override
-  String get colAppliedDate => 'আবেদনের তারিখ';
-
-  @override
-  String get colCurrentStatus => 'বর্তমান স্ট্যাটাস';
-
-  @override
-  String get colAction => 'অ্যাকশন';
-
-  @override
-  String get typeAttachment => '৮ম সেমিস্টার অ্যাটাচমেন্ট';
-
-  @override
-  String get typeJob => 'ফুল-টাইম চাকরি';
-
-  @override
-  String get statusShortlisted => 'শর্টলিস্টেড';
-
-  @override
-  String get statusInterview => 'ইন্টারভিউ নির্ধারিত';
-
-  @override
-  String get statusPending => 'রিভ্যু পেন্ডিং';
-
-  @override
-  String get actionViewMessage => 'মেসেজ দেখুন';
-
-  @override
-  String get actionDetails => 'ডিটেইলস';
-
-  @override
-  String get actionPleaseWait => 'অপেক্ষা করুন';
-
-  @override
-  String get noMessage => 'এখনও কোনো মেসেজ নেই';
-
-  @override
-  String get certificatesTitle => 'অর্জিত ট্রেনিং ও কোর্স সার্টিফিকেটসমূহ';
-
-  @override
-  String get add => 'যোগ করুন';
-
-  @override
-  String get socialTitle => 'সোশ্যাল মিডিয়া ও অনলাইন পোর্টফোলিও লিংক';
-
-  @override
-  String get linkedinProfile => 'LinkedIn Profile';
-
-  @override
-  String get githubRepos => 'GitHub Repositories';
-
-  @override
-  String get editProfileTitle => 'শিক্ষার্থী প্রোফাইল এডিট করুন';
-
-  @override
-  String get fullName => 'শিক্ষার্থীর পূর্ণ নাম';
-
-  @override
-  String get polytechnicName => 'পলিটেকনিকের নাম';
-
-  @override
-  String get technology => 'টেকনোলজি';
-
-  @override
-  String get email => 'ইমেইল';
-
-  @override
-  String get bioLabel => 'নিজের সম্পর্কে সংক্ষিপ্ত বিবরণ (Bio)';
-
-  @override
-  String get save => 'সেভ করুন';
-
-  @override
-  String get fieldRequired => 'এই ঘরটি পূরণ করুন';
-
-  @override
-  String get invalidEmail => 'সঠিক ইমেইল দিন';
-
-  @override
-  String get invalidUrl => 'সঠিক লিংক দিন';
-
-  @override
-  String get profileUpdated => 'প্রোফাইল তথ্য সফলভাবে আপডেট করা হয়েছে!';
-
-  @override
-  String get cvDialogTitle => 'গুগোল ড্রাইভ রেজুমে / সিভি লিংক';
-
-  @override
-  String get cvLinkLabel => 'Google Drive CV Link';
-
-  @override
-  String get cvLinkNote =>
-      'লিংকটি অবশ্যই \'Anyone with the link\' ভিউ পারমিশন অন করে দিন।';
-
-  @override
-  String get update => 'আপডেট করুন';
-
-  @override
-  String get cvUpdated => 'আপনার গুগোল ড্রাইভ সিভি লিংকটি হালনাগাদ করা হয়েছে!';
-
-  @override
-  String get addProjectTitle => 'নতুন প্রজেক্ট যুক্ত করুন';
-
-  @override
-  String get projectName => 'প্রজেক্টের নাম';
-
-  @override
-  String get projectTech => 'ব্যবহৃত টেকনোলজি (কমা দিয়ে লিখুন)';
-
-  @override
-  String get projectTechHint => 'ex: HTML, Tailwind, JS';
-
-  @override
-  String get projectDesc => 'সংক্ষিপ্ত বিবরণ';
-
-  @override
-  String get publish => 'পাবলিশ করুন';
-
-  @override
-  String get projectAdded =>
-      'নতুন প্রজেক্ট সফলভাবে পোর্টফোলিওতে যোগ করা হয়েছে!';
-
-  @override
-  String get nocGuideTitle => 'NOC গাইডলাইন';
-
-  @override
-  String get nocGuideBody =>
-      'পলিটেকনিকের ইন্ডাস্ট্রিয়াল লিয়াঁজো শাখা থেকে অনুমোদিত NOC পত্রটি অ্যাপ্লাই করার সময় সংলগ্ন করতে হবে।';
-
-  @override
-  String nocVerifiedActive(String number) {
-    return 'NOC No: $number (Verified Active)';
-  }
-
-  @override
-  String get somethingWentWrong => 'কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।';
-
-  @override
   String get stepJobDetails =>
       '================================== Job details ========================';
 
@@ -938,15 +601,19 @@ class AppLocalizationsBn extends AppLocalizations {
   String get verifiedEmployer => 'ভেরিফাইড নিয়োগকারী';
 
   @override
-  String technologyLabel(String value) {
-    return 'টেকনোলজি: $value';
-  }
+  String get technologyLabel => 'টেকনোলজি:';
 
   @override
   String get applied => 'আবেদন সম্পন্ন হয়েছে';
 
   @override
+  String get applicationClosed => 'আবেদন বন্ধ হয়েছে';
+
+  @override
   String get bookmarkTooltip => 'সেভ করুন';
+
+  @override
+  String get editPost => 'পোস্ট সম্পাদনা করুন';
 
   @override
   String get shareTooltip => 'শেয়ার করুন';
@@ -1000,7 +667,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get requirementsTitle => 'শিক্ষাগত যোগ্যতা ও টেকনোলজি শর্তাবলী';
 
   @override
-  String get benefitsTitle => 'ইন্টার্ন ও নতুন কর্মীদের সুযোগ-সুবিধা';
+  String get benefitsTitle => 'সুযোগ-সুবিধা ও প্রণোদনা (Benefits & Perks)';
 
   @override
   String get requiredDocsTitle => 'আবেদনের প্রয়োজনীয় সংলগ্নী কাগজপত্র';
@@ -1115,343 +782,29 @@ class AppLocalizationsBn extends AppLocalizations {
       '================================== Profile ========================';
 
   @override
-  String get recruiterPortalTagline => 'Recruiter Portal & Company Desk';
+  String get heroTitleSuffix => 'খুঁজুন';
 
   @override
-  String get navPostings => 'জব ও ইন্টার্নশিপ';
+  String get heroPopularFilters => 'পপুলার ফিল্টার:';
 
   @override
-  String get navApplicants => 'আবেদনকারী';
+  String get heroTagComputer => '#কম্পিউটার';
 
   @override
-  String get navCompanyPanel => 'কোম্পানি প্যানেল';
+  String get heroTagElectrical => '#ইলেকট্রিক্যাল';
 
   @override
-  String get btebPartner => 'BTEB শিল্প অংশীদার';
+  String get heroTagCivil => '#সিভিল';
 
   @override
-  String get newPost => 'নতুন পোস্ট করুন';
-
-  @override
-  String get shareProfile => 'প্রোফাইল শেয়ার';
-
-  @override
-  String get changeLogo => 'লোগো পরিবর্তন';
-
-  @override
-  String get toggleTheme => 'থিম পরিবর্তন';
-
-  @override
-  String get languageToggleLabel => 'English';
-
-  @override
-  String get verifiedRecruiter => 'ভেরিফাইড নিয়োগকারী';
-
-  @override
-  String get btebApprovedIndustry => 'BTEB অনুমোদিত শিল্প প্রতিষ্ঠান';
-
-  @override
-  String employeesCount(String count) {
-    return '$count+ কর্মী';
+  String heroVerifiedJobs(String count) {
+    return '$count+ ভেরিফাইড চাকরি';
   }
 
   @override
-  String get statTotalPostings => 'মোট পোস্টকৃত সার্কুলার';
-
-  @override
-  String get statJobs => 'চাকরি সার্কুলার';
-
-  @override
-  String get statAttachments => 'ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
-
-  @override
-  String get statApplications => 'প্রাপ্ত আবেদনপত্র';
-
-  @override
-  String itemsCount(String count) {
-    return '$count টি';
+  String heroBtebDiploma(String percent) {
+    return '$percent বিটিইবি ডিপ্লোমা';
   }
-
-  @override
-  String get tabPostings => 'সার্কুলার ও ইন্টার্নশিপ ম্যানেজমেন্ট';
-
-  @override
-  String get tabApplicants => 'আবেদনকারী তালিকা ও মূল্যায়ন';
-
-  @override
-  String get tabMou => 'পলিটেকনিক পার্টনারশিপ ও MOU';
-
-  @override
-  String get filterType => 'ফিল্টার টাইপ:';
-
-  @override
-  String filterAllPosts(String count) {
-    return 'সব পোস্ট ($count)';
-  }
-
-  @override
-  String filterJobs(String count) {
-    return 'ফুল-টাইম চাকরি ($count)';
-  }
-
-  @override
-  String filterAttachments(String count) {
-    return '৮ম সেমিস্টার অ্যাটাচমেন্ট ($count)';
-  }
-
-  @override
-  String seatsLabel(String count) {
-    return 'আসন: $count টি';
-  }
-
-  @override
-  String locationLabel(String value) {
-    return 'স্থান: $value';
-  }
-
-  @override
-  String salaryLabel(String value) {
-    return 'বেতন: $value';
-  }
-
-  @override
-  String stipendLabel(String value) {
-    return 'স্টাইপেন্ড: $value';
-  }
-
-  @override
-  String viewApplications(String count) {
-    return 'আবেদন দেখুন ($count)';
-  }
-
-  @override
-  String get statusActive => 'সক্রিয়';
-
-  @override
-  String get emptyPostings => 'এখনো কোনো সার্কুলার নেই।';
-
-  @override
-  String get emptyApplicants => 'কোনো আবেদনকারী পাওয়া যায়নি।';
-
-  @override
-  String get genericError => 'কিছু ভুল হয়েছে। আবার চেষ্টা করুন।';
-
-  @override
-  String get postDialogTitle => 'নতুন সার্কুলার/ইন্টার্নশিপ পোস্ট করুন';
-
-  @override
-  String get postDialogSubtitle =>
-      'চাকরি বা ৮ম সেমিস্টার ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্টের তথ্য প্রদান করুন';
-
-  @override
-  String get postCategoryLabel => 'পোস্টের ক্যাটাগরি নির্বাচন করুন *';
-
-  @override
-  String get categoryAttachmentSubtitle =>
-      'পলিটেকনিক শিক্ষার্থীদের ইন্টার্নশিপ';
-
-  @override
-  String get categoryJobTitle => 'ফুল-টাইম / পার্ট-টাইম চাকরি';
-
-  @override
-  String get categoryJobSubtitle => 'ডিপ্লোমা পাশকৃতদের নিয়োগ';
-
-  @override
-  String get postTitleLabel => 'পদের নাম (Title) *';
-
-  @override
-  String get postTitleHint => 'যেমন: Sub-Assistant Engineer (PLC & Automation)';
-
-  @override
-  String get postTechLabel => 'প্রযোজ্য টেকনোলজি/ডিপার্টমেন্ট *';
-
-  @override
-  String get postTechHint => 'যেমন: Computer, Electrical, Mechanical';
-
-  @override
-  String get postSeatsLabel => 'খালি পদের সংখ্যা (Seats) *';
-
-  @override
-  String get postSeatsHint => 'যেমন: ২০';
-
-  @override
-  String get postSalaryLabel => 'বেতন/স্টাইপেন্ড পরিমাণ *';
-
-  @override
-  String get postSalaryHint => 'যেমন: ৳ ১০,০০০/মাস (বা আলোচনা সাপেক্ষে)';
-
-  @override
-  String get postDeadlineLabel => 'আবেদনের শেষ তারিখ (Deadline) *';
-
-  @override
-  String get postLocationLabel => 'কর্মস্থল / কারখানা লোকেশন *';
-
-  @override
-  String get postLocationHint => 'যেমন: চন্দ্রা, গাজীপুর প্ল্যান্ট';
-
-  @override
-  String get postBenefitsLabel => 'অতিরিক্ত সুযোগ-সুবিধা ও শর্তাবলী';
-
-  @override
-  String get benefitFreeHousing => 'ফ্রি আবাসন';
-
-  @override
-  String get benefitCanteen => 'ক্যাফেটেরিয়া সাবসিডি';
-
-  @override
-  String get benefitNocRequired => 'পলিটেকনিক NOC প্রয়োজন';
-
-  @override
-  String get tagNocApplicable => 'NOC প্রযোজ্য';
-
-  @override
-  String get publishToPortal => 'পোর্টালে প্রকাশ করুন';
-
-  @override
-  String get invalidNumber => 'সঠিক সংখ্যা দিন';
-
-  @override
-  String get editCompanyTitle => 'কোম্পানি তথ্য পরিবর্তন করুন';
-
-  @override
-  String get companyNameLabel => 'কোম্পানির নাম *';
-
-  @override
-  String get industryLabel => 'ইন্ডাস্ট্রি ক্যাটাগরি *';
-
-  @override
-  String get hrEmailLabel => 'এইচআর ইমেইল *';
-
-  @override
-  String get helplineLabel => 'হেল্পলাইন নম্বর *';
-
-  @override
-  String get aboutSummaryLabel => 'কোম্পানি ওভারভিউ';
-
-  @override
-  String get interviewDialogTitle => 'ইন্টারভিউ তারিখ সিডিউল করুন';
-
-  @override
-  String interviewCandidate(String name) {
-    return 'আবেদনকারী শিক্ষার্থী: $name';
-  }
-
-  @override
-  String get interviewDateTimeLabel => 'ইন্টারভিউ এর তারিখ ও সময় *';
-
-  @override
-  String get interviewVenueLabel => 'স্থান / অনলাইন মিটিং লিংক *';
-
-  @override
-  String get interviewVenueHint =>
-      'যেমন: Walton Plant HQ Boardroom বা Google Meet লিংক';
-
-  @override
-  String get sendNotification => 'নোটিফিকেশন পাঠান';
-
-  @override
-  String get applicantsTitle => 'শিক্ষার্থী আবেদনকারী মূল্যায়ন তালিকা';
-
-  @override
-  String get applicantsSubtitle =>
-      'পলিটেকনিক শিক্ষার্থীদের সিভি, টেকনোলজি ও NOC স্ট্যাটাস যাচাই করুন';
-
-  @override
-  String get filterAllApplicants => 'সকল আবেদনকারী';
-
-  @override
-  String statusInterviewOn(String date) {
-    return 'ইন্টারভিউ $date';
-  }
-
-  @override
-  String get downloadCvs => 'ডাউনলোড সিভি';
-
-  @override
-  String get colStudent => 'শিক্ষার্থীর নাম ও পলিটেকনিক';
-
-  @override
-  String get colTechCgpa => 'টেকনোলজি ও CGPA';
-
-  @override
-  String get colPosition => 'আবেদনের পদ ও টাইপ';
-
-  @override
-  String get colDocuments => 'সংযুক্ত ডকুমেন্ট';
-
-  @override
-  String cgpaLabel(String value) {
-    return 'CGPA: $value';
-  }
-
-  @override
-  String get nocAttached => 'NOC সংযুক্ত';
-
-  @override
-  String get actionShortlist => 'শর্টলিস্ট করুন';
-
-  @override
-  String get actionScheduleInterview => 'ইন্টারভিউ সিডিউল';
-
-  @override
-  String get actionDone => 'সম্পন্ন';
-
-  @override
-  String get aboutTitle => 'কোম্পানি পরিচিতি ও লক্ষ্য';
-
-  @override
-  String get domainsTitle => 'প্রধান ইঞ্জিনিয়ারিং ও টেকনোলজি ক্ষেত্রসমূহ';
-
-  @override
-  String get hrDeskTitle => 'এইচআর ডেস্ক ও যোগাযোগ';
-
-  @override
-  String get hrEmailTitle => 'এইচআর ইমেইল';
-
-  @override
-  String get helplineTitle => 'হেল্পলাইন নম্বর';
-
-  @override
-  String get headOfficeTitle => 'হেড অফিস ও প্ল্যান্ট';
-
-  @override
-  String get mouTitle => 'পার্টনার পলিটেকনিক ইনস্টিটিউটসমূহ (Campus Partners)';
-
-  @override
-  String get mouSubtitle =>
-      'যে সকল পলিটেকনিকের সাথে শিল্প-অ্যাটাচমেন্ট চুক্তি রয়েছে';
-
-  @override
-  String get newMou => '+ নতুন MOU চুক্তি';
-
-  @override
-  String get mouVerified => 'MOU চুক্তি ভেরিফাইড';
-
-  @override
-  String annualQuota(String count) {
-    return 'বার্ষিক ইন্টার্ন কোটা: $count জন শিক্ষার্থী';
-  }
-
-  @override
-  String get toastPostPublished =>
-      'নতুন সার্কুলার/ইন্টার্নশিপ সফলভাবে প্রকাশ করা হয়েছে!';
-
-  @override
-  String get toastProfileUpdated => 'কোম্পানি প্রোফাইল আপডেট সম্পন্ন হয়েছে!';
-
-  @override
-  String get toastInterviewSent =>
-      'শিক্ষার্থীকে ইন্টারভিউ সময়সূচী পাঠানো হয়েছে!';
-
-  @override
-  String get toastShortlisted => 'প্রার্থীকে শর্টলিস্টে যুক্ত করা হয়েছে!';
-
-  @override
-  String get toastLinkCopied => 'কোম্পানি ড্যাশবোর্ড লিংক কপি করা হয়েছে!';
-
-  @override
-  String get toastExportingCvs =>
-      'সকল সিভি জিপ ফরম্যাটে এক্সপোর্ট করা হচ্ছে...';
 
   @override
   String get pfNoLink => 'লিংকটি পাওয়া যায়নি';

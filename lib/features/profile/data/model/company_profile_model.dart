@@ -232,53 +232,194 @@ class CampusPartner {
   }
 }
 
-class Posting {
+enum JobType {
+  job,
+  internship;
+
+  /// "industrial-attachment", "attachment", "internship" -> internship
+  /// বাকি সব (যেমন "job", "full-time") -> job
+  static JobType parse(Object? v) {
+    final s = '$v'.trim().toLowerCase();
+    if (s.contains('attach') || s.contains('intern')) {
+      return JobType.internship;
+    }
+    return JobType.job;
+  }
+}
+
+class PostedBy {
   final String id;
+  final String companyName;
+  final bool isVerified;
+
+  const PostedBy({
+    required this.id,
+    required this.companyName,
+    required this.isVerified,
+  });
+
+  factory PostedBy.fromJson(Map<String, dynamic> json) {
+    return PostedBy(
+      id: '${json['id'] ?? json['_id'] ?? ''}',
+      companyName: '${json['companyName'] ?? ''}',
+      isVerified: json['isVerified'] == true,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'companyName': companyName, 'isVerified': isVerified};
+  }
+}
+
+class IndustrialJobModel {
+  final String id;
+  final PostedBy? postedBy;
   final String title;
-  final String jobType;
+  final JobType jobType;
   final String location;
   final num stipend;
-  final int vacancies;
-  final String accommodation;
-  final DateTime deadline;
-  final String status;
-  final DateTime createdAt;
-  final bool isApplicationOpen;
-  final int applicantCount;
+  final int? vacancies;
+  final String? accommodation;
+  final List<String> department;
+  final DateTime? deadline;
+  final String? status;
+  final DateTime? createdAt;
+  final bool? isApplicationOpen;
+  final int? applicantCount;
 
-  Posting({
+  // Home card-এর জন্য। API না পাঠালে খালি থাকে।
+  final String description;
+  final String tech;
+  final List<String> tags;
+
+  const IndustrialJobModel({
     required this.id,
+    this.postedBy,
     required this.title,
     required this.jobType,
     required this.location,
     required this.stipend,
-    required this.vacancies,
-    required this.accommodation,
-    required this.deadline,
-    required this.status,
-    required this.createdAt,
-    required this.isApplicationOpen,
-    required this.applicantCount,
+    this.vacancies,
+    this.accommodation,
+    this.deadline,
+    this.status,
+    this.createdAt,
+    this.isApplicationOpen,
+    this.applicantCount,
+    this.description = '',
+    this.tech = '',
+    this.tags = const [],
+    this.department = const [],
   });
 
-  factory Posting.fromJson(Map<String, dynamic> json) {
-    return Posting(
-      id: json['_id'] ?? '',
-      title: json['title'] ?? '',
-      jobType: json['jobType'] ?? '',
-      location: json['location'] ?? '',
-      stipend: json['stipend'] ?? 0,
-      vacancies: json['vacancies'] ?? 0,
-      accommodation: json['accommodation'] ?? '',
-      deadline: DateTime.parse(
-        json['deadline'] ?? DateTime.now().toIso8601String(),
-      ),
-      status: json['status'] ?? '',
-      createdAt: DateTime.parse(
-        json['createdAt'] ?? DateTime.now().toIso8601String(),
-      ),
-      isApplicationOpen: json['isApplicationOpen'] ?? false,
-      applicantCount: json['applicantCount'] ?? 0,
+  /// Company নাম। postedBy না থাকলে খালি।
+  String get company => postedBy?.companyName ?? '';
+
+  /// Display-এর জন্য বেতন/স্টাইপেন্ড।
+  String get salary => stipend > 0 ? '৳ ${stipend.toInt()}' : '';
+
+  factory IndustrialJobModel.fromJson(Map<String, dynamic> json) {
+    final postedByJson = json['postedBy'];
+
+    return IndustrialJobModel(
+      id: '${json['_id'] ?? json['id'] ?? ''}',
+      postedBy: postedByJson is Map<String, dynamic>
+          ? PostedBy.fromJson(postedByJson)
+          : null,
+      title: '${json['title'] ?? ''}',
+      jobType: JobType.parse(json['jobType']),
+      location: '${json['location'] ?? ''}',
+      stipend: json['stipend'] is num ? json['stipend'] as num : 0,
+      vacancies: (json['vacancies'] as num?)?.toInt(),
+      accommodation: json['accommodation']?.toString(),
+      deadline: _date(json['deadline']),
+      status: json['status']?.toString(),
+      createdAt: _date(json['createdAt']),
+      isApplicationOpen: json['isApplicationOpen'] as bool?,
+      applicantCount: (json['applicantCount'] as num?)?.toInt(),
+      description: '${json['description'] ?? ''}',
+      tech: '${json['tech'] ?? json['technology'] ?? ''}',
+      tags: (json['tags'] as List<dynamic>? ?? const [])
+          .map((e) => '$e')
+          .toList(),
+      department: (json['departments'] as List<dynamic>? ?? const [])
+          .map((e) => '$e')
+          .toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      '_id': id,
+      'postedBy': postedBy?.toJson(),
+      'title': title,
+      'jobType': jobType.name,
+      'location': location,
+      'stipend': stipend,
+      'vacancies': vacancies,
+      'accommodation': accommodation,
+      'deadline': deadline?.toIso8601String(),
+      'status': status,
+      'createdAt': createdAt?.toIso8601String(),
+      'isApplicationOpen': isApplicationOpen,
+      'applicantCount': applicantCount,
+      'description': description,
+      'tech': tech,
+      'tags': tags,
+      'department': department,
+    };
+  }
 }
+
+DateTime? _date(Object? v) => v == null ? null : DateTime.tryParse('$v');
+
+// class Posting {
+//   final String id;
+//   final String title;
+//   final JobType jobType;
+//   final String location;
+//   final num stipend;
+//   final int vacancies;
+//   final String accommodation;
+//   final DateTime deadline;
+//   final String status;
+//   final DateTime createdAt;
+//   final bool isApplicationOpen;
+//   final int applicantCount;
+//
+//   Posting({
+//     required this.id,
+//     required this.title,
+//     required this.jobType,
+//     required this.location,
+//     required this.stipend,
+//     required this.vacancies,
+//     required this.accommodation,
+//     required this.deadline,
+//     required this.status,
+//     required this.createdAt,
+//     required this.isApplicationOpen,
+//     required this.applicantCount,
+//   });
+//
+//   factory Posting.fromJson(Map<String, dynamic> json) {
+//     return Posting(
+//       id: json['_id'] ?? '',
+//       title: json['title'] ?? '',
+//       jobType: JobType.parse(json['jobType']),
+//       location: json['location'] ?? '',
+//       stipend: json['stipend'] ?? 0,
+//       vacancies: json['vacancies'] ?? 0,
+//       accommodation: json['accommodation'] ?? '',
+//       deadline: DateTime.parse(
+//         json['deadline'] ?? DateTime.now().toIso8601String(),
+//       ),
+//       status: json['status'] ?? '',
+//       createdAt: DateTime.parse(
+//         json['createdAt'] ?? DateTime.now().toIso8601String(),
+//       ),
+//       isApplicationOpen: json['isApplicationOpen'] ?? false,
+//       applicantCount: json['applicantCount'] ?? 0,
+//     );
+//   }
+// }

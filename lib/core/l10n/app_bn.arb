@@ -101,6 +101,36 @@
   "footerContact": "যোগাযোগ ও সহায়তা",
   "footerContactHint": "পলিটেকনিক লিয়াঁজো ও জব পোস্ট সহায়তার জন্য:",
   "footerTagline": "পলিটেকনিক শিক্ষার্থীদের ক্যারিয়ার উন্নয়নে নিবেদিত।",
+    "somethingWentWrong": "কিছু একটা ভুল হয়েছে",
+    "linkOpenFailed": "লিংকটি খোলা সম্ভব হয়নি",
+    "noMessage": "কোনো বার্তা নেই",
+    "metricStatusValue": "অবস্থা: {value}",
+    "@metricStatusValue": {
+      "placeholders": {
+        "value": {
+          "type": "String"
+        }
+      }
+    },
+    "semesterLabel": "{ordinal} সেমিস্টার",
+    "@semesterLabel": {
+      "placeholders": {
+        "ordinal": {
+          "type": "String"
+        }
+      }
+    },
+    "ordinal": "{number, select, 1{১ম} 2{২য়} 3{৩য়} 4{৪র্থ} 5{৫ম} 6{৬ষ্ঠ} 7{৭ম} 8{৮ম} other{{number}তম}}",
+    "@ordinal": {
+      "placeholders": {
+        "number": {
+          "type": "String"
+        }
+      }
+    },
+    "statusPending": "অপেক্ষমাণ",
+      "statusShortlisted": "শর্টলিস্টেড",
+      "statusInterview": "সাক্ষাৎকার",
 
     "stepAuthentication":"================================== Authentication ========================",
     "authBadge": "বিটিইবি নিবন্ধিত ও ভেরিফাইড প্ল্যাটফর্ম",
@@ -207,180 +237,21 @@
 
 
 
-"stepProfile":"================================== Student Profile ========================",
-"@@locale": "bn",
-  "myProfile": "মাই প্রোফাইল",
-  "nocGuide": "NOC গাইড",
-  "updateCv": "সিভি আপডেট",
-  "comingSoon": "এই ফিচারটি শীঘ্রই আসছে!",
-  "changeCover": "কভার চেঞ্জ করুন",
-  "verifiedStudent": "ভেরিফাইড স্টুডেন্ট",
-  "downloadResume": "রেজুমে ডাউনলোড",
-  "editProfile": "প্রোফাইল এডিট",
-  "copyPublicLink": "পাবলিক লিংক কপি",
-  "linkCopied": "প্রোফাইল লিংক ক্লিপবোর্ডে কপি করা হয়েছে!",
-  "cvNotUploaded": "এখনও কোনো সিভি লিংক যোগ করা হয়নি",
-  "linkOpenFailed": "লিংকটি খোলা যায়নি",
-  "instituteRoll": "{institute} • রোল: {roll}",
-  "@instituteRoll": {
-    "placeholders": {
-      "institute": {
-        "type": "String"
-      },
-      "roll": {
-        "type": "String"
-      }
-    }
-  },
-  "semesterLabel": "{ordinal} সেমিস্টার",
-  "@semesterLabel": {
-    "placeholders": {
-      "ordinal": {
-        "type": "String"
-      }
-    }
-  },
-  "ordinal": "{n, select, 1{১ম} 2{২য়} 3{৩য়} 4{৪র্থ} 5{৫ম} 6{৬ষ্ঠ} 7{৭ম} 8{৮ম} other{{n}ম}}",
-  "@ordinal": {
-    "placeholders": {
-      "n": {
-        "type": "String"
-      }
-    }
-  },
-  "metricCurrentStatus": "বর্তমান অবস্থান",
-  "metricStatusValue": "{semester} (অ্যাটাচমেন্ট)",
-  "@metricStatusValue": {
-    "placeholders": {
-      "semester": {
-        "type": "String"
-      }
-    }
-  },
-  "metricCgpa": "সিজিপিএ (গড় CGPA)",
-  "metricApplied": "আবেদনকৃত জব/ইন্টার্ন",
-  "circularsCount": "{count, plural, =0{কোনো সার্কুলার নেই} other{{count}টি সার্কুলার}}",
-  "@circularsCount": {
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "format": "decimalPattern"
-      }
-    }
-  },
-  "metricNoc": "NOC স্ট্যাটাস",
-  "nocIssued": "ইস্যু করা হয়েছে",
-  "nocPending": "প্রক্রিয়াধীন",
-  "nocRejected": "বাতিল",
-  "tabOverview": "ওভারভিউ ও বিবরণ",
-  "tabAcademic": "শিক্ষাগত যোগ্যতা",
-  "tabProjects": "স্কিলস ও প্রজেক্ট",
-  "tabApplications": "আবেদন ট্র্যাকার",
-  "tabCertifications": "সার্টিফিকেট ও সোশ্যাল",
-  "aboutMe": "নিজের সম্পর্কে (Bio)",
-  "edit": "এডিট করুন",
-  "techProficiency": "প্রধান কারিগরি দক্ষতা (Tech Proficiency)",
-  "contactInfo": "যোগাযোগের তথ্য",
-  "emailAddress": "ইমেইল ঠিকানা",
-  "phoneNumber": "ফোন নম্বর",
-  "currentAddress": "বর্তমান ঠিকানা",
-  "boardInfo": "কারিগরি শিক্ষা বোর্ড তথ্য",
-  "boardRoll": "বোর্ড রোল:",
-  "registration": "রেজিস্ট্রেশন:",
-  "session": "সেশন:",
-  "nocLetterNo": "NOC পত্র নম্বর:",
-  "resultBreakdown": "পলিটেকনিক রেজাল্ট ব্রেকডাউন (Semester GPA)",
-  "colSemester": "সেমিস্টার",
-  "colExamYear": "পরীক্ষার বছর",
-  "colGpa": "প্রাপ্ত জিপিএ (GPA)",
-  "colStatus": "স্ট্যাটাস",
-  "passed": "উত্তীর্ণ",
-  "avgCgpaRange": "গড় সিজিপিএ ({from} - {to})",
-  "@avgCgpaRange": {
-    "placeholders": {
-      "from": {
-        "type": "String"
-      },
-      "to": {
-        "type": "String"
-      }
-    }
-  },
-  "gradeFirstClass": "ফার্স্ট ক্লাস অনার্স সমমান",
-  "sscTitle": "মাধ্যমিক স্কুল সার্টিফিকেট (SSC / সমমান)",
-  "schoolName": "স্কুল নাম:",
-  "groupBoard": "গ্রুপ & বোর্ড:",
-  "passingYearGpa": "পাসিং ইয়ার & জিপিএ:",
-  "portfolioTitle": "প্র্যাকটিক্যাল প্রজেক্ট পোর্টফোলিও",
-  "portfolioSubtitle": "পলিটেকনিক ক্লাসে ও ব্যক্তিগতভাবে তৈরি প্রজেক্টসমূহ",
-  "addProject": "নতুন প্রজেক্ট যোগ করুন",
-  "newProject": "নতুন প্রজেক্ট",
-  "liveDemo": "লাইভ ডেমো",
-  "githubCode": "গিটহাব কোড",
-  "trackerTitle": "আবেদনকৃত সার্কুলার ও ইন্টার্নশিপ ট্র্যাকার",
-  "trackerSubtitle": "আপনার জমাকৃত সকল আবেদনের রিয়েল-টাইম স্ট্যাটাস",
-  "filter": "ফিল্টার:",
-  "filterAll": "সব আবেদন",
-  "filterShortlisted": "শর্ট লিস্টেড",
-  "filterPending": "পেন্ডিং",
-  "filterInterview": "ইন্টারভিউ নির্ধারিত",
-  "noApplications": "কোনো আবেদন পাওয়া যায়নি",
-  "colCompany": "কোম্পানি & পদের নাম",
-  "colType": "ধরন",
-  "colAppliedDate": "আবেদনের তারিখ",
-  "colCurrentStatus": "বর্তমান স্ট্যাটাস",
-  "colAction": "অ্যাকশন",
-  "typeAttachment": "🎓 অ্যাটাচমেন্ট",
-  "typeJob": "💼 চাকরি",
-  "statusShortlisted": "শর্ট লিস্টেড",
-  "statusInterview": "ইন্টারভিউ নির্ধারিত",
-  "statusPending": "রিভিউ পেন্ডিং",
-  "actionViewMessage": "মেসেজ দেখুন",
-  "actionDetails": "ডিটেইলস",
-  "actionPleaseWait": "অপেক্ষা করুন",
-  "noMessage": "এখনও কোনো মেসেজ নেই",
-  "certificatesTitle": "অর্জিত ট্রেনিং ও কোর্স সার্টিফিকেটসমূহ",
-  "add": "যোগ করুন",
-  "socialTitle": "সোশ্যাল মিডিয়া ও অনলাইন পোর্টফোলিও লিংক",
-  "linkedinProfile": "LinkedIn Profile",
-  "githubRepos": "GitHub Repositories",
-  "editProfileTitle": "শিক্ষার্থী প্রোফাইল এডিট করুন",
-  "fullName": "শিক্ষার্থীর পূর্ণ নাম",
-  "polytechnicName": "পলিটেকনিকের নাম",
-  "technology": "টেকনোলজি",
-  "email": "ইমেইল",
-  "bioLabel": "নিজের সম্পর্কে সংক্ষিপ্ত বিবরণ (Bio)",
-  "cancel": "বাতিল",
-  "save": "সেভ করুন",
-  "fieldRequired": "এই ঘরটি পূরণ করা আবশ্যক",
-  "invalidEmail": "সঠিক ইমেইল ঠিকানা দিন",
-  "invalidUrl": "সঠিক লিংক দিন",
-  "profileUpdated": "প্রোফাইল তথ্য সফলভাবে আপডেট করা হয়েছে!",
-  "cvDialogTitle": "গুগোল ড্রাইভ রেজুমে / সিভি লিংক",
-  "cvLinkLabel": "Google Drive CV Link",
-  "cvLinkNote": "লিংকটি অবশ্যই 'Anyone with the link' ভিউ পারমিশন অন করে দিন।",
-  "update": "আপডেট করুন",
-  "cvUpdated": "আপনার গুগোল ড্রাইভ সিভি লিংকটি হালনাগাদ করা হয়েছে!",
-  "addProjectTitle": "নতুন প্রজেক্ট যুক্ত করুন",
-  "projectName": "প্রজেক্টের নাম",
-  "projectTech": "ব্যবহৃত টেকনোলজি (কমা দিয়ে লিখুন)",
-  "projectTechHint": "ex: HTML, Tailwind, JS",
-  "projectDesc": "সংক্ষিপ্ত বিবরণ",
-  "publish": "পাবলিশ করুন",
-  "projectAdded": "নতুন প্রজেক্ট সফলভাবে পোর্টফোলিওতে যোগ করা হয়েছে!",
-  "nocGuideTitle": "NOC গাইডলাইন",
-  "nocGuideBody": "পলিটেকনিকের ইন্ডাস্ট্রিয়াল লিয়াঁজো শাখা থেকে অনুমোদিত NOC পত্রটি অ্যাপ্লাই করার সময় সংলগ্ন করতে হবে।",
-  "nocVerifiedActive": "NOC No: {number} (Verified Active)",
-  "@nocVerifiedActive": {
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
-  "somethingWentWrong": "কিছু একটা সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-  "retry": "আবার চেষ্টা করুন",
-
+ "stepCompanyProfile":"================================== Home Screen ( Hero Banner ) ========================",
+     "heroBadge": "বাংলাদেশের ডিপ্লোমা ও পলিটেকনিক শিক্ষার্থীদের প্রধান ক্যারিয়ার হাব",
+      "heroTitleLine": "ডিপ্লোমা ক্যারিয়ারের",
+      "heroTitleHighlight": "সঠিক সুযোগ",
+      "heroTitleSuffix": "খুঁজুন",
+      "heroSubtitle": "ডিপ্লোমা শিক্ষার্থীদের জন্য চাকরি, ইন্টার্নশিপ ও ক্যারিয়ার প্ল্যাটফর্ম। সরাসরি সরকারি, আধা-সরকারি এবং দেশের শীর্ষ প্রাইভেট কোম্পানিতে আবেদনের অনন্য সুযোগ।",
+      "searchHint": "পদের নাম, স্কিল বা কোম্পানি...",
+      "allTechnologiesDept": "সকল টেকনোলজি",
+      "filterAction": "চাকরি খুঁজুন",
+      "heroPopularFilters": "পপুলার ফিল্টার:",
+      "heroTagComputer": "#কম্পিউটার",
+      "heroTagElectrical": "#ইলেকট্রিক্যাল",
+      "heroTagCivil": "#সিভিল",
+      "heroVerifiedJobs": "{count}+ ভেরিফাইড চাকরি",
+      "heroBtebDiploma": "{percent} বিটিইবি ডিপ্লোমা",
 
 
   "stepJobDetails":"================================== Job details ========================",
@@ -410,7 +281,9 @@
     "technologyLabel": "টেকনোলজি:",
     "applied": "আবেদন সম্পন্ন হয়েছে",
     "applyNow": "এখনই আবেদন করুন",
+    "applicationClosed": "আবেদন বন্ধ হয়েছে",
     "bookmarkTooltip": "সেভ করুন",
+     "editPost": "পোস্ট সম্পাদনা করুন",
     "shareTooltip": "শেয়ার করুন",
     "hlLocation": "কর্মস্থল / লোকেশন",
     "hlStipend": "মাসিক স্টাইপেন্ড",
@@ -490,133 +363,6 @@
     "bookmarkSaved": "সার্কুলারটি আপনার বুকমার্ক তালিকায় সেভ করা হয়েছে",
     "bookmarkRemoved": "বুকমার্ক তালিকা থেকে সরানো হয়েছে",
     "circularLinkCopied": "সার্কুলার লিংক কপি করা হয়েছে!",
-
-
-     "stepCompanyProfile":"================================== Company Profile ========================",
-     "@@locale": "bn",
-      "recruiterPortalTagline": "Recruiter Portal & Company Desk",
-      "navPostings": "জব ও ইন্টার্নশিপ",
-      "navApplicants": "আবেদনকারী",
-      "navCompanyPanel": "কোম্পানি প্যানেল",
-      "btebPartner": "BTEB শিল্প অংশীদার",
-      "newPost": "নতুন পোস্ট করুন",
-      "editProfile": "প্রোফাইল এডিট",
-      "shareProfile": "প্রোফাইল শেয়ার",
-      "changeCover": "ব্যানার পরিবর্তন",
-      "changeLogo": "লোগো পরিবর্তন",
-      "toggleTheme": "থিম পরিবর্তন",
-      "languageToggleLabel": "English",
-      "verifiedRecruiter": "ভেরিফাইড নিয়োগকারী",
-      "btebApprovedIndustry": "BTEB অনুমোদিত শিল্প প্রতিষ্ঠান",
-      "employeesCount": "{count}+ কর্মী",
-      "statTotalPostings": "মোট পোস্টকৃত সার্কুলার",
-      "statJobs": "চাকরি সার্কুলার",
-      "statAttachments": "ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট",
-      "statApplications": "প্রাপ্ত আবেদনপত্র",
-      "itemsCount": "{count} টি",
-      "tabPostings": "সার্কুলার ও ইন্টার্নশিপ ম্যানেজমেন্ট",
-      "tabApplicants": "আবেদনকারী তালিকা ও মূল্যায়ন",
-      "tabOverview": "কোম্পানি পরিচিতি ও সুযোগ-সুবিধা",
-      "tabMou": "পলিটেকনিক পার্টনারশিপ ও MOU",
-      "filterType": "ফিল্টার টাইপ:",
-      "filterAllPosts": "সব পোস্ট ({count})",
-      "filterJobs": "ফুল-টাইম চাকরি ({count})",
-      "filterAttachments": "৮ম সেমিস্টার অ্যাটাচমেন্ট ({count})",
-      "typeJob": "ফুল-টাইম চাকরি",
-      "typeAttachment": "৮ম সেমিস্টার অ্যাটাচমেন্ট",
-      "seatsLabel": "আসন: {count} টি",
-      "technologyLabel": "টেকনোলজি: {value}",
-      "locationLabel": "স্থান: {value}",
-      "salaryLabel": "বেতন: {value}",
-      "stipendLabel": "স্টাইপেন্ড: {value}",
-      "deadlineLabel": "ডেডলাইন: {value}",
-      "viewApplications": "আবেদন দেখুন ({count})",
-      "statusActive": "সক্রিয়",
-      "emptyPostings": "এখনো কোনো সার্কুলার নেই।",
-      "emptyApplicants": "কোনো আবেদনকারী পাওয়া যায়নি।",
-      "retry": "আবার চেষ্টা করুন",
-      "genericError": "কিছু ভুল হয়েছে। আবার চেষ্টা করুন।",
-      "postDialogTitle": "নতুন সার্কুলার/ইন্টার্নশিপ পোস্ট করুন",
-      "postDialogSubtitle": "চাকরি বা ৮ম সেমিস্টার ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্টের তথ্য প্রদান করুন",
-      "postCategoryLabel": "পোস্টের ক্যাটাগরি নির্বাচন করুন *",
-      "categoryAttachmentSubtitle": "পলিটেকনিক শিক্ষার্থীদের ইন্টার্নশিপ",
-      "categoryJobTitle": "ফুল-টাইম / পার্ট-টাইম চাকরি",
-      "categoryJobSubtitle": "ডিপ্লোমা পাশকৃতদের নিয়োগ",
-      "postTitleLabel": "পদের নাম (Title) *",
-      "postTitleHint": "যেমন: Sub-Assistant Engineer (PLC & Automation)",
-      "postTechLabel": "প্রযোজ্য টেকনোলজি/ডিপার্টমেন্ট *",
-      "postTechHint": "যেমন: Computer, Electrical, Mechanical",
-      "postSeatsLabel": "খালি পদের সংখ্যা (Seats) *",
-      "postSeatsHint": "যেমন: ২০",
-      "postSalaryLabel": "বেতন/স্টাইপেন্ড পরিমাণ *",
-      "postSalaryHint": "যেমন: ৳ ১০,০০০/মাস (বা আলোচনা সাপেক্ষে)",
-      "postDeadlineLabel": "আবেদনের শেষ তারিখ (Deadline) *",
-      "postLocationLabel": "কর্মস্থল / কারখানা লোকেশন *",
-      "postLocationHint": "যেমন: চন্দ্রা, গাজীপুর প্ল্যান্ট",
-      "postBenefitsLabel": "অতিরিক্ত সুযোগ-সুবিধা ও শর্তাবলী",
-      "benefitFreeHousing": "ফ্রি আবাসন",
-      "benefitCanteen": "ক্যাফেটেরিয়া সাবসিডি",
-      "benefitNocRequired": "পলিটেকনিক NOC প্রয়োজন",
-      "tagNocApplicable": "NOC প্রযোজ্য",
-      "cancel": "বাতিল",
-      "publishToPortal": "পোর্টালে প্রকাশ করুন",
-      "fieldRequired": "এই ঘরটি পূরণ করুন",
-      "invalidEmail": "সঠিক ইমেইল দিন",
-      "invalidNumber": "সঠিক সংখ্যা দিন",
-      "editCompanyTitle": "কোম্পানি তথ্য পরিবর্তন করুন",
-      "companyNameLabel": "কোম্পানির নাম *",
-      "industryLabel": "ইন্ডাস্ট্রি ক্যাটাগরি *",
-      "hrEmailLabel": "এইচআর ইমেইল *",
-      "helplineLabel": "হেল্পলাইন নম্বর *",
-      "aboutSummaryLabel": "কোম্পানি ওভারভিউ",
-      "save": "সেভ করুন",
-      "interviewDialogTitle": "ইন্টারভিউ তারিখ সিডিউল করুন",
-      "interviewCandidate": "আবেদনকারী শিক্ষার্থী: {name}",
-      "interviewDateTimeLabel": "ইন্টারভিউ এর তারিখ ও সময় *",
-      "interviewVenueLabel": "স্থান / অনলাইন মিটিং লিংক *",
-      "interviewVenueHint": "যেমন: Walton Plant HQ Boardroom বা Google Meet লিংক",
-      "sendNotification": "নোটিফিকেশন পাঠান",
-      "applicantsTitle": "শিক্ষার্থী আবেদনকারী মূল্যায়ন তালিকা",
-      "applicantsSubtitle": "পলিটেকনিক শিক্ষার্থীদের সিভি, টেকনোলজি ও NOC স্ট্যাটাস যাচাই করুন",
-      "filterAllApplicants": "সকল আবেদনকারী",
-      "statusPending": "রিভ্যু পেন্ডিং",
-      "statusShortlisted": "শর্টলিস্টেড",
-      "statusInterview": "ইন্টারভিউ নির্ধারিত",
-      "statusInterviewOn": "ইন্টারভিউ {date}",
-      "downloadCvs": "ডাউনলোড সিভি",
-      "colStudent": "শিক্ষার্থীর নাম ও পলিটেকনিক",
-      "colTechCgpa": "টেকনোলজি ও CGPA",
-      "colPosition": "আবেদনের পদ ও টাইপ",
-      "colDocuments": "সংযুক্ত ডকুমেন্ট",
-      "colStatus": "স্ট্যাটাস",
-      "colAction": "অ্যাকশন",
-      "cgpaLabel": "CGPA: {value}",
-      "nocAttached": "NOC সংযুক্ত",
-      "actionShortlist": "শর্টলিস্ট করুন",
-      "actionScheduleInterview": "ইন্টারভিউ সিডিউল",
-      "actionDone": "সম্পন্ন",
-      "aboutTitle": "কোম্পানি পরিচিতি ও লক্ষ্য",
-      "domainsTitle": "প্রধান ইঞ্জিনিয়ারিং ও টেকনোলজি ক্ষেত্রসমূহ",
-      "benefitsTitle": "ইন্টার্ন ও নতুন কর্মীদের সুযোগ-সুবিধা",
-      "hrDeskTitle": "এইচআর ডেস্ক ও যোগাযোগ",
-      "hrEmailTitle": "এইচআর ইমেইল",
-      "helplineTitle": "হেল্পলাইন নম্বর",
-      "headOfficeTitle": "হেড অফিস ও প্ল্যান্ট",
-      "mouTitle": "পার্টনার পলিটেকনিক ইনস্টিটিউটসমূহ (Campus Partners)",
-      "mouSubtitle": "যে সকল পলিটেকনিকের সাথে শিল্প-অ্যাটাচমেন্ট চুক্তি রয়েছে",
-      "newMou": "+ নতুন MOU চুক্তি",
-      "mouVerified": "MOU চুক্তি ভেরিফাইড",
-      "annualQuota": "বার্ষিক ইন্টার্ন কোটা: {count} জন শিক্ষার্থী",
-      "footerTagline": "বাংলাদেশ কারিগরি শিক্ষা বোর্ড (BTEB) পলিটেকনিক শিক্ষার্থী ও কারখানার সংযোগ সেতু।",
-      "toastPostPublished": "নতুন সার্কুলার/ইন্টার্নশিপ সফলভাবে প্রকাশ করা হয়েছে!",
-      "toastProfileUpdated": "কোম্পানি প্রোফাইল আপডেট সম্পন্ন হয়েছে!",
-      "toastInterviewSent": "শিক্ষার্থীকে ইন্টারভিউ সময়সূচী পাঠানো হয়েছে!",
-      "toastShortlisted": "প্রার্থীকে শর্টলিস্টে যুক্ত করা হয়েছে!",
-      "toastLinkCopied": "কোম্পানি ড্যাশবোর্ড লিংক কপি করা হয়েছে!",
-      "toastExportingCvs": "সকল সিভি জিপ ফরম্যাটে এক্সপোর্ট করা হচ্ছে...",
-      "comingSoon": "শীঘ্রই আসছে",
-      "linkOpenFailed": "লিংক খোলা যায়নি",
-
 
 
       "stepCompanyProfile":"================================== Profile ========================",

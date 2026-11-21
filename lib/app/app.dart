@@ -31,12 +31,12 @@ class DiplomaCareerHubApp extends ConsumerWidget {
     return OverlaySupport.global(
       child: MaterialApp.router(
         scrollBehavior: AppScrollBehavior(),
-        title: 'DiplomaJOB',
+        title: 'Career Orbit',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: themeMode,
-        locale: Locale('en'),
+        locale: locale,
         supportedLocales: const [Locale('bn'), Locale('en')],
         localizationsDelegates: const [
           AppLocalizations.delegate,

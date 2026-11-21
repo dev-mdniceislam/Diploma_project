@@ -8,7 +8,7 @@ environment:
   sdk: ^3.13.4
 
 dependencies:
-  flutter:
+  flutter_web_plugins:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
@@ -45,16 +45,24 @@ dependencies:
   pinput: ^6.0.1
   flutter_native_splash: ^2.4.8
 
-
 dev_dependencies:
+  flutter_launcher_icons: ^0.14.4
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^6.0.0
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/images/career_orbit_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/career_orbit_logo.png"
+    background_color: "#FFFFFF"
+    theme_color: "#FFFFFF"
 
 flutter:
-  uses-material-design: true
   generate: true
+  uses-material-design: true
 
   assets:
     - assets/images/

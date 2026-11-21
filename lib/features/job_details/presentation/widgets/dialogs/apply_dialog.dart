@@ -29,13 +29,13 @@ class ApplyDialog extends StatefulWidget {
     required this.onSubmit,
   });
 
-  final JobCircular circular;
+  final JobAttachmentModel circular;
   final Applicant applicant;
   final Future<void> Function(ApplicationDraft draft) onSubmit;
 
   static Future<void> show(
     BuildContext context, {
-    required JobCircular circular,
+    required JobAttachmentModel circular,
     required Applicant applicant,
     required Future<void> Function(ApplicationDraft draft) onSubmit,
   }) => showDialog<void>(
@@ -144,7 +144,7 @@ class _ApplyDialogState extends State<ApplyDialog> {
         mainAxisSize: MainAxisSize.min,
         children: [
           CustomText(
-            '${c.title} • ${c.company.name}',
+            '${c.title} • ${c.postedBy.companyName}',
             style: AppTextStyles.bodySmall.copyWith(color: context.bodyColor),
           ),
           gap,

@@ -73,30 +73,30 @@ class CompanyHeader extends ConsumerWidget {
         ),
       ],
       stats: [
-        // HeaderStat(
-        //   label: l.pfStatTotalPosts,
-        //   icon: Icons.layers_rounded,
-        //   value: context.fmtNumber(p.postings.length),
-        //   color: palette.brand,
-        // ),
-        // HeaderStat(
-        //   label: l.pfStatJobs,
-        //   icon: Icons.work_outline_rounded,
-        //   value: context.fmtNumber(p.jobCount),
-        //   color: AppColors.info,
-        // ),
-        // HeaderStat(
-        //   label: l.pfStatAttachments,
-        //   icon: Icons.school_outlined,
-        //   value: context.fmtNumber(p.attachmentCount),
-        //   color: AppColors.urgent,
-        // ),
-        // HeaderStat(
-        //   label: l.pfStatApplications,
-        //   icon: Icons.fact_check_outlined,
-        //   value: context.fmtNumber(p.applicationCount),
-        //   color: palette.success,
-        // ),
+        HeaderStat(
+          label: l.pfStatTotalPosts,
+          icon: Icons.layers_rounded,
+          value: context.fmtNumber(5000),
+          color: palette.brand,
+        ),
+        HeaderStat(
+          label: l.pfStatJobs,
+          icon: Icons.work_outline_rounded,
+          value: context.fmtNumber(125),
+          color: AppColors.info,
+        ),
+        HeaderStat(
+          label: l.pfStatAttachments,
+          icon: Icons.school_outlined,
+          value: context.fmtNumber(500),
+          color: AppColors.urgent,
+        ),
+        HeaderStat(
+          label: l.pfStatApplications,
+          icon: Icons.fact_check_outlined,
+          value: context.fmtNumber(300),
+          color: palette.success,
+        ),
       ],
     );
   }

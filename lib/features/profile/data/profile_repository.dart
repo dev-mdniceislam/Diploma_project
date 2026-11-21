@@ -104,21 +104,24 @@ class ProfileRepository {
     }
   }
 
-  Future<List<Posting>> fetchCompanyPostings() async {
+  Future<List<IndustrialJobModel>> fetchCompanyPostings() async {
     try {
-      final res = await _net.get<ApiResponseModel<List<Posting>>>(
+      final res = await _net.get<ApiResponseModel<List<IndustrialJobModel>>>(
         url: Endpoints.getCompanyPosted,
         headers: await _headers(),
         fromJson: (json) => ApiResponseModel.fromJson(
           json,
           (d) => (d as List<dynamic>)
-              .map((e) => Posting.fromJson(e as Map<String, dynamic>))
+              .map(
+                (e) => IndustrialJobModel.fromJson(e as Map<String, dynamic>),
+              )
               .toList(),
         ),
       );
       if (res == null) {
         throw const AppException('সার্ভারের সাথে যোগাযোগ করা যাচ্ছে না');
       }
+
       final data = res.data;
       if (!res.success || data == null) {
         throw AppException(

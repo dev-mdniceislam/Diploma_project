@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkCaller {
@@ -127,3 +128,5 @@ class NetworkCaller {
     }
   }
 }
+
+final networkCallerProvider = Provider<NetworkCaller>((ref) => NetworkCaller());

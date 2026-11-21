@@ -1,5 +1,6 @@
 import 'package:diploma_job/core/database/local_storage.dart';
 import 'package:diploma_job/core/router/app_router.dart';
+import 'package:diploma_job/features/auth/login/presentation/providers/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:diploma_job/core/extension/l10n_extension.dart';
@@ -43,18 +44,22 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           email: widget.emailController.text.trim(),
           password: widget.passwordController.text,
         );
+    if (!mounted || !ok) return;
+
+    // ১. Remember me save
+    if (_remember) {
+      await LocalStorage().writeData(
+        key: 'remember_email',
+        value: widget.emailController.text,
+      );
+    }
     if (!mounted) return;
 
-    if (ok) {
-      context.go(AppRoutes.home);
-      if (_remember) {
-        await LocalStorage().writeData(
-          key: "remember_email",
-          value: widget.emailController.text,
-        );
-      }
-      _resetForm();
-    }
+    _resetForm();
+
+    // ২. আগে auth state বদলান, তারপর navigate
+    ref.read(authStateProvider).setLoggedIn(true);
+    context.replace(AppRoutes.home);
   }
 
   void _resetForm() {

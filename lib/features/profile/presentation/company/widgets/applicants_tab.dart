@@ -92,7 +92,7 @@ class ApplicantsTab extends ConsumerWidget {
                 spacing: 4,
                 children: [
                   CustomText(a.job.title, style: bold),
-                  TypePill(PostType.parse(a.job.jobType)),
+                  TypePill(JobType.parse(a.job.jobType)),
                 ],
               ),
               CustomText(context.fmtDate(a.createdAt)),

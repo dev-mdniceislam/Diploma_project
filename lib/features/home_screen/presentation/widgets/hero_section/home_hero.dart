@@ -2,16 +2,16 @@ import 'package:diploma_job/core/extension/l10n_extension.dart';
 import 'package:diploma_job/core/responsive/responsive.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
+import 'package:diploma_job/core/utils/type_writter.dart';
 import 'package:diploma_job/core/widgets/app_container.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
+import 'package:diploma_job/features/home_screen/presentation/providers/home_providers.dart';
+import 'package:diploma_job/features/home_screen/presentation/widgets/hero_section/grouwth_card.dart';
+import 'package:diploma_job/features/home_screen/presentation/widgets/hero_section/hero_badge.dart';
+import 'package:diploma_job/features/home_screen/presentation/widgets/hero_section/hero_popular_filter.dart';
+import 'package:diploma_job/features/home_screen/presentation/widgets/hero_section/hero_search_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../providers/home_providers.dart';
-import 'hero_badge.dart';
-import 'hero_growth_card.dart';
-import 'hero_popular_filters.dart';
-import 'hero_search_card.dart';
 
 /// Home hero: left = badge, title, subtitle, search, popular filters;
 /// right = "Growth Matrix" card. Desktop is 7/5 columns, below that it stacks.
@@ -23,7 +23,9 @@ class HomeHero extends ConsumerStatefulWidget {
 }
 
 class _HomeHeroState extends ConsumerState<HomeHero> {
-  static const _sky300 = Color(0xFF7DD3FC); // tailwind sky-300 (title gradient middle)
+  static const _sky300 = Color(
+    0xFF7DD3FC,
+  ); // tailwind sky-300 (title gradient middle)
 
   final _searchController = TextEditingController();
 
@@ -37,7 +39,9 @@ class _HomeHeroState extends ConsumerState<HomeHero> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final desktop = Responsive.isDesktop(context);
-    final cross = desktop ? CrossAxisAlignment.start : CrossAxisAlignment.center;
+    final cross = desktop
+        ? CrossAxisAlignment.start
+        : CrossAxisAlignment.center;
     final textAlign = desktop ? TextAlign.start : TextAlign.center;
     final wrapAlign = desktop ? WrapAlignment.start : WrapAlignment.center;
 
@@ -48,7 +52,12 @@ class _HomeHeroState extends ConsumerState<HomeHero> {
 
     final titleStyle = AppTextStyles.displayLarge.copyWith(
       color: AppColors.white,
-      fontSize: Responsive.value(context, mobile: 30.0, tablet: 48.0, desktop: 48.0),
+      fontSize: Responsive.value(
+        context,
+        mobile: 30.0,
+        tablet: 48.0,
+        desktop: 48.0,
+      ),
       fontWeight: FontWeight.w900,
       height: 1.25,
     );
@@ -58,26 +67,17 @@ class _HomeHeroState extends ConsumerState<HomeHero> {
       spacing: 24,
       children: [
         HeroBadge(text: l10n.heroBadge),
-        Column(
-          crossAxisAlignment: cross,
-          children: [
-            CustomText(l10n.heroTitleLine, textAlign: textAlign, style: titleStyle),
-            Wrap(
-              alignment: wrapAlign,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 12,
-              children: [
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [AppColors.primary400, _sky300, AppColors.accentGreenLight],
-                  ).createShader(bounds),
-                  child: CustomText(l10n.heroTitleHighlight, style: titleStyle),
-                ),
-                CustomText(l10n.heroTitleSuffix, style: titleStyle),
-              ],
-            ),
-          ],
+        TypewriterTitle(
+          line: l10n.heroTitleLine,
+          highlight: l10n.heroTitleHighlight,
+          suffix: l10n.heroTitleSuffix,
+          style: titleStyle,
+          crossAlign: cross,
+          textAlign: textAlign,
+          wrapAlign: wrapAlign,
+          gradient: const LinearGradient(
+            colors: [AppColors.primary400, _sky300, AppColors.accentGreenLight],
+          ),
         ),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 672),
@@ -99,9 +99,9 @@ class _HomeHeroState extends ConsumerState<HomeHero> {
       ],
     );
 
-    const card = ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 448),
-      child: HeroGrowthCard(),
+    final card = ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 448),
+      child: const HeroGrowthCard(),
     );
 
     return Container(
@@ -124,17 +124,20 @@ class _HomeHeroState extends ConsumerState<HomeHero> {
             child: AppContainer(
               child: desktop
                   ? Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                spacing: 40,
-                children: [
-                  Expanded(flex: 7, child: left),
-                  const Expanded(flex: 5, child: Center(child: card)),
-                ],
-              )
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 40,
+                      children: [
+                        Expanded(flex: 7, child: left),
+                        Expanded(flex: 5, child: Center(child: card)),
+                      ],
+                    )
                   : Column(
-                spacing: 40,
-                children: [SizedBox(width: double.infinity, child: left), card],
-              ),
+                      spacing: 40,
+                      children: [
+                        SizedBox(width: double.infinity, child: left),
+                        card,
+                      ],
+                    ),
             ),
           ),
         ],
@@ -142,6 +145,10 @@ class _HomeHeroState extends ConsumerState<HomeHero> {
     );
   }
 }
+
+/// Types out the hero title one character at a time.
+/// Text keeps its full size from the start (unrevealed part is transparent),
+/// so the layout does not jump while typing.
 
 /// Soft blue glow in the top-right corner (HTML: w-96 h-96 bg-primary-600/25 blur-3xl).
 class _GlowCircle extends StatelessWidget {

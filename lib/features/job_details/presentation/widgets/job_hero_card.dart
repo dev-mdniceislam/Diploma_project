@@ -1,3 +1,4 @@
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,28 +26,28 @@ class JobHeroCard extends StatelessWidget {
     required this.onShare,
   });
 
-  final JobDetails details;
+  final JobAttachmentModel details;
   final VoidCallback onApply;
   final VoidCallback onBookmark;
   final VoidCallback onShare;
 
   @override
   Widget build(BuildContext context) {
-    final c = details.circular;
+    final c = details;
     final wide = Responsive.isDesktop(context);
     final logoSize = wide ? 88.0 : 72.0;
     final pad = wide ? AppDimens.lg : AppDimens.md;
 
     final logo = CustomImage(
-      imagePath: c.company.logoUrl,
+      imagePath: c.postedBy.profileUrl,
       width: logoSize,
       height: logoSize,
       borderRadius: BorderRadius.circular(AppDimens.radiusMd),
     );
     final info = _Info(circular: c);
     final actions = _Actions(
-      applied: details.isApplied,
-      bookmarked: details.isBookmarked,
+      applied: details.isApplicationOpen,
+      bookmarked: true,
       stretch: !wide,
       onApply: onApply,
       onBookmark: onBookmark,
@@ -158,7 +159,7 @@ class _BackButton extends StatelessWidget {
 class _Info extends StatelessWidget {
   const _Info({required this.circular});
 
-  final JobCircular circular;
+  final JobAttachmentModel circular;
 
   @override
   Widget build(BuildContext context) {
@@ -174,11 +175,14 @@ class _Info extends StatelessWidget {
           runSpacing: AppDimens.xs,
           children: [
             InfoBadge(
-              label: context.circularTypeLabel(c.type, c.semester),
+              label: context.circularTypeLabel(
+                JobType.parse(c.jobType),
+                c.semester,
+              ),
               foreground: p.brand,
               background: p.pillBg,
             ),
-            if (c.isVerifiedEmployer)
+            if (c.postedBy.isVerified == false)
               InfoBadge(
                 label: l10n.verifiedEmployer,
                 icon: Icons.verified_rounded,
@@ -205,13 +209,13 @@ class _Info extends StatelessWidget {
           children: [
             _IconText(
               icon: Icons.apartment_rounded,
-              text: c.company.name,
+              text: c.postedBy.companyName,
               color: p.brand,
               bold: true,
             ),
             _IconText(
               icon: Icons.memory_rounded,
-              text: '${l10n.technologyLabel} ${c.technologies.join(', ')}',
+              text: '${l10n.technologyLabel} ${c.departments.join(', ')}',
               color: context.bodyColor,
             ),
           ],
@@ -339,7 +343,7 @@ class _Actions extends StatelessWidget {
 class _Highlights extends StatelessWidget {
   const _Highlights({required this.circular});
 
-  final JobCircular circular;
+  final JobAttachmentModel circular;
 
   @override
   Widget build(BuildContext context) {
@@ -355,7 +359,7 @@ class _Highlights extends StatelessWidget {
         _Highlight(
           label: l10n.hlLocation,
           icon: Icons.location_on_outlined,
-          value: c.location,
+          value: c.location ?? "",
         ),
         _Highlight(
           label: l10n.hlStipend,
@@ -370,7 +374,7 @@ class _Highlights extends StatelessWidget {
         _Highlight(
           label: l10n.hlDeadline,
           icon: Icons.schedule_rounded,
-          value: context.fmtDate(c.deadline),
+          value: context.fmtDate(c.deadline ?? DateTime.now()),
         ),
         _Highlight(
           label: l10n.hlVacancies,

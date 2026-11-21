@@ -1,6 +1,10 @@
+import 'package:diploma_job/core/router/app_router.dart';
+import 'package:diploma_job/features/home_screen/presentation/widgets/job_card.dart';
+import 'package:diploma_job/features/profile/presentation/company/widgets/profile_job_posting_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/extension/l10n_extension.dart';
 import '../../../../../core/utils/localized_format.dart';
@@ -8,7 +12,6 @@ import '../../../profile_core.dart';
 import '../../../providers/company_posting_provider.dart';
 import '../../../providers/ui_state_provider.dart';
 import '../../widgets/profile_widgets.dart';
-import 'posting_card.dart';
 
 class PostingsTab extends ConsumerWidget {
   const PostingsTab({super.key});
@@ -79,7 +82,15 @@ class PostingsTab extends ConsumerWidget {
               mobile: 1,
               tablet: 2,
               desktop: 3,
-              children: [for (final po in shown) PostingCard(po)],
+              children: [
+                for (final po in shown)
+                  JobPostingCard(
+                    job: po,
+                    onViewApplicants: () {},
+                    jobCardTap: () => context.go(AppRoutes.myDetailsOf(po.id)),
+                  ),
+                //JobCard(job: po, isMyProfile: true, onApply: () {}),
+              ],
             ),
           ],
         );

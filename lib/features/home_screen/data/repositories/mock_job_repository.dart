@@ -1,93 +1,65 @@
+import 'package:diploma_job/core/database/local_storage.dart';
+import 'package:diploma_job/core/endpoints/endpoints.dart';
+import 'package:diploma_job/core/error/exception.dart';
+import 'package:diploma_job/core/gen/api_response_gen.dart';
+import 'package:diploma_job/core/gen/network_caller_gen.dart';
+import 'package:flutter/material.dart';
+
 import '../../domain/entities/job.dart';
 import '../../domain/repositories/job_repository.dart';
 
-/// Mock data copied from the HTML prototype.
-/// Replace with an API-backed implementation later; nothing else changes.
-class MockJobRepository implements JobRepository {
-  @override
-  Future<List<Job>> getJobs() async {
-    await Future<void>.delayed(const Duration(milliseconds: 400));
-    final now = DateTime.now();
+class ApiJobRepository implements JobRepository {
+  ApiJobRepository(this._net);
 
-    return [
-      Job(
-        id: 'job-101',
-        title: 'Junior Sub-Assistant Engineer (Civil)',
-        company: 'Concord Real Estate Ltd.',
-        type: JobType.job,
-        tech: JobTech.civil,
-        location: 'উত্তরা, ঢাকা',
-        salary: '২২,০০০ - ২৫,০০০ টাকা',
-        deadline: DateTime(2026, 11, 15),
-        postedAt: now.subtract(const Duration(days: 2)),
-        tags: const ['AutoCAD', 'Site Supervision', 'Estimation'],
-        description: 'প্রজেক্ট সাইটে অটোক্যাড লেআউট পর্যবেক্ষণ ও দৈনন্দিন রড-সিমেন্ট খরচের হিসাব সংরক্ষণের জন্য ডিপ্লোমা সিভিল পাশকৃত ফ্রেশারদের আহবান করা হচ্ছে।',
-      ),
-      Job(
-        id: 'job-102',
-        title: 'PLC & Automation Training Intern',
-        company: 'Walton Hi-Tech Industries PLC',
-        type: JobType.internship,
-        tech: JobTech.electrical,
-        location: 'গাজীপুর',
-        salary: 'স্টাইপেন্ড: ৮,০০০ টাকা + যাতায়াত',
-        deadline: DateTime(2026, 10, 30),
-        postedAt: now,
-        tags: const ['PLC', 'Microcontroller', '8th Semester'],
-        description: '৮ম সেমিস্টারের ইলেক্ট্রিক্যাল ডিপ্লোমা শিক্ষার্থীদের জন্য ৪ মাসের ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্টের সুযোগ। সফল ইন্টার্নশিপ শেষে স্থায়ী চাকরির সুযোগ রয়েছে।',
-      ),
-      Job(
-        id: 'job-103',
-        title: 'Junior Web Developer (Diploma Freshers)',
-        company: 'SoftTech IT Bangladesh',
-        type: JobType.job,
-        tech: JobTech.computer,
-        location: 'ধানমন্ডি, ঢাকা (হালকা রিমোট সুযোগ)',
-        salary: '১৮,০০০ - ২৪,০০০ টাকা',
-        deadline: DateTime(2026, 11, 5),
-        postedAt: now.subtract(const Duration(days: 1)),
-        tags: const ['JavaScript', 'HTML/CSS', 'PHP/MySQL', 'Diploma Passed'],
-        description: 'কম্পিউটার টেকনোলজির ডিপ্লোমা সম্পন্নকারীদের জন্য ওয়েব ডেভেলপমেন্টের এনট্রি লেভেল পদে নিয়োগ দেওয়া হবে। বেসিক প্রোগ্রামিং জ্ঞান আবশ্যক।',
-      ),
-      Job(
-        id: 'job-104',
-        title: 'Industrial Attachment Trainee (Mechanical)',
-        company: 'Energypac Engineering Ltd.',
-        type: JobType.internship,
-        tech: JobTech.mechanical,
-        location: 'সাভার, ঢাকা',
-        salary: 'স্টাইপেন্ড: ৭,৫০০ টাকা',
-        deadline: DateTime(2026, 10, 28),
-        postedAt: now.subtract(const Duration(days: 3)),
-        tags: const ['CAD/CAM', 'Lathe Machine', '8th Semester Attachment'],
-        description: 'মেকানিক্যাল ডিপ্লোমা শিক্ষার্থীদের ৮ম সেমিস্টারের প্রাতিষ্ঠানিক অ্যাটাচমেন্ট গ্রহণ করা হচ্ছে। ট্রান্সফরমার ও হেভি পাওয়ার ইকুইপমেন্ট নিয়ে কাজ করার অভিজ্ঞতা।',
-      ),
-      Job(
-        id: 'job-105',
-        title: 'Junior Architectural Draftsman',
-        company: 'Urban Design & Partners',
-        type: JobType.job,
-        tech: JobTech.architecture,
-        location: 'গুলশান, ঢাকা',
-        salary: '২০,০০০ - ২৬,০০০ টাকা',
-        deadline: DateTime(2026, 11, 10),
-        postedAt: now.subtract(const Duration(days: 4)),
-        tags: const ['3D Max', 'Revit', 'AutoCAD 2D/3D'],
-        description: 'আর্কিটেকচার ডিপ্লোমা ধারীদের জন্য ৩ডি ম্যাক্স ও ক্যাড ড্রয়িং তৈরির কাজে ফুল-টাইম জুনিয়র ড্রাফটসম্যান প্রয়োজন।',
-      ),
-      Job(
-        id: 'job-106',
-        title: 'Network Operations Trainee (Internship)',
-        company: 'Link3 Technologies Ltd.',
-        type: JobType.internship,
-        tech: JobTech.computer,
-        location: 'মহাখালী, ঢাকা',
-        salary: 'স্টাইপেন্ড: ৯,০০০ টাকা',
-        deadline: DateTime(2026, 11, 2),
-        postedAt: now.subtract(const Duration(hours: 3)),
-        tags: const ['CCNA', 'MikroTik', 'Fiber Optics', '8th Semester'],
-        description: 'কম্পিউটার ও ডেটা কম্যুনিকেশন টেকনোলজির ডিপ্লোমা শিক্ষার্থীদের নেটওয়ার্কিং ও রাউটিং প্র্যাকটিক্যাল শেখার আকর্ষণীয় সুযোগ।',
-      ),
-    ];
+  final NetworkCaller _net;
+
+  Future<Map<String, String>> _headers() async {
+    final token = await LocalStorage().readData(key: 'token');
+    return {
+      'Content-Type': 'application/json',
+      if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
+    };
+  }
+
+  @override
+  Future<JobListPage> fetchJobs({int page = 1, int limit = 10}) async {
+    debugPrint('[JOBS] fetchJobs called, page=$page');
+    try {
+      final res = await _net.get<ApiResponseModel<Json>>(
+        url: Endpoints.getJobForHome(page, limit),
+        headers: await _headers(),
+        fromJson: (json) {
+          debugPrint('[JOBS] raw json: $json');
+          return ApiResponseModel.fromJson(json, (d) => d as Json);
+        },
+      );
+
+      if (res == null) {
+        debugPrint('[JOBS] res is NULL (NetworkCaller returned null)');
+        throw const AppException('Unable to connect to the server');
+      }
+
+      debugPrint(
+        '[JOBS] success=${res.success} message=${res.message} '
+        'dataType=${res.data.runtimeType}',
+      );
+
+      if (!res.success || res.data == null) {
+        debugPrint('[JOBS] FAILED: success=${res.success}, data=${res.data}');
+        throw AppException(
+          res.message.isNotEmpty ? res.message : 'Jobs not found',
+        );
+      }
+
+      final result = JobListPage.fromJson(res.data!);
+      debugPrint('[JOBS] parsed ${result.jobs.length} jobs');
+      return result;
+    } on AppException catch (e) {
+      debugPrint('[JOBS] AppException: ${e.message}');
+      rethrow;
+    } catch (e, st) {
+      debugPrint('[JOBS] unexpected error: $e\n$st');
+      throw AppException('Failed to load jobs: $e');
+    }
   }
 }

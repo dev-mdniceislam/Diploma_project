@@ -22,7 +22,7 @@ class JobSidebar extends StatelessWidget {
     required this.onApply,
   });
 
-  final JobCircular circular;
+  final JobAttachmentModel circular;
   final bool applied;
   final VoidCallback onApply;
 
@@ -33,11 +33,18 @@ class JobSidebar extends StatelessWidget {
       children: [
         _SummaryCard(circular: circular, applied: applied, onApply: onApply),
         gap,
-        _HrCard(hr: circular.hr),
-        if (circular.related.isNotEmpty) ...[
-          gap,
-          _RelatedCard(items: circular.related),
-        ],
+        _HrCard(
+          hr: HrContact(
+            email: circular.contactEmail ?? circular.postedBy.hrEmail,
+            phone: circular.contactPhone ?? circular.postedBy.helplineNumber,
+            websiteLabel: "Website",
+            websiteUrl: circular.website ?? circular.postedBy.website,
+          ),
+        ),
+        // if (circular.related.isNotEmpty) ...[
+        //   gap,
+        //   _RelatedCard(items: circular.related),
+        // ],
       ],
     );
   }
@@ -50,7 +57,7 @@ class _SummaryCard extends StatelessWidget {
     required this.onApply,
   });
 
-  final JobCircular circular;
+  final JobAttachmentModel circular;
   final bool applied;
   final VoidCallback onApply;
 
@@ -59,11 +66,11 @@ class _SummaryCard extends StatelessWidget {
     final l10n = context.l10n;
     final c = circular;
     final rows = [
-      (l10n.sumPublished, context.fmtDate(c.publishedAt)),
-      (l10n.sumDeadline, context.fmtDate(c.deadline)),
-      (l10n.sumJobType, c.employmentType),
-      (l10n.sumEducation, c.educationLabel),
-      (l10n.sumHousing, c.housing),
+      (l10n.sumPublished, context.fmtDate(c.createdAt ?? DateTime.now())),
+      (l10n.sumDeadline, context.fmtDate(c.deadline ?? DateTime.now())),
+      (l10n.sumJobType, c.jobType),
+      (l10n.sumEducation, c.educationRequirement),
+      (l10n.sumHousing, c.accommodation),
     ];
 
     return JobCard(
@@ -240,60 +247,60 @@ class _RelatedCard extends StatelessWidget {
             iconColor: AppColors.featured,
           ),
           const SizedBox(height: AppDimens.sm),
-          for (final item in items) ...[
-            _RelatedTile(item: item),
-            const SizedBox(height: AppDimens.sm),
-          ],
+          // for (final item in items) ...[
+          //   // _RelatedTile(item: item),
+          //   const SizedBox(height: AppDimens.sm),
+          // ],
         ],
       ),
     );
   }
 }
 
-class _RelatedTile extends StatelessWidget {
-  const _RelatedTile({required this.item});
-
-  final RelatedCircular item;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-      onTap: () => context.go(AppRoutes.detailsOf(item.id)),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(AppDimens.sm + 2),
-        decoration: BoxDecoration(
-          color: context.mutedSurface,
-          borderRadius: BorderRadius.circular(AppDimens.radiusMd),
-          border: Border.all(color: context.scheme.outline),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              context.circularTypeLabel(item.type, item.semester),
-              style: AppTextStyles.bodySmall.copyWith(
-                color: context.palette.brand,
-                fontWeight: FontWeight.w700,
-                fontSize: 11.5,
-              ),
-            ),
-            const SizedBox(height: 2),
-            CustomText(
-              item.title,
-              style: AppTextStyles.bodyMedium.copyWith(
-                color: context.scheme.onSurface,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            CustomText(
-              '${item.companyName} • ${item.location}',
-              style: AppTextStyles.bodySmall.copyWith(color: context.bodyColor),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// class _RelatedTile extends StatelessWidget {
+//   const _RelatedTile({required this.item});
+//
+//   final RelatedCircular item;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       borderRadius: BorderRadius.circular(AppDimens.radiusMd),
+//       onTap: () => context.go(AppRoutes.detailsOf(item.id)),
+//       child: Container(
+//         width: double.infinity,
+//         padding: const EdgeInsets.all(AppDimens.sm + 2),
+//         decoration: BoxDecoration(
+//           color: context.mutedSurface,
+//           borderRadius: BorderRadius.circular(AppDimens.radiusMd),
+//           border: Border.all(color: context.scheme.outline),
+//         ),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             CustomText(
+//               context.circularTypeLabel(item., item.semester),
+//               style: AppTextStyles.bodySmall.copyWith(
+//                 color: context.palette.brand,
+//                 fontWeight: FontWeight.w700,
+//                 fontSize: 11.5,
+//               ),
+//             ),
+//             const SizedBox(height: 2),
+//             CustomText(
+//               item.title,
+//               style: AppTextStyles.bodyMedium.copyWith(
+//                 color: context.scheme.onSurface,
+//                 fontWeight: FontWeight.w700,
+//               ),
+//             ),
+//             CustomText(
+//               '${item.companyName} • ${item.location}',
+//               style: AppTextStyles.bodySmall.copyWith(color: context.bodyColor),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

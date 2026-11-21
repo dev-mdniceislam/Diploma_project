@@ -1,3 +1,4 @@
+import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_dimens.dart';
@@ -18,13 +19,13 @@ extension JobThemeX on BuildContext {
       isDark ? AppColors.textOnDarkMuted : AppColors.textSecondary;
 
   /// "8th Semester" / "৮ম সেমিস্টার"
-  String semesterName(int n) => l10n.semesterLabel(l10n.ordinal('$n'));
+  String semesterName(String n) => l10n.semesterLabel(l10n.ordinal(n));
 
-  String circularTypeLabel(CircularType type, int? semester) => switch (type) {
-    CircularType.attachment => l10n.typeSemesterAttachment(
-      semesterName(semester ?? 8),
+  String circularTypeLabel(JobType type, String? semester) => switch (type) {
+    JobType.internship => l10n.typeSemesterAttachment(
+      semesterName(semester ?? "8th"),
     ),
-    CircularType.job => l10n.typeFullTimeJob,
+    JobType.job => l10n.typeFullTimeJob,
   };
 
   String reviewStatusLabel(ReviewStatus s) => switch (s) {
@@ -116,6 +117,7 @@ class InfoBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: background,
         borderRadius: BorderRadius.circular(AppDimens.radiusSm + 2),
+        border: Border.all(color: AppColors.primary100)
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

@@ -35,4 +35,6 @@ class Endpoints {
   static final createJob = "$baseUrl/api/v1/job";
   static String getJobbyId(String id) => "$baseUrl/api/v1/job/$id";
   static String deleteJob(String id) => "$baseUrl/api/v1/job/$id";
+  static String getJobForHome(int? page, int? limit) =>
+      "$baseUrl/api/v1/job?page=${page ?? 1}&&limit=${limit ?? 10}";
 }

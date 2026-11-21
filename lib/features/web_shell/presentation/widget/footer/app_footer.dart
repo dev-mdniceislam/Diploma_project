@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
-import 'package:diploma_job/core/widgets/app_container.dart';
 import 'package:diploma_job/core/widgets/app_logo.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/core/widgets/responsive_grid.dart';
@@ -63,7 +62,7 @@ class AppFooter extends ConsumerWidget {
                         _FooterLink(
                           label: tech.label(l10n),
                           onTap: () {
-                            filter.setTech(tech);
+                            filter.setTech(tech.toString());
                             context.go(AppRoutes.home);
                           },
                         ),

@@ -3,11 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/gen/network_caller_gen.dart';
 import '../data/profile_repository.dart';
 
-final networkCallerProvider = Provider<NetworkCaller>((ref) {
-  throw UnimplementedError('NetworkCaller provider override করুন');
-});
-
-final authTokenProvider = Provider<String?>((ref) => null);
 
 final profileRepositoryProvider = Provider<ProfileRepository>((ref) {
   return ProfileRepository(ref.watch(networkCallerProvider));

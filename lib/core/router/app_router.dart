@@ -1,5 +1,6 @@
 import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
+import 'package:diploma_job/features/auth/login/presentation/providers/auth_state.dart';
 import 'package:diploma_job/features/splash/presentation/page/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,52 +16,54 @@ class AppRoutes {
   AppRoutes._();
 
   static const home = '/';
-  static const about = '/about';
   static const splash = '/splash';
-  static const academic = '/academic';
   static const postCircular = '/postCircular';
   static const saved = '/saved';
   static const guide = '/guide';
   static const auth = '/authentication';
   static const profile = '/profile';
-  static const studentProfileEdit = '/studentProfileEdit';
   static const jobDetails = '/job/:id';
+  static const myJobDetails = '/my-job/:id';
+
   static String detailsOf(String id) => '/job/$id';
+  static String myDetailsOf(String id) => '/my-job/$id';
 }
 
+final rootNavigatorKey = GlobalKey<NavigatorState>();
+
 final routerProvider = Provider<GoRouter>((ref) {
+  final auth = ref.read(authStateProvider);
   return GoRouter(
     initialLocation: AppRoutes.splash,
-    errorBuilder: (context, state) => AppShell(
-      child: Center(
-        child: CustomText(
-          "Something went wrong",
-          style: AppTextStyles.bodyLarge,
-        ),
-      ),
-    ),
+    debugLogDiagnostics: true,
+    redirect: (context, state) {
+      final loc = state.matchedLocation;
+
+      // Splash নিজের কাজ করবে, সেখানে হস্তক্ষেপ নয়
+      if (loc == AppRoutes.splash) return null;
+
+      final onAuth = loc == AppRoutes.auth;
+
+      // Login আছে কিন্তু login page এ এসেছে: home এ পাঠান
+      if (auth.isLoggedIn && onAuth) return AppRoutes.home;
+
+      // Login নেই কিন্তু অন্য page এ: login page এ পাঠান
+      if (!auth.isLoggedIn && !onAuth) return AppRoutes.auth;
+
+      return null;
+    },
     routes: [
+      // Tab-based shell: home, profile, guide, post, saved
       StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) {
-          return AppShell(child: navigationShell);
-        },
+        builder: (context, state, navigationShell) =>
+            AppShell(child: navigationShell),
         branches: [
-          // 0: Home
           StatefulShellBranch(
             routes: [
               GoRoute(
                 path: AppRoutes.home,
                 name: 'home',
                 builder: (_, __) => const HomePage(),
-                routes: [
-                  GoRoute(
-                    path: AppRoutes.jobDetails,
-                    name: 'jobDetails',
-                    builder: (_, state) => JobDetailsScreen(
-                      circularId: state.pathParameters['id']!,
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
@@ -73,7 +76,6 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-          // 2: Guide
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -88,8 +90,6 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-
-          // 3: Post circular
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -104,8 +104,6 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-
-          // 4: Saved
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -122,6 +120,28 @@ final routerProvider = Provider<GoRouter>((ref) {
           ),
         ],
       ),
+
+      // Detail routes: AppShell-এর ভেতরে, কিন্তু কোনো branch নয়
+      ShellRoute(
+        builder: (context, state, child) => AppShell(child: child),
+        routes: [
+          GoRoute(
+            path: AppRoutes.jobDetails,
+            name: 'jobDetails',
+            builder: (_, state) =>
+                JobDetailsScreen(circularId: state.pathParameters['id']!),
+          ),
+          GoRoute(
+            path: AppRoutes.myJobDetails,
+            name: 'myJobDetails',
+            builder: (_, state) => JobDetailsScreen(
+              circularId: state.pathParameters['id']!,
+              isMe: true,
+            ),
+          ),
+        ],
+      ),
+
       GoRoute(
         path: AppRoutes.auth,
         name: 'auth',

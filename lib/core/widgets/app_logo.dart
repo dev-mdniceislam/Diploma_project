@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../extension/l10n_extension.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_style.dart';
-import '../theme/theme_pellete.dart';
 import 'custom_text.dart';
 
 class AppLogo extends StatelessWidget {
@@ -16,8 +15,6 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final size = compact ? 32.0 : 48.0;
-
     final mark = Assets.images.appLogo.image(
       height: 55,
       width: 55,
@@ -38,6 +35,8 @@ class AppLogo extends StatelessWidget {
       );
     }
 
+    final isMobile = Responsive.isMobile(context);
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -48,22 +47,55 @@ class AppLogo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              ShaderMask(
-                blendMode: BlendMode.srcIn,
-                shaderCallback: (bounds) => LinearGradient(
-                  colors: [context.palette.brand, AppColors.accentGreen],
-                ).createShader(bounds),
-                child: CustomText(
-                  l10n.appName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.headlineMedium.copyWith(
-                    color: AppColors.white,
-                    height: 1.2,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: CustomText(
+                      'Career',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyles.headlineMedium.copyWith(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
                   ),
-                ),
+                  Flexible(
+                    child: CustomText(
+                      'Orbit',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyles.headlineMedium.copyWith(
+                        color: AppColors.primary,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: AppColors.primary100,
+                    ),
+                    child: CustomText(
+                      'BD',
+                      style: AppTextStyles.titleMedium.copyWith(
+                        color: AppColors.primary,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              if (Responsive.isMobile(context))
+              if (!isMobile)
                 CustomText(
                   l10n.appTagline,
                   style: AppTextStyles.bodySmall.copyWith(

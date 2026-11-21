@@ -1,5 +1,5 @@
 import '../entities/job.dart';
 
-abstract interface class JobRepository {
-  Future<List<Job>> getJobs();
+abstract class JobRepository {
+  Future<JobListPage> fetchJobs({int page = 1, int limit = 10});
 }

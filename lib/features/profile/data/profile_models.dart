@@ -19,12 +19,6 @@ enum UserRole {
   };
 }
 
-enum PostType {
-  job,
-  attachment;
-
-  static PostType parse(Object? v) => '$v' == 'job' ? job : attachment;
-}
 
 enum ApplyStatus {
   pending,

@@ -16,7 +16,7 @@ import '../job_ui.dart';
 class JobContentCard extends StatelessWidget {
   const JobContentCard({super.key, required this.circular});
 
-  final JobCircular circular;
+  final JobAttachmentModel circular;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class JobContentCard extends StatelessWidget {
           ),
           const SizedBox(height: AppDimens.sm),
           CustomText(
-            c.overview,
+            c.description,
             style: AppTextStyles.bodyMedium.copyWith(color: context.bodyColor),
           ),
           if (c.responsibilities.isNotEmpty) ...[
@@ -117,7 +117,7 @@ class JobContentCard extends StatelessWidget {
               ],
             ),
           ],
-          if (c.requiredDocuments.isNotEmpty) ...[
+          if (c.requirements.isNotEmpty) ...[
             gap,
             SectionHeading(
               icon: Icons.error_outline_rounded,
@@ -132,10 +132,9 @@ class JobContentCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var i = 0; i < c.requiredDocuments.length; i++)
+                  for (var i = 0; i < c.requirements.length; i++)
                     _BulletRow(
-                      text:
-                          '${context.fmtNumber(i + 1)}. ${c.requiredDocuments[i]}',
+                      text: '${context.fmtNumber(i + 1)}. ${c.requirements[i]}',
                       dense: true,
                     ),
                 ],

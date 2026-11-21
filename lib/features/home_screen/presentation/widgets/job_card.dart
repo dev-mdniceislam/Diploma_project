@@ -1,4 +1,5 @@
 import 'package:diploma_job/core/router/app_router.dart';
+import 'package:diploma_job/features/home_screen/domain/entities/job_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -11,22 +12,25 @@ import '../../../../core/theme/theme_pellete.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_hover.dart';
 import '../../../../core/widgets/custom_text.dart';
-import '../../domain/entities/job.dart';
-import 'job_localizations.dart';
+
+/// API-তে jobType এর মান: 'industrial-attachment' ইত্যাদি।
+const _internshipType = 'industrial-attachment';
 
 class JobCard extends StatelessWidget {
   const JobCard({
     super.key,
     required this.job,
-    required this.isSaved,
-    required this.onToggleSave,
-    required this.onApply,
+    this.isSaved,
+    this.onToggleSave,
+    this.onApply,
+    this.isMyProfile = false,
   });
 
-  final Job job;
-  final bool isSaved;
-  final VoidCallback onToggleSave;
-  final VoidCallback onApply;
+  final JobListItem job;
+  final bool? isSaved;
+  final VoidCallback? onToggleSave;
+  final VoidCallback? onApply;
+  final bool? isMyProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +38,15 @@ class JobCard extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final palette = context.palette;
     final locale = Localizations.localeOf(context).toString();
-    final isIntern = job.type == JobType.internship;
+    final isIntern = job.jobType == _internshipType;
 
     final typeFg = isIntern ? palette.tileBrown : palette.brand;
     final typeBg = isIntern ? palette.tileBrownBg : palette.pillBg;
 
     return CustomHover(
+      cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {
-          context.push(AppRoutes.detailsOf(job.id));
-        },
+        onTap: () => context.push(AppRoutes.detailsOf(job.id)),
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
@@ -53,16 +56,16 @@ class JobCard extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              // ── Top: header, badges, description, tags ──
+              // ── Top: header + badge ──
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _Header(
                     job: job,
-                    isSaved: isSaved,
-                    onToggleSave: onToggleSave,
+                    isSaved: isSaved ?? false,
+                    onToggleSave: onToggleSave ?? () {},
                     saveTooltip: l10n.saveCircular,
                   ),
                   const SizedBox(height: 12),
@@ -70,40 +73,39 @@ class JobCard extends StatelessWidget {
                     spacing: 8,
                     runSpacing: 8,
                     children: [
-                      _Badge(
+                      JobTypeBadge(
                         text: isIntern
                             ? l10n.jobTypeInternship
                             : l10n.jobTypeFullTime,
                         fg: typeFg,
                         bg: typeBg,
-                        border: typeFg.withOpacity(0.25),
+                        border: typeFg.withValues(alpha: 0.25),
                       ),
-                      _Badge(
-                        text: l10n.techBadge(job.tech.label(l10n)),
-                        fg: scheme.onSurface.withOpacity(0.8),
-                        bg: scheme.outline.withOpacity(0.35),
-                      ),
+                      if (job.departments.isNotEmpty)
+                        ...job.departments.map(
+                          (dept) => JobTypeBadge(
+                            text: dept,
+                            fg: palette.brand,
+                            bg: palette.pillBg,
+                            border: palette.brand.withValues(alpha: 0.2),
+                          ),
+                        ),
                     ],
                   ),
-                  const SizedBox(height: 12),
-                  CustomText(
-                    job.description,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppTextStyles.bodySmall,
-                  ),
-                  const SizedBox(height: 14),
-                  Wrap(
-                    spacing: 6,
-                    runSpacing: 6,
-                    children: [for (final tag in job.tags) _Tag(tag)],
-                  ),
+                  const SizedBox(height: 8),
+                  if (job.description.isNotEmpty)
+                    CustomText(
+                      job.description,
+                      style: AppTextStyles.bodySmall,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                 ],
               ),
 
               // ── Bottom: meta + CTA ──
               Padding(
-                padding: const EdgeInsets.only(top: 16),
+                padding: const EdgeInsets.only(top: 20),
                 child: Container(
                   padding: const EdgeInsets.only(top: 12),
                   decoration: BoxDecoration(
@@ -119,15 +121,17 @@ class JobCard extends StatelessWidget {
                               text: job.location,
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: _Meta(
-                              icon: Icons.payments_outlined,
-                              text: job.salary,
-                              color: palette.success,
-                              bold: true,
+                          if (job.stipend > 0) ...[
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: _Meta(
+                                icon: Icons.payments_outlined,
+                                text: '৳${job.stipend}',
+                                color: palette.success,
+                                bold: true,
+                              ),
                             ),
-                          ),
+                          ],
                         ],
                       ),
                       const SizedBox(height: 12),
@@ -135,25 +139,38 @@ class JobCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
-                            child: _Meta(
-                              icon: Icons.schedule_rounded,
-                              iconSize: 13,
-                              fontSize: 11,
-                              text: l10n.deadlineLabel(
-                                DateFormat.yMMMd(locale).format(job.deadline),
-                              ),
-                            ),
+                            child: job.deadline == null
+                                ? const SizedBox.shrink()
+                                : _Meta(
+                                    icon: Icons.schedule_rounded,
+                                    iconSize: 13,
+                                    fontSize: 11,
+                                    text: l10n.deadlineLabel(
+                                      DateFormat.yMMMd(locale)
+                                          .format(job.deadline!),
+                                    ),
+                                  ),
                           ),
                           const SizedBox(width: 8),
-                          CustomButton(
-                            label: l10n.applyNow,
-                            icon: Icons.arrow_forward_rounded,
-                            buttonHeight: 38,
-                            variant: isIntern
-                                ? CustomButtonVariant.accent
-                                : CustomButtonVariant.primary,
-                            onPressed: onApply,
-                          ),
+                          isMyProfile == true
+                              ? CustomButton(
+                                  label: l10n.editPost,
+                                  icon: Icons.edit_attributes,
+                                  buttonHeight: 38,
+                                  variant: isIntern
+                                      ? CustomButtonVariant.accent
+                                      : CustomButtonVariant.primary,
+                                  onPressed: onApply,
+                                )
+                              : CustomButton(
+                                  label: l10n.applyNow,
+                                  icon: Icons.arrow_forward_rounded,
+                                  buttonHeight: 38,
+                                  variant: isIntern
+                                      ? CustomButtonVariant.accent
+                                      : CustomButtonVariant.primary,
+                                  onPressed: onApply,
+                                ),
                         ],
                       ),
                     ],
@@ -176,19 +193,22 @@ class _Header extends StatelessWidget {
     required this.saveTooltip,
   });
 
-  final Job job;
+  final JobListItem job;
   final bool isSaved;
   final VoidCallback onToggleSave;
   final String saveTooltip;
 
   Color get _avatarColor {
-    final sum = job.company.codeUnits.fold<int>(0, (a, b) => a + b);
+    final sum = job.companyName.codeUnits.fold<int>(0, (a, b) => a + b);
     return AppColors.avatarPalette[sum % AppColors.avatarPalette.length];
   }
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final initial = job.companyName.isEmpty
+        ? ''
+        : job.companyName.substring(0, 1);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +222,7 @@ class _Header extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: CustomText(
-            job.company.isEmpty ? '' : job.company.characters.first,
+            initial,
             style: AppTextStyles.titleLarge.copyWith(color: AppColors.white),
           ),
         ),
@@ -221,27 +241,33 @@ class _Header extends StatelessWidget {
                   height: 1.35,
                 ),
               ),
-              const SizedBox(height: 2),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.business_rounded,
-                    size: 14,
-                    color: AppColors.textMuted,
-                  ),
-                  const SizedBox(width: 4),
-                  Expanded(
-                    child: CustomText(
-                      job.company,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.bodySmall.copyWith(
-                        fontWeight: FontWeight.w500,
+              if (job.companyName.isNotEmpty) ...[
+                const SizedBox(height: 2),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.business_rounded,
+                      size: 14,
+                      color: AppColors.textMuted,
+                    ),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: CustomText(
+                        job.companyName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyles.bodySmall.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
+                    if (job.isVerified) ...[
+                      const SizedBox(width: 4),
+                      const Icon(Icons.verified, size: 14, color: Colors.blue),
+                    ],
+                  ],
+                ),
+              ],
             ],
           ),
         ),
@@ -261,8 +287,9 @@ class _Header extends StatelessWidget {
   }
 }
 
-class _Badge extends StatelessWidget {
-  const _Badge({
+class JobTypeBadge extends StatelessWidget {
+  const JobTypeBadge({
+    super.key,
     required this.text,
     required this.fg,
     required this.bg,
@@ -296,33 +323,6 @@ class _Badge extends StatelessWidget {
   }
 }
 
-class _Tag extends StatelessWidget {
-  const _Tag(this.label);
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        color: scheme.outline.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: scheme.outline),
-      ),
-      child: CustomText(
-        label,
-        style: AppTextStyles.bodySmall.copyWith(
-          fontSize: 10.5,
-          fontWeight: FontWeight.w600,
-          color: AppColors.textMuted,
-        ),
-      ),
-    );
-  }
-}
-
 class _Meta extends StatelessWidget {
   const _Meta({
     required this.icon,
@@ -350,7 +350,7 @@ class _Meta extends StatelessWidget {
         Expanded(
           child: CustomText(
             text,
-            maxLines: 2,
+            maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: AppTextStyles.bodySmall.copyWith(
               fontSize: fontSize,

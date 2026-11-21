@@ -1,3 +1,4 @@
+import 'package:diploma_job/core/responsive/responsive_container.dart';
 import 'package:diploma_job/core/utils/shell_page.dart';
 import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,8 @@ class StudentProfileScreen extends ConsumerWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: AppDimens.md),
-            child: AppContainer(
+            child: ResponsiveContainer(
+              maxWidth: 1100,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 spacing: AppDimens.md,

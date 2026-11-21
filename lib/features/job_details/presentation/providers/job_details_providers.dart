@@ -1,3 +1,4 @@
+import 'package:diploma_job/core/gen/network_caller_gen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../profile/providers/student_provider.dart';
@@ -5,45 +6,85 @@ import '../../data/repositories/job_circular_repository_impl.dart';
 import '../../domain/entities/job_circular.dart';
 import '../../domain/repositories/job_circular_repository.dart';
 
-// ── Repository ──────────────────────────────────────────────────────────────
-final jobCircularRepositoryProvider = Provider<JobCircularRepository>(
-  (ref) => MockJobCircularRepository(),
-);
+// Override this in ProviderScope(overrides: [...]) at app startup.
 
-// ── Read: circular + my bookmark/application state, keyed by circular id ────
-final jobDetailsProvider = FutureProvider.family<JobDetails, String>(
-  (ref, id) => ref.watch(jobCircularRepositoryProvider).fetchDetails(id),
-);
+final jobCircularRepositoryProvider = Provider<JobCircularRepository>((ref) {
+  return JobCircularRepositoryImpl(ref.watch(networkCallerProvider));
+});
 
-// ── Write: user actions. Repository errors (AppException) propagate. ───────
-final jobActionsProvider = Provider<JobActions>((ref) => JobActions(ref));
+// Read: one job, keyed by id.
+final jobDetailsProvider = FutureProvider.autoDispose
+    .family<JobAttachmentModel, String>((ref, id) async {
+      final json = await ref
+          .watch(jobCircularRepositoryProvider)
+          .fetchDetails(id);
+      return JobAttachmentModel.fromJson(json);
+    });
 
-class JobActions {
-  JobActions(this._ref);
+// ---------- User state (bookmark + applied) ----------
 
-  final Ref _ref;
+class JobUserState {
+  const JobUserState({
+    this.bookmarked = const <String>{},
+    this.applied = const <String>{},
+  });
 
-  JobCircularRepository get _repo => _ref.read(jobCircularRepositoryProvider);
+  final Set<String> bookmarked;
+  final Set<String> applied;
 
-  /// Returns the new bookmark value.
-  Future<bool> toggleBookmark(String id, {required bool current}) async {
-    final next = await _repo.setBookmark(id, value: !current);
-    await _reload(id);
-    return next;
-  }
+  bool isBookmarked(String id) => bookmarked.contains(id);
+  bool isApplied(String id) => applied.contains(id);
 
-  Future<void> apply(String id, ApplicationDraft draft) async {
-    await _repo.submitApplication(id, draft);
-    await _reload(id);
-  }
-
-  Future<void> _reload(String id) async {
-    _ref.invalidate(jobDetailsProvider(id));
-    await _ref.read(jobDetailsProvider(id).future);
+  JobUserState copyWith({Set<String>? bookmarked, Set<String>? applied}) {
+    return JobUserState(
+      bookmarked: bookmarked ?? this.bookmarked,
+      applied: applied ?? this.applied,
+    );
   }
 }
 
-// ── Logged-in student → apply dialog summary ────────────────────────────────
+class JobUserStateNotifier extends AsyncNotifier<JobUserState> {
+  @override
+  Future<JobUserState> build() async {
+    // TODO: backend endpoint পেলে এখানে bookmark ও applied ids load করো।
+    return const JobUserState();
+  }
+
+  JobCircularRepository get _repo => ref.read(jobCircularRepositoryProvider);
+
+  /// নতুন bookmark অবস্থা return করে।
+  Future<bool> toggleBookmark(String id) async {
+    final current = state.value ?? const JobUserState();
+
+    final saved = await _repo.setBookmark(id, value: !current.isBookmarked(id));
+
+    final next = Set<String>.of(current.bookmarked);
+    saved ? next.add(id) : next.remove(id);
+
+    state = AsyncData(current.copyWith(bookmarked: next));
+    return saved;
+  }
+
+  /// Application submit করে এবং সফল হলে local state update করে।
+  Future<MyApplication> submitApplication(
+    String id,
+    ApplicationDraft draft,
+  ) async {
+    final current = state.value ?? const JobUserState();
+
+    final application = await _repo.submitApplication(id, draft);
+
+    state = AsyncData(current.copyWith(applied: {...current.applied, id}));
+    return application;
+  }
+}
+
+final jobUserStateProvider =
+    AsyncNotifierProvider<JobUserStateNotifier, JobUserState>(
+      JobUserStateNotifier.new,
+    );
+
+// Logged-in student → apply dialog summary.
 final applicantProvider = Provider<Applicant?>((ref) {
   final p = ref.watch(studentProfileProvider).value;
   if (p == null) return null;
@@ -52,6 +93,6 @@ final applicantProvider = Provider<Applicant?>((ref) {
     roll: p.boardRoll,
     institute: p.institute,
     avatarUrl: p.avatarUrl,
-    semester: p.semester,
+    semester: p.semester.toString(),
   );
 });
