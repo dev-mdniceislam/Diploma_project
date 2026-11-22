@@ -1,6 +1,6 @@
 import 'package:diploma_job/core/database/local_storage.dart';
 import 'package:diploma_job/core/router/app_router.dart';
-import 'package:diploma_job/features/auth/login/presentation/providers/auth_state.dart';
+import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:diploma_job/core/extension/l10n_extension.dart';
@@ -34,32 +34,62 @@ class LoginForm extends ConsumerStatefulWidget {
 class _LoginFormState extends ConsumerState<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   bool _remember = false;
+  bool _submitting = false; // login + profile load দুটোই cover করবে
+
+  @override
+  void initState() {
+    super.initState();
+    _loadRememberedEmail();
+  }
+
+  Future<void> _loadRememberedEmail() async {
+    final data = await LocalStorage().readData(key: 'remember_email');
+    if (!mounted || data == null) return;
+    widget.emailController.text = data;
+  }
 
   Future<void> _submit() async {
+    if (_submitting) return;
     if (!_formKey.currentState!.validate()) return;
 
-    final ok = await ref
-        .read(loginNotifierProvider.notifier)
-        .login(
-          email: widget.emailController.text.trim(),
-          password: widget.passwordController.text,
+    setState(() => _submitting = true);
+
+    try {
+      final ok = await ref
+          .read(loginNotifierProvider.notifier)
+          .login(
+            email: widget.emailController.text.trim(),
+            password: widget.passwordController.text,
+          );
+      if (!mounted || !ok) return;
+
+      if (_remember) {
+        await LocalStorage().writeData(
+          key: 'remember_email',
+          value: widget.emailController.text.trim(),
         );
-    if (!mounted || !ok) return;
+      }
+      if (!mounted) return;
 
-    // ১. Remember me save
-    if (_remember) {
-      await LocalStorage().writeData(
-        key: 'remember_email',
-        value: widget.emailController.text,
-      );
+      // Token save হয়ে গেছে, এখন profile আনুন
+      await ref.read(userProfileProvider.notifier).refresh();
+      if (!mounted) return;
+
+      final profile = ref.read(userProfileProvider).value;
+      if (profile == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Profile load করা যায়নি, আবার চেষ্টা করুন'),
+          ),
+        );
+        return;
+      }
+
+      _resetForm();
+      context.replace(AppRoutes.home);
+    } finally {
+      if (mounted) setState(() => _submitting = false);
     }
-    if (!mounted) return;
-
-    _resetForm();
-
-    // ২. আগে auth state বদলান, তারপর navigate
-    ref.read(authStateProvider).setLoggedIn(true);
-    context.replace(AppRoutes.home);
   }
 
   void _resetForm() {
@@ -68,26 +98,14 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     widget.passwordController.clear();
   }
 
-  void _isRemember() async {
-    String? data = await LocalStorage().readData(key: "remember_email");
-    if (data != null) {
-      widget.emailController.text = data;
-    }
-  }
-
-  @override
-  void initState() {
-    _isRemember();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final validators = AuthValidators(l10n);
-    final isLoading = ref.watch(
+    final loginLoading = ref.watch(
       loginNotifierProvider.select((s) => s.isLoading),
     );
+    final busy = _submitting || loginLoading;
 
     return Form(
       key: _formKey,
@@ -124,8 +142,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                       child: Checkbox(
                         value: _remember,
                         activeColor: AppColors.primary,
-                        onChanged: (v) =>
-                            setState(() => _remember = v ?? false),
+                        onChanged: busy
+                            ? null
+                            : (v) => setState(() => _remember = v ?? false),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -155,14 +174,14 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           ),
           const SizedBox(height: 20),
           Opacity(
-            opacity: isLoading ? 0.6 : 1,
+            opacity: busy ? 0.6 : 1,
             child: CustomButton(
-              isLoading: isLoading,
+              isLoading: busy,
               label: l10n.loginAction,
               icon: Icons.arrow_forward_rounded,
               fullWidth: true,
               buttonHeight: 48,
-              onPressed: isLoading ? null : _submit,
+              onPressed: busy ? null : _submit,
             ),
           ),
         ],

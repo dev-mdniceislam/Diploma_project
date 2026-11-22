@@ -2,7 +2,7 @@
   "@@locale": "en",
   "appName": "Career Orbit",
   "appTagline": "Diploma Engineer Career Portal",
-  "navHome": "Home / Circulars",
+  "navHome": "Home",
   "navAttachment": "Industrial Attachment",
   "navGuide": "Guideline & NOC",
   "personaStudent": "Student",
@@ -341,7 +341,7 @@
 
 
 
-     "stepCompanyProfile":"================================== Home Screen ( Hero Banner ) ========================",
+  "stepCompanyProfile":"================================== Home Screen ( Hero Banner ) ========================",
   "heroBadge": "The top career hub for Diploma & Polytechnic students in Bangladesh",
   "heroTitleLine": "Find the right opportunity",
   "heroTitleHighlight": "for your diploma",
@@ -371,6 +371,17 @@
     }
   },
 
+
+  "stepCompanyProfile":"================================== Home Screen ( Navbar ) ========================",
+  "navJobs": "Jobs",
+  "navAllJobs": "All jobs",
+  "navNotice": "Notice",
+  "navCompanies": "Companies",
+  "navAbout": "About us",
+  "navMyProfile": "My profile",
+  "navPostAJob": "Post a job",
+  "navBrandTitle": "Diploma Job Hub",
+  "navBrandSubtitle": "Diploma Career Hub",
 
 
        "stepCompanyProfile":"================================== Profile ========================",

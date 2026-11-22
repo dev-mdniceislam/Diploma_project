@@ -16,7 +16,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get appTagline => 'ডিপ্লোমা ইঞ্জিনিয়ারদের ক্যারিয়ার পোর্টাল';
 
   @override
-  String get navHome => 'হোম / সার্কুলার';
+  String get navHome => 'হোম';
 
   @override
   String get navAttachment => 'ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
@@ -805,6 +805,33 @@ class AppLocalizationsBn extends AppLocalizations {
   String heroBtebDiploma(String percent) {
     return '$percent বিটিইবি ডিপ্লোমা';
   }
+
+  @override
+  String get navJobs => 'চাকরি';
+
+  @override
+  String get navAllJobs => 'সব চাকরি';
+
+  @override
+  String get navNotice => 'নোটিশ';
+
+  @override
+  String get navCompanies => 'কোম্পানি';
+
+  @override
+  String get navAbout => 'আমাদের সম্পর্কে';
+
+  @override
+  String get navMyProfile => 'আমার প্রোফাইল';
+
+  @override
+  String get navPostAJob => 'চাকরি পোস্ট করুন';
+
+  @override
+  String get navBrandTitle => 'ডিপ্লোমা জব হাব';
+
+  @override
+  String get navBrandSubtitle => 'Diploma Career Hub';
 
   @override
   String get pfNoLink => 'লিংকটি পাওয়া যায়নি';

@@ -16,7 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTagline => 'Diploma Engineer Career Portal';
 
   @override
-  String get navHome => 'Home / Circulars';
+  String get navHome => 'Home';
 
   @override
   String get navAttachment => 'Industrial Attachment';
@@ -798,6 +798,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String heroBtebDiploma(String percent) {
     return '$percent BTEB diploma';
   }
+
+  @override
+  String get navJobs => 'Jobs';
+
+  @override
+  String get navAllJobs => 'All jobs';
+
+  @override
+  String get navNotice => 'Notice';
+
+  @override
+  String get navCompanies => 'Companies';
+
+  @override
+  String get navAbout => 'About us';
+
+  @override
+  String get navMyProfile => 'My profile';
+
+  @override
+  String get navPostAJob => 'Post a job';
+
+  @override
+  String get navBrandTitle => 'Diploma Job Hub';
+
+  @override
+  String get navBrandSubtitle => 'Diploma Career Hub';
 
   @override
   String get pfNoLink => 'Link not available';

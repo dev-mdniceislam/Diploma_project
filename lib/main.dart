@@ -1,9 +1,6 @@
 import 'dart:developer';
 
-import 'package:diploma_job/core/database/local_storage.dart';
 import 'package:diploma_job/core/gen/network_caller_gen.dart';
-import 'package:diploma_job/features/profile/providers/profile_infra_provider.dart'
-    hide networkCallerProvider;
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

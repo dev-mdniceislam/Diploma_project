@@ -97,6 +97,13 @@ abstract class AppColors {
     Color(0xCC0F172A),
     Colors.transparent,
   ];
+  // ── Login gradient (image: purple → magenta) ─────────────────────────────
+  static const Color accentPink = Color(0xFFD946EF); // fuchsia-500
+  static const LinearGradient loginGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [featured, accentPink],
+  );
 
   // ── Deprecated aliases (old names → new web-matched values) ──────────────
   static const Color primaryNavy = primary600;

@@ -2,7 +2,7 @@
   "@@locale": "bn",
   "appName": "ক্যারিয়ার অরবিট",
   "appTagline": "ডিপ্লোমা ইঞ্জিনিয়ারদের ক্যারিয়ার পোর্টাল",
-  "navHome": "হোম / সার্কুলার",
+  "navHome": "হোম",
   "navAttachment": "ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট",
   "navGuide": "গাইডলাইন ও NOC",
   "personaStudent": "শিক্ষার্থী",
@@ -252,6 +252,21 @@
       "heroTagCivil": "#সিভিল",
       "heroVerifiedJobs": "{count}+ ভেরিফাইড চাকরি",
       "heroBtebDiploma": "{percent} বিটিইবি ডিপ্লোমা",
+
+
+
+
+      "stepCompanyProfile":"================================== Home Screen ( Navbar ) ========================",
+        "navJobs": "চাকরি",
+        "navAllJobs": "সব চাকরি",
+        "navNotice": "নোটিশ",
+        "navCompanies": "কোম্পানি",
+        "navAbout": "আমাদের সম্পর্কে",
+        "navMyProfile": "আমার প্রোফাইল",
+        "navPostAJob": "চাকরি পোস্ট করুন",
+        "navBrandTitle": "ডিপ্লোমা জব হাব",
+        "navBrandSubtitle": "Diploma Career Hub",
+
 
 
   "stepJobDetails":"================================== Job details ========================",

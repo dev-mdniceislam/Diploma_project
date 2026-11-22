@@ -23,8 +23,9 @@ class WebShellNotifier extends Notifier<WebShellState> {
   }
 }
 
-final webShellProvider =
-    NotifierProvider<WebShellNotifier, WebShellState>(WebShellNotifier.new);
+final webShellProvider = NotifierProvider<WebShellNotifier, WebShellState>(
+  WebShellNotifier.new,
+);
 
 /// Single scroll controller for the whole shell body.
 final scrollControllerProvider = Provider<ScrollController>((ref) {

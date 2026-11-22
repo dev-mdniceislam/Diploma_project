@@ -34,6 +34,8 @@ class _AuthPageState extends ConsumerState<AuthPage> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final isDesktop = Responsive.isDesktop(context);
+
     final form = AuthFormCard(
       emailController: _email,
       passwordController: _password,
@@ -43,22 +45,25 @@ class _AuthPageState extends ConsumerState<AuthPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: ResponsiveContainer(
-          padding: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+          padding: EdgeInsets.symmetric(
+            vertical: isDesktop ? 40 : 16,
+            horizontal: isDesktop ? 40 : 12,
+          ),
           child: Container(
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               color: scheme.surface,
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(isDesktop ? 24 : 16),
               border: Border.all(color: scheme.outline),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
+                  color: Colors.black.withValues(alpha: 0.08),
                   blurRadius: 40,
                   offset: const Offset(0, 16),
                 ),
               ],
             ),
-            child: Responsive.isDesktop(context)
+            child: isDesktop
                 ? IntrinsicHeight(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,

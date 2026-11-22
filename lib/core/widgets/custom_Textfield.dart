@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import '../../../../core/constants/app_dimens.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../theme/app_text_style.dart';
@@ -102,9 +103,10 @@ class CustomTextField extends StatelessWidget {
       inputFormatters: inputFormatter,
       obscureText: obsecureText ?? false,
       controller: controller,
-      style: AppTextStyles.bodyMedium.responsive(context).copyWith(
-            color: textColor ?? AppColors.textPrimary,
-          ),
+      style: AppTextStyles.bodyMedium.copyWith(
+        color: textColor ?? AppColors.textPrimary,
+        fontSize: 16,
+      ),
       cursorColor: AppColors.primaryNavy,
       errorBuilder: errorBuilder,
       decoration: InputDecoration(
@@ -113,22 +115,23 @@ class CustomTextField extends StatelessWidget {
         filled: filled ?? true,
         fillColor: fillColor ?? AppColors.surface,
         hintText: hintText ?? "",
-        hintStyle: AppTextStyles.bodyMedium.responsive(context).copyWith(
-              color: AppColors.textSecondary.withOpacity(0.5),
-            ),
-        contentPadding: contentPadding ??
+        hintStyle: AppTextStyles.bodyMedium
+            .responsive(context)
+            .copyWith(color: AppColors.textSecondary.withOpacity(0.5)),
+        contentPadding:
+            contentPadding ??
             const EdgeInsets.symmetric(
               horizontal: AppDimens.md,
-              vertical: AppDimens.sm + 2,
+              vertical: AppDimens.sm +1,
             ),
         border: border ?? defaultBorder,
         enabledBorder: border ?? defaultBorder,
         focusedBorder: focusBorder ?? defaultFocusBorder,
         errorBorder: errorBorderSide,
         focusedErrorBorder: errorBorderSide,
-        errorStyle: AppTextStyles.bodySmall.responsive(context).copyWith(
-              color: Colors.redAccent,
-            ),
+        errorStyle: AppTextStyles.bodySmall
+            .responsive(context)
+            .copyWith(color: Colors.redAccent),
       ),
       validator: validator,
     );

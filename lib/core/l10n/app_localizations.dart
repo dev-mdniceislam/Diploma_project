@@ -113,7 +113,7 @@ abstract class AppLocalizations {
   /// No description provided for @navHome.
   ///
   /// In en, this message translates to:
-  /// **'Home / Circulars'**
+  /// **'Home'**
   String get navHome;
 
   /// No description provided for @navAttachment.
@@ -1495,6 +1495,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{percent} BTEB diploma'**
   String heroBtebDiploma(String percent);
+
+  /// No description provided for @navJobs.
+  ///
+  /// In en, this message translates to:
+  /// **'Jobs'**
+  String get navJobs;
+
+  /// No description provided for @navAllJobs.
+  ///
+  /// In en, this message translates to:
+  /// **'All jobs'**
+  String get navAllJobs;
+
+  /// No description provided for @navNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Notice'**
+  String get navNotice;
+
+  /// No description provided for @navCompanies.
+  ///
+  /// In en, this message translates to:
+  /// **'Companies'**
+  String get navCompanies;
+
+  /// No description provided for @navAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About us'**
+  String get navAbout;
+
+  /// No description provided for @navMyProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'My profile'**
+  String get navMyProfile;
+
+  /// No description provided for @navPostAJob.
+  ///
+  /// In en, this message translates to:
+  /// **'Post a job'**
+  String get navPostAJob;
+
+  /// No description provided for @navBrandTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Diploma Job Hub'**
+  String get navBrandTitle;
+
+  /// No description provided for @navBrandSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Diploma Career Hub'**
+  String get navBrandSubtitle;
 
   /// No description provided for @pfNoLink.
   ///

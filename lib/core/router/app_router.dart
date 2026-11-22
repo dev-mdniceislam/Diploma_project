@@ -2,6 +2,7 @@ import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/features/auth/login/presentation/providers/auth_state.dart';
 import 'package:diploma_job/features/splash/presentation/page/splash_screen.dart';
+import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -33,22 +34,29 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final routerProvider = Provider<GoRouter>((ref) {
   final auth = ref.read(authStateProvider);
+  final refresh = ValueNotifier<int>(0);
+  ref.listen(userProfileProvider, (_, __) => refresh.value++);
+  ref.onDispose(refresh.dispose);
   return GoRouter(
     initialLocation: AppRoutes.splash,
     debugLogDiagnostics: true,
+    refreshListenable: refresh,
     redirect: (context, state) {
       final loc = state.matchedLocation;
 
-      // Splash নিজের কাজ করবে, সেখানে হস্তক্ষেপ নয়
+      // Splash নিজের কাজ করবে
       if (loc == AppRoutes.splash) return null;
 
+      final profileState = ref.read(userProfileProvider);
+
+      // Fetch চলছে: এখনই কোনো সিদ্ধান্ত নয়
+      if (profileState.isLoading) return null;
+
+      final loggedIn = profileState.value != null;
       final onAuth = loc == AppRoutes.auth;
 
-      // Login আছে কিন্তু login page এ এসেছে: home এ পাঠান
-      if (auth.isLoggedIn && onAuth) return AppRoutes.home;
-
-      // Login নেই কিন্তু অন্য page এ: login page এ পাঠান
-      if (!auth.isLoggedIn && !onAuth) return AppRoutes.auth;
+      if (loggedIn && onAuth) return AppRoutes.home;
+      if (!loggedIn && !onAuth) return AppRoutes.auth;
 
       return null;
     },

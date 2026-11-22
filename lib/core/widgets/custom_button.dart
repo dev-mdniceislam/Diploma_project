@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../theme/app_colors.dart';
 import '../theme/app_text_style.dart';
 
@@ -14,6 +15,9 @@ class CustomButton extends StatefulWidget {
     this.fullWidth = false,
     this.buttonHeight,
     this.isLoading = false,
+    this.borderRadius,
+    this.gradient,
+    this.boxShadow,
   });
 
   final String label;
@@ -23,6 +27,9 @@ class CustomButton extends StatefulWidget {
   final bool fullWidth;
   final double? buttonHeight;
   final bool isLoading;
+  final double? borderRadius;
+  final Gradient? gradient;
+  final List<BoxShadow>? boxShadow;
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -48,10 +55,14 @@ class _CustomButtonState extends State<CustomButton> {
   };
 
   Border? get _border => switch (widget.variant) {
-    CustomButtonVariant.outline =>
-        Border.all(color: AppColors.border, width: 1.4),
-    CustomButtonVariant.outlineOnDark =>
-        Border.all(color: AppColors.textOnDarkMuted, width: 1.2),
+    CustomButtonVariant.outline => Border.all(
+      color: AppColors.border,
+      width: 1.4,
+    ),
+    CustomButtonVariant.outlineOnDark => Border.all(
+      color: AppColors.textOnDarkMuted,
+      width: 1.2,
+    ),
     _ => null,
   };
 
@@ -101,9 +112,13 @@ class _CustomButtonState extends State<CustomButton> {
             duration: const Duration(milliseconds: 150),
             padding: const EdgeInsets.symmetric(horizontal: 15),
             decoration: BoxDecoration(
-              color: hovering ? _bg.withOpacity(0.9) : _bg,
+              color: widget.gradient == null
+                  ? (hovering ? _bg.withValues(alpha: 0.9) : _bg)
+                  : null,
               border: _border,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(widget.borderRadius ?? 5),
+              gradient: widget.gradient,
+              boxShadow: widget.boxShadow ?? [],
             ),
             child: content,
           ),

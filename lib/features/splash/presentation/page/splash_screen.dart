@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:diploma_job/core/constants/app_constants.dart';
 import 'package:diploma_job/core/gen/assets_gen.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/features/auth/login/presentation/providers/auth_state.dart';
+import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -81,16 +84,18 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   }
 
   Future<void> _start() async {
-    final results = await Future.wait([
-      AuthMiddleware().middleWare(),
-      Future.delayed(const Duration(milliseconds: 2800)),
-    ]);
+    final minDelay = Future.delayed(const Duration(milliseconds: 2800));
 
-    final isLoggedIn = results.first as bool;
-
-    if (!mounted) return;
-    ref.read(authStateProvider).setLoggedIn(isLoggedIn);
-    context.replace(isLoggedIn ? AppRoutes.home : AppRoutes.auth);
+    try {
+      final profile = await ref.read(userProfileProvider.future);
+      await minDelay;
+      if (!mounted) return;
+      context.replace(profile == null ? AppRoutes.auth : AppRoutes.home);
+    } catch (e) {
+      await minDelay;
+      if (!mounted) return;
+      context.replace(AppRoutes.home);
+    }
   }
 
   @override
