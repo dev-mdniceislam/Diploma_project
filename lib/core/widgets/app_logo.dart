@@ -41,7 +41,7 @@ class AppLogo extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         mark,
-        const SizedBox(width: 12),
+        const SizedBox(width: 5),
         Flexible(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,11 +55,13 @@ class AppLogo extends StatelessWidget {
                       'Career',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.headlineMedium.copyWith(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w800,
-                      ),
+                      style: AppTextStyles.headlineMedium
+                          .responsive(context)
+                          .copyWith(
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w800,
+                          ),
                     ),
                   ),
                   Flexible(
@@ -67,11 +69,13 @@ class AppLogo extends StatelessWidget {
                       'Orbit',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.headlineMedium.copyWith(
-                        color: AppColors.primary,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w800,
-                      ),
+                      style: AppTextStyles.headlineMedium
+                          .responsive(context)
+                          .copyWith(
+                            color: AppColors.primary,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w800,
+                          ),
                     ),
                   ),
                   const SizedBox(width: 5),

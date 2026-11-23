@@ -1550,6 +1550,36 @@ abstract class AppLocalizations {
   /// **'Diploma Career Hub'**
   String get navBrandSubtitle;
 
+  /// No description provided for @bookmarkButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmarks'**
+  String get bookmarkButton;
+
+  /// No description provided for @logoutConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out?'**
+  String get logoutConfirmTitle;
+
+  /// No description provided for @logoutConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session will end. You\'ll need to log in again to use the app.'**
+  String get logoutConfirmMessage;
+
+  /// No description provided for @logoutConfirmMessageNamed.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}, are you sure you want to log out? You\'ll need to log in again to use the app.'**
+  String logoutConfirmMessageNamed(String name);
+
+  /// No description provided for @stayLoggedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay'**
+  String get stayLoggedIn;
+
   /// No description provided for @pfNoLink.
   ///
   /// In en, this message translates to:

@@ -266,6 +266,16 @@
         "navPostAJob": "চাকরি পোস্ট করুন",
         "navBrandTitle": "ডিপ্লোমা জব হাব",
         "navBrandSubtitle": "Diploma Career Hub",
+        "bookmarkButton": "বুকমার্ক",
+        "logoutConfirmTitle": "Logout করবেন?",
+        "logoutConfirmMessage": "আপনার session শেষ হয়ে যাবে। আবার ব্যবহার করতে login করতে হবে।",
+        "logoutConfirmMessageNamed": "{name}, আপনি কি সত্যিই logout করতে চান? আবার ব্যবহার করতে login করতে হবে।",
+        "@logoutConfirmMessageNamed": {
+          "placeholders": {
+            "name": { "type": "String" }
+          }
+        },
+        "stayLoggedIn": "থাকুন",
 
 
 

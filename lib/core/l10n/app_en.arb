@@ -382,6 +382,16 @@
   "navPostAJob": "Post a job",
   "navBrandTitle": "Diploma Job Hub",
   "navBrandSubtitle": "Diploma Career Hub",
+  "bookmarkButton":"Bookmarks",
+  "logoutConfirmTitle": "Log out?",
+  "logoutConfirmMessage": "Your session will end. You'll need to log in again to use the app.",
+  "logoutConfirmMessageNamed": "{name}, are you sure you want to log out? You'll need to log in again to use the app.",
+  "@logoutConfirmMessageNamed": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "stayLoggedIn": "Stay",
 
 
        "stepCompanyProfile":"================================== Profile ========================",

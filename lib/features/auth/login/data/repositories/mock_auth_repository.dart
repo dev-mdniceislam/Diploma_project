@@ -20,8 +20,6 @@ class LoginRepositoryImpl implements LoginRepository {
 
     await Future.wait([
       LocalStorage().writeData(key: "token", value: data.token),
-      LocalStorage().writeData(key: "role", value: data.role),
-      LocalStorage().writeData(key: "userId", value: data.id),
     ]);
     return data;
   }

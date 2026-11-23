@@ -1,15 +1,17 @@
+import 'package:diploma_job/core/database/local_storage.dart';
 import 'package:diploma_job/core/extension/l10n_extension.dart';
-import 'package:diploma_job/core/gen/assets_gen.dart';
 import 'package:diploma_job/core/responsive/responsive.dart';
 import 'package:diploma_job/core/theme/app_colors.dart';
 import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/theme/theme_pellete.dart';
 import 'package:diploma_job/core/widgets/app_logo.dart';
 import 'package:diploma_job/core/widgets/custom_hover.dart';
-import 'package:diploma_job/core/widgets/custom_image.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/features/splash/data/model/profile_get_me_model.dart';
 import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
+import 'package:diploma_job/features/web_shell/presentation/widget/cta_button.dart';
+import 'package:diploma_job/features/web_shell/presentation/widget/logout_dialogue.dart';
+import 'package:diploma_job/features/web_shell/presentation/widget/profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -44,38 +46,115 @@ class MainNavbar extends ConsumerWidget {
 ///  - logged out: Login button
 ///  - student / unverified company: শুধু avatar
 ///  - verified company: Post circular button + avatar
+
+Future<void> _performLogout(BuildContext context, WidgetRef ref) async {
+  final router = GoRouter.of(context);
+
+  await LocalStorage().deleteAllData();
+  ref.invalidate(userProfileProvider);
+
+  // Navigator.pop() এখানে দেবেন না। Desktop-এ drawer থাকে না,
+  // আর শেষ page pop হলে GoRouter crash করে।
+  router.go(AppRoutes.auth);
+}
+
+Future<void> _handleLogout(
+  BuildContext context,
+  WidgetRef ref,
+  AuthMiddlewareModel profile,
+) async {
+  final confirmed = await showLogoutDialog(context, name: profile.name);
+  if (!confirmed || !context.mounted) return;
+  await _performLogout(context, ref);
+}
+
 List<Widget> _authActions(
   BuildContext context,
+  WidgetRef ref,
   AuthMiddlewareModel? profile, {
   required bool compact,
+  required bool isMobile,
 }) {
   final l10n = context.l10n;
+  final buttonHeight = compact ? 36.0 : 45.0;
+  final gap = SizedBox(width: compact ? 8 : 12);
 
+  // Logged out: Login বাটন
   if (profile == null) {
     return [
-      _GradientButton(
+      CtaButton(
         label: l10n.loginAction,
         icon: Icons.login_rounded,
-        compact: compact,
-        onTap: () => context.go(NavPaths.login),
+        height: buttonHeight,
+        onPressed: () => context.go(NavPaths.login),
       ),
     ];
   }
 
+  // Logged in: desktop-এ verified company → Post, student → Bookmark
+  // mobile-এ এই বাটনগুলো drawer-এ থাকে, তাই navbar-এ দেখায় না
   final canPost = profile.isCompany && profile.isVerified;
+  final showBookmark = profile.isStudent;
+  final showCta = !isMobile && (canPost || showBookmark);
 
   return [
-    if (canPost) ...[
-      _GradientButton(
-        label: l10n.postCircular,
-        icon: Icons.add_circle_outline_rounded,
-        compact: compact,
-        onTap: () => context.go(AppRoutes.postCircular),
-      ),
-      SizedBox(width: compact ? 8 : 12),
+    if (showCta) ...[
+      canPost
+          ? CtaButton(
+              label: l10n.postCircular,
+              icon: Icons.add_circle_outline_rounded,
+              height: buttonHeight,
+              onPressed: () => context.go(AppRoutes.postCircular),
+            )
+          : CtaButton(
+              label: l10n.bookmarkButton,
+              icon: Icons.bookmark_outline_rounded,
+              height: buttonHeight,
+              onPressed: () => context.go(AppRoutes.saved),
+            ),
+      gap,
     ],
-    _ProfileAvatar(imagePath: profile.profile),
+    if (!isMobile) ...[
+      ProfileAvatar(imagePath: profile.profile),
+      gap,
+      _LogoutButton(
+        compact: compact,
+        onTap: () => _handleLogout(context, ref, profile),
+      ),
+    ],
   ];
+}
+
+class _LogoutButton extends StatelessWidget {
+  const _LogoutButton({required this.onTap, this.compact = false});
+
+  final VoidCallback onTap;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    return Tooltip(
+      message: context.l10n.logout,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onTap,
+        child: Container(
+          padding: EdgeInsets.all(compact ? 8 : 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: scheme.outline),
+          ),
+          child: Icon(
+            Icons.logout_rounded,
+            size: 20,
+            color: scheme.onSurface.withValues(alpha: 0.8),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 // ── Desktop ──────────────────────────────────────────────────────────────
@@ -91,18 +170,17 @@ class _DesktopBar extends ConsumerWidget {
       children: [
         const AppLogo(),
         const SizedBox(width: 14),
-        const _VDivider(),
         const SizedBox(width: 10),
         const Expanded(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.centerRight,
             child: _DesktopNav(),
           ),
         ),
         const _VDivider(),
         const SizedBox(width: 12),
-        ..._authActions(context, profile, compact: false),
+        ..._authActions(context, ref, profile, compact: false, isMobile: false),
       ],
     );
   }
@@ -255,9 +333,9 @@ class _MobileBar extends ConsumerWidget {
 
     return Row(
       children: [
-        const Flexible(child: _Brand()),
+        AppLogo(),
         const Spacer(),
-        ..._authActions(context, profile, compact: true),
+        ..._authActions(context, ref, profile, compact: true, isMobile: true),
         const SizedBox(width: 8),
         const _MenuButton(),
       ],
@@ -300,75 +378,6 @@ class _MenuButton extends StatelessWidget {
 }
 
 // ── Shared pieces ────────────────────────────────────────────────────────
-
-class _Brand extends StatelessWidget {
-  const _Brand();
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    final scheme = Theme.of(context).colorScheme;
-
-    return GestureDetector(
-      onTap: () => context.go(AppRoutes.home),
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 46,
-              height: 46,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [AppColors.primary700, AppColors.primary900],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: const Icon(
-                Icons.school_rounded,
-                color: AppColors.white,
-                size: 24,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Flexible(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomText(
-                    l10n.navBrandTitle,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppTextStyles.titleLarge.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                      height: 1.1,
-                      color: scheme.onSurface,
-                    ),
-                  ),
-                  CustomText(
-                    l10n.navBrandSubtitle,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppTextStyles.bodySmall.copyWith(
-                      fontSize: 12,
-                      color: AppColors.textMuted,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class _VDivider extends StatelessWidget {
   const _VDivider();
 
@@ -380,108 +389,6 @@ class _VDivider extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primary600.withValues(alpha: 0.35),
         borderRadius: BorderRadius.circular(2),
-      ),
-    );
-  }
-}
-
-class _GradientButton extends StatelessWidget {
-  const _GradientButton({
-    required this.label,
-    required this.icon,
-    required this.onTap,
-    this.compact = false,
-  });
-
-  final String label;
-  final IconData icon;
-  final VoidCallback onTap;
-  final bool compact;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(16),
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: compact ? 14 : 20,
-          vertical: compact ? 8 : 11,
-        ),
-        decoration: BoxDecoration(
-          gradient: AppColors.loginGradient,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.featured.withValues(alpha: 0.35),
-              blurRadius: 14,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 18, color: AppColors.white),
-            const SizedBox(width: 6),
-            CustomText(
-              label,
-              style: AppTextStyles.labelLarge.copyWith(fontSize: 14),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ProfileAvatar extends StatelessWidget {
-  const _ProfileAvatar({this.imagePath});
-
-  /// Cloudinary/network URL। না থাকলে default avatar।
-  final String? imagePath;
-
-  @override
-  Widget build(BuildContext context) {
-    final hasImage = imagePath != null && imagePath!.isNotEmpty;
-
-    return Tooltip(
-      message: context.l10n.navMyProfile,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(100),
-        onTap: () => context.go(AppRoutes.profile),
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(2),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: AppColors.primary600, width: 2),
-              ),
-              child: CustomImage(
-                imagePath: hasImage ? imagePath! : Assets.icons.maleAvatar,
-                width: 38,
-                height: 38,
-                borderRadius: BorderRadius.circular(100),
-                fit: BoxFit.cover,
-              ),
-            ),
-            Positioned(
-              right: -2,
-              bottom: -2,
-              child: Container(
-                width: 15,
-                height: 15,
-                decoration: BoxDecoration(
-                  color: AppColors.accentGreen,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.white, width: 2),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

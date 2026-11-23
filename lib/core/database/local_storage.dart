@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorage {
   static const _secure = FlutterSecureStorage();
-  static const _webKeys = ['token', 'role', 'userId', 'remember_email'];
+  static const _webKeys = ['token'];
 
   Future<String?> readData({required String key}) async {
     try {

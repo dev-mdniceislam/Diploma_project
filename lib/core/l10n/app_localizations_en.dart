@@ -827,6 +827,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navBrandSubtitle => 'Diploma Career Hub';
 
   @override
+  String get bookmarkButton => 'Bookmarks';
+
+  @override
+  String get logoutConfirmTitle => 'Log out?';
+
+  @override
+  String get logoutConfirmMessage =>
+      'Your session will end. You\'ll need to log in again to use the app.';
+
+  @override
+  String logoutConfirmMessageNamed(String name) {
+    return '$name, are you sure you want to log out? You\'ll need to log in again to use the app.';
+  }
+
+  @override
+  String get stayLoggedIn => 'Stay';
+
+  @override
   String get pfNoLink => 'Link not available';
 
   @override

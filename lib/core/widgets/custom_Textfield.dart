@@ -115,14 +115,15 @@ class CustomTextField extends StatelessWidget {
         filled: filled ?? true,
         fillColor: fillColor ?? AppColors.surface,
         hintText: hintText ?? "",
-        hintStyle: AppTextStyles.bodyMedium
-            .responsive(context)
-            .copyWith(color: AppColors.textSecondary.withOpacity(0.5)),
+        hintStyle: AppTextStyles.bodyMedium.copyWith(
+          color: AppColors.textSecondary.withOpacity(0.5),
+          fontSize: 15,
+        ),
         contentPadding:
             contentPadding ??
             const EdgeInsets.symmetric(
               horizontal: AppDimens.md,
-              vertical: AppDimens.sm +1,
+              vertical: AppDimens.sm + 1,
             ),
         border: border ?? defaultBorder,
         enabledBorder: border ?? defaultBorder,

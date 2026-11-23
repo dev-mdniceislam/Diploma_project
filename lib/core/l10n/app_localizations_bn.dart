@@ -834,6 +834,24 @@ class AppLocalizationsBn extends AppLocalizations {
   String get navBrandSubtitle => 'Diploma Career Hub';
 
   @override
+  String get bookmarkButton => 'বুকমার্ক';
+
+  @override
+  String get logoutConfirmTitle => 'Logout করবেন?';
+
+  @override
+  String get logoutConfirmMessage =>
+      'আপনার session শেষ হয়ে যাবে। আবার ব্যবহার করতে login করতে হবে।';
+
+  @override
+  String logoutConfirmMessageNamed(String name) {
+    return '$name, আপনি কি সত্যিই logout করতে চান? আবার ব্যবহার করতে login করতে হবে।';
+  }
+
+  @override
+  String get stayLoggedIn => 'থাকুন';
+
+  @override
   String get pfNoLink => 'লিংকটি পাওয়া যায়নি';
 
   @override
