@@ -19,6 +19,7 @@ class CompanyProfileModel {
   final String profileUrl;
   final String website;
   final String id;
+  final CompanyStats stats;
 
   CompanyProfileModel({
     required this.user,
@@ -41,6 +42,7 @@ class CompanyProfileModel {
     required this.profileUrl,
     required this.website,
     required this.id,
+    this.stats = const CompanyStats(),
   });
 
   factory CompanyProfileModel.fromJson(Map<String, dynamic> json) {
@@ -69,6 +71,36 @@ class CompanyProfileModel {
       profileUrl: json['profileUrl'] ?? '',
       website: json['website'] ?? '',
       id: json['id'] ?? '',
+      stats: CompanyStats.fromJson(
+        json['stats'] is Map<String, dynamic> ? json['stats'] : null,
+      ),
+    );
+  }
+}
+
+class CompanyStats {
+  final int totalCirculars;
+  final int jobCirculars;
+  final int industrialAttachments;
+  final int applicationsReceived;
+
+  const CompanyStats({
+    this.totalCirculars = 0,
+    this.jobCirculars = 0,
+    this.industrialAttachments = 0,
+    this.applicationsReceived = 0,
+  });
+
+  factory CompanyStats.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return const CompanyStats();
+
+    return CompanyStats(
+      totalCirculars: (json['totalCirculars'] as num?)?.toInt() ?? 0,
+      jobCirculars: (json['jobCirculars'] as num?)?.toInt() ?? 0,
+      industrialAttachments:
+          (json['industrialAttachments'] as num?)?.toInt() ?? 0,
+      applicationsReceived:
+          (json['applicationsReceived'] as num?)?.toInt() ?? 0,
     );
   }
 }

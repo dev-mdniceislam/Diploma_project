@@ -1,6 +1,7 @@
 import 'package:diploma_job/core/responsive/responsive_container.dart';
 import 'package:diploma_job/core/utils/shell_page.dart';
 import 'package:diploma_job/features/profile/data/model/student_profile_model.dart';
+import 'package:diploma_job/shared/shimmer/profile/profile_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -23,6 +24,7 @@ class StudentProfileScreen extends ConsumerWidget {
         const <StudentApplicationModel>[];
 
     return AsyncValueView<StudentFullProfileModel>(
+      loadingBuilder: (_)=> ProfileShimmerPage(),
       value: ref.watch(studentProfileProvider),
       onRetry: () => ref.invalidate(studentProfileProvider),
       data: (p) => ShellPage(

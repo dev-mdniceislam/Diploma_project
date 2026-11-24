@@ -70,14 +70,6 @@ class ProfileRepository {
   }
 
   /// Local storage থেকে role পড়ে। "student" -> student, "company" -> company, অন্যথায় null
-  Future<UserRole?> fetchUserRole() async {
-    final raw = await LocalStorage().readData(key: 'role');
-    if (raw == null || raw.trim().isEmpty) return null;
-    log("===========Raw======$raw");
-
-    final role = UserRole.parse(raw.trim());
-    return role == UserRole.unknown ? null : role;
-  }
 
   /// Company profile raw JSON (notifier-এর জন্য)
   Future<Json> fetchCompanyJson() async {

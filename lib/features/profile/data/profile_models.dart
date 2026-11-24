@@ -1,5 +1,3 @@
-/// "a, b ,c" -> ['a', 'b', 'c']
-
 
 typedef Json = Map<String, dynamic>;
 List<String> splitTags(String s) => [
@@ -19,7 +17,6 @@ enum UserRole {
   };
 }
 
-
 enum ApplyStatus {
   pending,
   shortlisted,
@@ -28,29 +25,3 @@ enum ApplyStatus {
   static ApplyStatus parse(Object? v) =>
       values.firstWhere((e) => e.name == '$v', orElse: () => pending);
 }
-
-/// GET profile -> { success, message, data: { id, role, name, email } }
-class ProfileUser {
-  final String id;
-  final String role;
-  final String name;
-  final String email;
-
-  ProfileUser({
-    required this.id,
-    required this.role,
-    required this.name,
-    required this.email,
-  });
-
-  factory ProfileUser.fromJson(Map<String, dynamic> json) {
-    return ProfileUser(
-      id: json['id'] ?? '',
-      role: json['role'] ?? '',
-      name: json['name'] ?? '',
-      email: json['email'] ?? '',
-    );
-  }
-}
-
-// ───────────────────────────── Company ─────────────────────────────

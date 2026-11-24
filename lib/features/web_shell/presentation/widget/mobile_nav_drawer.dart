@@ -30,8 +30,7 @@ class MobileNavDrawer extends ConsumerWidget {
     final navigator = Navigator.of(context);
 
     final isCompany = profile?.isCompany ?? false;
-    debugPrint('=================================profile=${profile?.role} isCompany=$isCompany');
-
+    debugPrint('profile=${profile?.role} isCompany=$isCompany');
     // drawer বন্ধ করে action চালায়। context ব্যবহার না করে আগে ধরা router/navigator ব্যবহার হয়।
     void run(VoidCallback action) {
       navigator.pop();
@@ -58,7 +57,7 @@ class MobileNavDrawer extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // ── User info (student) ───────────────────────────────────
-                if (profile != null && !isCompany) ...[
+                if (profile != null) ...[
                   _SectionHeader(label: profile.role),
                   InkWell(
                     borderRadius: BorderRadius.circular(5),

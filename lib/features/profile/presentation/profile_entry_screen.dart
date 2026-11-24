@@ -1,63 +1,36 @@
+import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
+import 'package:diploma_job/shared/shimmer/profile/profile_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/extension/l10n_extension.dart';
-import '../data/profile_models.dart';
 import '../profile_core.dart';
-import '../providers/profile_user_provider.dart';
 import 'company/company_profile_screen.dart';
 import 'student/student_profile_screen.dart';
 import 'widgets/profile_widgets.dart';
 
-class ProfileEntryScreen extends ConsumerStatefulWidget {
+class ProfileEntryScreen extends ConsumerWidget {
   const ProfileEntryScreen({super.key});
 
   @override
-  ConsumerState<ProfileEntryScreen> createState() => _ProfileEntryScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final asyncUser = ref.watch(userProfileProvider);
+    final user = asyncUser.value; // loading বা error হলে null
 
-class _ProfileEntryScreenState extends ConsumerState<ProfileEntryScreen> {
-  @override
-  Widget build(BuildContext context) {
-    final user = ref.watch(profileUserProvider);
-    final role = user.value;
+    // Role জানা গেলে সংশ্লিষ্ট screen
+    if (user?.isStudent == true) return const StudentProfileScreen();
+    if (user?.isCompany == true) return const CompanyProfileScreen();
 
-    if (role == UserRole.student) return const StudentProfileScreen();
-    if (role == UserRole.company) return const CompanyProfileScreen();
-
-    // loading, error, অথবা role জানা নেই
+    // Loading: skeleton | Error: retry | Role নেই: বার্তা
     return Scaffold(
       body: SafeArea(
-        child: AsyncValueView<UserRole?>(
-          value: user,
-          onRetry: () => ref.invalidate(profileUserProvider),
+        child: AsyncValueView(
+          value: asyncUser,
+          loadingBuilder: (_) => const ProfileShimmerPage(),
+          onRetry: () => ref.invalidate(userProfileProvider),
           data: (_) => Center(child: CustomText(context.l10n.pfUnknownRole)),
         ),
       ),
     );
   }
 }
-
-// class ProfileEntryScreen extends ConsumerWidget {
-//   const ProfileEntryScreen({super.key});
-//
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     final user = ref.watch(profileUserProvider);
-//     final role = user.value;
-//
-//     if (role == UserRole.student) return const StudentProfileScreen();
-//     if (role == UserRole.company) return const CompanyProfileScreen();
-//
-//     // loading, error, অথবা role জানা নেই
-//     return Scaffold(
-//       body: SafeArea(
-//         child: AsyncValueView<UserRole?>(
-//           value: user,
-//           onRetry: () => ref.invalidate(profileUserProvider),
-//           data: (_) => Center(child: CustomText(context.l10n.pfUnknownRole)),
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -14,11 +14,15 @@ class AsyncValueView<T> extends StatelessWidget {
     required this.value,
     required this.data,
     required this.onRetry,
+    this.loadingBuilder,
   });
 
   final AsyncValue<T> value;
   final Widget Function(T data) data;
   final VoidCallback onRetry;
+
+  /// Loading-এর সময় কী দেখাবে (যেমন skeleton)। না দিলে spinner।
+  final WidgetBuilder? loadingBuilder;
 
   /// Raw error (HTML, stack, long JSON) কখনও UI-তে দেখাবে না।
   String _message(Object e) {
@@ -29,10 +33,12 @@ class AsyncValueView<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return value.when(
-      loading: () => const Padding(
-        padding: EdgeInsets.all(AppDimens.md),
-        child: Center(child: CircularProgressIndicator()),
-      ),
+      loading: () =>
+      loadingBuilder?.call(context) ??
+          const Padding(
+            padding: EdgeInsets.all(AppDimens.md),
+            child: Center(child: CircularProgressIndicator()),
+          ),
       error: (e, _) {
         log("==========================================Errror $e");
         return SingleChildScrollView(
