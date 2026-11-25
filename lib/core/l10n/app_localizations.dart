@@ -542,6 +542,474 @@ abstract class AppLocalizations {
   /// **'================================== Authentication ========================'**
   String get stepAuthentication;
 
+  /// No description provided for @livePill.
+  ///
+  /// In en, this message translates to:
+  /// **'12,900+ Students & Grads Placed'**
+  String get livePill;
+
+  /// No description provided for @brandSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Jobs & Industrial Attachment'**
+  String get brandSubtitle;
+
+  /// No description provided for @daylightEdition.
+  ///
+  /// In en, this message translates to:
+  /// **'Daylight Orbit Edition'**
+  String get daylightEdition;
+
+  /// No description provided for @leftHeadlinePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate your career with'**
+  String get leftHeadlinePrefix;
+
+  /// No description provided for @leftHeadlineHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'gravitational precision.'**
+  String get leftHeadlineHighlight;
+
+  /// No description provided for @leftSubcopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Built for Polytechnic & University graduates and innovative companies—connect with verified software jobs, industrial attachments, and industry mentors.'**
+  String get leftSubcopy;
+
+  /// No description provided for @statActiveRoles.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Roles'**
+  String get statActiveRoles;
+
+  /// No description provided for @statPartnerCompanies.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner Companies'**
+  String get statPartnerCompanies;
+
+  /// No description provided for @statAttachmentTracks.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment Tracks'**
+  String get statAttachmentTracks;
+
+  /// No description provided for @orbitCoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Orbit'**
+  String get orbitCoreTitle;
+
+  /// No description provided for @orbitCoreSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Skills & Career'**
+  String get orbitCoreSubtitle;
+
+  /// No description provided for @cardAttachmentApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment Approved'**
+  String get cardAttachmentApproved;
+
+  /// No description provided for @cardFullStackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Full-Stack Web & Cloud'**
+  String get cardFullStackTitle;
+
+  /// No description provided for @cardFullStackSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Diploma CST Track • Stipend'**
+  String get cardFullStackSub;
+
+  /// No description provided for @cardRoleMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Orbit Role Match'**
+  String get cardRoleMatch;
+
+  /// No description provided for @cardRoleMatchSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter, Node.js & UI/UX verified'**
+  String get cardRoleMatchSub;
+
+  /// No description provided for @cardInterviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Direct Tech Interview'**
+  String get cardInterviewTitle;
+
+  /// No description provided for @cardInterviewSub.
+  ///
+  /// In en, this message translates to:
+  /// **'NexaSoft BD • Dhaka & Remote'**
+  String get cardInterviewSub;
+
+  /// No description provided for @tabSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get tabSignIn;
+
+  /// No description provided for @tabSignUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get tabSignUp;
+
+  /// No description provided for @loginHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back, Explorer'**
+  String get loginHeading;
+
+  /// No description provided for @loginSubheading.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to access your career roadmap, attachments, and job matches.'**
+  String get loginSubheading;
+
+  /// No description provided for @signupHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Chart your Career Orbit'**
+  String get signupHeading;
+
+  /// No description provided for @signupSubheading.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your free account to unlock industrial attachments & verified tech roles.'**
+  String get signupSubheading;
+
+  /// No description provided for @roleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'I am joining as a'**
+  String get roleLabel;
+
+  /// No description provided for @roleStudentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Student / Seeker'**
+  String get roleStudentTitle;
+
+  /// No description provided for @roleStudentSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Diploma / B.Sc / Pro'**
+  String get roleStudentSub;
+
+  /// No description provided for @roleCompanyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Company / HR'**
+  String get roleCompanyTitle;
+
+  /// No description provided for @roleCompanySub.
+  ///
+  /// In en, this message translates to:
+  /// **'Recruiter / Mentor'**
+  String get roleCompanySub;
+
+  /// No description provided for @orContinueWithEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'or continue with email'**
+  String get orContinueWithEmail;
+
+  /// No description provided for @socialComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'{provider} sign-in is coming soon'**
+  String socialComingSoon(String provider);
+
+  /// No description provided for @fieldFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name *'**
+  String get fieldFullName;
+
+  /// No description provided for @fieldFullNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Md. Rafiul Islam'**
+  String get fieldFullNameHint;
+
+  /// No description provided for @fieldInstitute.
+  ///
+  /// In en, this message translates to:
+  /// **'Polytechnic / University Name'**
+  String get fieldInstitute;
+
+  /// No description provided for @fieldInstituteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Dinajpur Polytechnic Institute'**
+  String get fieldInstituteHint;
+
+  /// No description provided for @fieldCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'Company / Organization Name'**
+  String get fieldCompany;
+
+  /// No description provided for @fieldCompanyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. NexaSoft BD Ltd.'**
+  String get fieldCompanyHint;
+
+  /// No description provided for @fieldEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address *'**
+  String get fieldEmail;
+
+  /// No description provided for @fieldEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'you@example.com'**
+  String get fieldEmailHint;
+
+  /// No description provided for @fieldOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code'**
+  String get fieldOtp;
+
+  /// No description provided for @fieldOtpHint.
+  ///
+  /// In en, this message translates to:
+  /// **'6-digit code'**
+  String get fieldOtpHint;
+
+  /// No description provided for @sendOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Send OTP'**
+  String get sendOtp;
+
+  /// No description provided for @resendOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get resendOtp;
+
+  /// No description provided for @otpSentToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code sent to your email'**
+  String get otpSentToast;
+
+  /// No description provided for @errSendOtpFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Please request an OTP first.'**
+  String get errSendOtpFirst;
+
+  /// No description provided for @fieldPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password *'**
+  String get fieldPassword;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @passwordStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Password strength'**
+  String get passwordStrength;
+
+  /// No description provided for @strengthEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get strengthEmpty;
+
+  /// No description provided for @strengthWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak'**
+  String get strengthWeak;
+
+  /// No description provided for @strengthFair.
+  ///
+  /// In en, this message translates to:
+  /// **'Fair'**
+  String get strengthFair;
+
+  /// No description provided for @strengthGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get strengthGood;
+
+  /// No description provided for @strengthStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Orbit-Grade Strong'**
+  String get strengthStrong;
+
+  /// No description provided for @keepSignedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep me signed in on this device'**
+  String get keepSignedIn;
+
+  /// No description provided for @acceptTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree to the Career Orbit Terms & Privacy Policy'**
+  String get acceptTerms;
+
+  /// No description provided for @errAcceptTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Please accept the Terms & Privacy Policy to continue.'**
+  String get errAcceptTerms;
+
+  /// No description provided for @submitLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Launch into Career Orbit'**
+  String get submitLogin;
+
+  /// No description provided for @submitSignup.
+  ///
+  /// In en, this message translates to:
+  /// **'Create My Orbit Account'**
+  String get submitSignup;
+
+  /// No description provided for @loginSuccessToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in successfully to Career Orbit!'**
+  String get loginSuccessToast;
+
+  /// No description provided for @signupSuccessToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created! Your career orbit is ready.'**
+  String get signupSuccessToast;
+
+  /// No description provided for @backToSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Sign In'**
+  String get backToSignIn;
+
+  /// No description provided for @resetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset your credentials'**
+  String get resetTitle;
+
+  /// No description provided for @resetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the email linked to your Career Orbit account and we’ll send a secure recovery link.'**
+  String get resetSubtitle;
+
+  /// No description provided for @recoveryEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Email'**
+  String get recoveryEmailLabel;
+
+  /// No description provided for @sendRecoveryLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Recovery Link'**
+  String get sendRecoveryLink;
+
+  /// No description provided for @recoverySent.
+  ///
+  /// In en, this message translates to:
+  /// **'Recovery link sent to {email}'**
+  String recoverySent(String email);
+
+  /// No description provided for @orbitSynchronized.
+  ///
+  /// In en, this message translates to:
+  /// **'Orbit Synchronized'**
+  String get orbitSynchronized;
+
+  /// No description provided for @welcomeAboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome aboard, {name}!'**
+  String welcomeAboard(String name);
+
+  /// No description provided for @successDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized career trajectory is live. We’ve matched 14 software jobs & industrial attachments to your profile.'**
+  String get successDesc;
+
+  /// No description provided for @activeOrbitProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Orbit Profile'**
+  String get activeOrbitProfile;
+
+  /// No description provided for @roleStudentTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Student / Job Seeker'**
+  String get roleStudentTag;
+
+  /// No description provided for @roleCompanyTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Company / Recruiter'**
+  String get roleCompanyTag;
+
+  /// No description provided for @nextRecommendedStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Recommended Step'**
+  String get nextRecommendedStep;
+
+  /// No description provided for @nextStepValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Skill & Portfolio Scan'**
+  String get nextStepValue;
+
+  /// No description provided for @returnToAuth.
+  ///
+  /// In en, this message translates to:
+  /// **'Return to Authentication Screen'**
+  String get returnToAuth;
+
+  /// No description provided for @footerProtected.
+  ///
+  /// In en, this message translates to:
+  /// **'Protected by Career Orbit Zero-Trust Security.'**
+  String get footerProtected;
+
+  /// No description provided for @termsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms'**
+  String get termsLabel;
+
+  /// No description provided for @privacyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get privacyLabel;
+
   /// No description provided for @authBadge.
   ///
   /// In en, this message translates to:
@@ -632,29 +1100,11 @@ abstract class AppLocalizations {
   /// **'Hiring company'**
   String get roleCompany;
 
-  /// No description provided for @fieldEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Email address *'**
-  String get fieldEmail;
-
-  /// No description provided for @fieldPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Password *'**
-  String get fieldPassword;
-
   /// No description provided for @fieldConfirmPassword.
   ///
   /// In en, this message translates to:
   /// **'Confirm password *'**
   String get fieldConfirmPassword;
-
-  /// No description provided for @forgotPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Forgot password?'**
-  String get forgotPassword;
 
   /// No description provided for @rememberMe.
   ///
@@ -673,12 +1123,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Complete registration'**
   String get registerAction;
-
-  /// No description provided for @fieldFullName.
-  ///
-  /// In en, this message translates to:
-  /// **'Full name *'**
-  String get fieldFullName;
 
   /// No description provided for @fullNameHint.
   ///
@@ -1037,7 +1481,7 @@ abstract class AppLocalizations {
   /// No description provided for @passwordResetSuccess.
   ///
   /// In en, this message translates to:
-  /// **'Your password has been reset successfully. You can now sign in.'**
+  /// **'Password reset successful. Please sign in with your new password.'**
   String get passwordResetSuccess;
 
   /// No description provided for @backToLogin.
@@ -1061,14 +1505,8 @@ abstract class AppLocalizations {
   /// No description provided for @verifyOtp.
   ///
   /// In en, this message translates to:
-  /// **'Verify'**
+  /// **'Verify Code'**
   String get verifyOtp;
-
-  /// No description provided for @resendOtp.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend code'**
-  String get resendOtp;
 
   /// No description provided for @errInvalidOtp.
   ///
@@ -1099,6 +1537,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter the 6-digit code we sent to {email}.'**
   String otpSentTo(String email);
+
+  /// No description provided for @otpStepTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter verification code'**
+  String get otpStepTitle;
+
+  /// No description provided for @otpStepSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We sent a 6-digit code to {email}.'**
+  String otpStepSubtitle(String email);
+
+  /// No description provided for @newPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a new password'**
+  String get newPasswordTitle;
+
+  /// No description provided for @newPasswordSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a strong password you haven\'t used before.'**
+  String get newPasswordSubtitle;
+
+  /// No description provided for @newPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get newPasswordLabel;
+
+  /// No description provided for @confirmPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPasswordLabel;
+
+  /// No description provided for @savePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get savePassword;
+
+  /// No description provided for @errResetTokenMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset session expired. Please start again.'**
+  String get errResetTokenMissing;
 
   /// No description provided for @stepJobDetails.
   ///

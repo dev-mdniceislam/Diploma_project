@@ -63,7 +63,6 @@ class _JobFeedState extends ConsumerState<JobFeed> {
           );
         },
         error: (e, __) {
-          debugPrint("===Error dice $e=");
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 48),
             child: Column(
@@ -84,12 +83,6 @@ class _JobFeedState extends ConsumerState<JobFeed> {
           final jobs = filter.apply(feed.jobs);
           final pagination = feed.pagination;
           final busy = async.isLoading;
-
-          debugPrint(
-            '[FEED] raw=${feed.jobs.length} shown=${jobs.length} '
-            'type=${filter.type} query="${filter.query}" tech=${filter.tech} '
-            'sort=${filter.sort}',
-          );
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

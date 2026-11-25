@@ -280,6 +280,255 @@ class AppLocalizationsBn extends AppLocalizations {
       '================================== Authentication ========================';
 
   @override
+  String get livePill => '১২,৯০০+ শিক্ষার্থী ও গ্র্যাজুয়েট প্লেসড';
+
+  @override
+  String get brandSubtitle => 'জব ও ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট';
+
+  @override
+  String get daylightEdition => 'ডেলাইট অরবিট সংস্করণ';
+
+  @override
+  String get leftHeadlinePrefix => 'আপনার ক্যারিয়ার পরিচালনা করুন';
+
+  @override
+  String get leftHeadlineHighlight => 'সঠিক অরবিটাল গতিতে।';
+
+  @override
+  String get leftSubcopy =>
+      'পলিটেকনিক ও বিশ্ববিদ্যালয় শিক্ষার্থী এবং সফটওয়্যার কোম্পানির জন্য নির্মিত—ভেরিফায়েড জব ও ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট খুঁজুন।';
+
+  @override
+  String get statActiveRoles => 'সক্রিয় পদ';
+
+  @override
+  String get statPartnerCompanies => 'পার্টনার কোম্পানি';
+
+  @override
+  String get statAttachmentTracks => 'অ্যাটাচমেন্ট ট্র্যাক';
+
+  @override
+  String get orbitCoreTitle => 'আপনার অরবিট';
+
+  @override
+  String get orbitCoreSubtitle => 'দক্ষতা ও ক্যারিয়ার';
+
+  @override
+  String get cardAttachmentApproved => 'অ্যাটাচমেন্ট অনুমোদিত';
+
+  @override
+  String get cardFullStackTitle => 'ফুল-স্ট্যাক ওয়েব ও ক্লাউড';
+
+  @override
+  String get cardFullStackSub => 'ডিপ্লোমা CST ট্র্যাক • স্টাইপেন্ড';
+
+  @override
+  String get cardRoleMatch => 'অরবিট রোল ম্যাচ';
+
+  @override
+  String get cardRoleMatchSub => 'Flutter, Node.js ও UI/UX যাচাইকৃত';
+
+  @override
+  String get cardInterviewTitle => 'সরাসরি টেক ইন্টারভিউ';
+
+  @override
+  String get cardInterviewSub => 'NexaSoft BD • ঢাকা ও রিমোট';
+
+  @override
+  String get tabSignIn => 'সাইন ইন';
+
+  @override
+  String get tabSignUp => 'অ্যাকাউন্ট খুলুন';
+
+  @override
+  String get loginHeading => 'স্বাগতম, এক্সপ্লোরার';
+
+  @override
+  String get loginSubheading =>
+      'আপনার ক্যারিয়ার রোডম্যাপ, অ্যাটাচমেন্ট এবং জব ম্যাচ দেখতে সাইন ইন করুন।';
+
+  @override
+  String get signupHeading => 'আপনার ক্যারিয়ার অরবিট শুরু করুন';
+
+  @override
+  String get signupSubheading =>
+      'ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট ও ভেরিফায়েড টেক জব পেতে ফ্রি অ্যাকাউন্ট তৈরি করুন।';
+
+  @override
+  String get roleLabel => 'আমি যুক্ত হচ্ছি হিসেবে';
+
+  @override
+  String get roleStudentTitle => 'শিক্ষার্থী / সিকার';
+
+  @override
+  String get roleStudentSub => 'ডিপ্লোমা / B.Sc / Pro';
+
+  @override
+  String get roleCompanyTitle => 'কোম্পানি / HR';
+
+  @override
+  String get roleCompanySub => 'রিক্রুটার / মেন্টর';
+
+  @override
+  String get orContinueWithEmail => 'অথবা ইমেইল দিয়ে চালিয়ে যান';
+
+  @override
+  String socialComingSoon(String provider) {
+    return '$provider সাইন-ইন শীঘ্রই আসছে';
+  }
+
+  @override
+  String get fieldFullName => 'পূর্ণ নাম (Full Name) *';
+
+  @override
+  String get fieldFullNameHint => 'উদাহরণ: মো. রফিকুল ইসলাম';
+
+  @override
+  String get fieldInstitute => 'পলিটেকনিক / বিশ্ববিদ্যালয়ের নাম';
+
+  @override
+  String get fieldInstituteHint => 'উদাহরণ: দিনাজপুর পলিটেকনিক ইনস্টিটিউট';
+
+  @override
+  String get fieldCompany => 'কোম্পানি / প্রতিষ্ঠানের নাম';
+
+  @override
+  String get fieldCompanyHint => 'উদাহরণ: NexaSoft BD Ltd.';
+
+  @override
+  String get fieldEmail => 'ইমেইল ঠিকানা *';
+
+  @override
+  String get fieldEmailHint => 'you@example.com';
+
+  @override
+  String get fieldOtp => 'যাচাই কোড';
+
+  @override
+  String get fieldOtpHint => '৬ সংখ্যার কোড';
+
+  @override
+  String get sendOtp => 'OTP পাঠান';
+
+  @override
+  String get resendOtp => 'আবার কোড পাঠান';
+
+  @override
+  String get otpSentToast => 'আপনার ইমেইলে যাচাই কোড পাঠানো হয়েছে';
+
+  @override
+  String get errSendOtpFirst => 'আগে OTP পাঠান।';
+
+  @override
+  String get fieldPassword => 'পাসওয়ার্ড *';
+
+  @override
+  String get forgotPassword => 'পাসওয়ার্ড ভুলে গেছেন?';
+
+  @override
+  String get passwordStrength => 'পাসওয়ার্ডের শক্তি';
+
+  @override
+  String get strengthEmpty => 'পাসওয়ার্ড লিখুন';
+
+  @override
+  String get strengthWeak => 'দুর্বল';
+
+  @override
+  String get strengthFair => 'মোটামুটি';
+
+  @override
+  String get strengthGood => 'ভালো';
+
+  @override
+  String get strengthStrong => 'অত্যন্ত শক্তিশালী';
+
+  @override
+  String get keepSignedIn => 'এই ডিভাইসে আমাকে সাইন ইন রাখুন';
+
+  @override
+  String get acceptTerms =>
+      'আমি Career Orbit এর শর্তাবলী ও গোপনীয়তা নীতিতে সম্মত';
+
+  @override
+  String get errAcceptTerms =>
+      'চালিয়ে যেতে শর্তাবলী ও গোপনীয়তা নীতি মেনে নিন।';
+
+  @override
+  String get submitLogin => 'Career Orbit-এ প্রবেশ করুন';
+
+  @override
+  String get submitSignup => 'আমার অরবিট অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get loginSuccessToast => 'Career Orbit-এ সফলভাবে সাইন ইন হয়েছে!';
+
+  @override
+  String get signupSuccessToast =>
+      'অ্যাকাউন্ট তৈরি হয়েছে! আপনার ক্যারিয়ার অরবিট প্রস্তুত।';
+
+  @override
+  String get backToSignIn => 'সাইন ইনে ফিরে যান';
+
+  @override
+  String get resetTitle => 'আপনার তথ্য রিসেট করুন';
+
+  @override
+  String get resetSubtitle =>
+      'আপনার Career Orbit অ্যাকাউন্টের ইমেইল দিন, আমরা একটি নিরাপদ রিকভারি লিংক পাঠাব।';
+
+  @override
+  String get recoveryEmailLabel => 'অ্যাকাউন্ট ইমেইল';
+
+  @override
+  String get sendRecoveryLink => 'রিকভারি লিংক পাঠান';
+
+  @override
+  String recoverySent(String email) {
+    return '$email-এ রিকভারি লিংক পাঠানো হয়েছে';
+  }
+
+  @override
+  String get orbitSynchronized => 'অরবিট সিঙ্ক্রোনাইজড';
+
+  @override
+  String welcomeAboard(String name) {
+    return 'স্বাগতম, $name!';
+  }
+
+  @override
+  String get successDesc =>
+      'আপনার ব্যক্তিগত ক্যারিয়ার যাত্রা শুরু হয়েছে। আপনার প্রোফাইলের সাথে ১৪টি সফটওয়্যার জব ও ইন্ডাস্ট্রিয়াল অ্যাটাচমেন্ট মিলেছে।';
+
+  @override
+  String get activeOrbitProfile => 'সক্রিয় অরবিট প্রোফাইল';
+
+  @override
+  String get roleStudentTag => 'শিক্ষার্থী / চাকরি প্রার্থী';
+
+  @override
+  String get roleCompanyTag => 'কোম্পানি / রিক্রুটার';
+
+  @override
+  String get nextRecommendedStep => 'পরবর্তী ধাপ';
+
+  @override
+  String get nextStepValue => 'দক্ষতা ও পোর্টফোলিও স্ক্যান সম্পন্ন করুন';
+
+  @override
+  String get returnToAuth => 'সাইন ইন স্ক্রিনে ফিরুন';
+
+  @override
+  String get footerProtected =>
+      'Career Orbit Zero-Trust নিরাপত্তা দ্বারা সুরক্ষিত।';
+
+  @override
+  String get termsLabel => 'শর্তাবলী';
+
+  @override
+  String get privacyLabel => 'গোপনীয়তা';
+
+  @override
   String get authBadge => 'বিটিইবি নিবন্ধিত ও ভেরিফাইড প্ল্যাটফর্ম';
 
   @override
@@ -330,16 +579,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get roleCompany => 'নিয়োগকারী প্রতিষ্ঠান';
 
   @override
-  String get fieldEmail => 'ইমেইল ঠিকানা *';
-
-  @override
-  String get fieldPassword => 'পাসওয়ার্ড *';
-
-  @override
   String get fieldConfirmPassword => 'পাসওয়ার্ড নিশ্চিত করুন *';
-
-  @override
-  String get forgotPassword => 'পাসওয়ার্ড ভুলে গেছেন?';
 
   @override
   String get rememberMe => 'আমায় মনে রাখুন (Remember me)';
@@ -349,9 +589,6 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get registerAction => 'রেজিস্ট্রেশন সম্পূর্ণ করুন';
-
-  @override
-  String get fieldFullName => 'পূর্ণ নাম (Full Name) *';
 
   @override
   String get fullNameHint => 'ex: মোঃ তানভীর আহম্মেদ';
@@ -540,7 +777,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get passwordResetSuccess =>
-      'আপনার পাসওয়ার্ড সফলভাবে রিসেট হয়েছে। এখন সাইন ইন করতে পারবেন।';
+      'পাসওয়ার্ড সফলভাবে রিসেট হয়েছে। নতুন পাসওয়ার্ড দিয়ে সাইন ইন করুন।';
 
   @override
   String get backToLogin => 'সাইন ইনে ফিরে যান';
@@ -552,10 +789,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get otpSubtitle => 'আপনার ইমেইলে পাঠানো ৬ সংখ্যার কোডটি লিখুন।';
 
   @override
-  String get verifyOtp => 'ভেরিফাই করুন';
-
-  @override
-  String get resendOtp => 'আবার কোড পাঠান';
+  String get verifyOtp => 'কোড যাচাই করুন';
 
   @override
   String get errInvalidOtp => '৬ সংখ্যার কোড দিন';
@@ -573,6 +807,33 @@ class AppLocalizationsBn extends AppLocalizations {
   String otpSentTo(String email) {
     return '$email এ পাঠানো ৬ সংখ্যার কোডটি লিখুন।';
   }
+
+  @override
+  String get otpStepTitle => 'যাচাই কোড লিখুন';
+
+  @override
+  String otpStepSubtitle(String email) {
+    return 'আমরা $email-এ ৬ সংখ্যার কোড পাঠিয়েছি।';
+  }
+
+  @override
+  String get newPasswordTitle => 'নতুন পাসওয়ার্ড সেট করুন';
+
+  @override
+  String get newPasswordSubtitle =>
+      'আগে ব্যবহার করেননি এমন শক্তিশালী পাসওয়ার্ড বেছে নিন।';
+
+  @override
+  String get newPasswordLabel => 'নতুন পাসওয়ার্ড';
+
+  @override
+  String get confirmPasswordLabel => 'পাসওয়ার্ড নিশ্চিত করুন';
+
+  @override
+  String get savePassword => 'পাসওয়ার্ড রিসেট করুন';
+
+  @override
+  String get errResetTokenMissing => 'রিসেট সেশনের মেয়াদ শেষ। আবার শুরু করুন।';
 
   @override
   String get stepJobDetails =>

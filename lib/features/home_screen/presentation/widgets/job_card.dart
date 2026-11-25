@@ -1,6 +1,8 @@
 import 'package:diploma_job/core/router/app_router.dart';
 import 'package:diploma_job/features/home_screen/domain/entities/job_filter.dart';
+import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
@@ -23,14 +25,12 @@ class JobCard extends StatelessWidget {
     this.isSaved,
     this.onToggleSave,
     this.onApply,
-    this.isMyProfile = false,
   });
 
   final JobListItem job;
   final bool? isSaved;
   final VoidCallback? onToggleSave;
   final VoidCallback? onApply;
-  final bool? isMyProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -152,17 +152,14 @@ class JobCard extends StatelessWidget {
                                   ),
                           ),
                           const SizedBox(width: 8),
-                          isMyProfile == true
-                              ? CustomButton(
-                                  label: l10n.editPost,
-                                  icon: Icons.edit_attributes,
-                                  buttonHeight: 38,
-                                  variant: isIntern
-                                      ? CustomButtonVariant.accent
-                                      : CustomButtonVariant.primary,
-                                  onPressed: onApply,
-                                )
-                              : CustomButton(
+                          Consumer(
+                            builder: (context, ref, child) {
+                              final profile = ref
+                                  .watch(userProfileProvider)
+                                  .value;
+
+                              if (profile?.isStudent == true) {
+                                return CustomButton(
                                   label: l10n.applyNow,
                                   icon: Icons.arrow_forward_rounded,
                                   buttonHeight: 38,
@@ -170,7 +167,12 @@ class JobCard extends StatelessWidget {
                                       ? CustomButtonVariant.accent
                                       : CustomButtonVariant.primary,
                                   onPressed: onApply,
-                                ),
+                                );
+                              }
+
+                              return const SizedBox.shrink();
+                            },
+                          ),
                         ],
                       ),
                     ],

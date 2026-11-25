@@ -35,10 +35,10 @@ class JobSidebar extends StatelessWidget {
         gap,
         _HrCard(
           hr: HrContact(
-            email: circular.contactEmail ?? circular.postedBy.hrEmail,
-            phone: circular.contactPhone ?? circular.postedBy.helplineNumber,
-            websiteLabel: "Website",
-            websiteUrl: circular.website ?? circular.postedBy.website,
+            email: circular.contactEmail,
+            phone: circular.contactPhone,
+            websiteLabel: circular.website,
+            websiteUrl: circular.website,
           ),
         ),
         // if (circular.related.isNotEmpty) ...[

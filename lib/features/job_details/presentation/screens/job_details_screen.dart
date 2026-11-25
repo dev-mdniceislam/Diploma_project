@@ -1,5 +1,4 @@
 import 'package:diploma_job/core/router/app_router.dart';
-import 'package:diploma_job/features/job_details/data/repositories/job_circular_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

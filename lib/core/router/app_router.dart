@@ -1,13 +1,12 @@
 import 'package:diploma_job/core/theme/app_text_style.dart';
 import 'package:diploma_job/core/widgets/custom_text.dart';
 import 'package:diploma_job/features/auth/login/presentation/providers/auth_state.dart';
+import 'package:diploma_job/features/authentication/presentation/pages/auth_page.dart';
 import 'package:diploma_job/features/splash/presentation/page/splash_screen.dart';
 import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../features/auth/auth_page.dart';
 import '../../features/home_screen/presentation/page/home_page.dart';
 import '../../features/job_details/presentation/screens/job_details_screen.dart';
 import '../../features/profile/presentation/profile_entry_screen.dart';
@@ -153,7 +152,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.auth,
         name: 'auth',
-        builder: (_, __) => const AuthPage(),
+        builder: (_, __) => const AuthenticationPage(),
       ),
       GoRoute(
         path: AppRoutes.splash,

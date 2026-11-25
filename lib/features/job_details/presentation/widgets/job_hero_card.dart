@@ -1,5 +1,7 @@
 import 'package:diploma_job/features/profile/data/model/company_profile_model.dart';
+import 'package:diploma_job/features/splash/presentation/provider/user_profile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_dimens.dart';
@@ -259,7 +261,7 @@ class _IconText extends StatelessWidget {
   }
 }
 
-class _Actions extends StatelessWidget {
+class _Actions extends ConsumerWidget {
   const _Actions({
     required this.applied,
     required this.bookmarked,
@@ -277,22 +279,25 @@ class _Actions extends StatelessWidget {
   final VoidCallback onShare;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final p = context.palette;
+    final state = ref.watch(userProfileProvider).value;
 
-    final apply = CustomButton(
-      label: applied ? l10n.applied : l10n.applyNow,
-      icon: applied
-          ? Icons.check_circle_outline_rounded
-          : Icons.arrow_forward_rounded,
-      variant: applied
-          ? CustomButtonVariant.accent
-          : CustomButtonVariant.primary,
-      fullWidth: stretch,
-      buttonHeight: 46,
-      onPressed: onApply,
-    );
+    final apply = state?.isStudent == true
+        ? CustomButton(
+            label: applied ? l10n.applied : l10n.applyNow,
+            icon: applied
+                ? Icons.check_circle_outline_rounded
+                : Icons.arrow_forward_rounded,
+            variant: applied
+                ? CustomButtonVariant.accent
+                : CustomButtonVariant.primary,
+            fullWidth: stretch,
+            buttonHeight: 46,
+            onPressed: onApply,
+          )
+        : SizedBox.shrink();
 
     final bookmark = IconButton.outlined(
       tooltip: l10n.bookmarkTooltip,

@@ -21,14 +21,28 @@ class $AssetsIconsGen {
   String get linkedin => 'assets/icons/linkedin.png';
   String get facebook => 'assets/icons/facebook.png';
   String get youtube => 'assets/icons/youtube.png';
+  String get google => 'assets/icons/googleIcon.png';
   String get twiter => 'assets/icons/twiterIcon.png';
+  String get github => 'assets/icons/githubIcon.png';
   String get gpaIcon => 'assets/icons/gpaIcon.png';
   String get achievement => 'assets/icons/achievement.png';
   String get achievementSvg => 'assets/icons/achievement.svg';
   String get instagram => 'assets/icons/instagram.png';
 
   /// List of all assets
-  List<String> get values => [dummy];
+  List<String> get values => [
+    dummy,
+    maleAvatar,
+    femaleAvatar,
+    linkedin,
+    facebook,
+    youtube,
+    twiter,
+    gpaIcon,
+    achievement,
+    achievementSvg,
+    instagram,
+  ];
 }
 
 class $AssetsImagesGen {

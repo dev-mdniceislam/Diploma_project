@@ -274,6 +274,255 @@ class AppLocalizationsEn extends AppLocalizations {
       '================================== Authentication ========================';
 
   @override
+  String get livePill => '12,900+ Students & Grads Placed';
+
+  @override
+  String get brandSubtitle => 'Jobs & Industrial Attachment';
+
+  @override
+  String get daylightEdition => 'Daylight Orbit Edition';
+
+  @override
+  String get leftHeadlinePrefix => 'Navigate your career with';
+
+  @override
+  String get leftHeadlineHighlight => 'gravitational precision.';
+
+  @override
+  String get leftSubcopy =>
+      'Built for Polytechnic & University graduates and innovative companies—connect with verified software jobs, industrial attachments, and industry mentors.';
+
+  @override
+  String get statActiveRoles => 'Active Roles';
+
+  @override
+  String get statPartnerCompanies => 'Partner Companies';
+
+  @override
+  String get statAttachmentTracks => 'Attachment Tracks';
+
+  @override
+  String get orbitCoreTitle => 'Your Orbit';
+
+  @override
+  String get orbitCoreSubtitle => 'Skills & Career';
+
+  @override
+  String get cardAttachmentApproved => 'Attachment Approved';
+
+  @override
+  String get cardFullStackTitle => 'Full-Stack Web & Cloud';
+
+  @override
+  String get cardFullStackSub => 'Diploma CST Track • Stipend';
+
+  @override
+  String get cardRoleMatch => 'Orbit Role Match';
+
+  @override
+  String get cardRoleMatchSub => 'Flutter, Node.js & UI/UX verified';
+
+  @override
+  String get cardInterviewTitle => 'Direct Tech Interview';
+
+  @override
+  String get cardInterviewSub => 'NexaSoft BD • Dhaka & Remote';
+
+  @override
+  String get tabSignIn => 'Sign In';
+
+  @override
+  String get tabSignUp => 'Create Account';
+
+  @override
+  String get loginHeading => 'Welcome back, Explorer';
+
+  @override
+  String get loginSubheading =>
+      'Sign in to access your career roadmap, attachments, and job matches.';
+
+  @override
+  String get signupHeading => 'Chart your Career Orbit';
+
+  @override
+  String get signupSubheading =>
+      'Create your free account to unlock industrial attachments & verified tech roles.';
+
+  @override
+  String get roleLabel => 'I am joining as a';
+
+  @override
+  String get roleStudentTitle => 'Student / Seeker';
+
+  @override
+  String get roleStudentSub => 'Diploma / B.Sc / Pro';
+
+  @override
+  String get roleCompanyTitle => 'Company / HR';
+
+  @override
+  String get roleCompanySub => 'Recruiter / Mentor';
+
+  @override
+  String get orContinueWithEmail => 'or continue with email';
+
+  @override
+  String socialComingSoon(String provider) {
+    return '$provider sign-in is coming soon';
+  }
+
+  @override
+  String get fieldFullName => 'Full name *';
+
+  @override
+  String get fieldFullNameHint => 'e.g. Md. Rafiul Islam';
+
+  @override
+  String get fieldInstitute => 'Polytechnic / University Name';
+
+  @override
+  String get fieldInstituteHint => 'e.g. Dinajpur Polytechnic Institute';
+
+  @override
+  String get fieldCompany => 'Company / Organization Name';
+
+  @override
+  String get fieldCompanyHint => 'e.g. NexaSoft BD Ltd.';
+
+  @override
+  String get fieldEmail => 'Email address *';
+
+  @override
+  String get fieldEmailHint => 'you@example.com';
+
+  @override
+  String get fieldOtp => 'Verification code';
+
+  @override
+  String get fieldOtpHint => '6-digit code';
+
+  @override
+  String get sendOtp => 'Send OTP';
+
+  @override
+  String get resendOtp => 'Resend code';
+
+  @override
+  String get otpSentToast => 'Verification code sent to your email';
+
+  @override
+  String get errSendOtpFirst => 'Please request an OTP first.';
+
+  @override
+  String get fieldPassword => 'Password *';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get passwordStrength => 'Password strength';
+
+  @override
+  String get strengthEmpty => 'Enter password';
+
+  @override
+  String get strengthWeak => 'Weak';
+
+  @override
+  String get strengthFair => 'Fair';
+
+  @override
+  String get strengthGood => 'Good';
+
+  @override
+  String get strengthStrong => 'Orbit-Grade Strong';
+
+  @override
+  String get keepSignedIn => 'Keep me signed in on this device';
+
+  @override
+  String get acceptTerms =>
+      'I agree to the Career Orbit Terms & Privacy Policy';
+
+  @override
+  String get errAcceptTerms =>
+      'Please accept the Terms & Privacy Policy to continue.';
+
+  @override
+  String get submitLogin => 'Launch into Career Orbit';
+
+  @override
+  String get submitSignup => 'Create My Orbit Account';
+
+  @override
+  String get loginSuccessToast => 'Signed in successfully to Career Orbit!';
+
+  @override
+  String get signupSuccessToast =>
+      'Account created! Your career orbit is ready.';
+
+  @override
+  String get backToSignIn => 'Back to Sign In';
+
+  @override
+  String get resetTitle => 'Reset your credentials';
+
+  @override
+  String get resetSubtitle =>
+      'Enter the email linked to your Career Orbit account and we’ll send a secure recovery link.';
+
+  @override
+  String get recoveryEmailLabel => 'Account Email';
+
+  @override
+  String get sendRecoveryLink => 'Send Recovery Link';
+
+  @override
+  String recoverySent(String email) {
+    return 'Recovery link sent to $email';
+  }
+
+  @override
+  String get orbitSynchronized => 'Orbit Synchronized';
+
+  @override
+  String welcomeAboard(String name) {
+    return 'Welcome aboard, $name!';
+  }
+
+  @override
+  String get successDesc =>
+      'Your personalized career trajectory is live. We’ve matched 14 software jobs & industrial attachments to your profile.';
+
+  @override
+  String get activeOrbitProfile => 'Active Orbit Profile';
+
+  @override
+  String get roleStudentTag => 'Student / Job Seeker';
+
+  @override
+  String get roleCompanyTag => 'Company / Recruiter';
+
+  @override
+  String get nextRecommendedStep => 'Next Recommended Step';
+
+  @override
+  String get nextStepValue => 'Complete Skill & Portfolio Scan';
+
+  @override
+  String get returnToAuth => 'Return to Authentication Screen';
+
+  @override
+  String get footerProtected =>
+      'Protected by Career Orbit Zero-Trust Security.';
+
+  @override
+  String get termsLabel => 'Terms';
+
+  @override
+  String get privacyLabel => 'Privacy';
+
+  @override
   String get authBadge => 'BTEB registered & verified platform';
 
   @override
@@ -323,16 +572,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get roleCompany => 'Hiring company';
 
   @override
-  String get fieldEmail => 'Email address *';
-
-  @override
-  String get fieldPassword => 'Password *';
-
-  @override
   String get fieldConfirmPassword => 'Confirm password *';
-
-  @override
-  String get forgotPassword => 'Forgot password?';
 
   @override
   String get rememberMe => 'Remember me';
@@ -342,9 +582,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get registerAction => 'Complete registration';
-
-  @override
-  String get fieldFullName => 'Full name *';
 
   @override
   String get fullNameHint => 'ex: Md. Tanvir Ahmed';
@@ -533,7 +770,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordResetSuccess =>
-      'Your password has been reset successfully. You can now sign in.';
+      'Password reset successful. Please sign in with your new password.';
 
   @override
   String get backToLogin => 'Back to sign in';
@@ -545,10 +782,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get otpSubtitle => 'Enter the 6-digit code we sent to your email.';
 
   @override
-  String get verifyOtp => 'Verify';
-
-  @override
-  String get resendOtp => 'Resend code';
+  String get verifyOtp => 'Verify Code';
 
   @override
   String get errInvalidOtp => 'Enter the 6-digit code';
@@ -566,6 +800,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String otpSentTo(String email) {
     return 'Enter the 6-digit code we sent to $email.';
   }
+
+  @override
+  String get otpStepTitle => 'Enter verification code';
+
+  @override
+  String otpStepSubtitle(String email) {
+    return 'We sent a 6-digit code to $email.';
+  }
+
+  @override
+  String get newPasswordTitle => 'Set a new password';
+
+  @override
+  String get newPasswordSubtitle =>
+      'Choose a strong password you haven\'t used before.';
+
+  @override
+  String get newPasswordLabel => 'New Password';
+
+  @override
+  String get confirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get savePassword => 'Reset Password';
+
+  @override
+  String get errResetTokenMissing =>
+      'Reset session expired. Please start again.';
 
   @override
   String get stepJobDetails =>

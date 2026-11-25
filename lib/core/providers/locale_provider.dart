@@ -11,9 +11,10 @@ class LocaleNotifier extends Notifier<Locale> {
     final code = ref.read(sharedPreferencesProvider).getString(_key) ?? 'bn';
     return Locale(code);
   }
-
   void setLocale(Locale locale) {
+    print('setLocale called: ${locale.languageCode}');
     state = locale;
+    print('state now: ${state.languageCode}');
     ref.read(sharedPreferencesProvider).setString(_key, locale.languageCode);
   }
 
